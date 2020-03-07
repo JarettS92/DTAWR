@@ -44,7 +44,7 @@
     <!-- ------------------------------------------------------------- -->
     <!-- Contract Information -->
     <div class="theme--blue">
-      <table class="table table--expandable customer" data-behavior="accordion">
+      <table id="contractInformationTable" class="table table--expandable customer" data-behavior="accordion">
         <tbody class="expandable">
           <tr>
             <td><a href="#" class="customerDetails expandable__trigger">Principal Life</a></td>
@@ -89,7 +89,7 @@
     <div class="island">
       <h2>Tenants</h2>
       <div class="section theme--blue">
-        <table class="table table--expandable" data-behavior="accordion">
+        <table id="tenantInformationTable" class="table table--expandable" data-behavior="accordion">
           <thead>
             <th>Environment</th>
             <th class="mobile">Version</th>
@@ -196,8 +196,8 @@
     <!-- Guardian Tasks from Planner -->
     <div class="island">
       <h2>Guardian Tasks</h2>
-      <div class="section theme--blue">
-        <table class="table table--expandable" data-behavior="accordion">
+      <div class="section theme--blue scrollable">
+        <table id="guardianTasksTable" class="table table--expandable" data-behavior="accordion">
           <thead>
             <th>Task</th>
             <th class="mobile">Owner</th>
@@ -281,7 +281,7 @@
     <div class="island">
       <h2>Dynatrace Team</h2>
       <div class="section theme--blue">
-        <table class="table table--expandable" data-behavior="accordion">
+        <table id="dynatraceTeamTable" class="table table--expandable" data-behavior="accordion">
           <thead>
             <th>Title</th>
             <th class="landscape">Name</th>
@@ -493,7 +493,7 @@
     <div class="island">
       <h2>Engagement Goals</h2>
       <div class="section theme--blue">
-        <table class="table table--expandable" data-behavior="accordion">
+        <table id="engagementGoalsTable" class="table table--expandable" data-behavior="accordion">
           <thead>
             <th>#</th>
             <th>Goal</th>
@@ -630,7 +630,7 @@
         <progress class="progressbar" value="50" max="100" if="p1"></progress>
       </div>
       <div class="section theme--blue">
-        <table class="table table--expandable" data-behavior="accordion">
+        <table id="onDemandTable" class="table table--expandable" data-behavior="accordion">
           <thead>
             <th>Service</th>
             <th>Start Date</th>
@@ -708,7 +708,7 @@
     <div class="island">
       <h2>Support</h2>
       <div class="section theme--blue">
-        <table class="table table--expandable">
+        <table id="supportTable" class="table table--expandable">
           <thead>
             <th>Ticket #</th>
             <th>Description</th>

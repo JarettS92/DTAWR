@@ -15,14 +15,14 @@ window.onload = function() {
         $("tr").toggleClass("dark-bg");
     });
 
-    apiCalls();
+    $('th').click(function(){
+        if($(this).text() != "Details"){
+            sortTable($(this).parent().parent().parent().attr('id'), $(this).index());
+        }
+    });
+
 }
 
-function apiCalls(){
-    tenantVersion();
+function sortTable(tableID, column){
+    alert(`${tableID}-${column}`);
 }
-
-function tenantVersion(){
-    
-}
-

@@ -15,7 +15,10 @@ p {
     margin-bottom: 0 !important;
 }
 
-
+.scrollable {
+    max-height: 450px !important;
+    overflow: auto;
+}
 .noLeftPad {
     padding-left: 0 !important;
 }
