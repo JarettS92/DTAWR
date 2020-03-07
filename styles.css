@@ -14,6 +14,9 @@ dl div {
 p {
     margin-bottom: 0 !important;
 }
+th:hover {
+    cursor: pointer;
+}
 
 .scrollable {
     max-height: 450px !important;
