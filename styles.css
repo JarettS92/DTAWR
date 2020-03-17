@@ -47,6 +47,40 @@ th:hover {
     padding-top: 15px !important;
     padding-bottom: 15px !important;
 }
+.ascending:before {
+    display: initial !important;
+    content: " ";
+    position: absolute;
+    background-image: url(dropdownasc-gray_900.png);
+    background-size: 1em;
+    width: 40px;
+    height: 5px !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 0;
+    top: 50%;
+}
+.descending:before {
+    display: initial !important;
+    content: " ";
+    position: absolute;
+    background-image: url(dropdowndesc-gray_900.png);
+    background-size: 1em;
+    width: 40px;
+    height: 5px !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 0;
+    top: 50%;
+}
+.dark-bg .ascending:before {
+    background-image: url(dropdownasc-white.png);
+    background-color: transparent;
+}
+.dark-bg .descending:before {
+    background-image: url(dropdowndesc-white.png);
+    background-color: transparent;
+}
 .subnav__item dl {
     padding: 10px;
 }

@@ -24,9 +24,18 @@ window.onload = function() {
     $('th').click(function(){
         // Check to see if the header is a "Details" header
         if($(this).text() != "Details"){
+            
             // If it is not, call the sortTable() function
             // This will sort the table by whatever header was clicked
             sortTable($(this).parent().parent().parent().attr('id'), $(this).index());
+
+            if(!$(this).hasClass("ascending") && !$(this).hasClass("descending")){
+                $(this).parent().children().removeClass("ascending descending");
+                $(this).toggleClass("ascending");
+            } else {
+                $(this).toggleClass("ascending");
+                $(this).toggleClass("descending");
+            }
         }
     });
 
