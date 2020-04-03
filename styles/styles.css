@@ -218,6 +218,9 @@ th:hover {
 .breadcrumbs {
     overflow: visible !important;
 }
+.breadcrumbs__last__parent {
+    width: 100vw !important;
+}
 
 
 @media screen and (min-width: 700px) {

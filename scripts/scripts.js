@@ -40,17 +40,15 @@ window.onload = function() {
 
     // Sidebar click
     $('.sidebar__item').click(function(){
-        console.log($(this).attr('report-id'), $(this).attr('name'));
+        console.log($(this).attr('sidebar-content-id'), $(this).attr('name'));
 
-        console.log($("div[name='reports-content']").attr('name'));
-
-        $("div[name='report']").removeClass("display").addClass("none");
-        $(`#${$(this).attr('report-id')}`).addClass("display").removeClass("none");
+        $("div[name='sidebar-content']").removeClass("display").addClass("none");
+        $(`#${$(this).attr('sidebar-content-id')}`).addClass("display").removeClass("none");
     });
 
     // MZ Dropdown click
     $('.drop-content a').click(function(){
-        
+
     });
 
 }

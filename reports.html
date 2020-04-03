@@ -39,11 +39,10 @@
       <li class="breadcrumbs__item">
         <a class="breadcrumbs__link" href="index.html">Home</a>
       </li>
-      <li class="breadcrumbs__item" style="width:100vw">
+      <li class="breadcrumbs__item breadcrumbs__last__parent">
         <span class="breadcrumbs__last">Reports</span>
       </li>
       <li class="breadcrumbs__item" style="text-align:center;width:200px;padding-right:15px">
-
         <div class="dropdown">
           <button role="button" type="button" class="mz btn-drop" style="width:100px;">PROD</button>
           <div class="drop-content">
@@ -53,7 +52,6 @@
             <a href="#">Add env..</a>
           </div>
         </div>
-        
       </li>
     </ul>
   </div>
@@ -64,27 +62,27 @@
     <!------------------------------------------------------------------->
     <!-- Side Bar -->
     <nav class="sidebar hide-sm">
-      <a report-id="root-cause-analysis" name="Root Cause Analysis" href="#" class="sidebar__item is-active">
+      <a sidebar-content-id="root-cause-analysis" name="Root Cause Analysis" href="#" class="sidebar__item is-active">
         <span class="sidebar__headline">Root Cause Analysis+</span>
         <span class="sidebar__info">Filters root cause by tag and entity</span>
       </a>
-      <a report-id="problem-trending" name="Problem Trending" href="#" class="sidebar__item">
+      <a sidebar-content-id="problem-trending" name="Problem Trending" href="#" class="sidebar__item">
         <span class="sidebar__headline">Problem Trending</span>
         <span class="sidebar__info">Track problems by tag over time</span>
       </a>
-      <a report-id="untagged-entities" name="Untagged Entities" href="#" class="sidebar__item">
+      <a sidebar-content-id="untagged-entities" name="Untagged Entities" href="#" class="sidebar__item">
         <span class="sidebar__headline">Untagged Entities</span>
         <span class="sidebar__info">Gets all untagged entities</span>
       </a>
-      <a report-id="hosts" name="Hosts Report" href="#" class="sidebar__item">
+      <a sidebar-content-id="hosts" name="Hosts Report" href="#" class="sidebar__item">
         <span class="sidebar__headline">Hosts Report</span>
         <span class="sidebar__info">Details of hosts</span>
       </a>
-      <a report-id="applications" name="Applications Report" href="#" class="sidebar__item">
+      <a sidebar-content-id="applications" name="Applications Report" href="#" class="sidebar__item">
         <span class="sidebar__headline">Applications Report</span>
         <span class="sidebar__info">Details of applications</span>
       </a>
-      <a report-id="users" name="Users Report" href="#" class="sidebar__item">
+      <a sidebar-content-id="users" name="Users Report" href="#" class="sidebar__item">
         <span class="sidebar__headline">Users Report</span>
         <span class="sidebar__info">Details of users</span>
       </a>
@@ -97,7 +95,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Root Cause Analysis+ -->
-      <div name="report" id="root-cause-analysis" class="display">
+      <div name="sidebar-content" id="root-cause-analysis" class="display">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/davis-gray700.svg' style='height: 80px; width: 80px;'></img>    
@@ -173,7 +171,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Problem Trending -->
-      <div name="report" id="problem-trending" class="none">
+      <div name="sidebar-content" id="problem-trending" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/chart-legend-meter-gray700.svg' style='height: 80px; width: 80px;'></img>    
@@ -219,7 +217,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Untagged Entities -->
-      <div name="report" id="untagged-entities" class="none">
+      <div name="sidebar-content" id="untagged-entities" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg' style='height: 80px; width: 80px;'></img>    
@@ -244,21 +242,21 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Hosts -->
-      <div name="report" id="hosts" class="none">
+      <div name="sidebar-content" id="hosts" class="none">
         
       </div><!-- End of Hosts -->
       <!-- End of Hosts ------------------------------------------------------------ -->
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Applications -->
-      <div name="report" id="applications" class="none">
+      <div name="sidebar-content" id="applications" class="none">
         
       </div><!-- End of Applications -->
       <!-- End of Applications ------------------------------------------------------------ -->
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Users -->
-      <div name="report" id="Users" class="none">
+      <div name="sidebar-content" id="Users" class="none">
         
       </div><!-- End of Users -->
       <!-- End of Users ------------------------------------------------------------ -->
