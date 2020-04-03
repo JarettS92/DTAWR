@@ -1,0 +1,1410 @@
+<html>
+    <style>
+        body {
+            background-color: #f8f8f8;
+        }
+        .newH{
+            font-weight: 300; font-size: 30px; padding-top: 18px; padding-bottom: 5px;
+        }
+        .newH2{
+            font-weight: 300; font-size: 26px; padding-bottom: 14px;
+        }  
+        #RootCauseAnalysisProgress {
+            width: 100%;
+            background-color: white;
+        }
+
+        #RootCauseAnalysisBar {
+            width: 0%;
+            height: 20px;
+            background-color: #4CAF50;
+        }
+        .subnav__link:hover{
+            cursor: pointer;
+        }
+    </style>
+    <head><link rel="stylesheet" href="main.css" /></head>
+    <body class="theme--blue">
+        <div class="nav has-no-secondary">
+            <a class="nav__brand" href="https://www.dynatrace.com/">
+                <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
+            </a>
+            <div class="nav__buttongroup">
+                <button data-target="#nav-bar-example1" class="nav__btn nav__btn--menutoggle">Menu</button>
+            </div>
+            <nav id="nav-bar-example1" class="nav__bar">
+                <ul class="nav__list nav__list--primary">
+                <li class="nav__item">
+                    <a class="nav__link" href="https://community.dynatrace.com/community/display/DXS/CLB+-+Ongoing+Projects">DXS Ongoing Projects</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="https://bitbucket.lab.dynatrace.org/projects/DTS">BitBucket</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="https://barista.dynatrace.com/">Barista</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="https://groundhog.dynalabs.io/">Groundhog</a>
+                </li>
+                </ul>
+            </nav>
+        </div>   
+        <div class="subnav">
+            <nav class="subnav__bar">
+              <ul class="subnav__list">
+                <li class="subnav__item is-current" id='HomeTab'>
+                  <a class="subnav__link" onclick="changeTab('Home')">Home</a>
+                </li>
+                <li class="subnav__item" id='RootCauseAnalysisTab'>
+                  <a class="subnav__link" onclick="changeTab('RootCauseAnalysis')">Root Cause Analysis +</a>
+                </li>
+                <li class="subnav__item" id='ProblemTrendingTab'>
+                  <a class="subnav__link" onclick="changeTab('ProblemTrending')">Problem Trending</a>
+                </li>
+                <li class="subnav__item" id='TagDuplicatorTab'>
+                  <a class="subnav__link" onclick="changeTab('TagDuplicator')">Tag Duplicator</a>
+                </li>
+                <li class="subnav__item" id='BusinessHourKPIsTab'>
+                  <a class="subnav__link" onclick="changeTab('BusinessHourKPIs')">Business Hour KPIs</a>
+                </li>
+                <li class="subnav__item" id='StarterTagsTab'>
+                  <a class="subnav__link" onclick="changeTab('StarterTags')">Starter Tags</a>
+                </li>
+                <li class="subnav__item" id='RTaggedTab'>
+                  <a class="subnav__link" onclick="changeTab('RTagged')">Starter Tags</a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+        <div id='Home'>
+            <div class="layout has-islands">
+                <div class="layout__container layout--full">
+                    <div class="island">
+                        <!--Title + Davis Icon-->
+                        <div class="infochip">
+                            <div class="infochip__icon">
+                            <img class="icon icon--blue--big" src='services-gray700.svg' style='height: 80px; width: 80px;'></img>    
+                            </div>
+                            <div class="infochip__desc">
+                            <div class="infochip__desc__title" title="Title">
+                                <div class='newH'>Home</div>
+                            </div>
+                            <div>Configure the Dynatrace environments that this program will interact with</div>
+                            </div>
+                        </div>
+                        <br>
+                        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+                        <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+                        <p>Add an environment:</p>
+                        <!--Add Environment here and button to delete env-->
+                        <table class="table" style="display: none" id='envTableParent'>
+                            <thead>
+                            <tr>
+                                <th>Environment Name</th>
+                                <th>URL</th>
+                                <th>Token</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody id='envTable'></tbody>
+                        </table>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Name:</label>
+                            <input type="text" class="inputfield" id="EnvName"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Dynatrace Environment URL:</label>
+                            <input type="text" class="inputfield" id="EnvURL"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">API Token:</label>
+                            <input type="text" class="inputfield" id="EnvTok"/>
+                        </field>
+                        <br>
+                        <br>
+                        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='RootCauseAnalysis' style="display: none">
+            <div class="layout has-islands">
+                <div class="layout__container layout--full">
+                    <div class="island">
+                        <!--Title + Davis Icon-->
+                        <div class="infochip">
+                            <div class="infochip__icon">
+                            <img class="icon icon--blue--big" src='davis-gray700.svg' style='height: 80px; width: 80px;'></img>    
+                            </div>
+                            <div class="infochip__desc">
+                            <div class="infochip__desc__title" title="Title">
+                                <div class='newH'>Root Cause Analysis +</div>
+                            </div>
+                            <div>Extracts root cause of problems, organizing by tag and entity</div>
+                            </div>
+                        </div>
+                        <br>
+                        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+                        <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
+                        <p>Specify the max amount of API requests per minute that this program should perform <b style='color: red;'>(Recommendation: 40)</b>.</p>
+                        <p><b style='color: red;'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should not exceed 50.</b></p>
+                        <p>Consider the amount of other API calls that could be hitting your cluster when specifying this number.</p>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Max requests per minute:</label>
+                            <input type="text" class="inputfield" id="RootCauseAnalysisMax"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Environment Name:</label>
+                            <input type="text" class="inputfield" id="RootCauseAnalysisEnv"/>
+                        </field>
+                        <p>Specify the time frame that you would like to perform the analysis for. <b style='color: red;'>Time frame must not exceed 31 days in length.</b></p>
+                        <!--Add date picker later-->
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Start Date:</label>
+                            <input type="text" class="inputfield" id="RootCauseAnalysisStart" placeholder="mm/dd/yyyy"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">End Date:</label>
+                            <input type="text" class="inputfield" id="RootCauseAnalysisEnd" placeholder="mm/dd/yyyy"/>
+                        <field>
+                        <br>
+                        <br>
+                        <button role="button" type="button" class="btn btn--primary theme--dark"onclick="mainRootCauseAnalysis()">Run Query</button>
+                        <br>
+                        <br>
+                        <div id="RootCauseAnalysisProgress"><div id="RootCauseAnalysisBar"></div></div>
+                        <br>
+                        <div id='RootCauseAnalysisLogs'></div>
+                    </div>
+                </div>    
+            </div>
+            <div class="layout is-flex has-islands">
+                <div class="island">
+                    <div class='newH2'>By Tag</div>
+                    <table class="table table--responsive">
+                        <thead>
+                            <tr>
+                            <th>Tag</th>
+                            <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table1_div">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="island">
+                    <div class='newH2'>By Entity</div>
+                    <table class="table table--responsive">
+                        <thead>
+                            <tr>
+                            <th>Entity</th>
+                            <th>Type</th>
+                            <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table2_div">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id='ProblemTrending' style="display: none">
+            <div class="layout has-islands">
+                <div class="layout__container layout--full">
+                    <div class="island">
+                        <!--Title + Icon-->
+                        <div class="infochip">
+                            <div class="infochip__icon">
+                            <img class="icon icon--blue--big" src='chart-legend-meter-gray700.svg' style='height: 80px; width: 80px;'></img>    
+                            </div>
+                            <div class="infochip__desc">
+                            <div class="infochip__desc__title" title="Title">
+                                <div class='newH'>Problem Trending</div>
+                            </div>
+                            <div>Charts problems over time by type and shows the trend in avg MTTR(problem length)</div>
+                            </div>
+                        </div>
+                        <br>
+                        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+                        <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
+                        <p>Specify the max amount of API requests per minute that this program should perform <b style='color: red;'>(Recommendation: 40)</b>.</p>
+                        <p><b style='color: red;'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should not exceed 50.</b></p>
+                        <p>Consider the amount of other API calls that could be hitting your cluster when specifying this number.</p>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Max requests per minute:</label>
+                            <input type="text" class="inputfield" id="maxRequests2"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Environment Name:</label>
+                            <input type="text" class="inputfield" id="DYNAENV2"/>
+                        </field>
+                        <p>Specify the time frame that you would like to perform the analysis for. <b style='color: red;'>Time frame must not exceed 31 days in length.</b></p>
+                        <!--Add date picker later-->
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Start Date:</label>
+                            <input type="text" class="inputfield" id="sDate2" placeholder="mm/dd/yyyy"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">End Date:</label>
+                            <input type="text" class="inputfield" id="eDate2" placeholder="mm/dd/yyyy"/>
+                        <field>
+                        <br>
+                        <br>
+                        <button role="button" type="button" class="btn btn--primary theme--dark"onclick="mainProblemTrending()">Run Query</button>
+                        <br>
+                        <br>
+                        <div id="myProgress2"><div id="myBar2"></div></div>
+                        <br>
+                        <div id='logs2'></div>
+                    </div>
+                </div>    
+            </div>
+            <div class="layout is-flex has-islands">
+                <div class="island">
+                    
+                </div>
+                <div class="island">
+                   
+                </div>
+            </div>
+        </div>
+        <div id='TagDuplicator' style="display: none">
+            <div class="layout has-islands">
+                <div class="layout__container layout--full">
+                    <div class="island">
+                        <!--Title + Icon-->
+                        <div class="infochip">
+                            <div class="infochip__icon">
+                            <img class="icon icon--blue--big" src='duplicate-gray700.svg' style='height: 80px; width: 80px;'></img>    
+                            </div>
+                            <div class="infochip__desc">
+                            <div class="infochip__desc__title" title="Title">
+                                <div class='newH'>Tag Duplicator</div>
+                            </div>
+                            <div>Copies a tag and sends it to the same or a different environment with the same or a different name</div>
+                            </div>
+                        </div>
+                        <br>
+                        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+                        <p>Specify an environment and tag, this will be the tag that that is duplicated</p>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Environment Name:</label>
+                            <input type="text" class="inputfield" id="TagDuplicatorEnv1"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Tag to Duplicate:</label>
+                            <input type="text" class="inputfield" id="TagDuplicatorTag1"/>
+                        </field>
+                        <p>Specify a second environment and tag, this will be where the duplicate tag is sent.</p>
+                        <p>You can use the same tag name as before if a tag with that name does not exist in the second environment.</p>
+                        <p>You can use the same environment for the second as the first, but the new tag name should be different.</p>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">New Environment Name:</label>
+                            <input type="text" class="inputfield" id="TagDuplicatorEnv2"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">New Tag Name:</label>
+                            <input type="text" class="inputfield" id="TagDuplicatorTag2"/>
+                        </field>
+                        <br>
+                        <br>
+                        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainTagDuplicator()">Run</button>
+                        <br>
+                        <div id='logs2'></div>
+                    </div>
+                </div>    
+            </div>
+            <div class="layout is-flex has-islands">
+                <div class="island">
+                    <div class='newH2'>History</div>
+                    <table class="table" style="display: none" id='dupTagParent'>
+                        <thead>
+                        <tr>
+                            <th>From Env</th>
+                            <th>From Tag</th>
+                            <th>To Env</th>
+                            <th>To Tag</th>
+                        </tr>
+                        </thead>
+                        <tbody id='duplicatedTags'></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id='BusinessHourKPIs' style="display: none">
+            <div class="layout has-islands">
+                <div class="layout__container layout--full">
+                    <div class="island">
+                        <!--Title + Icon-->
+                        <div class="infochip">
+                            <div class="infochip__icon">
+                            <img class="icon icon--blue--big" src='business-impact-gray700.svg' style='height: 80px; width: 80px;'></img>    
+                            </div>
+                            <div class="infochip__desc">
+                            <div class="infochip__desc__title" title="Title">
+                                <div class='newH'>Business Hour KPIs</div>
+                            </div>
+                            <div>Genereate a single metric for any timeseries metric for business hours only</div>
+                            </div>
+                        </div>
+                        <br>
+                        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+                        <p>Specify which environment, and tag if applicable, as well as the start and end time that you would like to genereate a single metric for.</p>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Environment Name:</label>
+                            <input type="text" class="inputfield" id="BusinessHourKPIsEnv"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Tag (optional):</label>
+                            <input type="text" class="inputfield" id="BusinessHourKPIsTag"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Start Time:</label>
+                            <input type="text" class="inputfield" id="BusinessHourKPIsStart"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">End Time:</label>
+                            <input type="text" class="inputfield" id="BusinessHourKPIsEnd"/>
+                        </field>
+                        <p>Specify the timeseries metric id you would like to use. Available <a href="https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/metric-v1/available-metrics/saas/">SaaS</a> and <a href="https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/metric-v1/available-metrics/managed/">Managed</a> timeseries metrics.</p>
+                        <p>Custom and plugin metrics should work, but the timeseries ids will not be in the above links.</p>
+                        <p style='color: red; font-weight: bold;'>DON'T use the metric display name, multiple metrics in Dynatrace use the same name.</p>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Timeseries Metric:</label>
+                            <input type="text" class="inputfield" id="BusinessHourKPIsMet"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Aggregation (if applicable):</label>
+                            <input type="text" class="inputfield" id="BusinessHourKPIsAgg"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Percentile (only for Percentile aggregation):</label>
+                            <input type="text" class="inputfield" id="BusinessHourKPIsPerc"/>
+                        </field>
+                        <p>Define business days and hours below.</p>
+                        <label for="i0" class="label">Business Days:</label>
+                        <input type="checkbox" class="checkbox" id="BusinessHourKPIsSunday"/>
+                        <label for="BusinessHourKPIsSunday" class="checkbox__label">
+                            <span class="checkbox__caption">Sunday</span>
+                        </label>
+                        <input type="checkbox" class="checkbox" id="BusinessHourKPIsMonday"/>
+                        <label for="BusinessHourKPIsMonday" class="checkbox__label">
+                            <span class="checkbox__caption">Monday</span>
+                        </label>
+                        <input type="checkbox" class="checkbox" id="BusinessHourKPIsTuesday"/>
+                        <label for="BusinessHourKPIsTuesday" class="checkbox__label">
+                            <span class="checkbox__caption">Tuesday</span>
+                        </label>
+                        <input type="checkbox" class="checkbox" id="BusinessHourKPIsWednesday"/>
+                        <label for="BusinessHourKPIsWednesday" class="checkbox__label">
+                            <span class="checkbox__caption">Wednesday</span>
+                        </label>
+                        <input type="checkbox" class="checkbox" id="BusinessHourKPIsThursday"/>
+                        <label for="BusinessHourKPIsThursday" class="checkbox__label">
+                            <span class="checkbox__caption">Thursday</span>
+                        </label>
+                        <input type="checkbox" class="checkbox" id="BusinessHourKPIsFriday"/>
+                        <label for="BusinessHourKPIsFriday" class="checkbox__label">
+                            <span class="checkbox__caption">Friday</span>
+                        </label>
+                        <input type="checkbox" class="checkbox" id="BusinessHourKPIsSaturday"/>
+                        <label for="BusinessHourKPIsSaturday" class="checkbox__label">
+                            <span class="checkbox__caption">Saturday</span>
+                        </label>
+                        <br><br>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Business Hour Start:</label>
+                            <input type="text" class="inputfield" id="BusinessHourKPIsBHStart"/>
+                        </field>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Business Hour End:</label>
+                            <input type="text" class="inputfield" id="BusinessHourKPIsBHEnd"/>
+                        </field>
+                        <br>
+                        <br>
+                        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainBusinessHourKPIs()">Run</button>
+                        <br>
+                    </div>
+                </div>    
+            </div>
+            <div class="layout is-flex has-islands">
+                <div class="island">
+                    <div class='newH2'>Results</div>
+                    <table class="table" style="display: none" id='BusinessHourKPIsTableParent'>
+                        <thead>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Result</th>
+                            <th>Timeseries ID</th>
+                        </tr>
+                        </thead>
+                        <tbody id='BusinessHourKPIsTable'></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id='StarterTags' style="display: none">
+            <div class="layout has-islands">
+                <div class="layout__container layout--full">
+                    <div class="island">
+                        <!--Title + Icon-->
+                        <div class="infochip">
+                            <div class="infochip__icon">
+                            <img class="icon icon--blue--big" src='gettingstarted-gray700.svg' style='height: 80px; width: 80px;'></img>    
+                            </div>
+                            <div class="infochip__desc">
+                            <div class="infochip__desc__title" title="Title">
+                                <div class='newH'>StarterTags</div>
+                            </div>
+                            <div>Adds valuable tags to Dynatrace</div>
+                            </div>
+                        </div>
+                        <br>
+                        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+                        <p>Specify an environment. That's it.</p>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Environment Name:</label>
+                            <input type="text" class="inputfield" id="StarterTagsEnv"/>
+                        </field>
+                        <br>
+                        <br>
+                        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainStarterTags()">Run</button>
+                        <br>
+                    </div>
+                </div>    
+            </div>
+            <div class="layout is-flex has-islands" style="display: none" id="StarterTagsLogs">
+                <div class="island">
+                    <div class='newH2'>Logs</div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Rule</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody id='StarterTagsTable'></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id='RTagged' style="display: none">
+            <div class="layout has-islands">
+                <div class="layout__container layout--full">
+                    <div class="island">
+                        <!--Title + Icon-->
+                        <div class="infochip">
+                            <div class="infochip__icon">
+                            <img class="icon icon--blue--big" src='gettingstarted-gray700.svg' style='height: 80px; width: 80px;'></img>    
+                            </div>
+                            <div class="infochip__desc">
+                            <div class="infochip__desc__title" title="Title">
+                                <div class='newH'>RTagged</div>
+                            </div>
+                            <div>Gets all untagged entities</div>
+                            </div>
+                        </div>
+                        <br>
+                        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+                        <p>Specify an environment. That's it.</p>
+                        <field class='field' style="width: 50%">
+                            <label for="i0" class="label">Environment Name:</label>
+                            <input type="text" class="inputfield" id="RTaggedEnv"/>
+                        </field>
+                        <br>
+                        <br>
+                        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainRTagged()">Run</button>
+                        <br>
+                    </div>
+                </div>    
+            </div>
+            <div class="layout is-flex has-islands" style="display: none" id="RTaggedLogs">
+                <div class="island">
+                    <div class='newH2'>Logs</div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Rule</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody id='RTaggedTable'></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script>    
+        let vault;
+        let DTEnvs = {};
+        let problemIDs = [];
+        let problems = [];
+        let problemSummary = [];
+        let topRootCause = ['na'];
+        let topRootCauseCnt = [0];
+        let tagList = ['na'];
+        let newArry = [0];
+        let rPM = 0;
+        let rpm = 0;
+        let tagJSON = {};
+        let lastMin;
+        let progress = 0;
+
+        ///////////////////////////////////////////////////
+        //Home Code
+
+        //Initiates load storage on start
+        loadLocalStorage();
+
+        //Saves current env json and env table on Home tab to storage
+        function saveLocalStorage(){
+            let j = {"table": String(document.getElementById('envTable').innerHTML), "jsonObj": JSON.stringify(DTEnvs)};
+            localStorage.setItem('envData', JSON.stringify(j));
+        }
+
+        //Uses storage to populate env json and env table on Home tab
+        function loadLocalStorage(){
+            try{
+                let t = localStorage.getItem('envData');
+                if(t != null){
+                    t = JSON.parse(t);
+                    DTEnvs = JSON.parse(t["jsonObj"]);
+                    document.getElementById('envTable').innerHTML = t["table"];
+                    document.getElementById('envTableParent').style.display = "block";
+                }
+            }
+            catch(e){
+                console.log(e);
+            }
+        }
+
+        //If user messes up table, button will clear table
+        function deleteLocalStorage(){
+            localStorage.removeItem('envData');
+        }
+
+        //gets an environment for a program
+        function getEnvironment(name){
+            return DTEnvs[name];
+        }
+
+        //adds a row from envTable
+        function addEnvironment(){
+            DTEnvs[document.getElementById('EnvName').value] = {'URL': document.getElementById('EnvURL').value, 'TOK': document.getElementById('EnvTok').value};
+            console.log(DTEnvs);
+            document.getElementById('envTable').innerHTML += "<tr id='Row" + document.getElementById('EnvName').value + "'><td>" + document.getElementById('EnvName').value + "</td><td>" + document.getElementById('EnvURL').value + "</td><td>" + document.getElementById('EnvTok').value + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + document.getElementById('EnvName').value + "\")'>Remove</button></td></tr>";
+            document.getElementById('envTableParent').style.display = "block";
+            saveLocalStorage();
+        }
+
+        //removes a row from envTable
+        function delEnvironment(name){
+            delete DTEnvs[name];
+            console.log(DTEnvs);
+            document.getElementById('Row' + name).remove();
+            if(Object.keys(DTEnvs).length === 0) document.getElementById('envTableParent').style.display = "none";
+            saveLocalStorage();
+        }
+
+        //changes activeTab, should clear env variables later
+        function changeTab(name){
+            document.getElementById('HomeTab').classList.remove("is-current");
+            document.getElementById('RootCauseAnalysisTab').classList.remove("is-current");
+            document.getElementById('ProblemTrendingTab').classList.remove("is-current");
+            document.getElementById('TagDuplicatorTab').classList.remove("is-current");
+            document.getElementById('BusinessHourKPIsTab').classList.remove("is-current");
+            document.getElementById('StarterTagsTab').classList.remove("is-current");
+            document.getElementById('RTaggedTab').classList.remove("is-current");
+
+            document.getElementById(name + "Tab").classList.add("is-current");
+
+            document.getElementById('Home').style.display = "none";
+            document.getElementById('RootCauseAnalysis').style.display = "none";
+            document.getElementById('ProblemTrending').style.display = "none";
+            document.getElementById('TagDuplicator').style.display = "none";
+            document.getElementById('BusinessHourKPIs').style.display = "none";
+            document.getElementById('StarterTags').style.display = "none";
+            document.getElementById('RTagged').style.display = "none";
+
+            document.getElementById(name).style.display = "block";
+        }
+        
+        ///////////////////////////////////////////////////
+        ///////////////////////////////////////////////////
+        //RootCauseAnalysis + Code
+
+        //RootCauseAnalysis Main function
+        function mainRootCauseAnalysis() {
+            let DTenv = getEnvironment(document.getElementById("RootCauseAnalysisEnv").value);
+            rPM = document.getElementById("RootCauseAnalysisMax").value;
+            var d = new Date(document.getElementById("RootCauseAnalysisStart").value);
+            let start = d.getTime();
+            d = new Date(document.getElementById("RootCauseAnalysisEnd").value);
+            let end = d.getTime();
+            addToLogs('Establishing connection to Dynatrace...', 'black', true);
+            getHosts(DTenv['URL'], DTenv['TOK'], start, end);
+        }
+    
+        function getHosts(dynatraceURL, token, startTime, endTime){
+            //get Host names and tags
+            let settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": dynatraceURL + "/api/v1/entity/infrastructure/hosts?includeDetails=false&startTimestamp=" + (endTime - 3600000) + "&endTimestamp=" + endTime,
+                "method": "GET",
+                    "headers": {
+                    "Authorization": "Api-Token " + token,
+                    "Content-Type": "application/json",
+                    "cache-control": "no-cache"
+                },
+                "processData": false,
+                "data": ""
+            }
+    
+            $.ajax(settings).done(function (response) {
+                addToLogs('SUCCESS!', '#4CAF50', false);
+                addToLogs('Determining time required for analysis...', 'black', true);
+                var hostList = {};
+                var serviceList = {};
+                var processList = {};
+    
+                var data = response;
+                var names = Object.keys(data);
+    
+                for(let i = 0; i < names.length; i++){
+                    var id = data[names[i]]['entityId'];
+                    var name = data[names[i]]['displayName'];
+                    var tags = data[names[i]]['tags'];
+                    hostList[id] = {'name': name, 'tags': tags};
+                }
+                //Get Service Names and Tags
+                settings['url'] = dynatraceURL + "/api/v1/entity/services?includeDetails=false&startTimestamp=" + (endTime - 3600000) + "&endTimestamp=" + endTime;
+                $.ajax(settings).done(function (response) {
+                    var data = response;
+                    var names = Object.keys(data);
+    
+                    for(let i = 0; i < names.length; i++){
+                        var id = data[names[i]]['entityId'];
+                        var name = data[names[i]]['displayName'];
+                        var tags = data[names[i]]['tags'];
+                        serviceList[id] = {'name': name, 'tags': tags};
+                    }
+                    //Get Process Names and Tags
+                    settings['url'] = dynatraceURL + "/api/v1/entity/infrastructure/processes?includeDetails=false&startTimestamp=" + (endTime - 3600000) + "&endTimestamp=" + endTime;
+                    $.ajax(settings).done(function (response) {
+                        var data = response;
+                        var names = Object.keys(data);
+    
+                        for(let i = 0; i < names.length; i++){
+                            var id = data[names[i]]['entityId'];
+                            var name = data[names[i]]['displayName'];
+                            var tags = data[names[i]]['tags'];
+                            processList[id] = {'name': name, 'tags': tags};
+                        }
+                        vault = {
+                            'hosts': hostList,
+                            'services': serviceList,
+                            'processes': processList
+                        };
+                        analysis(dynatraceURL, token, startTime, endTime);
+                    });
+                });
+            });
+        }
+    
+        function analysis(dynatraceURL, token, startTime, endTime){
+            let settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": dynatraceURL + "/api/v1/problem/feed?status=CLOSED&startTimestamp=" + startTime + "&endTimestamp=" + endTime,
+              "method": "GET",
+              "headers": {
+                    "Authorization": "Api-Token " + token,
+                    "Content-Type": "application/json",
+                    "cache-control": "no-cache"
+              },
+              "processData": false,
+              "data": ""
+            }
+    
+            $.ajax(settings).done(function (response) {
+                let shortcut = response['result']['problems'];
+                for(let i = 0; i < shortcut.length; i++) problemIDs.push(shortcut[i]['id']);
+                addToLogs('CALCULATED!', '#4CAF50', false);
+                addToLogs('Total Problems: ', 'black', true);
+                addToLogs(problemIDs.length, '#1396FE', false);
+                addToLogs('Estimated time to completion: ', 'black', true);
+                addToLogs((problemIDs.length/rPM) + " minutes", '#1396FE', false);
+                addToLogs('Gathering Problem data from Dynatrace...', 'black', true);
+                var d = new Date();
+                lastMin = d;
+                for(let i = 0; i < problemIDs.length; i++){
+                    let n = i;
+                    setTimeout(function(){repeater(dynatraceURL, settings, n)}, ((1000*60)/rPM) * i);
+                }
+            });
+        }
+    
+        //Grabs specific problems, also controls rate of requests to ensure that Dynatrace is not overrun with too many requests
+        function repeater(dynatraceURL, settings, x){
+            settings['url'] = dynatraceURL + "/api/v1/problem/details/" + problemIDs[x];
+            var d = new Date();
+            var n = Number(Math.abs(d - lastMin));
+            if (n >= 60000){
+                //console.log("A minute has passed: " + d);
+                //console.log("Requests this minute: " + rpm);
+                lastMin = d;
+                rpm = 0;
+            }
+            else {
+                rpm++;
+                progress++;
+            }
+            $.ajax(settings).done(function (response) {
+                var tempShort = response['result'];
+                var tempObj = {
+                    'rankedEvents': tempShort['rankedEvents'],
+                    'hasRootCause': tempShort['hasRootCause']
+                }
+                //pushing data as it is recieved ensures that we don't overwrite any entries since it always goes at the end
+                problems.push(tempObj);
+                var temp = problems.indexOf(tempObj);
+                move( 100 * progress/problemIDs.length );
+    
+                //once the request loop is complete, process data
+                if(temp == problemIDs.length -1) remainder();
+                else {};
+            });
+        }
+    
+        function remainder(){
+            move( 100 );
+            addToLogs('COMPLETE!', '#4CAF50', false);
+            addToLogs('Extracting root causes...', 'black', true);
+            for(var i = 0; i < problems.length; i++){
+                if(problems[i]['hasRootCause']){
+                    for(var j = 0; j < problems[i]['rankedEvents'].length; j++){
+                        if(problems[i]['rankedEvents'][j]['isRootCause']){
+                            var tempRC = problems[i]['rankedEvents'][j]['entityId'];
+                            var tempIndex = topRootCause.indexOf(tempRC);
+                            if(tempIndex == -1) {
+                                topRootCause.push(tempRC);
+                                topRootCauseCnt.push(1);
+                            }
+                            else{
+                                topRootCauseCnt[tempIndex]++;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            var hostArr = Object.keys(vault['hosts']);
+            var servArr = Object.keys(vault['services']);
+            var procArr = Object.keys(vault['processes']);
+            for(var xyz = 0; xyz < topRootCause.length; xyz++){
+                if(hostArr.indexOf(topRootCause[xyz]) != -1){
+                    for(var abc = 0; abc < vault['hosts'][topRootCause[xyz]]['tags'].length; abc++){
+                        let keyPair = '';
+                        if(vault['hosts'][topRootCause[xyz]]['tags'][abc].hasOwnProperty('value')) keyPair = vault['hosts'][topRootCause[xyz]]['tags'][abc]['key'] + ": " + vault['hosts'][topRootCause[xyz]]['tags'][abc]['value'];
+                        else keyPair = vault['hosts'][topRootCause[xyz]]['tags'][abc]['key'];
+                        if(tagList.indexOf(keyPair) == -1){
+                            tagList[tagList.length] = keyPair;
+                            tagJSON[keyPair] = Number(topRootCauseCnt[xyz]);
+                        }
+                        else{
+                            tagJSON[keyPair] += Number(topRootCauseCnt[xyz]);
+                        }
+                    }
+                }
+                else if(servArr.indexOf(topRootCause[xyz]) != -1){
+                    for(var abc = 0; abc < vault['services'][topRootCause[xyz]]['tags'].length; abc++){
+                        let keyPair = '';
+                        if(vault['services'][topRootCause[xyz]]['tags'][abc].hasOwnProperty('value')) keyPair = vault['services'][topRootCause[xyz]]['tags'][abc]['key'] + ": " + vault['services'][topRootCause[xyz]]['tags'][abc]['value'];
+                        else keyPair = vault['services'][topRootCause[xyz]]['tags'][abc]['key'];
+                        if(tagList.indexOf(keyPair) == -1){
+                            tagList[tagList.length] = keyPair;
+                            tagJSON[keyPair] = Number(topRootCauseCnt[xyz]);
+                        }
+                        else{
+                            tagJSON[keyPair] += Number(topRootCauseCnt[xyz]);
+                        }
+                    }
+                }
+                else if(procArr.indexOf(topRootCause[xyz]) != -1){
+                    for(var abc = 0; abc < vault['processes'][topRootCause[xyz]]['tags'].length; abc++){
+                        let keyPair = '';
+                        if(vault['processes'][topRootCause[xyz]]['tags'][abc].hasOwnProperty('value')) keyPair = vault['processes'][topRootCause[xyz]]['tags'][abc]['key'] + ": " + vault['processes'][topRootCause[xyz]]['tags'][abc]['value'];
+                        else keyPair = vault['processes'][topRootCause[xyz]]['tags'][abc]['key'];
+                        if(tagList.indexOf(keyPair) == -1){
+                            tagList[tagList.length] = keyPair;
+                            tagJSON[keyPair] = Number(topRootCauseCnt[xyz]);
+                        }
+                        else{
+                            tagJSON[keyPair] += Number(topRootCauseCnt[xyz]);
+                        }
+                    }
+                }
+                else{
+                    //console.log(xyz);
+                    //console.log('Unknown Entity: ' + topRootCause[i]);
+                }
+            }
+            addToLogs('EXTRACTED!', '#4CAF50', false);
+            addToLogs('Performing analysis...', 'black', true);
+    
+            var finalArr1 = [];
+            var finalArr2 = [];
+            var tagJSONRef = Object.keys(tagJSON);
+            for(var aa = 0; aa < tagJSONRef.length; aa++){
+                finalArr1[finalArr1.length] = tagJSONRef[aa];
+                finalArr2[finalArr2.length] = tagJSON[tagJSONRef[aa]];
+            }
+    
+            var top5RootCause = [];
+            for(var i = 0; i < tagJSONRef.length; i++){
+                //Most common Root Cause
+                var topRC = Math.max.apply(Math, finalArr2);
+                //Index of MCRC
+                var whr = finalArr2.indexOf(topRC);
+                //Most common Problem Child
+                var pChild = finalArr1[whr];
+                //Add top to top 5 list
+                top5RootCause.push({'count': topRC, 'entity': pChild});
+                //Remove top
+                finalArr1.splice(whr, 1);
+                finalArr2.splice(whr, 1);
+                //console.log(finalArr1);
+            }
+            //console.log(top5RootCause);
+            drawTable(top5RootCause, 'table1_div', 0);
+    
+            var top5RootCause2 = [];
+            for(var i = 0; i < topRootCause.length; i++){
+                //Most common Root Cause
+                var topRC = Math.max.apply(Math, topRootCauseCnt);
+                //Index of MCRC
+                var whr = topRootCauseCnt.indexOf(topRC);
+                //Most common Problem Child
+                var pChild = topRootCause[whr];
+                //Add top to top 5 list
+                if(servArr.indexOf(pChild) != -1){
+                    top5RootCause2.push({'count': topRC, 'entity': vault['services'][pChild]['name'], 'type': 'Service', 'tags': ''});
+                    //addToLogs('Root Cause is Service!', 'green', true);
+                }
+                else if (hostArr.indexOf(pChild) != -1){
+                    top5RootCause2.push({'count': topRC, 'entity': vault['hosts'][pChild]['name'], 'type': 'Host', 'tags': ''});
+                    //addToLogs('Root Cause is Host!', 'purple', true);
+                }
+                else if (procArr.indexOf(pChild) != -1){
+                    top5RootCause2.push({'count': topRC, 'entity': vault['processes'][pChild]['name'], 'type': 'Process', 'tags': ''/*vault['hosts'][pChild]['tags']*/});
+                    //addToLogs('Root Cause is Process!', 'blue', true);
+                }
+                else
+                    top5RootCause2.push({'count': topRC, 'entity': pChild, 'type': 'UNKNOWN', 'tags': 'UNKNOWN'});
+                //Remove top
+                topRootCause.splice(whr, 1);
+                topRootCauseCnt.splice(whr, 1);
+                //console.log(finalArr1);
+            }
+            //console.log(top5RootCause2);
+    
+            var aggRC = [{'count': top5RootCause2[0]['count'], 'entity': top5RootCause2[0]['entity'], 'type': top5RootCause2[0]['type'], 'tags': ''}];
+            for(var i = 0; i < top5RootCause2.length; i++){
+                for(var j = 0; j <= aggRC.length; j++){
+                    if(j == aggRC.length){
+                        aggRC.push({'count': top5RootCause2[i]['count'], 'entity': top5RootCause2[i]['entity'], 'type': top5RootCause2[i]['type'], 'tags': ''});
+                    }
+                    if(aggRC[j]['entity'] == top5RootCause2[i]['entity']) {
+                        aggRC[j]['count'] += top5RootCause2[i]['count'];
+                        j = aggRC.length + 1;
+                    }
+                }
+            }
+            addToLogs('DONE!', '#4CAF50', false);
+            addToLogs('Building Table...', 'black', true);
+            drawTable(aggRC, 'table2_div', 1);
+            addToLogs('CONSTRUCTED!', '#4CAF50', false);
+            addToLogs('Process complete....', 'black', true);
+            addToLogs('GOOD BYE!', '#4CAF50', false);
+        }
+    
+        function drawTable(someArr, str, num) { 
+            let tempTR = "";
+            let csvEnt = "Entity,Type,Count\n";
+            let csvTag = "Tag,Count\n";
+
+            for (var i = 0; i < someArr.length; i++){
+                if(num) {
+                    tempTR += "<tr><td>" + someArr[i]["entity"] + "</td><td>" + someArr[i]["type"] + "</td><td>" + someArr[i]["count"] + "</td></tr>";
+                    csvEnt += someArr[i]["entity"] + "," + someArr[i]["type"] + "," + someArr[i]["count"] + "\n";
+                }
+                else {
+                    tempTR += "<tr><td>" + someArr[i]["entity"] + "</td><td>" + someArr[i]["count"] + "</td></tr>";
+                    csvTag += someArr[i]["entity"] + "," + someArr[i]["count"] + "\n";
+                }
+            }
+
+            document.getElementById(str).innerHTML = tempTR;
+
+            if(num){
+                let csvContentEnt = "data:text/csv;charset=utf-8," + csvEnt;
+                let encodedUri = encodeURI(csvContentEnt);
+                let link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "RootCauseEntities.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            }
+            else{
+                let csvContentTag = "data:text/csv;charset=utf-8," + csvTag;
+                let encodedUri = encodeURI(csvContentTag);
+                let link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "RootCauseTags.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            }
+        }
+    
+        //message = whatever message the log should display
+        //color = whatever color the text should be
+        function addToLogs(message, color, newLine){
+            if(newLine) document.getElementById('RootCauseAnalysisLogs').innerHTML += "<br>";
+            if(message != 'null')document.getElementById('RootCauseAnalysisLogs').innerHTML += "<span style='color: " + color + ";'>" + message + "</span>";
+        }
+        
+        function move(amount) {
+            if(amount > 100) amount = 100;
+            document.getElementById("RootCauseAnalysisBar").style.width = amount + '%';
+        }
+    
+        ///////////////////////////////////////////////////
+        ///////////////////////////////////////////////////
+        //Tag Dup code
+
+        //main function for Tag Duplicator
+        function mainTagDuplicator() {
+            let DTenv = getEnvironment(document.getElementById("TagDuplicatorEnv1").value);
+            let settings = {
+                "url": DTenv['URL'] + "/api/config/v1/autoTags",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Api-Token " + DTenv['TOK'],
+                    "Content-Type": "application/json"
+                }
+            };
+            let tagList = [];
+            $.ajax(settings).done(function (response) {
+                getUserInput(response);
+                // for (let i = 0; i < response['values'].length; i++) tagList.push(response['values'][i]['name']);
+                // console.log(tagList);
+                // return tagList;
+            });
+        }
+
+        //Get a single tag rule, to be duplicated
+        function getOneTag(id) {
+            let DTenv = getEnvironment(document.getElementById("TagDuplicatorEnv1").value);
+            let settings = {
+                "url": DTenv['URL'] + "/api/config/v1/autoTags/" + id,
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Api-Token " + DTenv['TOK'],
+                    "Content-Type": "application/json"
+                }
+            };
+            $.ajax(settings).done(function (response) {
+                postOneTag(response);
+            });
+        }
+
+        //Posts a tag rule to an environment
+        function postOneTag(rule) {
+            let DTenv = getEnvironment(document.getElementById("TagDuplicatorEnv2").value);
+            rule["name"] = document.getElementById("TagDuplicatorTag2").value;
+            delete rule['metadata'];
+            delete rule['id'];
+            let settings = {
+                "url": DTenv['URL'] + "/api/config/v1/autoTags",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Api-Token " + DTenv['TOK'],
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify(rule),
+            };
+            $.ajax(settings).done(function (response) {
+                document.getElementById('dupTagParent').style.display = "block";
+                document.getElementById('duplicatedTags').innerHTML += "<tr><td>" + document.getElementById('TagDuplicatorEnv1').value + "</td><td>" + document.getElementById('TagDuplicatorTag1').value + "</td><td>" + document.getElementById('TagDuplicatorEnv2').value + "</td><td>" + document.getElementById('TagDuplicatorTag2').value + "</td></tr>";
+            });
+        }
+
+        //Gets the ID of the desired tag
+        function getUserInput(storage){
+            Tag = document.getElementById("TagDuplicatorTag1").value;
+            for (let i = 0; i < storage['values'].length; i++) {
+                if(storage['values'][i]['name'] == Tag) {
+                    getOneTag(storage['values'][i]['id']);
+                    i = storage['values'].length;
+                }
+            }
+        }
+
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        //Business Hour KPIs code
+
+        let IllegalWeekDays = []; 
+        let IllegalNumbDays = [];
+        let businessHoursStart = 0;
+        let businessHoursEnd = 0;
+        let z = 0;
+
+        //mainfunction for Business Hour KPIs
+        function mainBusinessHourKPIs(){
+            let DTenv = getEnvironment(document.getElementById("BusinessHourKPIsEnv").value);
+            businessHoursStart = document.getElementById('BusinessHourKPIsBHStart').value;
+            businessHoursEnd = document.getElementById('BusinessHourKPIsBHEnd').value;
+            if(!document.getElementById('BusinessHourKPIsSunday').checked) IllegalWeekDays.push(0);
+            if(!document.getElementById('BusinessHourKPIsMonday').checked) IllegalWeekDays.push(1);
+            if(!document.getElementById('BusinessHourKPIsTuesday').checked) IllegalWeekDays.push(2);
+            if(!document.getElementById('BusinessHourKPIsWednesday').checked) IllegalWeekDays.push(3);
+            if(!document.getElementById('BusinessHourKPIsThursday').checked) IllegalWeekDays.push(4);
+            if(!document.getElementById('BusinessHourKPIsFriday').checked) IllegalWeekDays.push(5);
+            if(!document.getElementById('BusinessHourKPIsSaturday').checked) IllegalWeekDays.push(6);
+            let d = new Date();
+            let m = d.getTimezoneOffset();
+            z = m * 60000 * (-1);
+            let settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": DTenv['URL'] + "/api/v1/timeseries/" + document.getElementById('BusinessHourKPIsMet').value + "?startTimestamp=" + convertTime(document.getElementById('BusinessHourKPIsStart').value) + "&endTimestamp=" + convertTime(document.getElementById('BusinessHourKPIsEnd').value) + "&includeData=true",
+                "method": "GET",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": "Api-Token " + DTenv['TOK']
+                },
+                "processData": false,
+                "data": ""
+            }
+
+            if(document.getElementById('BusinessHourKPIsAgg').value != '') settings['url'] += "&aggregationType=" + document.getElementById('BusinessHourKPIsAgg').value;
+            if(document.getElementById('BusinessHourKPIsTag').value != '') settings['url'] += "&tag=" + document.getElementById('BusinessHourKPIsTag').value;
+            if(document.getElementById('BusinessHourKPIsPerc').value != '') settings['url'] += "&percentile=" + document.getElementById('BusinessHourKPIsPerc').value;
+            $.ajax(settings).done(function (response) {
+                let storage = response['dataResult']['dataPoints'];
+                let storage2 = response;
+                filterOut(storage, storage2);
+            });
+        }
+
+        //function filters out undesireable datapoints and generates a single aggregated metric from the remainder
+        function filterOut(storage, storage2){
+            let x = Object.keys(storage);
+            let count = 0;
+            let count2 = 0;
+            let sum = 0;
+            let sum2 = 0;
+            for(let i = 0; i < x.length; i ++){
+                let shortcut = storage[x[i]];
+                for(let j = 0; j < shortcut.length; j ++){
+                    if(!deleteDataPointWeekDay(shortcut[j][0]) && !deleteDataPointWeekDay(shortcut[j][0]) && !deleteDataPointNumbDay(shortcut[j][0]) && !deleteDataPointEarly(shortcut[j][0]) && !deleteDataPointLate(shortcut[j][0])) {
+                        count ++;
+                        sum += shortcut[j][1];
+                        count2 ++;
+                        sum2 += shortcut[j][1];
+                    }
+                    else{
+                        count2 ++;
+                        sum2 += shortcut[j][1];
+                    }
+                }
+            }
+            //The good stuff
+            document.getElementById('BusinessHourKPIsTableParent').style.display = 'block';
+            document.getElementById('BusinessHourKPIsTable').innerHTML += "<tr><td>" + document.getElementById('BusinessHourKPIsTag').value + "</td><td>" + (sum / count).toFixed(2) + " " + storage2['unit'] + "</td><td>" + document.getElementById('BusinessHourKPIsMet').value + "</td></tr>";
+        }
+
+        //deletes datapoints from days of the week that are not business days
+        function deleteDataPointWeekDay(num){
+            let temp = new Date(num + z);
+            if(IllegalWeekDays.includes(temp.getUTCDay())) {
+                //console.log('day violation: ' + temp.getUTCDay());
+                return true;
+            }
+            else return false;
+        }
+
+        //deletes datapoints from days of the month that are not business days
+        //Not yet implemented
+        function deleteDataPointNumbDay(num){
+            let temp = new Date(num + z);
+            if(IllegalNumbDays.includes(temp.getUTCDate())){
+                //console.log('number violation: ' + temp.getUTCDate());
+                return true;
+            }
+            else return false;
+        }
+
+        //deletes datapoints before business hours
+        function deleteDataPointEarly(num){
+            let temp = new Date(num + z);
+            if(businessHoursStart > temp.getUTCHours()){
+                //console.log('early violation: ' + temp.getUTCHours());
+                return true;
+            }
+            else return false;
+        }
+
+        //deletes datapoints after business hours
+        function deleteDataPointLate(num){
+            let temp = new Date(num + z);
+            if(businessHoursEnd < temp.getUTCHours()){
+                //console.log('late violation: ' + temp.getUTCHours());
+                return true;
+            }
+            else return false;
+        }
+
+        //Forgot what this does
+        function convertTime(date){
+            let temp = new Date(date);
+            console.log("Get Time: " + temp.getTime() - z);
+            return temp.getTime() - z;
+        }
+
+        ///////////////////////////////////
+        //Starter Tags Code
+
+        function mainStarterTags(){
+            let DTenv = getEnvironment(document.getElementById('StarterTagsEnv').value);
+            let serviceRule = {
+                "name": "Service",
+                "rules": [
+                    {
+                        "type": "SERVICE",
+                        "enabled": true,
+                        "valueFormat": "{Service:DetectedName}",
+                        "propagationTypes": [],
+                        "conditions": [
+                            {
+                                "key": {
+                                    "attribute": "SERVICE_DETECTED_NAME"
+                                },
+                                "comparisonInfo": {
+                                    "type": "STRING",
+                                    "operator": "EXISTS",
+                                    "value": null,
+                                    "negate": false,
+                                    "caseSensitive": null
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+            let processRule = {
+                "name": "Process",
+                "rules": [
+                    {
+                        "type": "PROCESS_GROUP",
+                        "enabled": true,
+                        "valueFormat": "{ProcessGroup:DetectedName}",
+                        "propagationTypes": [],
+                        "conditions": [
+                            {
+                                "key": {
+                                    "attribute": "PROCESS_GROUP_NAME"
+                                },
+                                "comparisonInfo": {
+                                    "type": "STRING",
+                                    "operator": "EXISTS",
+                                    "value": null,
+                                    "negate": false,
+                                    "caseSensitive": null
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+            let hostRule = {
+                "name": "Host",
+                "rules": [
+                    {
+                        "type": "HOST",
+                        "enabled": true,
+                        "valueFormat": "{Host:DetectedName}",
+                        "propagationTypes": [],
+                        "conditions": [
+                            {
+                                "key": {
+                                    "attribute": "HOST_NAME"
+                                },
+                                "comparisonInfo": {
+                                    "type": "STRING",
+                                    "operator": "EXISTS",
+                                    "value": null,
+                                    "negate": false,
+                                    "caseSensitive": null
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+            let databaseRule = {
+                "name": "Database",
+                "rules": [
+                    {
+                        "type": "SERVICE",
+                        "enabled": true,
+                        "valueFormat": null,
+                        "propagationTypes": [],
+                        "conditions": [
+                            {
+                                "key": {
+                                    "attribute": "SERVICE_TYPE"
+                                },
+                                "comparisonInfo": {
+                                    "type": "SERVICE_TYPE",
+                                    "operator": "EQUALS",
+                                    "value": "DATABASE_SERVICE",
+                                    "negate": false
+                                }
+                            },
+                            {
+                                "key": {
+                                    "attribute": "SERVICE_DATABASE_NAME"
+                                },
+                                "comparisonInfo": {
+                                    "type": "STRING",
+                                    "operator": "EXISTS",
+                                    "value": null,
+                                    "negate": false,
+                                    "caseSensitive": null
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+            let IPRule = {
+                "name": "IP",
+                "rules": [
+                    {
+                        "type": "HOST",
+                        "enabled": true,
+                        "valueFormat": "{Host:IpAddress}",
+                        "propagationTypes": [
+                            "HOST_TO_PROCESS_GROUP_INSTANCE"
+                        ],
+                        "conditions": [
+                            {
+                                "key": {
+                                    "attribute": "HOST_IP_ADDRESS"
+                                },
+                                "comparisonInfo": {
+                                    "type": "IP_ADDRESS",
+                                    "operator": "EXISTS",
+                                    "value": null,
+                                    "negate": false,
+                                    "caseSensitive": null
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+            let settings = {
+                "url": DTenv['URL'] + "/api/config/v1/autoTags",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Api-Token " + DTenv['TOK'],
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify(serviceRule),
+            };
+            $.ajax(settings).done(function (response) {
+                document.getElementById('StarterTagsLogs').style.display = 'block';
+                document.getElementById('StarterTagsTable').innerHTML += '<tr><td>Service:{Detected Name}</td><td>Successful</td></tr>';
+                settings['data'] = JSON.stringify(processRule);
+                $.ajax(settings).done(function (response) {
+                    document.getElementById('StarterTagsTable').innerHTML += '<tr><td>Process:{Detected Name}</td><td>Successful</td></tr>';
+                    settings['data'] = JSON.stringify(hostRule);
+                    $.ajax(settings).done(function (response) {
+                        document.getElementById('StarterTagsTable').innerHTML += '<tr><td>Host:{Detected Name}</td><td>Successful</td></tr>';
+                        settings['data'] = JSON.stringify(databaseRule);
+                        $.ajax(settings).done(function (response) {
+                            document.getElementById('StarterTagsTable').innerHTML += '<tr><td>Database:{Detected Name}</td><td>Successful</td></tr>';
+                            settings['data'] = JSON.stringify(IPRule);
+                            $.ajax(settings).done(function (response) {
+                                document.getElementById('StarterTagsTable').innerHTML += '<tr><td>IP:{HostIP}</td><td>Successful</td></tr>';
+                            });
+                        });
+                    });
+                });
+            });
+        }
+    
+        ///////////////////////////////////
+        //RTagged? Code
+
+        let taggedStorage = "Name,Type,Link\n";
+
+        function mainRTagged(){
+            let DTenv = getEnvironment(document.getElementById('RTaggedEnv').value);
+            isTaggedPagination(DTenv['URL'], "/api/v1/entity/infrastructure/hosts?pageSize=100", DTenv['TOK'], 'Host', 0, '/%23newhosts/hostdetails;id=');
+        }
+
+        function isTaggedPagination(URL, ext, TOK, entType, first, link){
+            $.ajax({
+                url: URL + ext,
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Api-Token " + TOK
+                },
+                complete: function (response, status) {
+                    console.log(this.url);
+                    let fnm = response.getAllResponseHeaders();
+                    console.log(fnm);
+                    //console.log(response.responseJSON);
+                    let i = 0;
+                    let ilength = response.responseJSON.length;
+                    for(i; i < ilength; i++){
+                        //console.log(response.responseJSON[i]['tags']);
+                        if(response.responseJSON[i]['tags'].length == 0){
+                            if(!response.responseJSON[i]['entityId'].includes('MOBILE_APPLICATION')){
+                                console.log(URL + link + response.responseJSON[i]['entityId']);
+                                taggedStorage += response.responseJSON[i]['displayName'] + "," + entType + "," + URL + link + response.responseJSON[i]['entityId'] + "\n";
+                            }
+                            else taggedStorage += response.responseJSON[i]['displayName'] + "," + entType + "," + URL + '/%23mobileappoverview;appId=' + response.responseJSON[i]['entityId'] + "\n";
+                        }
+                    }
+                    if(entType == 'Host') isTaggedPagination(URL, '/api/v1/entity/infrastructure/processes?pageSize=100', TOK, 'Process', 0, '/%23processdetails;id=');
+                    else if(entType == 'Process') isTaggedPagination(URL, '/api/v1/entity/services?pageSize=100', TOK, 'Service', 0, '/%23newservices/serviceOverview;id=');
+                    else if(entType == 'Service') isTaggedPagination(URL, '/api/v1/entity/applications?pageSize=100', TOK, 'RUM App', 0, '/%23uemapplications/uemappmetrics;uemapplicationId=');
+                    else{completeIsTagged()}
+                }
+            });
+        }
+
+        function completeIsTagged(){
+            let csvContentEnt = "data:text/csv;charset=utf-8," + taggedStorage;
+            let encodedUri = encodeURI(csvContentEnt);
+            let link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "UntaggedHosts.csv");
+            document.body.appendChild(link); // Required for FF
+            link.click();
+        }
+    </script>
+</html>

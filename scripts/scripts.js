@@ -2,7 +2,6 @@ var tenantURL = 'https://xps96858.sprint.dynatracelabs.com/api/';
 
 window.onload = function() {
     
-    
     $('.nav__item').hover(
         function(){$(this).addClass('is-current')},
         function(){$(this).removeClass('is-current')}
@@ -37,6 +36,21 @@ window.onload = function() {
                 $(this).toggleClass("descending");
             }
         }
+    });
+
+    // Sidebar click
+    $('.sidebar__item').click(function(){
+        console.log($(this).attr('report-id'), $(this).attr('name'));
+
+        console.log($("div[name='reports-content']").attr('name'));
+
+        $("div[name='report']").removeClass("display").addClass("none");
+        $(`#${$(this).attr('report-id')}`).addClass("display").removeClass("none");
+    });
+
+    // MZ Dropdown click
+    $('.drop-content a').click(function(){
+        
     });
 
 }
@@ -94,3 +108,4 @@ function sortTable(tableID, column){
         }
     }
 }
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="../images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DTAWR - Tools</title>
+</head>
+<body class="white-bg">
+
+    <!-- ------------------------------------------------------------- -->
+    <!-- Navigation Bar -->
+    <!-- Contains links to external pages -->
+    <div class="nav has-no-secondary">
+      <a class="nav__brand" href="https://www.dynatrace.com">
+        <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
+      </a>
+      <div class="nav__buttongroup">
+        <button data-target="#nav-bar-example1" class="nav__btn nav__btn--menutoggle">Menu</button>
+      </div>
+      <nav id="nav-bar-example1" class="nav__bar">
+        <ul class="nav__list nav__list--primary">
+          <li class="nav__item is-current">
+            <a class="nav__link" href="./tools.html">Tools</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="./reports.html">Reports</a>
+          </li>
+        </ul>
+      </nav>
+  </div>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- Breadcrumbs -->
+  <div class="theme--blue">
+      <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="index.html">Home</a>
+        </li>
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__last">Tools</span>
+        </li>
+      </ul>
+    </div>
+
+  <!------------------------------------------------------------------->
+  <!-- Main Body -->
+  <div class="layout is-flex">
+    <!------------------------------------------------------------------->
+    <!-- Side Bar -->
+    <nav class="sidebar hide-sm">
+      <a href="#" name="Tag Duplicator" class="sidebar__item">
+        <span class="sidebar__headline">Tag Duplicator</span>
+        <span class="sidebar__info">Copies tags to other Tenants</span>
+      </a>
+      <a href="#" name="Business Hour KPIs" class="sidebar__item">
+        <span class="sidebar__headline">Business Hour KPIs</span>
+        <span class="sidebar__info">Genereate Business Hour Metrics</span>
+      </a>
+      <a href="#" name="Starter Tags" class="sidebar__item">
+        <span class="sidebar__headline">Starter Tags</span>
+        <span class="sidebar__info">Adds valuable tags to Dynatrace</span>
+      </a>
+
+    </nav>
+
+    <!------------------------------------------------------------------->
+    <!-- Tools Content -->
+    <div class="island island--connected">
+
+      <!-- Tag Duplicator -->
+      <div id="tag-duplicator" class="display">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue icon--big" src='images/duplicate-gray700.svg' style='height: 80px; width: 80px;'></img>    
+          </div>
+          <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Title">
+            <h1>Tag Duplicator</h1>
+          </div>
+          <p>Copies a tag and sends it to the same or a different environment with the same or a different name</p>
+        </div>
+      </div><!-- End of Tag Duplicator -->
+
+      <!-- Business Hour KPIs -->
+      <div id="business-hour-kpis" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue icon--big" src='images/duplicate-gray700.svg' style='height: 80px; width: 80px;'></img>    
+          </div>
+          <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Title">
+            <h1>Tag Duplicator</h1>
+          </div>
+          <p>Copies a tag and sends it to the same or a different environment with the same or a different name</p>
+        </div>
+      </div> <!-- End of Business Hour KPIs -->
+
+      <!-- Starter Tags -->
+      <div id="starter-tags" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue icon--big" src='images/duplicate-gray700.svg' style='height: 80px; width: 80px;'></img>    
+          </div>
+          <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Title">
+            <h1>Tag Duplicator</h1>
+          </div>
+          <p>Copies a tag and sends it to the same or a different environment with the same or a different name</p>
+        </div>
+      </div><!-- End of Starter Tags -->
+    </div><!-- End of Tools Content -->
+  </div><!-- End of Main Body -->
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+  </body>

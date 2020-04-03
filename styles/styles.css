@@ -51,7 +51,7 @@ th:hover {
     display: initial !important;
     content: " ";
     position: absolute;
-    background-image: url(dropdownasc-gray_900.png);
+    background-image: url(images/dropdownasc-gray_900.png);
     background-size: 1em;
     width: 40px;
     height: 5px !important;
@@ -64,7 +64,7 @@ th:hover {
     display: initial !important;
     content: " ";
     position: absolute;
-    background-image: url(dropdowndesc-gray_900.png);
+    background-image: url(images/dropdowndesc-gray_900.png);
     background-size: 1em;
     width: 40px;
     height: 5px !important;
@@ -74,11 +74,11 @@ th:hover {
     top: 50%;
 }
 .dark-bg .ascending:before {
-    background-image: url(dropdownasc-white.png);
+    background-image: url(images/dropdownasc-white.png);
     background-color: transparent;
 }
 .dark-bg .descending:before {
-    background-image: url(dropdowndesc-white.png);
+    background-image: url(images/dropdowndesc-white.png);
     background-color: transparent;
 }
 .subnav__item dl {
@@ -165,6 +165,58 @@ th:hover {
 }
 .switch:checked + .switch__label:after {
     background-color: black !important;
+}
+.display {
+    display: auto;
+}
+.none {
+    display: none;
+}
+.white-bg {
+    background-color: #fff;
+}
+.mz {
+    border: 1px solid #fff;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #fff;
+    font-family: "BerninaSans", "Open Sans", sans-serif;
+    box-sizing: border-box;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.drop-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #004999;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.drop-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.drop-content a:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #4556d7;
+}
+.dropdown:hover .drop-content {
+    display: block;
+}
+.breadcrumbs {
+    overflow: visible !important;
 }
 
 
