@@ -186,6 +186,12 @@ th:hover {
     background-color: transparent;
     cursor: pointer;
     outline: none;
+    width: 100px;
+    
+}
+.overflow-ellipses {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .dropdown {
@@ -221,6 +227,17 @@ th:hover {
 .breadcrumbs__last__parent {
     width: 100vw !important;
 }
+.envButton {
+    text-align:center;
+    width:200px;
+    padding-right:15px;
+}
+.infochip .infochip__icon .icon {
+    height: 80px;
+    width: 80px;
+}
+
+
 
 
 @media screen and (min-width: 700px) {

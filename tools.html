@@ -35,26 +35,23 @@
   <!-- ------------------------------------------------------------- -->
   <!-- Breadcrumbs -->
   <div class="theme--blue">
-      <ul class="breadcrumbs">
-        <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="index.html">Home</a>
-        </li>
-        <li class="breadcrumbs__item breadcrumbs__last__parent">
-          <span class="breadcrumbs__last">Tools</span>
-        </li>
-        <li class="breadcrumbs__item" style="text-align:center;width:200px;padding-right:15px">
-          <div class="dropdown">
-            <button role="button" type="button" class="mz btn-drop" style="width:100px;">PROD</button>
-            <div class="drop-content">
-              <a href="#">PROD</a>
-              <a href="#">TEST</a>
-              <a href="#">DEV</a>
-              <a href="#">Add env..</a>
-            </div>
+    <ul class="breadcrumbs">
+      <li class="breadcrumbs__item">
+        <a class="breadcrumbs__link" href="index.html">Home</a>
+      </li>
+      <li class="breadcrumbs__item breadcrumbs__last__parent">
+        <span class="breadcrumbs__last">Tools</span>
+      </li>
+      <li class="breadcrumbs__item envButton">
+        <div class="dropdown">
+          <button role="button" type="button" class="mz overflow-ellipses"><span id="env-button-text">**None**</span></button>
+          <div class="drop-content">
+            <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 
   <!------------------------------------------------------------------->
   <!-- Main Body -->
@@ -85,16 +82,29 @@
     <!-- Tools Content -->
     <div class="island island--connected">
 
+      <!-- ------------------------------------------------------------------------- -->
       <!-- How To Use -->
       <div name="sidebar-content" id="how-to" class="display">
-        <p>This is a test</p>
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="How To Use">
+                <div>How to use these tools/reports</div>
+            </div>
+            <div>Gives step by step instructions on how to use these tools and reports</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
       </div>
+      <!-- End of How to Use -->
 
       <!-- Tag Duplicator -->
       <div name="sidebar-content" id="tag-duplicator" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/duplicate-gray700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/duplicate-gray700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Tag Duplicator">
@@ -133,7 +143,7 @@
       <div name="sidebar-content" id="business-hour-kpis" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/business-impact-gray700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/business-impact-gray700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Business Hour KPIs">
@@ -237,7 +247,7 @@
       <div name="sidebar-content" id="starter-tags" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Title">
@@ -267,7 +277,52 @@
             </table>
           </div>
         </div>
-      </div><!-- End of Starter Tags -->
+      </div>
+      <!-- End of Starter Tags -->
+
+      <!-- Manage Environments -->
+      <div name="sidebar-content" id="add-env" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon" src='images/services-gray700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Manage Environments">
+                <div class='newH'>Manage Environments</div>
+            </div>
+            <div>Configure the Dynatrace environments that these programs will interact with</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+        <p>Add an environment:</p>
+        <!--Add Environment here and button to delete env-->
+        <table class="table" style="display: none" id='envTableParent'>
+          <thead>
+          <tr>
+            <th>Environment Name</th>
+            <th>URL</th>
+            <th>Token</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody id='envTable'></tbody>
+        </table>
+        <field class='field' style="width: 50%">
+          <label for="i0" class="label">Name:</label>
+          <input type="text" class="inputfield" id="EnvName"/>
+        </field>
+        <field class='field' style="width: 50%">
+          <label for="i0" class="label">Dynatrace Environment URL:</label>
+          <input type="text" class="inputfield" id="EnvURL"/>
+        </field>
+        <field class='field' style="width: 50%">
+          <label for="i0" class="label">API Token:</label>
+          <input type="text" class="inputfield" id="EnvTok"/>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+      </div>
+      <!-- End of Add Environment -->
 
     </div><!-- End of Tools Content -->
   </div><!-- End of Main Body -->
@@ -280,4 +335,5 @@
     <script type="text/javascript" src="Trevor/businessHoursKPIs.js"></script>
     <script type="text/javascript" src="Trevor/tagDuplicator.js"></script>
     <script type="text/javascript" src="Trevor/starterTags.js"></script>
+    <script type="text/javascript" src="Trevor/environments.js"></script>
   </body>

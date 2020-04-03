@@ -1,7 +1,7 @@
 var tenantURL = 'https://xps96858.sprint.dynatracelabs.com/api/';
 
 window.onload = function() {
-    
+
     $('.nav__item').hover(
         function(){$(this).addClass('is-current')},
         function(){$(this).removeClass('is-current')}
@@ -40,17 +40,24 @@ window.onload = function() {
 
     // Sidebar click
     $('.sidebar__item').click(function(){
-        console.log($(this).attr('sidebar-content-id'), $(this).attr('name'));
+        // console.log($(this).attr('sidebar-content-id'), $(this).attr('name'));
 
         $("div[name='sidebar-content']").removeClass("display").addClass("none");
         $(`#${$(this).attr('sidebar-content-id')}`).addClass("display").removeClass("none");
     });
 
-    // MZ Dropdown click
+    // Environment Dropdown click
     $('.drop-content a').click(function(){
-
+        if($(this).attr('name') != "add-env"){
+            alert("Something here")
+        }
     });
 
+}
+
+function navToAddEnv(){
+    $("div[name='sidebar-content']").removeClass("display").addClass("none");
+    $("#add-env").addClass("display").removeClass("none");
 }
 
 function sortTable(tableID, column){

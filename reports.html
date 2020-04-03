@@ -42,14 +42,11 @@
       <li class="breadcrumbs__item breadcrumbs__last__parent">
         <span class="breadcrumbs__last">Reports</span>
       </li>
-      <li class="breadcrumbs__item" style="text-align:center;width:200px;padding-right:15px">
+      <li class="breadcrumbs__item envButton">
         <div class="dropdown">
-          <button role="button" type="button" class="mz btn-drop" style="width:100px;">PROD</button>
+          <button role="button" type="button" class="mz overflow-ellipses"><span id="env-button-text">**None**</span></button>
           <div class="drop-content">
-            <a href="#">PROD</a>
-            <a href="#">TEST</a>
-            <a href="#">DEV</a>
-            <a href="#">Add env..</a>
+            <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
           </div>
         </div>
       </li>
@@ -101,7 +98,7 @@
       <div name="sidebar-content" id="how-to" class="display">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="How To Use">
@@ -110,15 +107,16 @@
             <div>Gives step by step instructions on how to use these tools and reports</div>
           </div>
         </div>
-        <p>This is a test</p>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
       </div>
+      <!-- End of How to Use -->
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Root Cause Analysis+ -->
       <div name="sidebar-content" id="root-cause-analysis" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/davis-gray700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/davis-gray700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Root Cause Analysis">
@@ -188,13 +186,12 @@
       </div><!-- End of Root Cause Analysis+ -->
       <!-- End of Root Cause------------------------------------------------------------ -->
 
-
       <!-- ------------------------------------------------------------------------- -->
       <!-- Problem Trending -->
       <div name="sidebar-content" id="problem-trending" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/chart-legend-meter-gray700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/chart-legend-meter-gray700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Problem Trending">
@@ -240,7 +237,7 @@
       <div name="sidebar-content" id="untagged-entities" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Title">
@@ -265,7 +262,7 @@
       <div name="sidebar-content" id="hosts" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/host-gray_700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/host-gray_700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Hosts">
@@ -283,7 +280,7 @@
       <div name="sidebar-content" id="applications" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/applicationhealth-gray_700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/applicationhealth-gray_700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Applications Report">
@@ -301,7 +298,7 @@
       <div name="sidebar-content" id="users" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/usergroup-gray_700.svg' style='height: 80px; width: 80px;'></img>    
+            <img class="icon icon--blue--big" src='images/usergroup-gray_700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Users Report">
@@ -314,6 +311,49 @@
       </div><!-- End of Users -->
       <!-- End of Users ------------------------------------------------------------ -->
 
+      <!-- Manage Environments -->
+      <div name="sidebar-content" id="add-env" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon" src='images/services-gray700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Manage Environments">
+                <div class='newH'>Manage Environments</div>
+            </div>
+            <div>Configure the Dynatrace environments that these programs will interact with</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+        <p>Add an environment:</p>
+        <!--Add Environment here and button to delete env-->
+        <table class="table" style="display: none" id='envTableParent'>
+          <thead>
+          <tr>
+            <th>Environment Name</th>
+            <th>URL</th>
+            <th>Token</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody id='envTable'></tbody>
+        </table>
+        <field class='field' style="width: 50%">
+          <label for="i0" class="label">Name:</label>
+          <input type="text" class="inputfield" id="EnvName"/>
+        </field>
+        <field class='field' style="width: 50%">
+          <label for="i0" class="label">Dynatrace Environment URL:</label>
+          <input type="text" class="inputfield" id="EnvURL"/>
+        </field>
+        <field class='field' style="width: 50%">
+          <label for="i0" class="label">API Token:</label>
+          <input type="text" class="inputfield" id="EnvTok"/>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+      </div>
+      <!-- End of Add Environment -->
 
 
     </div><!-- End of Tools Content -->
@@ -326,4 +366,5 @@
     <script type="text/javascript" src="scripts/scripts.js"></script>
     <script type="text/javascript" src="Trevor/rootCauseAnalysis.js"></script>
     <script type="text/javascript" src="Trevor/taggedStorage.js"></script>
+    <script type="text/javascript" src="Trevor/environments.js"></script>
   </body>
