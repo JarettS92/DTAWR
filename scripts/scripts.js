@@ -1,7 +1,19 @@
-var tenantURL = 'https://xps96858.sprint.dynatracelabs.com/api/';
-
 window.onload = function() {
+    
+    // If on Mobile, navigating from tools -> reports
+    // or vice versa needs to pass a 'fragment' to allow
+    // the browser to know what tool/report to display
+    if(window.location.toString().search('#') > 0) {
+        let url = window.location.toString();
+        let navLocation = url.slice(url.search('#') + 1);
+        if(navLocation.length > 0){
+            $("div[name='sidebar-content']").removeClass("display").addClass("none");
+            $(`#${navLocation}`).addClass("display").removeClass("none");
+        }
+    }
 
+    // Hover dropdown for environment button
+    // Displays list of configured envs/tokens
     $('.nav__item').hover(
         function(){$(this).addClass('is-current')},
         function(){$(this).removeClass('is-current')}
@@ -39,27 +51,33 @@ window.onload = function() {
     });
 
     // Sidebar click
+    // Clicking on tool/report in sidebar hides all
+    // except for selected tool/report
     $('.sidebar__item').click(function(){
-        // console.log($(this).attr('sidebar-content-id'), $(this).attr('name'));
-
         $("div[name='sidebar-content']").removeClass("display").addClass("none");
         $(`#${$(this).attr('sidebar-content-id')}`).addClass("display").removeClass("none");
     });
 
-    // Environment Dropdown click
-    $('.drop-content a').click(function(){
-        if($(this).attr('name') != "add-env"){
-            alert("Something here")
-        }
+    // Mobile menu Dropdown click
+    // Clicking a tool/report in mobile menu hides all
+    // except for selected tool/report
+    $('.expandable__content .nav__link').click(function(){
+        $("div[name='sidebar-content']").removeClass("display").addClass("none");
+        $(`#${$(this).attr('name')}`).addClass("display").removeClass("none");
+        $('.nav__item.expandable').removeClass('is-active');
+        $('#nav-bar-mobile').removeClass('is-active');
     });
 
 }
 
+// Function to hide all tools/reports and display the 
+// Environment management page
 function navToAddEnv(){
     $("div[name='sidebar-content']").removeClass("display").addClass("none");
     $("#add-env").addClass("display").removeClass("none");
 }
 
+// Sorts tables on the Home Page (Summary page)
 function sortTable(tableID, column){
     var tbody, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     switching = true;

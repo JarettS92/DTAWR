@@ -11,25 +11,83 @@
 <body class="white-bg">
 
     <!-- ------------------------------------------------------------- -->
-    <!-- Navigation Bar -->
-    <!-- Contains links to external pages -->
-    <div class="nav has-no-secondary">
-      <a class="nav__brand" href="https://www.dynatrace.com">
-        <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
-      </a>
-      <div class="nav__buttongroup">
-        <button data-target="#nav-bar-example1" class="nav__btn nav__btn--menutoggle">Menu</button>
-      </div>
-      <nav id="nav-bar-example1" class="nav__bar">
-        <ul class="nav__list nav__list--primary">
-          <li class="nav__item is-current">
-            <a class="nav__link" href="./tools.html">Tools</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="./reports.html">Reports</a>
-          </li>
-        </ul>
-      </nav>
+  <!-- Navigation Bar -->
+  <!-- Contains links to external pages -->
+  <div class="nav has-no-secondary">
+    <a class="nav__brand" href="https://www.dynatrace.com">
+      <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
+    </a>
+    <div class="nav__buttongroup">
+      <button id="nav-bar-button" data-target="#nav-bar" class="nav__btn nav__btn--menutoggle">Menu</button>
+      <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile" class="nav__btn nav__btn--menutoggle">Menu</button>
+    </div>
+    <!-- Desktop Navbar -->
+    <nav id="nav-bar" class="nav__bar">
+      <ul class="nav__list nav__list--primary">
+        <!-- Tools -->
+        <li class="nav__item is-current">
+          <a class="nav__link" href="./tools.html">Tools</a>
+        </li>
+        <!-- Reports -->
+        <li class="nav__item">
+          <a class="nav__link" href="./reports.html">Reports</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Mobile Navbar -->
+    <nav id="nav-bar-mobile" class="nav__bar">
+      <ul class="nav__list nav__list--primary">
+        <!-- Tools -->
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="#">Tools</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="how-to" class="nav__link" href="#">How To Use</a>
+            </li>
+            <li class="nav__item">
+              <a name="tag-duplicator" class="nav__link" href="#">Tag Duplicator</a>
+            </li>
+            <li class="nav__item">
+              <a name="business-hour-kpis" class="nav__link" href="#">Business Hour KPIs</a>
+            </li>
+            <li class="nav__item">
+              <a name="starter-tags" class="nav__link" href="#">Starter Tags</a>
+            </li>
+          </ul>
+        </li>
+        </li>
+        <!-- Reports -->
+        <li class="nav__item expandable expandable--nav is-current">
+          <a class="nav__link expandable__trigger" href="#">Reports</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="how-to" class="nav__link" href="reports.html">How To Use</a>
+            </li>
+            <li class="nav__item">
+              <a name="root-cause-analysis" class="nav__link" href="reports.html#root-cause-analysis">Root Cause Analysis+</a>
+            </li>
+            <li class="nav__item">
+              <a name="problem-trending" class="nav__link" href="reports.html#problem-trending">Problem Trending</a>
+            </li>
+            <li class="nav__item">
+              <a name="untagged-entities" class="nav__link" href="reports.html#untagged-entities">Untagged Entities</a>
+            </li>
+            <li class="nav__item">
+              <a name="hosts" class="nav__link" href="reports.html#hosts">Hosts Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="applications" class="nav__link" href="reports.html#applications">Applications Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="problems" class="nav__link" href="reports.html#problems">Problems Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </div>
 
   <!-- ------------------------------------------------------------- -->
@@ -44,7 +102,7 @@
       </li>
       <li class="breadcrumbs__item envButton">
         <div class="dropdown">
-          <button role="button" type="button" class="mz overflow-ellipses"><span id="env-button-text">**None**</span></button>
+          <button role="button" type="button" class="env-button overflow-ellipses"><span id="env-button-text">**None**</span></button>
           <div class="drop-content">
             <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
           </div>

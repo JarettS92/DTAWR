@@ -18,15 +18,73 @@
       <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
     </a>
     <div class="nav__buttongroup">
-      <button data-target="#nav-bar-example1" class="nav__btn nav__btn--menutoggle">Menu</button>
+      <button id="nav-bar-button" data-target="#nav-bar" class="nav__btn nav__btn--menutoggle">Menu</button>
+      <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile" class="nav__btn nav__btn--menutoggle">Menu</button>
     </div>
-    <nav id="nav-bar-example1" class="nav__bar">
+    <!-- Desktop Navbar -->
+    <nav id="nav-bar" class="nav__bar">
       <ul class="nav__list nav__list--primary">
+        <!-- Tools -->
         <li class="nav__item">
           <a class="nav__link" href="./tools.html">Tools</a>
         </li>
+        <!-- Reports -->
         <li class="nav__item is-current">
           <a class="nav__link" href="./reports.html">Reports</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Mobile Navbar -->
+    <nav id="nav-bar-mobile" class="nav__bar">
+      <ul class="nav__list nav__list--primary">
+        <!-- Tools -->
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="#">Tools</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="how-to" class="nav__link" href="tools.html">How To Use</a>
+            </li>
+            <li class="nav__item">
+              <a name="tag-duplicator" class="nav__link" href="tools.html#tag-duplicator">Tag Duplicator</a>
+            </li>
+            <li class="nav__item">
+              <a name="business-hour-kpis" class="nav__link" href="tools.html#business-hour-kpis">Business Hour KPIs</a>
+            </li>
+            <li class="nav__item">
+              <a name="starter-tags" class="nav__link" href="tools.html#starter-tags">Starter Tags</a>
+            </li>
+          </ul>
+        </li>
+        </li>
+        <!-- Reports -->
+        <li class="nav__item expandable expandable--nav is-current">
+          <a class="nav__link expandable__trigger" href="#">Reports</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="how-to" class="nav__link" href="#">How To Use</a>
+            </li>
+            <li class="nav__item">
+              <a name="root-cause-analysis" class="nav__link" href="#">Root Cause Analysis+</a>
+            </li>
+            <li class="nav__item">
+              <a name="problem-trending" class="nav__link" href="#">Problem Trending</a>
+            </li>
+            <li class="nav__item">
+              <a name="untagged-entities" class="nav__link" href="#">Untagged Entities</a>
+            </li>
+            <li class="nav__item">
+              <a name="hosts" class="nav__link" href="#">Hosts Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="applications" class="nav__link" href="#">Applications Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="problems" class="nav__link" href="#">Problems Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="services" class="nav__link" href="#">Services Report</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
@@ -44,7 +102,7 @@
       </li>
       <li class="breadcrumbs__item envButton">
         <div class="dropdown">
-          <button role="button" type="button" class="mz overflow-ellipses"><span id="env-button-text">**None**</span></button>
+          <button role="button" type="button" class="env-button overflow-ellipses"><span id="env-button-text">**None**</span></button>
           <div class="drop-content">
             <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
           </div>
@@ -272,7 +330,255 @@
           </div>
         </div>
         <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-      </div><!-- End of Hosts -->
+
+        <!-- Rodrigo/Nestor Stuff -->
+        <div class='section'>
+          <div class="column--1-of-4">
+          </div>
+          <div class= "column--1-of-4">
+              <h2 align="center">Hosts Report</h2> 
+              <dl class="definition-list">
+                  <dt>Number of hosts</dt>
+                  <dd>373</dd>
+                  <dt>Host Units Consumed</dt>
+                  <dd>380.25</dd>
+              </dl>
+          </div>
+       
+          
+          
+        
+          <div class="column--1-of-4">
+          </div>
+          
+          
+        </div>
+        <div class='section'>
+            
+            <div class="column--1-of-4">
+                <h2>Top 10 Hosts by Host Units</h2>
+                <div id="chart-1" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div><script type="text/javascript">
+          new Chartkick["ColumnChart"]("chart-1", [["mycargomanager-2-us-central1.c.bc-te-gcp-ibmcloud-prod-tz6c.internal","9.0"],["mycargomanager-1-us-central1.c.bc-te-gcp-ibmcloud-prod-tz6c.internal","9.0"],["prlsoabwad02.lanchile.cl","8.0"],["prlsoabwad08.lanchile.cl","5.0"],["prlsoabwad07.lanchile.cl","5.0"],["prlsoabwad06.lanchile.cl","5.0"],["prlsoabwad05.lanchile.cl","5.0"],["prlsoabwad04.lanchile.cl","5.0"],["prlsoabwad03.lanchile.cl","5.0"],["prlsoabwad01.lanchile.cl","5.0"]], {"legend":false});
+        </script>
+        
+            </div>
+            <div class="column--1-of-4">
+                <h2>Hosts by Agent Version </h2>
+                <div id="chart-2" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div><script type="text/javascript">
+          new Chartkick["BarChart"]("chart-2", [["N/A",299],["1.175.240",28],["1.173.358",25],["1.183.163",7],["1.179.187",6],["1.175.224",3],["1.181.154",3],["1.187.155",2]], {"legend":false});
+        </script>
+        
+            </div>
+            <div class="column--1-of-4">
+                <h2>Host Unit consumption</h2>
+                <div class="progresscircle" data-progress="194.00510204081633" align="center" >
+                    <svg viewBox="0 0 512 512" width="350px" height="350px">
+                        <path class="progresscircle__background" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z" />
+                        <path class="progresscircle__progress" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z" />
+                        <h6>Host Units consumed  194.0%</h6>
+                    </svg>
+                    </div>    
+            </div>
+            
+        </div>
+        <div class='section'>
+            <table class="table table--responsive">
+                <tr>
+                    <th> Detected Name</th>
+                    <th> IP Address</th>
+                    <th> Agent Version</th>
+                    <th> Host Units</th>
+                    <th> Monitoring Mode</th>
+                    <th> Management Zone</th>
+                </tr>
+                <tr>
+                  <td>2KINTRACORP01.cl.lan.com</td>
+                  <td>[&#39;57.228.128.130&#39;]</td>
+                  <td>1.175.240</td>
+                  <td>0.5</td>
+                  <td>FULL_STACK</td>
+                  <td>CCOM, Mission Critical</td>
+                </tr>
+                <tr>
+                  <td>W8KPRVTRG01.cl.lan.com</td>
+                  <td>[&#39;57.228.131.119&#39;]</td>
+                  <td>1.175.240</td>
+                  <td>0.5</td>
+                  <td>FULL_STACK</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>W8KPRVTRG02.cl.lan.com</td>
+                  <td>[&#39;57.228.131.120&#39;]</td>
+                  <td>1.175.240</td>
+                  <td>0.5</td>
+                  <td>FULL_STACK</td>
+                  <td>Business Critical, Carga</td>
+                </tr>
+                <tr>
+                  <td>aduanapy-0-us-central1.c.bc-te-gcp-ibmcloud-prod-tz6c.internal</td>
+                  <td>[&#39;10.65.137.206&#39;, &#39;34.67.240.229&#39;]</td>
+                  <td>1.179.187</td>
+                  <td>1.0</td>
+                  <td>FULL_STACK</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-2gb2r</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.79.67.10&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-9qlrj</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;10.79.72.2&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-dxtx4</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.79.66.3&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-fhpgc</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.79.69.3&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-fp8px</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.79.67.5&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-gbw59</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;, &#39;10.79.66.12&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-jfbbq</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.79.68.6&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-q924b</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.79.74.6&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-z8fq5</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;10.79.64.3&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-zb9nm</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;, &#39;10.79.73.12&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-66667f6df5-zm2sj</td>
+                  <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;10.79.71.2&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-6d75596659-457cn</td>
+                  <td>[&#39;34.73.127.169&#39;, &#39;10.72.128.24&#39;, &#39;10.72.128.46&#39;, &#39;10.72.128.47&#39;, &#39;10.79.133.8&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-6d75596659-66j5p</td>
+                  <td>[&#39;34.73.127.169&#39;, &#39;10.72.128.24&#39;, &#39;10.72.128.46&#39;, &#39;10.72.128.47&#39;, &#39;10.79.135.4&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-6d75596659-dh5dg</td>
+                  <td>[&#39;34.73.127.169&#39;, &#39;10.79.135.16&#39;, &#39;10.72.128.24&#39;, &#39;10.72.128.46&#39;, &#39;10.72.128.47&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-6d75596659-f2t7s</td>
+                  <td>[&#39;34.73.127.169&#39;, &#39;10.72.128.24&#39;, &#39;10.79.129.3&#39;, &#39;10.72.128.46&#39;, &#39;10.72.128.47&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-6d75596659-jzhz2</td>
+                  <td>[&#39;34.73.127.169&#39;, &#39;10.72.128.24&#39;, &#39;10.72.128.46&#39;, &#39;10.79.133.10&#39;, &#39;10.72.128.47&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-6d75596659-mds8l</td>
+                  <td>[&#39;34.73.127.169&#39;, &#39;10.72.128.24&#39;, &#39;10.72.128.46&#39;, &#39;10.72.128.47&#39;, &#39;10.79.135.2&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-6d75596659-ng7fn</td>
+                  <td>[&#39;34.73.127.169&#39;, &#39;10.72.128.24&#39;, &#39;10.72.128.46&#39;, &#39;10.72.128.47&#39;, &#39;10.79.132.3&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>cdp-bl-6d75596659-qv9qg</td>
+                  <td>[&#39;34.73.127.169&#39;, &#39;10.79.129.8&#39;, &#39;10.72.128.24&#39;, &#39;10.72.128.46&#39;, &#39;10.72.128.47&#39;]</td>
+                  <td>N/A</td>
+                  <td>0.5</td>
+                  <td>KUBERNETES</td>
+                  <td></td>
+                </tr>
+            </table>
+            
+        </div>
+        </div><!-- End of Hosts -->
       <!-- End of Hosts ------------------------------------------------------------ -->
 
       <!-- ------------------------------------------------------------------------- -->

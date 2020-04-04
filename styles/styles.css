@@ -175,7 +175,7 @@ th:hover {
 .white-bg {
     background-color: #fff;
 }
-.mz {
+.env-button {
     border: 1px solid #fff;
     border-radius: 3px;
     text-decoration: none;
@@ -187,7 +187,6 @@ th:hover {
     cursor: pointer;
     outline: none;
     width: 100px;
-    
 }
 .overflow-ellipses {
     overflow: hidden;
@@ -240,23 +239,39 @@ th:hover {
 
 
 
-@media screen and (min-width: 700px) {
-    .desktop {
-        display: none !important;
-    }
-}
+/* Desktop */
 @media screen and (max-width: 700px) {
     .mobile {
         display: none !important;
     }
 }
+/* Desktop */
 @media screen and (max-width: 900px) {
     .landscape {
         display: none !important;
     }
 }
+/* Desktop */
+@media screen and (max-width: 980px) {
+    #nav-bar-button, #nav-bar {
+        display: none !important;
+    }
+}
+/* Mobile */
+@media screen and (min-width: 700px) {
+    .desktop {
+        display: none !important;
+    }
+}
+/* Mobile */
 @media screen and (min-width: 900px) {
     .no-landscape {
+        display: none !important;
+    }
+}
+/* Mobile */
+@media screen and (min-width: 980px) {
+    #nav-bar-button-mobile, #nav-bar-mobile {
         display: none !important;
     }
 }
