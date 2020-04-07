@@ -134,7 +134,10 @@
         <span class="sidebar__headline">Starter Tags</span>
         <span class="sidebar__info">Adds valuable tags to Dynatrace</span>
       </a>
-
+      <a href="#" sidebar-content-id="dashboard-mover" name="Dashboard Mover" class="sidebar__item">
+        <span class="sidebar__headline">Dashboard Mover</span>
+        <span class="sidebar__info">Copies Dashboards across tenants</span>
+      </a>
     </nav>
 
     <!------------------------------------------------------------------->
@@ -143,7 +146,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- How To Use -->
-      <div name="sidebar-content" id="how-to" class="display">
+      <div name="sidebar-content" id="how-to" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
@@ -314,7 +317,7 @@
             <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>    
           </div>
           <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Title">
+            <div class="infochip__desc__title" title="Starter Tags">
                 <div class='newH'>StarterTags</div>
             </div>
             <div>Adds valuable tags to Dynatrace</div>
@@ -344,6 +347,58 @@
       </div>
       <!-- End of Starter Tags -->
 
+      <!-- Dashboard Mover -->
+      <div name="sidebar-content" id="dashboard-mover" class="display">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/resourcerequest-gray_700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Dashboard Mover">
+              <div class='newH'>Dashboard Mover</div>
+            </div>
+            <div>Copies Dashboards from one tenant to another</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p>Choose tenants to copy dashboards from/to</p>
+        <div class="section">
+          <div class="column--1-of-2">
+            <label for="tenant0" class="label">Tenant 1</label>
+            <input type="text" class="inputfield" id="tenant0"/>
+            <div class="section">
+              <button id="tenantBtn0" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
+            </div>
+            <div class="section">
+              <table id="t0Table" class="table">
+                <thead>
+                  <th>Dashboard Name</th>
+                  <th>Owner</th>
+                  <th>Copy to Tenant 2?</th>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <div class="column--1-of-2">
+            <label for="tenant1" class="label">Tenant 2</label>
+            <input type="text" class="inputfield" id="tenant1"/>
+            <div class="section">
+              <button id="tenantBtn1" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
+            </div>
+            <div class="section">
+              <table id="t1Table" class="table">
+                <thead>
+                  <th>Dashboard Name</th>
+                  <th>Owner</th>
+                  <th>Copy to Tenant 1?</th> 
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Dashboard Mover -->
+      
       <!-- Manage Environments -->
       <div name="sidebar-content" id="add-env" class="none">
         <div class="infochip">
