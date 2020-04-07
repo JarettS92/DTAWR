@@ -68,6 +68,16 @@ window.onload = function() {
         $('#nav-bar-mobile').removeClass('is-active');
     });
 
+    // Buttongroup click
+    // Clicking a button hides all tables except
+    // the selected table
+    $('.buttongroup a').click(function(){
+        $('.buttongroup a').removeClass('is-active');
+        $(this).addClass('is-active');
+        $('table').addClass('none');
+        $(`#${$(this).attr("name")}`).removeClass("none");
+    })
+
 }
 
 // Function to hide all tools/reports and display the 
