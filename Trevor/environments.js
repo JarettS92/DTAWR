@@ -9,6 +9,7 @@ function saveLocalStorage(){
 
 //Uses storage to populate env json and env table on Home tab
 function loadLocalStorage(){
+    console.log("HELLO THERE");
     try{
         let t = localStorage.getItem('envData');
         if(t != null){

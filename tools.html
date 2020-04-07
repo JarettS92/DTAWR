@@ -102,8 +102,9 @@
       </li>
       <li class="breadcrumbs__item envButton">
         <div class="dropdown">
-          <button role="button" type="button" class="env-button overflow-ellipses"><span id="env-button-text">**None**</span></button>
+          <button role="button" type="button" class="env-button overflow-ellipses"><span id="env-button-text">PROD</span></button>
           <div class="drop-content">
+            <a name="prod" href="#">PROD</a>
             <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
           </div>
         </div>
@@ -155,6 +156,11 @@
           </div>
         </div>
         <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p>This section is to tell the user how to go about using the Reports functions</p>
+        <p>1. Make sure you configure your Tenants first! (top right corner)</p>
+        <p>2. Navigate to the report you want to run</p>
+        <p>3. Fill in any required data (dates, tags)</p>
+        <p>4. Run the report **Some may download a .csv file on completion**</p>
       </div>
       <!-- End of How to Use -->
 

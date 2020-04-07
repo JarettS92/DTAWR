@@ -51,7 +51,7 @@ th:hover {
     display: initial !important;
     content: " ";
     position: absolute;
-    background-image: url(images/dropdownasc-gray_900.png);
+    background-image: url(../images/dropdownasc-gray_900.png);
     background-size: 1em;
     width: 40px;
     height: 5px !important;
@@ -64,7 +64,7 @@ th:hover {
     display: initial !important;
     content: " ";
     position: absolute;
-    background-image: url(images/dropdowndesc-gray_900.png);
+    background-image: url(../images/dropdowndesc-gray_900.png);
     background-size: 1em;
     width: 40px;
     height: 5px !important;
@@ -74,11 +74,11 @@ th:hover {
     top: 50%;
 }
 .dark-bg .ascending:before {
-    background-image: url(images/dropdownasc-white.png);
+    background-image: url(../images/dropdownasc-white.png);
     background-color: transparent;
 }
 .dark-bg .descending:before {
-    background-image: url(images/dropdowndesc-white.png);
+    background-image: url(../images/dropdowndesc-white.png);
     background-color: transparent;
 }
 .subnav__item dl {
@@ -235,8 +235,27 @@ th:hover {
     height: 80px;
     width: 80px;
 }
-
-
+.content dl dt{
+    padding-left: 5px;
+}
+.content dl dd {
+    padding-right: 5px;
+}
+.rodrigo h4 {
+    margin-top: 0 !important;
+}
+.rodrigo h3 {
+    margin-top: 0.8rem;
+}
+.rodrigo h2 {
+    margin-top: 0.8rem;
+}
+.rodrigo .inputfield {
+    margin-bottom: 0.8rem;
+}
+.pagination {
+    margin-top: 0.8rem;
+}
 
 
 /* Desktop */
