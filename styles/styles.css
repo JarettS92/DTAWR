@@ -296,3 +296,62 @@ th:hover {
         display: none !important;
     }
 }
+
+
+/* BizOps Configurator */
+ul.ids li {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+span.id-1 {
+    border: 2px #1495FF solid;
+    background: #A1D5FF;
+    color: black;
+}
+span.id-2 {
+    border: 2px #8A36D0 solid;
+    background: #D0AFEC;
+    color: black;
+}
+span.id-3 {
+    border: 2px #5350B6 solid;
+    background: #BAB9E2;
+    color: black;
+}
+span.id-4 {
+    border: 2px #6140A3 solid;
+    background: #BEAEDF;
+    color: black;
+}
+span.id-5 {
+    border: 2px #73BE28 solid;
+    background: #C7ECA2;
+    color: black;
+}
+div#overviewImages img {
+    max-width: 50%;
+    height: auto;
+}
+#overviewpage h3 {
+    color: #00b9cc;
+}
+img.structure {
+    border: 1px solid #8A36D0;
+    border-radius: 30px;
+}
+a.newTab, a.newTab:visited {
+    color: #00b9cc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.newTab:hover {
+    text-decoration: underline;
+}
+
+a.newTab img {
+    width: 1em;
+    height: 1em;
+    color: #00b9cc;
+}
