@@ -32,6 +32,10 @@
         <li class="nav__item">
           <a class="nav__link" href="./reports.html">Reports</a>
         </li>
+        <!-- Dashboards -->
+        <li class="nav__item is-current">
+          <a class="nav__link" href="./dashboards.html">Dashboards</a>
+        </li>
       </ul>
     </nav>
     <!-- Mobile Navbar -->
@@ -42,7 +46,7 @@
           <a class="nav__link expandable__trigger" href="#">Tools</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="how-to" class="nav__link" href="#">How To Use</a>
+              <a name="overview" class="nav__link" href="#">Overview</a>
             </li>
             <li class="nav__item">
               <a name="tag-duplicator" class="nav__link" href="#">Tag Duplicator</a>
@@ -66,7 +70,7 @@
           <a class="nav__link expandable__trigger" href="#">Reports</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="how-to" class="nav__link" href="reports.html">How To Use</a>
+              <a name="overview" class="nav__link" href="reports.html">Overview</a>
             </li>
             <li class="nav__item">
               <a name="root-cause-analysis" class="nav__link" href="reports.html#root-cause-analysis">Root Cause Analysis+</a>
@@ -88,6 +92,15 @@
             </li>
             <li class="nav__item">
               <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
+            </li>
+          </ul>
+        </li>
+        <!-- Dashboards -->
+        <li class="nav__item expandable expandable--nav is-current">
+          <a class="nav__link expandable__trigger" href="#">Dashboards</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="dashboards.html">Overview</a>
             </li>
           </ul>
         </li>
@@ -123,8 +136,8 @@
     <!------------------------------------------------------------------->
     <!-- Side Bar -->
     <nav class="sidebar hide-sm">
-      <a href="#" sidebar-content-id="how-to" name="How To Use" class="sidebar__item">
-        <span class="sidebar__headline">How To Use</span>
+      <a href="#" sidebar-content-id="overview" name="Overview" class="sidebar__item">
+        <span class="sidebar__headline">Overview</span>
         <span class="sidebar__info">Step by Step instructions</span>
       </a>
       <a href="#" sidebar-content-id="tag-duplicator" name="Tag Duplicator" class="sidebar__item">
@@ -154,15 +167,15 @@
     <div class="island island--connected">
 
       <!-- ------------------------------------------------------------------------- -->
-      <!-- How To Use -->
-      <div name="sidebar-content" id="how-to" class="none">
+      <!-- Overview -->
+      <div name="sidebar-content" id="overview" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
           </div>
           <div class="infochip__desc">
-            <div class="infochip__desc__title" title="How To Use">
-                <div>How to use these tools/reports</div>
+            <div class="infochip__desc__title" title="Overview">
+                <div>Overview</div>
             </div>
             <div>Gives step by step instructions on how to use these tools and reports</div>
           </div>
@@ -174,7 +187,7 @@
         <p>3. Fill in any required data (dates, tags)</p>
         <p>4. Run the report **Some may download a .csv file on completion**</p>
       </div>
-      <!-- End of How to Use -->
+      <!-- End of Overview -->
 
       <!-- Tag Duplicator -->
       <div name="sidebar-content" id="tag-duplicator" class="none">

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chartkick/2.3.0/chartkick.min.js"></script>
+  <title>DTAWR - Dashboards</title>
+</head>
+<body class="white-bg">
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- Navigation Bar -->
+  <!-- Contains links to external pages -->
+  <div class="nav has-no-secondary">
+    <a class="nav__brand" href="https://www.dynatrace.com">
+      <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
+    </a>
+    <div class="nav__buttongroup">
+      <button id="nav-bar-button" data-target="#nav-bar" class="nav__btn nav__btn--menutoggle">Menu</button>
+      <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile" class="nav__btn nav__btn--menutoggle">Menu</button>
+    </div>
+    <!-- Desktop Navbar -->
+    <nav id="nav-bar" class="nav__bar">
+      <ul class="nav__list nav__list--primary">
+        <!-- Tools -->
+        <li class="nav__item">
+          <a class="nav__link" href="./tools.html">Tools</a>
+        </li>
+        <!-- Reports -->
+        <li class="nav__item is-current">
+          <a class="nav__link" href="./reports.html">Reports</a>
+        </li>
+        <!-- Dashboards -->
+        <li class="nav__item is-current">
+          <a class="nav__link" href="./dashboards.html">Dashboards</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Mobile Navbar -->
+    <nav id="nav-bar-mobile" class="nav__bar">
+      <ul class="nav__list nav__list--primary">
+        <!-- Tools -->
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="#">Tools</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="tools.html">Overview</a>
+            </li>
+            <li class="nav__item">
+              <a name="tag-duplicator" class="nav__link" href="tools.html#tag-duplicator">Tag Duplicator</a>
+            </li>
+            <li class="nav__item">
+              <a name="business-hour-kpis" class="nav__link" href="tools.html#business-hour-kpis">Business Hour KPIs</a>
+            </li>
+            <li class="nav__item">
+              <a name="starter-tags" class="nav__link" href="tools.html#starter-tags">Starter Tags</a>
+            </li>
+            <li class="nav__item">
+              <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
+            </li>
+            <li class="nav__item">
+              <a name="audit-users" class="nav__link" href="tools.html#audit-users">Audit Users</a>
+            </li>
+          </ul>
+        </li>
+        </li>
+        <!-- Reports -->
+        <li class="nav__item expandable expandable--nav is-current">
+          <a class="nav__link expandable__trigger" href="#">Reports</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="reports.html">Overview</a>
+            </li>
+            <li class="nav__item">
+              <a name="root-cause-analysis" class="nav__link" href="reports.html#root-cause-analysis">Root Cause Analysis+</a>
+            </li>
+            <li class="nav__item">
+              <a name="problem-trending" class="nav__link" href="reports.html#problem-trending">Problem Trending</a>
+            </li>
+            <li class="nav__item">
+              <a name="untagged-entities" class="nav__link" href="reports.html#untagged-entities">Untagged Entities</a>
+            </li>
+            <li class="nav__item">
+              <a name="hosts" class="nav__link" href="reports.html#hosts">Hosts Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="applications" class="nav__link" href="reports.html#applications">Applications Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="problems" class="nav__link" href="reports.html#problems">Problems Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
+            </li>
+          </ul>
+        </li>
+        <!-- Dashboards -->
+        <li class="nav__item expandable expandable--nav is-current">
+          <a class="nav__link expandable__trigger" href="#">Dashboards</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="#">Overview</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- Breadcrumbs -->
+  <div class="theme--blue">
+    <ul class="breadcrumbs">
+      <li class="breadcrumbs__item">
+        <a class="breadcrumbs__link" href="index.html">Home</a>
+      </li>
+      <li class="breadcrumbs__item breadcrumbs__last__parent">
+        <span class="breadcrumbs__last">Dashboards</span>
+      </li>
+      <li class="breadcrumbs__item envButton">
+        <div class="dropdown">
+          <button role="button" type="button" class="env-button overflow-ellipses"><span id="env-button-text">PROD</span></button>
+          <div class="drop-content">
+            <a name="prod" href="#">PROD</a>
+            <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!------------------------------------------------------------------->
+  <!-- Main Body -->
+  <div class="layout is-flex">
+    <!------------------------------------------------------------------->
+    <!-- Side Bar -->
+    <nav class="sidebar hide-sm">
+      <a href="#" sidebar-content-id="overview" name="Overview" class="sidebar__item">
+        <span class="sidebar__headline">Overview</span>
+        <span class="sidebar__info">Step by Step instructions</span>
+      </a>
+    </nav>
+
+    <!------------------------------------------------------------------->
+    <!-- Dashboards Content -->
+    <div name="reports-content" class="island island--connected">
+      <!-- ------------------------------------------------------------------------- -->
+      <!-- Overview -->
+      <div name="sidebar-content" id="overview" class="display">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Overview">
+                <div>Overview</div>
+            </div>
+            <div>Gives step by step instructions on how to use these tools and reports</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <br>
+        <p>This section is to tell the user how to go about downloading and using Dashboards</p>
+        <p>1. Make sure you configure your Tenants first! (top right corner)</p>
+        <p>2. Navigate to the report you want to run</p>
+        <p>3. Fill in any required data (dates, tags)</p>
+        <p>4. Run the report **Some may download a .csv file on completion**</p>
+      </div>
+      <!-- End of Overview -->
+    </div><!-- End of Reports Content -->
+  </div><!-- End of Main Body -->
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="Trevor/environments.js"></script>
+  </body>
