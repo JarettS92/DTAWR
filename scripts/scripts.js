@@ -54,8 +54,17 @@ window.onload = function() {
     // Clicking on tool/report in sidebar hides all
     // except for selected tool/report
     $('.sidebar__item').click(function(){
+        if(!$(this).attr('sidebar-content-id').includes("bizops")){
+            $("div[name='sidebar-content']").removeClass("display").addClass("none");
+            $(`#${$(this).attr('sidebar-content-id')}`).addClass("display").removeClass("none");
+        }
+    });
+    $('.expandable__content .sidebar__item').click(function(){
         $("div[name='sidebar-content']").removeClass("display").addClass("none");
+        $(".bizops-content").removeClass("display").addClass("none");
         $(`#${$(this).attr('sidebar-content-id')}`).addClass("display").removeClass("none");
+        $('#bizops-configurator').addClass("display").removeClass("none");
+        // $('')
     });
 
     // Mobile menu Dropdown click

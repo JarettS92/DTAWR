@@ -235,6 +235,9 @@ th:hover {
     height: 80px;
     width: 80px;
 }
+.infochip {
+    margin-bottom:20px;
+}
 .content dl dt{
     padding-left: 5px;
 }
@@ -333,7 +336,7 @@ div#overviewImages img {
     max-width: 50%;
     height: auto;
 }
-#overviewpage h3 {
+#bizops-overview h3 {
     color: #00b9cc;
 }
 img.structure {

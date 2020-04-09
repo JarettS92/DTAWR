@@ -106,7 +106,10 @@
               <a name="overview" class="nav__link" href="#">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="#">BizOps Configurator</a>
+              <a name="bizops-configurator" class="nav__link" href="#">BizOps Configurator</a>
+            </li>
+            <li class="nav__item">
+              <a name="browse-dashboards" class="nav__link" href="#">Browse Dashboards</a>
             </li>
           </ul>
         </li>
@@ -155,20 +158,27 @@
           <span class="sidebar__info">Utilize Community Dashboards</span>
         </a>
         <div class="expandable__content">
-          <a href="#" class="sidebar__item is-current">
+          <a href="#" sidebar-content-id="bizops-overview" name="BizOps Overview" class="sidebar__item">
             <span class="sidebar__headline">Overview</span>
           </a>
-          <a href="#" class="sidebar__item">
+          <a href="#" sidebar-content-id="bizops-prerequisites" name="BizOps Prerequisites" class="sidebar__item">
             <span class="sidebar__headline">Prerequisites</span>
           </a>
-          <a href="#" class="sidebar__item">
+          <a href="#" sidebar-content-id="bizops-faq" name="BizOps FAQ" class="sidebar__item">
             <span class="sidebar__headline">FAQ</span>
           </a>
-          <a href="#" class="sidebar__item">
+          <a href="#" sidebar-content-id="bizops-begin" name="BizOps Begin!" class="sidebar__item">
             <span class="sidebar__headline">Begin!</span>
           </a>
         </div>
       </div><!-- End of BizOps Configurator-->
+
+      <!-- Browse Dashboards -->
+      <a href="#" sidebar-content-id="browse-dashboards" name="Browse Dashboards" class="sidebar__item">
+        <span class="sidebar__headline">Browse Dashboards</span>
+        <span class="sidebar__info">View community created Dashboards</span>
+      </a><!-- End of Browse Dashboards -->
+      <!-- End of Browse Dashboards -->
     </nav>
 
     <!------------------------------------------------------------------->
@@ -212,7 +222,8 @@
           </div>
         </div>
         <!-- BizOps Configurator - Built by John Kelly and Lucas Hocker -->
-        <div id="overviewpage">
+        <!-- BizOps Overview -->
+        <div id="bizops-overview" class="bizops-content">
           <h3>Why?</h3>
           <p>There's amazing insights that be unlocked just by using stock Dynatrace dashboard tiles. Building dashboards is pretty easy: just drag and drop, populate a few USQL queries, and poof business relevant insights. How can we make it even faster? Share a currated list of dashboards used across our customer base and customize queries with a few clicks and drags. All using the power of the Dynatrace API that's already available.</p>
           
@@ -261,7 +272,57 @@
           <h3>Support</h3>
           <p><b><i>THIS IS NOT PART OF THE DYNATRACE PRODUCT.</i></b> This was meant to be a demonstration app, but might have some actual utility. It is, however, provided without any representations, warranties, or formal support whatsoever. If you post on <a class="newTab" href="https://answers.dynatrace.com" target="_blank">our forum<img src="../images/link.svg"></a> we will try to answer questions you may have.</p>
         </div>
-        <!-- End of BizOps Configurator -->
+
+        <!-- BizOps Prerequisites -->
+        <div id="bizops-prerequisites" class="none bizops-content">
+          <ol class="prereqs">
+            <li>API Token w/ ReadConfig, WriteConfig, User Sessions (DTAQLAccess), and DataExport<br>
+              <a href="https://www.dynatrace.com/support/help/shortlink/token" target="_blank">
+                <img class="screenshot" src="images/Token.png">
+              </a>
+            </li>
+            <li>One or more Web Applications configured<br>
+              <a href="https://www.dynatrace.com/support/help/shortlink/my-web-application" target="_blank">
+                <img class="screenshot" src="images/Apps.png">
+              </a>
+            </li>
+            <li>One or more Business KPIs configured as User Session Properties<br>
+              <a href="https://www.dynatrace.com/support/help/shortlink/user-session-properties" target="_blank">
+                <img class="screenshot" src="images/USPs.png">
+              </a>
+            </li>
+            <li>Two or more Key User Actions (or conversion goals) to define your Funnel or User Journey<br>
+              <a href="https://www.dynatrace.com/support/help/shortlink/user-actions#mark-a-user-action-as-a-key-user-action" target="_blank">
+                <img class="screenshot" src="images/KeyActions.png">
+              </a>
+              <br>or<br>
+              <a href="https://www.dynatrace.com/support/help/shortlink/conversion-goals" target="_blank">
+                <img class="screenshot" src="images/Goals.png">
+              </a>
+            </li>
+            </ol>
+        </div>
+        <!-- End of BizOps Prerequisites -->
+      </div><!-- End of BizOps Configurator-->
+
+      <!-- Browse Dashboards -->
+      <div name="sidebar-content" id="browse-dashboards" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/file-library-gray_700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Browse Dashboards">
+                <div>Browse Dashboards</div>
+            </div>
+            <div>Here is where you can browse community created dashboards</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <br>
+        <p>Browse all the community created dashboards</p>
+      </div>
+      <!-- End of Browse Dashboards -->
 
     </div><!-- End of Dashboards Content -->
   </div><!-- End of Main Body -->
