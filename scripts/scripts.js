@@ -9,15 +9,22 @@ window.onload = function() {
         if(navLocation.length > 0){
             $("div[name='sidebar-content']").removeClass("display").addClass("none");
             $(`#${navLocation}`).addClass("display").removeClass("none");
+            $(".sidebar__item").removeClass("is-current");
+            if(navLocation == 'bizops-configurator'){
+                $(`a[sidebar-content-id='${navLocation}`).parent().addClass('is-active');
+                $(`a[sidebar-content-id='bizops-overview`).addClass("is-current");
+            } else {
+                $(`a[sidebar-content-id='${navLocation}']`).addClass("is-current"); 
+            }
         }
     }
 
     // Hover dropdown for environment button
     // Displays list of configured envs/tokens
-    $('.nav__item').hover(
-        function(){$(this).addClass('is-current')},
-        function(){$(this).removeClass('is-current')}
-    );
+    // $('.nav__item').hover(
+    //     function(){$(this).addClass('is-current')},
+    //     function(){$(this).removeClass('is-current')}
+    // );
 
     // Darkmode toggle
     // This will add dark mode classes to certain elements
@@ -57,14 +64,19 @@ window.onload = function() {
         if(!$(this).attr('sidebar-content-id').includes("bizops")){
             $("div[name='sidebar-content']").removeClass("display").addClass("none");
             $(`#${$(this).attr('sidebar-content-id')}`).addClass("display").removeClass("none");
+            $(".sidebar__item").removeClass("is-current");
+            $(this).addClass("is-current");
         }
     });
+    // BizOps Configurator click
+    // Clicking on bizops sidebar item is a drop down
     $('.expandable__content .sidebar__item').click(function(){
         $("div[name='sidebar-content']").removeClass("display").addClass("none");
         $(".bizops-content").removeClass("display").addClass("none");
         $(`#${$(this).attr('sidebar-content-id')}`).addClass("display").removeClass("none");
         $('#bizops-configurator').addClass("display").removeClass("none");
-        // $('')
+        $('.sidebar__item').removeClass("is-current");
+        $(this).addClass("is-current");
     });
 
     // Mobile menu Dropdown click
@@ -75,6 +87,8 @@ window.onload = function() {
         $(`#${$(this).attr('name')}`).addClass("display").removeClass("none");
         $('.nav__item.expandable').removeClass('is-active');
         $('#nav-bar-mobile').removeClass('is-active');
+        $(".sidebar__item").removeClass("is-current");
+        $(`a[sidebar-content-id='${$(this).attr('name')}']`).addClass("is-current");
     });
 
     // Buttongroup click
