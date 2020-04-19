@@ -403,7 +403,9 @@
             <dt>Number of hosts</dt>
             <dd>50</dd>
             <dt>Host Units Consumed</dt>
-            <dd>100</dd>
+            <dd>80</dd>
+            <dt>Host Units Remaining</dt>
+            <dd>20</dd>
           </dl>
         </div>
 
@@ -411,31 +413,37 @@
         <!-- Hosts by Units Column Chart -->
         <div class="rodrigo">
           <h2>Top 10 Hosts by Host Units</h2>
-          <div id="chart-1" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><canvas style="display: block; height: 500px; width: 586px;" width="732" height="625" class="chartjs-render-monitor"></canvas></div>
+          <div id="chart-1" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
           <script type="text/javascript">
-            new Chartkick["ColumnChart"]("chart-1", [["mycargomanager-2-us-central1.c.bc-te-gcp-ibmcloud-prod-tz6c.internal","9.0"],["mycargomanager-1-us-central1.c.bc-te-gcp-ibmcloud-prod-tz6c.internal","9.0"],["prlsoabwad02.lanchile.cl","8.0"],["prlsoabwad06.lanchile.cl","5.0"],["prlsoabwad05.lanchile.cl","5.0"],["prlsoabwad04.lanchile.cl","5.0"],["prlsoabwad03.lanchile.cl","5.0"],["prlsoabwad01.lanchile.cl","5.0"],["lprpmroap03.cl.lan.com","4.0"],["lprpmroap02.cl.lan.com","4.0"]], {"legend":false});
+            new Chartkick.ColumnChart("chart-1", [["mycargomanager-2","9.0"],["mycargomanager-1","9.0"],["prlsoabwad02","8.0"],["prlsoabwad06","5.0"],["prlsoabwad05","5.0"],["prlsoabwad04","5.0"],["prlsoabwad03","5.0"],["prlsoabwad01","5.0"],["lprpmroap03","4.0"],["lprpmroap02","4.0"]], {"legend":false, "label": "Host Units"});
           </script>
         </div>
       
         <!-- Hosts by Agent Version Column Chart -->
         <div class="rodrigo">
           <h2>Hosts by Agent Version </h2>
-          <div id="chart-2" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+          <div id="chart-2" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
           <script type="text/javascript">
-            new Chartkick["ColumnChart"]("chart-2", [["N/A",299],["1.175.240",28],["1.173.358",25],["1.183.163",7],["1.179.187",6],["1.175.224",3],["1.181.154",3],["1.187.155",2]], {"legend":false});
+            new Chartkick.ColumnChart("chart-2", [["N/A",299],["1.175.240",28],["1.173.358",25],["1.183.163",7],["1.179.187",6],["1.175.224",3],["1.181.154",3],["1.187.155",2]], {"legend":false, "label": "Hosts"});
           </script>
         </div>
 
+        
+
         <!-- Host Unit Consumption Circle Chart -->
         <div class="rodrigo">
-          <h2>Host Unit consumption</h2>
+          <!-- <h2>Host Unit consumption</h2>
           <div class="progresscircle" data-progress="80" align="center" >
             <svg viewBox="0 0 512 512" width="350px" height="350px">
                 <path class="progresscircle__background" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z" />
                 <path class="progresscircle__progress" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z" />
                 <h6>Host Units consumed  80%</h6>
-            </svg>
-          </div>    
+            </svg> -->
+          <h2>Host Unit consumption</h2>
+          <div id="chart-8" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><canvas style="display: block; height: 500px; width: 586px;" width="732" height="625" class="chartjs-render-monitor"></canvas></div>
+          <script type="text/javascript">
+            new Chartkick.PieChart("chart-8", [["Consumed",80],["Unused",20]], {"legend":false, "label": "Hosts", "donut":true, "suffix": "%"});
+          </script>
         </div>
 
         <!-- Host Table -->
