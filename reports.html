@@ -14,7 +14,7 @@
 
   <!-- ------------------------------------------------------------- -->
   <!-- Navigation Bar -->
-  <!-- Contains links to external pages -->
+  <!-- Contains links to tools, reports, dashboards, artifacts -->
   <div class="nav has-no-secondary">
     <a class="nav__brand" href="https://www.dynatrace.com">
       <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
@@ -37,6 +37,10 @@
         <!-- Dashboards -->
         <li class="nav__item">
           <a class="nav__link" href="./dashboards.html">Dashboards</a>
+        </li>
+        <!-- Artifacts -->
+        <li class="nav__item">
+          <a class="nav__link" href="./artifacts.html">Artifacts</a>
         </li>
       </ul>
     </nav>
@@ -61,9 +65,6 @@
             </li>
             <li class="nav__item">
               <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
-            </li>
-            <li class="nav__item">
-              <a name="audit-users" class="nav__link" href="tools.html#audit-users">Audit Users</a>
             </li>
           </ul>
         </li>
@@ -96,6 +97,9 @@
             <li class="nav__item">
               <a name="services" class="nav__link" href="#">Services Report</a>
             </li>
+            <li class="nav__item">
+              <a name="audit-users" class="nav__link" href="#">Audit Users</a>
+            </li>
           </ul>
         </li>
         <!-- Dashboards -->
@@ -110,6 +114,24 @@
             </li>
           </ul>
         </li>
+        <!-- Artifacts -->
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="#">Artifacts</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="artifacts.html#overview">Overview</a>
+            </li>
+            <li class="nav__item">
+              <a name="gwr" class="nav__link" href="artifacts.html#gwr">Guardian Weekly Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="qbr" class="nav__link" href="artifacts.html#qbr">Quarterly Business Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="odd" class="nav__link" href="artifacts.html#odd">On-Demand Deliverable</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>
@@ -119,10 +141,10 @@
   <div class="theme--blue">
     <ul class="breadcrumbs">
       <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link" href="index.html">Home</a>
+        <a class="breadcrumbs__link" href="#">Reports</a>
       </li>
       <li class="breadcrumbs__item breadcrumbs__last__parent">
-        <span class="breadcrumbs__last">Reports</span>
+        <span class="breadcrumbs__last">Overview</span>
       </li>
       <li class="breadcrumbs__item envButton">
         <div class="dropdown">
@@ -173,6 +195,10 @@
       <a sidebar-content-id="services" name="Services Report" href="#" class="sidebar__item">
         <span class="sidebar__headline">Services Report</span>
         <span class="sidebar__info">Details of services</span>
+      </a>
+      <a href="#" sidebar-content-id="audit-users" name="Audit Users" class="sidebar__item">
+        <span class="sidebar__headline">Audit Users</span>
+        <span class="sidebar__info">Audits users in Tenant</span>
       </a>
     </nav>
 
@@ -825,6 +851,100 @@
       
       </div><!-- End of Services -->
       <!-- End of Services ------------------------------------------------------------ -->
+      
+      <!-- Audit Users -->
+      <div name="sidebar-content" id="audit-users" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/usergroup-gray_700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Audit Users">
+              <div class='newH'>Audit Users</div>
+            </div>
+            <div>Audits the users logging into Dynatrace</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: "Read audit logs"</p>
+        <p>Shows user logins and and config changes made by users</p>
+        <div class="theme--blue">
+          <div class="buttongroup">
+              <a name="logins-table" href="#" class="btn is-active">Logins</a>
+              <a name="config-changes-table" href="#" class="btn">Config Changes</a>
+          </div>
+        </div>
+        <br>
+        <table id="logins-table" class="table display">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>User</th>
+                <th>User Type</th>
+                <th>Category</th>
+                <th>Success</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Apr 07 2020 12:34:16</td>
+                <td>jim.gentile@somedomain.com</td>
+                <td>USER_NAME</td>
+                <td>WEB_UI</td>
+                <td>True</td>
+              </tr>
+              <tr>
+                <td>Apr 07 2020 12:34:11</td>
+                <td>dan.dunlop@somedomain.com</td>
+                <td>USER_NAME</td>
+                <td>WEB_UI</td>
+                <td>True</td>
+              </tr>
+              <tr>
+                <td>Apr 07 2020 12:14:46</td>
+                <td>john.ferreira@somedomain.com</td>
+                <td>USER_NAME</td>
+                <td>WEB_UI</td>
+                <td>True</td>
+              </tr>
+            </tbody>
+        </table>
+        <table id="config-changes-table" class="table none">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>User</th>
+                <th>Event Type</th>
+                <th>Entity ID</th>
+                <th>Success</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Apr 07 2020 12:34:16</td>
+                <td>kenneth.gillette@somedomain.com</td>
+                <td>UPDATE</td>
+                <td>APPLICATION_DETECTION_RULE: efdb3a2f-5c7e-4df5-b42b-be0aaa3d70df</td>
+                <td>True</td>
+              </tr>
+              <tr>
+                <td>Apr 07 2020 09:55:24</td>
+                <td>ralph.gimashev@somedomain.com</td>
+                <td>CREATE</td>
+                <td>APPLICATION_DETECTION_RULE: 0494dd8d-26a9-42ce-bcd4-b99007b45c89</td>
+                <td>True</td>
+              </tr>
+              <tr>
+                <td>Apr 07 2020 09:55:24</td>
+                <td>dwayne.white@somedomain.com</td>
+                <td>UPDATE</td>
+                <td>ME_APPLICATION_ERROR: APPLICATION-2A6061A6C8AB9211</td>
+                <td>True</td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+      <!-- End of Audit Users -->
 
       <!-- Manage Environments -->
       <div name="sidebar-content" id="add-env" class="none">

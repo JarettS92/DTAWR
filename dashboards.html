@@ -14,7 +14,7 @@
 
   <!-- ------------------------------------------------------------- -->
   <!-- Navigation Bar -->
-  <!-- Contains links to tools, reports, dashboards -->
+  <!-- Contains links to tools, reports, dashboards, artifacts -->
   <div class="nav has-no-secondary">
     <a class="nav__brand" href="https://www.dynatrace.com">
       <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
@@ -37,6 +37,10 @@
         <!-- Dashboards -->
         <li class="nav__item is-current">
           <a class="nav__link" href="#">Dashboards</a>
+        </li>
+        <!-- Artifacts -->
+        <li class="nav__item">
+          <a class="nav__link" href="./artifacts.html">Artifacts</a>
         </li>
       </ul>
     </nav>
@@ -61,9 +65,6 @@
             </li>
             <li class="nav__item">
               <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
-            </li>
-            <li class="nav__item">
-              <a name="audit-users" class="nav__link" href="tools.html#audit-users">Audit Users</a>
             </li>
           </ul>
         </li>
@@ -96,6 +97,9 @@
             <li class="nav__item">
               <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
             </li>
+            <li class="nav__item">
+              <a name="audit-users" class="nav__link" href="tools.html#audit-users">Audit Users</a>
+            </li>
           </ul>
         </li>
         <!-- Dashboards -->
@@ -113,6 +117,24 @@
             </li>
           </ul>
         </li>
+        <!-- Artifacts -->
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="#">Artifacts</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="artifacts.html#overview">Overview</a>
+            </li>
+            <li class="nav__item">
+              <a name="gwr" class="nav__link" href="artifacts.html#gwr">Guardian Weekly Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="qbr" class="nav__link" href="artifacts.html#qbr">Quarterly Business Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="odd" class="nav__link" href="artifacts.html#odd">On-Demand Deliverable</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>
@@ -122,10 +144,10 @@
   <div class="theme--blue">
     <ul class="breadcrumbs">
       <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link" href="index.html">Home</a>
+        <a class="breadcrumbs__link" href="#">Dashboards</a>
       </li>
       <li class="breadcrumbs__item breadcrumbs__last__parent">
-        <span class="breadcrumbs__last">Dashboards</span>
+        <span class="breadcrumbs__last">Overview</span>
       </li>
       <li class="breadcrumbs__item envButton">
         <div class="dropdown">
@@ -183,7 +205,7 @@
 
     <!------------------------------------------------------------------->
     <!-- Dashboards Content -->
-    <div name="reports-content" class="island island--connected">
+    <div name="dashboards-content" class="island island--connected">
       <!-- ------------------------------------------------------------------------- -->
       <!-- Overview -->
       <div name="sidebar-content" id="overview" class="display">

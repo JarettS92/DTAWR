@@ -66,6 +66,7 @@ window.onload = function() {
             $(`#${$(this).attr('sidebar-content-id')}`).addClass("display").removeClass("none");
             $(".sidebar__item").removeClass("is-current");
             $(this).addClass("is-current");
+            $('.breadcrumbs__last').text($(this).attr('name'));
         }
     });
     // BizOps Configurator click
@@ -77,6 +78,7 @@ window.onload = function() {
         $('#bizops-configurator').addClass("display").removeClass("none");
         $('.sidebar__item').removeClass("is-current");
         $(this).addClass("is-current");
+        
     });
 
     // Mobile menu Dropdown click
