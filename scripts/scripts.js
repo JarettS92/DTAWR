@@ -101,7 +101,7 @@ window.onload = function() {
         $(this).addClass('is-active');
         $('table').addClass('none');
         $(`#${$(this).attr("name")}`).removeClass("none");
-    })
+    });
 
 }
 

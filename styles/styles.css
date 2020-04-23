@@ -259,6 +259,12 @@ th:hover {
 .pagination {
     margin-top: 0.8rem;
 }
+.doc-repo-buttons {
+    margin: auto;
+}
+#datepicker, #datepicker button {
+    color: #14a8f5 !important;
+}
 
 
 

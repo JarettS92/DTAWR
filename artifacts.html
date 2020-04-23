@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chartkick/2.3.0/chartkick.min.js"></script>
-  <title>DTAWR - Artifacts</title>
+  <title>Services Portal - Artifacts</title>
 </head>
 <body class="white-bg">
 
@@ -225,13 +225,111 @@
         <p>To view the most recent reports, click the items in the side bar</p>
         <p>Each report can be viewed/downloaded individually, or you can use the timeframe selector above and export all reports in the given timeframe</p>
         <br>
-        <div class="theme--blue">
-          <div class="buttongroup">
+        
+        <div class="theme--blue" style="display: flex">
+          <!-- Datepicker -->
+          <div class="doc-repo-buttons">
+            <h4>Timeframe</h4>
+            <div id="datepicker" class="datepicker">
+              <button data-target="#datepicker" class="btn btn--datepicker">Jan 01, 2018</button>
+              <div class="datepicker__calendar">
+                <div class="datepicker__month">
+                  <button class="btn btn--datepicker__selectMonth">
+                    <svg role="img" class="icon icon--small">
+                      <use xlink:href="#arrow-left"></use>
+                    </svg>
+                  </button>
+                  <span>January 2018</span>
+                  <button class="btn btn--datepicker__selectMonth">
+                    <svg role="img" class="icon icon--small">
+                      <use xlink:href="#arrow-right"></use>
+                    </svg>
+                  </button>
+                </div>
+                <div>
+                  <table>
+                    <tr>
+                      <th>Mon</th>
+                      <th>Tue</th> 
+                      <th>Wed</th>
+                      <th>Thu</th>
+                      <th>Fri</th> 
+                      <th>Sat</th>
+                      <th>Sun</th>
+                    </tr>
+                    <tr>
+                      <td><button disabled>30</button></td>
+                      <td><button disabled>31</button></td> 
+                      <td><button class="btn--selected">1</button></td>
+                      <td><button>2</button></td>
+                      <td><button>3</button></td> 
+                      <td><button>4</button></td>
+                      <td><button>5</button></td>
+                    </tr>
+                    <tr>
+                      <td><button>6</button></td>
+                      <td><button>7</button></td> 
+                      <td><button>8</button></td>
+                      <td><button>9</button></td>
+                      <td><button>10</button></td> 
+                      <td><button>11</button></td>
+                      <td><button>12</button></td>
+                    </tr>
+                    <tr>
+                      <td><button>13</button></td>
+                      <td><button>14</button></td> 
+                      <td><button>15</button></td>
+                      <td><button>16</button></td>
+                      <td><button>17</button></td> 
+                      <td><button>18</button></td>
+                      <td><button>19</button></td>
+                    </tr>
+                    <tr>
+                      <td><button>20</button></td>
+                      <td><button>21</button></td> 
+                      <td><button>22</button></td>
+                      <td><button>23</button></td>
+                      <td><button>24</button></td> 
+                      <td><button>25</button></td>
+                      <td><button>26</button></td>
+                    </tr>
+                    <tr>
+                      <td><button>27</button></td>
+                      <td><button>28</button></td> 
+                      <td><button>29</button></td>
+                      <td><button>30</button></td>
+                      <td><button>31</button></td> 
+                      <td><button disabled>1</button></td>
+                      <td><button disabled>2</button></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Filters -->
+          <div class="doc-repo-buttons">
+            <h4>Filters</h4>
+            <div class="buttongroup">
               <a name="weekly-filter" href="#" class="btn">Weekly</a>
               <a name="quarterly-filter" href="#" class="btn">Quarterly</a>
               <a name="ondemand-filter" href="#" class="btn">On-Demand</a>
+              <a name="ondemand-filter" href="#" class="btn">Quick Wins</a>
+              <a name="ondemand-filter" href="#" class="btn">Value Victory</a>
+            </div>
           </div>
+          <!-- Download Buttons -->
+          <div class="doc-repo-buttons">
+            <h4>Download</h4>
+            <div class="buttongroup">
+              <a name="weekly-filter" href="#" class="btn">Clear Filters</a>
+              <a name="weekly-filter" href="#" class="btn">Download Shown</a>
+              <a name="weekly-filter" href="#" class="btn">Download All</a>
+            </div>
+          </div>
+          
         </div>
+        
         <br>
         <table class="table">
           <thead>
@@ -290,6 +388,22 @@
               <td>12/31/2019</td>
               <td>Q2 - Quarterly Business Report - 01152020</td>
               <td>Quarterly</td>
+              <td>Jarett Smith</td>
+              <td><a href="#">View</a>/<a href="#">Download</a></td>
+            </tr>
+            <tr>
+              <td>4/21/2020</td>
+              <td>4/21/2020</td>
+              <td>Principal Life - Value Victory - Mitigating Risk - 20200421</td>
+              <td>Value Victory</td>
+              <td>Jarett Smith</td>
+              <td><a href="#">View</a>/<a href="#">Download</a></td>
+            </tr>
+            <tr>
+              <td>10/01/2019</td>
+              <td>12/31/2019</td>
+              <td>Principal Life - Quick Win - Set up usernames in all applications</td>
+              <td>Quick Win</td>
               <td>Jarett Smith</td>
               <td><a href="#">View</a>/<a href="#">Download</a></td>
             </tr>
