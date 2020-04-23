@@ -30,6 +30,10 @@
         <li class="nav__item">
           <a class="nav__link" href="./index.html">Home</a>
         </li>
+        <!-- Summary -->
+        <li class="nav__item">
+          <a class="nav__link" href="./summary.html">Summary</a>
+        </li>
         <!-- Tools -->
         <li class="nav__item">
           <a class="nav__link" href="./tools.html">Tools</a>
@@ -55,6 +59,10 @@
         <li class="nav__item">
           <a class="nav__link" href="index.html">Home</a>
         </li>
+        <!-- Summary -->
+        <li class="nav__item">
+          <a class="nav__link" href="summary.html">Summary</a>
+        </li>
         <!-- Tools -->
         <li class="nav__item expandable expandable--nav">
           <a class="nav__link expandable__trigger" href="#">Tools</a>
@@ -75,7 +83,6 @@
               <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
             </li>
           </ul>
-        </li>
         </li>
         <!-- Reports -->
         <li class="nav__item expandable expandable--nav">
@@ -230,79 +237,157 @@
           <!-- Datepicker -->
           <div class="doc-repo-buttons">
             <h4>Timeframe</h4>
-            <div id="datepicker" class="datepicker">
-              <button data-target="#datepicker" class="btn btn--datepicker">Jan 01, 2018</button>
-              <div class="datepicker__calendar">
-                <div class="datepicker__month">
-                  <button class="btn btn--datepicker__selectMonth">
-                    <svg role="img" class="icon icon--small">
-                      <use xlink:href="#arrow-left"></use>
-                    </svg>
-                  </button>
-                  <span>January 2018</span>
-                  <button class="btn btn--datepicker__selectMonth">
-                    <svg role="img" class="icon icon--small">
-                      <use xlink:href="#arrow-right"></use>
-                    </svg>
-                  </button>
+            <div style="display: flex">
+              <div id="datepicker" class="datepicker">
+                <button data-target="#datepicker" class="btn btn--datepicker">Jan 01, 2018</button>
+                <div class="datepicker__calendar">
+                  <div class="datepicker__month">
+                    <button class="btn btn--datepicker__selectMonth">
+                      <svg role="img" class="icon icon--small">
+                        <use xlink:href="#arrow-left"></use>
+                      </svg>
+                    </button>
+                    <span>January 2018</span>
+                    <button class="btn btn--datepicker__selectMonth">
+                      <svg role="img" class="icon icon--small">
+                        <use xlink:href="#arrow-right"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div>
+                    <table>
+                      <tr>
+                        <th>Mon</th>
+                        <th>Tue</th> 
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th> 
+                        <th>Sat</th>
+                        <th>Sun</th>
+                      </tr>
+                      <tr>
+                        <td><button disabled>30</button></td>
+                        <td><button disabled>31</button></td> 
+                        <td><button class="btn--selected">1</button></td>
+                        <td><button>2</button></td>
+                        <td><button>3</button></td> 
+                        <td><button>4</button></td>
+                        <td><button>5</button></td>
+                      </tr>
+                      <tr>
+                        <td><button>6</button></td>
+                        <td><button>7</button></td> 
+                        <td><button>8</button></td>
+                        <td><button>9</button></td>
+                        <td><button>10</button></td> 
+                        <td><button>11</button></td>
+                        <td><button>12</button></td>
+                      </tr>
+                      <tr>
+                        <td><button>13</button></td>
+                        <td><button>14</button></td> 
+                        <td><button>15</button></td>
+                        <td><button>16</button></td>
+                        <td><button>17</button></td> 
+                        <td><button>18</button></td>
+                        <td><button>19</button></td>
+                      </tr>
+                      <tr>
+                        <td><button>20</button></td>
+                        <td><button>21</button></td> 
+                        <td><button>22</button></td>
+                        <td><button>23</button></td>
+                        <td><button>24</button></td> 
+                        <td><button>25</button></td>
+                        <td><button>26</button></td>
+                      </tr>
+                      <tr>
+                        <td><button>27</button></td>
+                        <td><button>28</button></td> 
+                        <td><button>29</button></td>
+                        <td><button>30</button></td>
+                        <td><button>31</button></td> 
+                        <td><button disabled>1</button></td>
+                        <td><button disabled>2</button></td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
-                <div>
-                  <table>
-                    <tr>
-                      <th>Mon</th>
-                      <th>Tue</th> 
-                      <th>Wed</th>
-                      <th>Thu</th>
-                      <th>Fri</th> 
-                      <th>Sat</th>
-                      <th>Sun</th>
-                    </tr>
-                    <tr>
-                      <td><button disabled>30</button></td>
-                      <td><button disabled>31</button></td> 
-                      <td><button class="btn--selected">1</button></td>
-                      <td><button>2</button></td>
-                      <td><button>3</button></td> 
-                      <td><button>4</button></td>
-                      <td><button>5</button></td>
-                    </tr>
-                    <tr>
-                      <td><button>6</button></td>
-                      <td><button>7</button></td> 
-                      <td><button>8</button></td>
-                      <td><button>9</button></td>
-                      <td><button>10</button></td> 
-                      <td><button>11</button></td>
-                      <td><button>12</button></td>
-                    </tr>
-                    <tr>
-                      <td><button>13</button></td>
-                      <td><button>14</button></td> 
-                      <td><button>15</button></td>
-                      <td><button>16</button></td>
-                      <td><button>17</button></td> 
-                      <td><button>18</button></td>
-                      <td><button>19</button></td>
-                    </tr>
-                    <tr>
-                      <td><button>20</button></td>
-                      <td><button>21</button></td> 
-                      <td><button>22</button></td>
-                      <td><button>23</button></td>
-                      <td><button>24</button></td> 
-                      <td><button>25</button></td>
-                      <td><button>26</button></td>
-                    </tr>
-                    <tr>
-                      <td><button>27</button></td>
-                      <td><button>28</button></td> 
-                      <td><button>29</button></td>
-                      <td><button>30</button></td>
-                      <td><button>31</button></td> 
-                      <td><button disabled>1</button></td>
-                      <td><button disabled>2</button></td>
-                    </tr>
-                  </table>
+              </div>
+              <div id="datepicker1" class="datepicker">
+                <button data-target="#datepicker" class="btn btn--datepicker">Jan 01, 2020</button>
+                <div class="datepicker__calendar">
+                  <div class="datepicker__month">
+                    <button class="btn btn--datepicker__selectMonth">
+                      <svg role="img" class="icon icon--small">
+                        <use xlink:href="#arrow-left"></use>
+                      </svg>
+                    </button>
+                    <span>April 2020</span>
+                    <button class="btn btn--datepicker__selectMonth">
+                      <svg role="img" class="icon icon--small">
+                        <use xlink:href="#arrow-right"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div>
+                    <table>
+                      <tr>
+                        <th>Mon</th>
+                        <th>Tue</th> 
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th> 
+                        <th>Sat</th>
+                        <th>Sun</th>
+                      </tr>
+                      <tr>
+                        <td><button disabled>30</button></td>
+                        <td><button disabled>31</button></td> 
+                        <td><button class="btn--selected">1</button></td>
+                        <td><button>2</button></td>
+                        <td><button>3</button></td> 
+                        <td><button>4</button></td>
+                        <td><button>5</button></td>
+                      </tr>
+                      <tr>
+                        <td><button>6</button></td>
+                        <td><button>7</button></td> 
+                        <td><button>8</button></td>
+                        <td><button>9</button></td>
+                        <td><button>10</button></td> 
+                        <td><button>11</button></td>
+                        <td><button>12</button></td>
+                      </tr>
+                      <tr>
+                        <td><button>13</button></td>
+                        <td><button>14</button></td> 
+                        <td><button>15</button></td>
+                        <td><button>16</button></td>
+                        <td><button>17</button></td> 
+                        <td><button>18</button></td>
+                        <td><button>19</button></td>
+                      </tr>
+                      <tr>
+                        <td><button>20</button></td>
+                        <td><button>21</button></td> 
+                        <td><button>22</button></td>
+                        <td><button>23</button></td>
+                        <td><button>24</button></td> 
+                        <td><button>25</button></td>
+                        <td><button>26</button></td>
+                      </tr>
+                      <tr>
+                        <td><button>27</button></td>
+                        <td><button>28</button></td> 
+                        <td><button>29</button></td>
+                        <td><button>30</button></td>
+                        <td><button>31</button></td> 
+                        <td><button disabled>1</button></td>
+                        <td><button disabled>2</button></td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

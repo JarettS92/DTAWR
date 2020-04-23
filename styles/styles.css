@@ -262,9 +262,27 @@ th:hover {
 .doc-repo-buttons {
     margin: auto;
 }
-#datepicker, #datepicker button {
+.datepicker, .datepicker button {
     color: #14a8f5 !important;
 }
+.csat {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #e6be00;
+    align-items: center;
+}
+.csat button, .csat p {
+    margin: 5px 10px;
+}
+.csat img {
+    height: 30px;
+}
+.csat p {
+    font-weight: bold;
+}
+/* .csat img:hover {
+    
+} */
 
 
 
