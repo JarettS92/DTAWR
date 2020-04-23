@@ -192,10 +192,16 @@
       </div>
     
       <div class="island">
-        <h2>Island 2</h2>
+        <h2>ROI</h2>
         <div id="test" style="height: 250px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
           <script type="text/javascript">
-            new Chartkick.ColumnChart("test", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","9.0"],["Q3 (Jul-Sep)","8.0"],["Q4 (Oct-Dec)","5.0"]], {"legend":false, "label": "Host Units"});
+            let data = [
+              {name: "Value Events", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 1}, stack: "VE"},
+              {name: "Quick Wins", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 8, "Q3 (Jul-Sep)": 7, "Q4 (Oct-Dec)": 4}, stack: "QW"},
+              {name: "Questions Answered", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 8}, stack: "QA"},
+              {name: "Value Victorys", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 8, "Q3 (Jul-Sep)": 3, "Q4 (Oct-Dec)": 1}, stack: "VV"}
+            ];
+            new Chartkick.ColumnChart("test", data, {"legend":true, "label": "Host Units"});
           </script>
       </div>
     
