@@ -183,17 +183,22 @@
 
     <!-- Main Body -->
     <div class="layout is-flex has-islands">
+
+      <!-- ------------------------------------------------------------- -->
+      <!-- Support Tickets -->
       <div class="island">
         <h2>Support Tickets</h2>
         <div id="support-tickets-chart" style="height: 250px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
           <script type="text/javascript">
-            new Chartkick.ColumnChart("support-tickets-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","9.0"],["Q3 (Jul-Sep)","8.0"],["Q4 (Oct-Dec)","5.0"]], {"legend":false, "label": "Host Units"});
+            new Chartkick.ColumnChart("support-tickets-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","9.0"],["Q3 (Jul-Sep)","8.0"],["Q4 (Oct-Dec)","5.0"]], {"legend":false, "label": "Support Tickets", "colors": ["#1496ff"]});
           </script>
       </div>
     
+      <!-- ------------------------------------------------------------- -->
+      <!-- ROI -->
       <div class="island">
         <h2>ROI</h2>
-        <div id="test" style="height: 250px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
+        <div id="roi-chart" style="height: 250px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
           <script type="text/javascript">
             let data = [
               {name: "Value Events", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 1}, stack: "VE"},
@@ -201,18 +206,128 @@
               {name: "Questions Answered", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 8}, stack: "QA"},
               {name: "Value Victorys", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 8, "Q3 (Jul-Sep)": 3, "Q4 (Oct-Dec)": 1}, stack: "VV"}
             ];
-            new Chartkick.ColumnChart("test", data, {"legend":true, "label": "Host Units"});
+            new Chartkick.ColumnChart("roi-chart", data, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});
           </script>
       </div>
     
+      <!-- ------------------------------------------------------------- -->
+      <!-- Users Accessing Dynatrace -->
       <div class="island">
-        <h2>Island 3</h2>
+        <h2>Users Accessing DT</h2>
+        <div id="users-chart" style="height: 250px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
+          <script type="text/javascript">
+            new Chartkick.LineChart("users-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","20"],["Q3 (Jul-Sep)","60"],["Q4 (Oct-Dec)","212"]], {"legend":false, "label": "Users", "colors": ["#6f2da8"]});
+          </script>
       </div>
     
+      <!-- ------------------------------------------------------------- -->
+      <!-- Tenant Information -->
       <div class="island">
-        <h2>Island 4</h2>
+        <h2>Tenant Statistics</h2>
+        <div class="section theme--blue scrollable">
+          <table id="tenantInformationTable" class="table table--expandable" data-behavior="accordion">
+            <thead>
+              <th>Environment</th>
+              <th class="mobile">Version</th>
+              <th>Hosts</th>
+              <th>Apps</th>
+              <th>Synthetics</th>
+              <th>Users</th>
+            </thead>
+            <tbody class="expandable">
+              <tr>
+                <td class="noLeftPad"><a href="#" class="expandable__trigger">PROD</a></td>
+                <td class="mobile">1.187</td>
+                <td>68</td>
+                <td>90</td>
+                <td>110</td>
+                <td>70</td>
+              </tr>
+              <tr class="expandable__content">
+                <td colspan="6">
+                  <dl class="definition-list">
+                    <dt class="desktop">Version</dt>
+                    <dd>1.187</dd>
+                    <dt>URL</dt>
+                    <dd><a href="xxx12345.live.dynatrace.com">xxx12345.live.dynatrace.com</a></dd>
+                    <dt>Host Units</dt>
+                    <dd>132/150</dd>
+                    <dt>DEM Units</dt>
+                    <dd>850k/1.2M</dd>
+                    <dt>Custom Metrics</dt>
+                    <dd>30k/55k</dd>
+                    <dt>Integrations</dt>
+                    <dd>AWS, VMWare</dd>
+                    <dt>Plugins</dt>
+                    <dd>IBM MQ, F5</dd>
+                  </dl>
+                </td>
+              </tr>
+            </tbody>
+            <tbody class="expandable">
+              <tr>
+                <td class="noLeftPad"><a href="#" class="expandable__trigger">QA</a></td>
+                <td class="mobile">1.188</td>
+                <td>10</td>
+                <td>20</td>
+                <td>30</td>
+                <td>40</td>
+              </tr>
+              <tr class="expandable__content">
+                <td colspan="6">
+                  <dl class="definition-list">
+                    <dt class="desktop">Version</dt>
+                    <dd>1.188</dd>
+                    <dt>URL</dt>
+                    <dd><a href="xxx12345.live.dynatrace.com">xxx12345.live.dynatrace.com</a></dd>
+                    <dt>Host Units</dt>
+                    <dd>132/150</dd>
+                    <dt>DEM Units</dt>
+                    <dd>850k/1.2M</dd>
+                    <dt>Custom Metrics</dt>
+                    <dd>30k/55k</dd>
+                    <dt>Integrations</dt>
+                    <dd>Azure, Docker</dd>
+                    <dt>Plugins</dt>
+                    <dd>Datapower, Apigee Edge</dd>
+                  </dl>
+                </td>
+              </tr>
+            </tbody>
+            <tbody class="expandable">
+              <tr>
+                <td class="noLeftPad"><a href="#" class="expandable__trigger">DEV</a></td>
+                <td class="mobile">1.189</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>30</td>
+              </tr>
+              <tr class="expandable__content">
+                <td colspan="6">
+                  <dl class="definition-list">
+                    <dt class="desktop">Version</dt>
+                    <dd>1.189</dd>
+                    <dt>URL</dt>
+                    <dd><a href="xxx12345.live.dynatrace.com">xxx12345.live.dynatrace.com</a></dd>
+                    <dt>Host Units</dt>
+                    <dd>132/150</dd>
+                    <dt>DEM Units</dt>
+                    <dd>850k/1.2M</dd>
+                    <dt>Custom Metrics</dt>
+                    <dd>30k/55k</dd>
+                    <dt>Integrations</dt>
+                    <dd>Kubernetes, Cloud Foundry</dd>
+                    <dt>Plugins</dt>
+                    <dd>SAP ABAP, Juniper Networks</dd>
+                  </dl>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+      </div>
 
 
 
