@@ -361,27 +361,51 @@
       <!-- Services Engagements -->
       <div class="island">
         <h2>Services Engagements</h2>
-        <div>
-          <canvas id="sa-chart" ></canvas>
-          <h3 class="gauge-chart">12 Months</h3>
-          <script type="text/javascript">
-            let ctx = document.getElementById('sa-chart').getContext('2d');
-            let sachart = new Chart(ctx, {
-              type: 'doughnut',
-              data: {
-                labels: ["Derek Darling"],
-                datasets: [{
-                  label: "Test",
-                  backgroundColor: ['#14a8f5'],
-                  data: [75, 25]
-                }],
-              },
-              options: {
-                circumference: 1 * Math.PI,
-                rotation: 1 * Math.PI
-              }
-            });
-          </script>
+        <div style="display:grid;grid-template-columns: 50% 50%;grid-template-rows: 100%;">
+          <div style="grid-column-start: 1;grid-column-end:1;grid-row-start:1;grid-row-end:1;">
+            <canvas id="se-chart"></canvas>
+            <h3 class="gauge-chart">6 Months</h3>
+            <script type="text/javascript">
+              let sectx = document.getElementById('se-chart').getContext('2d');
+              let sechart = new Chart(sectx, {
+                type: 'doughnut',
+                data: {
+                  labels: ["Services"],
+                  datasets: [{
+                    label: "Test",
+                    backgroundColor: ['#14a8f5'],
+                    data: [75, 25]
+                  }],
+                },
+                options: {
+                  circumference: 1 * Math.PI,
+                  rotation: 1 * Math.PI
+                }
+              });
+            </script>
+          </div>
+          <div style="grid-column-start: 2;grid-column-end:2;grid-row-start:1;grid-row-end:1;">
+            <canvas id="sa-chart"></canvas>
+            <h3 class="gauge-chart">12 Months</h3>
+            <script type="text/javascript">
+              let sactx = document.getElementById('sa-chart').getContext('2d');
+              let sachart = new Chart(sactx, {
+                type: 'doughnut',
+                data: {
+                  labels: ["Insights"],
+                  datasets: [{
+                    label: "Test",
+                    backgroundColor: ['#14a8f5'],
+                    data: [75, 25]
+                  }],
+                },
+                options: {
+                  circumference: 1 * Math.PI,
+                  rotation: 1 * Math.PI
+                }
+              });
+            </script>
+          </div>
         </div>
       </div>
 

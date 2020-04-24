@@ -289,6 +289,10 @@ th:hover {
 [id*="chart"] {
     min-height: 250px;
 }
+#se-chart, #sa-chart {
+    min-height: 100px !important;
+}
+
 #csatReminderBanner img:hover {
     cursor: pointer;
 }
@@ -297,6 +301,7 @@ th:hover {
     margin: 0 !important;
     text-align: center;
 }
+
 
 
 /* Desktop */
