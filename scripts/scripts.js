@@ -39,10 +39,10 @@ window.onload = function() {
             'Last 7 Days': [moment().subtract(6, 'days'), moment()],
             'Last 30 Days': [moment().subtract(29, 'days'), moment()],
             'Last 90 Days': [moment().subtract(90, 'days'), moment()],
-            'Jan-Mar': [moment().startOf('year'), moment().startOf('year').add(3,'M')],
-            'Apr-Jun': [moment().startOf('year').add(3,'M'), moment().startOf('year').add(6,'M')],
-            'Jul-Sep': [moment().startOf('year').add(6,'M'), moment().startOf('year').add(9,'M')],
-            'Oct-Dec': [moment().startOf('year').add(9,'M'),moment().startOf('year').add(12,'M')]
+            'Q1 - Jan-Mar': [moment().startOf('year'), moment().startOf('year').add(3,'M')],
+            'Q2 - Apr-Jun': [moment().startOf('year').add(3,'M'), moment().startOf('year').add(6,'M')],
+            'Q3 - Jul-Sep': [moment().startOf('year').add(6,'M'), moment().startOf('year').add(9,'M')],
+            'Q4 - Oct-Dec': [moment().startOf('year').add(9,'M'),moment().startOf('year').add(12,'M')]
         }
     }, cb);
     cb(start, end);
