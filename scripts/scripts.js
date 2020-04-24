@@ -19,6 +19,11 @@ window.onload = function() {
         }
     }
 
+    // Hide warning banner
+    $("#csatReminderBanner img").click(function() {
+        $("#csatReminderBanner").hide();
+    });
+
     // Hover dropdown for environment button
     // Displays list of configured envs/tokens
     // $('.nav__item').hover(

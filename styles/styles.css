@@ -283,8 +283,20 @@ th:hover {
 /* .csat img:hover {
     
 } */
-
-
+.tenant-info {
+    flex: 100% !important;
+}
+[id*="chart"] {
+    min-height: 250px;
+}
+#csatReminderBanner img:hover {
+    cursor: pointer;
+}
+.gauge-chart {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center;
+}
 
 
 /* Desktop */

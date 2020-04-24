@@ -8,146 +8,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services Portal - Account Summary</title>
 </head>
-<body>
+  <body>
 
-  <!-- ------------------------------------------------------------- -->
-  <!-- Navigation Bar -->
-  <!-- Contains links to tools, reports, dashboards, artifacts -->
-  <div class="nav has-no-secondary">
-    <a class="nav__brand" href="https://www.dynatrace.com">
-      <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
-    </a>
-    <div class="nav__buttongroup">
-      <button id="nav-bar-button" data-target="#nav-bar" class="nav__btn nav__btn--menutoggle">Menu</button>
-      <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile" class="nav__btn nav__btn--menutoggle">Menu</button>
+    <!-- ------------------------------------------------------------- -->
+    <!-- Navigation Bar -->
+    <!-- Contains links to tools, reports, dashboards, artifacts -->
+    <div class="nav has-no-secondary">
+      <a class="nav__brand" href="https://www.dynatrace.com">
+        <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
+      </a>
+      <div class="nav__buttongroup">
+        <button id="nav-bar-button" data-target="#nav-bar" class="nav__btn nav__btn--menutoggle">Menu</button>
+        <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile" class="nav__btn nav__btn--menutoggle">Menu</button>
+      </div>
+      <!-- Desktop Navbar -->
+      <nav id="nav-bar" class="nav__bar">
+        <ul class="nav__list nav__list--primary">
+          <!-- Home -->
+          <li class="nav__item">
+            <a class="nav__link" href="./index.html">Home</a>
+          </li>
+          <!-- Summary -->
+          <li class="nav__item is-current">
+            <a class="nav__link" href="./summary.html">Summary</a>
+          </li>
+          <!-- Tools -->
+          <li class="nav__item">
+            <a class="nav__link" href="./tools.html">Tools</a>
+          </li>
+          <!-- Reports -->
+          <li class="nav__item">
+            <a class="nav__link" href="./reports.html">Reports</a>
+          </li>
+          <!-- Dashboards -->
+          <li class="nav__item">
+            <a class="nav__link" href="./dashboards.html">Dashboards</a>
+          </li>
+          <!-- Artifacts -->
+          <li class="nav__item">
+            <a class="nav__link" href="./artifacts.html">Artifacts</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- Mobile Navbar -->
+      <nav id="nav-bar-mobile" class="nav__bar">
+        <ul class="nav__list nav__list--primary">
+          <!-- Home -->
+          <li class="nav__item">
+            <a class="nav__link" href="index.html">Home</a>
+          </li>
+          <!-- Summary -->
+          <li class="nav__item">
+            <a class="nav__link" href="summary.html">Summary</a>
+          </li>
+          <!-- Tools -->
+          <li class="nav__item expandable expandable--nav">
+            <a class="nav__link expandable__trigger" href="#">Tools</a>
+            <ul class="nav__list nav__list--secondary expandable__content">
+              <li class="nav__item">
+                <a name="overview" class="nav__link" href="tools.html">Overview</a>
+              </li>
+              <li class="nav__item">
+                <a name="tag-duplicator" class="nav__link" href="tools.html#tag-duplicator">Tag Duplicator</a>
+              </li>
+              <li class="nav__item">
+                <a name="business-hour-kpis" class="nav__link" href="tools.html#business-hour-kpis">Business Hour KPIs</a>
+              </li>
+              <li class="nav__item">
+                <a name="starter-tags" class="nav__link" href="tools.html#starter-tags">Starter Tags</a>
+              </li>
+              <li class="nav__item">
+                <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Reports -->
+          <li class="nav__item expandable expandable--nav">
+            <a class="nav__link expandable__trigger" href="#">Reports</a>
+            <ul class="nav__list nav__list--secondary expandable__content">
+              <li class="nav__item">
+                <a name="overview" class="nav__link" href="reports.html">Overview</a>
+              </li>
+              <li class="nav__item">
+                <a name="root-cause-analysis" class="nav__link" href="reports.html#root-cause-analysis">Root Cause Analysis+</a>
+              </li>
+              <li class="nav__item">
+                <a name="problem-trending" class="nav__link" href="reports.html#problem-trending">Problem Trending</a>
+              </li>
+              <li class="nav__item">
+                <a name="untagged-entities" class="nav__link" href="reports.html#untagged-entities">Untagged Entities</a>
+              </li>
+              <li class="nav__item">
+                <a name="hosts" class="nav__link" href="reports.html#hosts">Hosts Report</a>
+              </li>
+              <li class="nav__item">
+                <a name="applications" class="nav__link" href="reports.html#applications">Applications Report</a>
+              </li>
+              <li class="nav__item">
+                <a name="problems" class="nav__link" href="reports.html#problems">Problems Report</a>
+              </li>
+              <li class="nav__item">
+                <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
+              </li>
+              <li class="nav__item">
+                <a name="audit-users" class="nav__link" href="reports.html#audit-users">Audit Users</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Dashboards -->
+          <li class="nav__item expandable expandable--nav">
+            <a class="nav__link expandable__trigger" href="dashboards.html">Dashboards</a>
+            <ul class="nav__list nav__list--secondary expandable__content">
+              <li class="nav__item">
+                <a name="overview" class="nav__link" href="dashboards.html#overview">Overview</a>
+              </li>
+              <li class="nav__item">
+                <a name="overview" class="nav__link" href="dashboards.html#bizops-configurator">BizOps Configurator</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Artifacts -->
+          <li class="nav__item expandable expandable--nav">
+            <a class="nav__link expandable__trigger" href="#">Artifacts</a>
+            <ul class="nav__list nav__list--secondary expandable__content">
+              <li class="nav__item">
+                <a name="Document Repository" class="nav__link" href="artifacts.html#doc-repo">Document Repository</a>
+              </li>
+              <li class="nav__item">
+                <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#gwr">Guardian Weekly Report</a>
+              </li>
+              <li class="nav__item">
+                <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#qbr">Quarterly Business Report</a>
+              </li>
+              <li class="nav__item">
+                <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#odd">On-Demand Deliverable</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <!-- Desktop Navbar -->
-    <nav id="nav-bar" class="nav__bar">
-      <ul class="nav__list nav__list--primary">
-        <!-- Home -->
-        <li class="nav__item">
-          <a class="nav__link" href="./index.html">Home</a>
-        </li>
-        <!-- Summary -->
-        <li class="nav__item is-current">
-          <a class="nav__link" href="./summary.html">Summary</a>
-        </li>
-        <!-- Tools -->
-        <li class="nav__item">
-          <a class="nav__link" href="./tools.html">Tools</a>
-        </li>
-        <!-- Reports -->
-        <li class="nav__item">
-          <a class="nav__link" href="./reports.html">Reports</a>
-        </li>
-        <!-- Dashboards -->
-        <li class="nav__item">
-          <a class="nav__link" href="./dashboards.html">Dashboards</a>
-        </li>
-        <!-- Artifacts -->
-        <li class="nav__item">
-          <a class="nav__link" href="./artifacts.html">Artifacts</a>
-        </li>
-      </ul>
-    </nav>
-    <!-- Mobile Navbar -->
-    <nav id="nav-bar-mobile" class="nav__bar">
-      <ul class="nav__list nav__list--primary">
-        <!-- Home -->
-        <li class="nav__item">
-          <a class="nav__link" href="index.html">Home</a>
-        </li>
-        <!-- Summary -->
-        <li class="nav__item">
-          <a class="nav__link" href="summary.html">Summary</a>
-        </li>
-        <!-- Tools -->
-        <li class="nav__item expandable expandable--nav">
-          <a class="nav__link expandable__trigger" href="#">Tools</a>
-          <ul class="nav__list nav__list--secondary expandable__content">
-            <li class="nav__item">
-              <a name="overview" class="nav__link" href="tools.html">Overview</a>
-            </li>
-            <li class="nav__item">
-              <a name="tag-duplicator" class="nav__link" href="tools.html#tag-duplicator">Tag Duplicator</a>
-            </li>
-            <li class="nav__item">
-              <a name="business-hour-kpis" class="nav__link" href="tools.html#business-hour-kpis">Business Hour KPIs</a>
-            </li>
-            <li class="nav__item">
-              <a name="starter-tags" class="nav__link" href="tools.html#starter-tags">Starter Tags</a>
-            </li>
-            <li class="nav__item">
-              <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
-            </li>
-          </ul>
-        </li>
-        <!-- Reports -->
-        <li class="nav__item expandable expandable--nav">
-          <a class="nav__link expandable__trigger" href="#">Reports</a>
-          <ul class="nav__list nav__list--secondary expandable__content">
-            <li class="nav__item">
-              <a name="overview" class="nav__link" href="reports.html">Overview</a>
-            </li>
-            <li class="nav__item">
-              <a name="root-cause-analysis" class="nav__link" href="reports.html#root-cause-analysis">Root Cause Analysis+</a>
-            </li>
-            <li class="nav__item">
-              <a name="problem-trending" class="nav__link" href="reports.html#problem-trending">Problem Trending</a>
-            </li>
-            <li class="nav__item">
-              <a name="untagged-entities" class="nav__link" href="reports.html#untagged-entities">Untagged Entities</a>
-            </li>
-            <li class="nav__item">
-              <a name="hosts" class="nav__link" href="reports.html#hosts">Hosts Report</a>
-            </li>
-            <li class="nav__item">
-              <a name="applications" class="nav__link" href="reports.html#applications">Applications Report</a>
-            </li>
-            <li class="nav__item">
-              <a name="problems" class="nav__link" href="reports.html#problems">Problems Report</a>
-            </li>
-            <li class="nav__item">
-              <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
-            </li>
-            <li class="nav__item">
-              <a name="audit-users" class="nav__link" href="reports.html#audit-users">Audit Users</a>
-            </li>
-          </ul>
-        </li>
-        <!-- Dashboards -->
-        <li class="nav__item expandable expandable--nav">
-          <a class="nav__link expandable__trigger" href="dashboards.html">Dashboards</a>
-          <ul class="nav__list nav__list--secondary expandable__content">
-            <li class="nav__item">
-              <a name="overview" class="nav__link" href="dashboards.html#overview">Overview</a>
-            </li>
-            <li class="nav__item">
-              <a name="overview" class="nav__link" href="dashboards.html#bizops-configurator">BizOps Configurator</a>
-            </li>
-          </ul>
-        </li>
-        <!-- Artifacts -->
-        <li class="nav__item expandable expandable--nav">
-          <a class="nav__link expandable__trigger" href="#">Artifacts</a>
-          <ul class="nav__list nav__list--secondary expandable__content">
-            <li class="nav__item">
-              <a name="Document Repository" class="nav__link" href="artifacts.html#doc-repo">Document Repository</a>
-            </li>
-            <li class="nav__item">
-              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#gwr">Guardian Weekly Report</a>
-            </li>
-            <li class="nav__item">
-              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#qbr">Quarterly Business Report</a>
-            </li>
-            <li class="nav__item">
-              <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#odd">On-Demand Deliverable</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
 
     <!-- ------------------------------------------------------------- -->
     <!-- Contract Information -->

@@ -185,44 +185,8 @@
     <div class="layout is-flex has-islands">
 
       <!-- ------------------------------------------------------------- -->
-      <!-- Support Tickets -->
-      <div class="island">
-        <h2>Support Tickets</h2>
-        <div id="support-tickets-chart" style="height: 250px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
-          <script type="text/javascript">
-            new Chartkick.ColumnChart("support-tickets-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","9.0"],["Q3 (Jul-Sep)","8.0"],["Q4 (Oct-Dec)","5.0"]], {"legend":false, "label": "Support Tickets", "colors": ["#1496ff"]});
-          </script>
-      </div>
-    
-      <!-- ------------------------------------------------------------- -->
-      <!-- ROI -->
-      <div class="island">
-        <h2>ROI</h2>
-        <div id="roi-chart" style="height: 250px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
-          <script type="text/javascript">
-            let data = [
-              {name: "Value Events", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 1}, stack: "VE"},
-              {name: "Quick Wins", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 8, "Q3 (Jul-Sep)": 7, "Q4 (Oct-Dec)": 4}, stack: "QW"},
-              {name: "Questions Answered", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 8}, stack: "QA"},
-              {name: "Value Victorys", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 8, "Q3 (Jul-Sep)": 3, "Q4 (Oct-Dec)": 1}, stack: "VV"}
-            ];
-            new Chartkick.ColumnChart("roi-chart", data, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});
-          </script>
-      </div>
-    
-      <!-- ------------------------------------------------------------- -->
-      <!-- Users Accessing Dynatrace -->
-      <div class="island">
-        <h2>Users Accessing DT</h2>
-        <div id="users-chart" style="height: 250px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
-          <script type="text/javascript">
-            new Chartkick.LineChart("users-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","20"],["Q3 (Jul-Sep)","60"],["Q4 (Oct-Dec)","212"]], {"legend":false, "label": "Users", "colors": ["#6f2da8"]});
-          </script>
-      </div>
-    
-      <!-- ------------------------------------------------------------- -->
       <!-- Tenant Information -->
-      <div class="island">
+      <div class="island tenant-info">
         <h2>Tenant Statistics</h2>
         <div class="section theme--blue scrollable">
           <table id="tenantInformationTable" class="table table--expandable" data-behavior="accordion">
@@ -327,7 +291,103 @@
           </table>
         </div>
       </div>
+      
+      <!-- ------------------------------------------------------------- -->
+      <!-- Support Tickets -->
+      <div class="island">
+        <h2>Support Tickets</h2>
+        <div id="support-tickets-chart"></div>
+          <script type="text/javascript">
+            new Chartkick.ColumnChart("support-tickets-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","9.0"],["Q3 (Jul-Sep)","8.0"],["Q4 (Oct-Dec)","5.0"]], {"legend":false, "label": "Support Tickets", "colors": ["#1496ff"]});
+          </script>
       </div>
+    
+      <!-- ------------------------------------------------------------- -->
+      <!-- ROI -->
+      <div class="island">
+        <h2>ROI</h2>
+        <div id="roi-chart"></div>
+        <script type="text/javascript">
+          let data = [
+            {name: "Value Events", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 1}, stack: "VE"},
+            {name: "Quick Wins", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 8, "Q3 (Jul-Sep)": 7, "Q4 (Oct-Dec)": 4}, stack: "QW"},
+            {name: "Questions Answered", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 8}, stack: "QA"},
+            {name: "Value Victorys", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 8, "Q3 (Jul-Sep)": 3, "Q4 (Oct-Dec)": 1}, stack: "VV"}
+          ];
+          new Chartkick.ColumnChart("roi-chart", data, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});
+        </script>
+      </div>
+    
+      <!-- ------------------------------------------------------------- -->
+      <!-- Users Accessing Dynatrace -->
+      <div class="island">
+        <h2>Users Accessing DT</h2>
+        <div id="users-chart"></div>
+          <script type="text/javascript">
+            new Chartkick.LineChart("users-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","20"],["Q3 (Jul-Sep)","60"],["Q4 (Oct-Dec)","212"]], {"legend":false, "label": "Users", "colors": ["#6f2da8"]});
+          </script>
+      </div>
+
+      <!-- ------------------------------------------------------------- -->
+      <!-- Dynatrace University -->
+      <div class="island">
+        <h2>Dynatrace University</h2>
+        <div id="dtu-chart"></div>
+        <script type="text/javascript">
+          let dtudata = [
+            {name: "Videos", data: {"Q1 (Jan-Mar)": 10, "Q2 (Apr-Jun)": 20, "Q3 (Jul-Sep)": 40, "Q4 (Oct-Dec)": 30}, stack: "videos"},
+            {name: "Certifications", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 3, "Q3 (Jul-Sep)": 8, "Q4 (Oct-Dec)": 7}, stack: "certs"}
+          ];
+          new Chartkick.ColumnChart("dtu-chart", dtudata, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});          
+        </script>
+      </div>
+
+      <!-- ------------------------------------------------------------- -->
+      <!-- Users Trained -->
+      <div class="island">
+        <h2>Users Trained</h2>
+        <div id="users-trained-chart"></div>
+        <script type="text/javascript">
+          let utdata = [
+            {name: "On-Site", data: {"Application Teams": 30, "Operations": 4, "Network": 10, "Executives": 1}, stack: "onsite"},
+            {name: "D1", data: {"Application Teams": 10, "Operations": 8, "Network": 7, "Executives": 4}, stack: "d1"},
+            {name: "vILT", data: {"Application Teams": 30, "Operations": 4, "Network": 10, "Executives": 8}, stack: "vilt"}
+          ];
+          new Chartkick.ColumnChart("users-trained-chart", utdata, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});
+        </script>
+      </div>
+
+      <!-- ------------------------------------------------------------- -->
+      <!-- Services Engagements -->
+      <div class="island">
+        <h2>Services Engagements</h2>
+        <div>
+          <canvas id="sa-chart" ></canvas>
+          <h3 class="gauge-chart">12 Months</h3>
+          <script type="text/javascript">
+            let ctx = document.getElementById('sa-chart').getContext('2d');
+            let sachart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ["Derek Darling"],
+                datasets: [{
+                  label: "Test",
+                  backgroundColor: ['#14a8f5'],
+                  data: [75, 25]
+                }],
+              },
+              options: {
+                circumference: 1 * Math.PI,
+                rotation: 1 * Math.PI
+              }
+            });
+          </script>
+        </div>
+      </div>
+
+
+
+    </div><!-- End of Main Body-->
 
 
 
