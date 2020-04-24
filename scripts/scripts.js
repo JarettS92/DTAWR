@@ -36,12 +36,13 @@ window.onload = function() {
         startDate: start,
         endDate: end,
         ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
             'Last 7 Days': [moment().subtract(6, 'days'), moment()],
             'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            'Last 90 Days': [moment().subtract(90, 'days'), moment()],
+            'Jan-Mar': [moment().startOf('year'), moment().startOf('year').add(3,'M')],
+            'Apr-Jun': [moment().startOf('year').add(3,'M'), moment().startOf('year').add(6,'M')],
+            'Jul-Sep': [moment().startOf('year').add(6,'M'), moment().startOf('year').add(9,'M')],
+            'Oct-Dec': [moment().startOf('year').add(9,'M'),moment().startOf('year').add(12,'M')]
         }
     }, cb);
     cb(start, end);
