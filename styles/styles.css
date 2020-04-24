@@ -301,8 +301,18 @@ th:hover {
     margin: 0 !important;
     text-align: center;
 }
-
-
+#reportrange {
+    background: #fff; 
+    cursor: pointer; 
+    padding: 5px 10px; 
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #14a8f5;
+}
+.applyBtn, .cancelBtn {
+    line-height: 25px !important;
+    border-color: #14a8f5 !important;
+}
 
 /* Desktop */
 @media screen and (max-width: 700px) {
