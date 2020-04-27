@@ -313,6 +313,10 @@ th:hover {
     line-height: 25px !important;
     border-color: #14a8f5 !important;
 }
+.warning {
+    color: red; 
+    font-weight: bold;
+}
 
 /* Desktop */
 @media screen and (max-width: 700px) {

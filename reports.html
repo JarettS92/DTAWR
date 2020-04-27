@@ -8,6 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chartkick/2.3.0/chartkick.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+  <script type="text/javascript" src="scripts/scripts.js"></script>
+  <script type="text/javascript" src="Trevor/rootCauseAnalysis.js"></script>
+  <script type="text/javascript" src="Trevor/taggedStorage.js"></script>
+  <script type="text/javascript" src="Trevor/environments.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>  
+
   <title>Services Portal - Reports</title>
 </head>
 <body class="white-bg">
@@ -239,7 +249,7 @@
             <div>Gives step by step instructions on how to use these tools and reports</div>
           </div>
         </div>
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <br>
         <p>This section is to tell the user how to go about using the Reports functions</p>
         <p>1. Make sure you configure your Tenants first! (top right corner)</p>
@@ -264,8 +274,8 @@
           </div>
         </div>
 
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: </p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">REQUIRED TOKEN PERMISSION: </p>
         <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
         <p>Specify the max amount of API requests per minute that this program should perform <b style='color: red;'>(Recommendation: 40)</b>.</p>
         <br>
@@ -339,8 +349,8 @@
             <div>Charts problems over time by type and shows the trend in avg MTTR(problem length)</div>
           </div>
         </div>
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: </p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">REQUIRED TOKEN PERMISSION: </p>
         <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
         <p>Specify the max amount of API requests per minute that this program should perform <b style='color: red;'>(Recommendation: 40)</b>.</p>
         <br>
@@ -387,8 +397,8 @@
           </div>
         </div>
 
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: </p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">REQUIRED TOKEN PERMISSION: </p>
         <p>Specify an environment. That's it.</p>
         <field class='field' style="width: 50%">
             <label for="i0" class="label">Environment Name:</label>
@@ -412,8 +422,8 @@
             <div>Delivers a report on hosts</div>
           </div>
         </div>
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
 
         <!-- Rodrigo/Nestor Stuff -->
         <div class='section'>
@@ -606,8 +616,8 @@
             <div>Delivers a report on Applications</div>
           </div>
         </div>
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
 
         <!-- Rodrigo/Nestor Stuff -->
         <div class="section">
@@ -679,8 +689,8 @@
             <div>Devlivers a report on Problems</div>
           </div>
         </div>
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
         <!-- Rodrigo/Nestor stuff -->
         <!-- Problems by Severity -->
         <div class="section">
@@ -753,8 +763,8 @@
             <div>Devlivers a report on Services</div>
           </div>
         </div>
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
 
         <!-- Rodrigo/Nestor stuff -->
         <div class="section rodrigo">
@@ -892,8 +902,8 @@
             <div>Audits the users logging into Dynatrace</div>
           </div>
         </div>
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: "Read audit logs"</p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">REQUIRED TOKEN PERMISSION: "Read audit logs"</p>
         <p>Shows user logins and and config changes made by users</p>
         <div class="theme--blue">
           <div class="buttongroup">
@@ -986,7 +996,7 @@
             <div>Configure the Dynatrace environments that these programs will interact with</div>
           </div>
         </div>
-        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
         <p>Add an environment:</p>
         <!--Add Environment here and button to delete env-->
@@ -1022,11 +1032,5 @@
   </div><!-- End of Main Body -->
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
-    <script type="text/javascript" src="scripts/scripts.js"></script>
-    <script type="text/javascript" src="Trevor/rootCauseAnalysis.js"></script>
-    <script type="text/javascript" src="Trevor/taggedStorage.js"></script>
-    <script type="text/javascript" src="Trevor/environments.js"></script>
+    
   </body>
