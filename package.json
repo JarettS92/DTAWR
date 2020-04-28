@@ -1,0 +1,23 @@
+{
+  "name": "dtawr",
+  "version": "1.0.0",
+  "description": "Customer facing portal to track DT engagements",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JarettS92/DTAWR.git"
+  },
+  "author": "Jarett Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JarettS92/DTAWR/issues"
+  },
+  "homepage": "https://github.com/JarettS92/DTAWR#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
