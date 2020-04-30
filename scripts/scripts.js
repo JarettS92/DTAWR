@@ -26,6 +26,12 @@ window.onload = function() {
         $("#csatReminderBanner").hide();
     });
 
+    // Ticker animationDuration Setting
+    let animationDuration = `${Math.floor($('.ticker__item').length / 2) * 10}s`;
+    document.getElementById('ticker').style.animationDuration = animationDuration;
+    // console.log(animationDuration);
+
+
     // Datepicker tool
     var start = moment().subtract(30, 'days');
     var end = moment();
