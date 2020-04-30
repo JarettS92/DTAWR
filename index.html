@@ -11,7 +11,59 @@
     <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
     <script type="text/javascript" src="scripts/scripts.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <!-- Javascript Agent -->
+    <script type="text/javascript">
+      (function(){function Ha(){if(void 0===Ia.dialogArguments)return navigator.cookieEnabled;document.cookie="__dTCookie=1";var Da=-1!==document.cookie.indexOf("__dTCookie");document.cookie="__dTCookie=1; expires=Thu, 01-Jan-1970 00:00:01 GMT";return Da}function Ua(){var Da;if(Ha()&&!window.dT_){var ea=(Da={},Da.cfg="app=57f92d7a160d8c68|cors=1|featureHash=A2SVfqru|reportUrl=https://bf15643llb.bf-sprint.dynatracelabs.com/bf|rdnt=1|uxrgce=1|bp=2|cuc=odmjrai7|dpvc=1|lastModification=1588178506481|dtVersion=10191200428153944|tp=500,50,0,1|uxdcw=1500|featureHash=A2SVfqru|agentUri=https://js-cdn.dynatracelabs.com/jstag/145e049b9b1/ruxitagent_A2SVfqru_10191200428153944.js|auto=|domain=|rid=RID_|rpid=|app=57f92d7a160d8c68",Da.iCE=Ha,Da);window.dT_=ea}}var Ia="undefined"!==typeof window?window:self,Pa;Ia.dT_?null===
+      (Pa=Ia.console)||void 0===Pa?void 0:Pa.log("Duplicate agent injection detected, turning off redundant initConfig."):Ua()})();
+      (function(){function Ha(){}function Ua(){for(var q=0,I=0,ua=arguments.length;I<ua;I++)q+=arguments[I].length;q=Array(q);var Q=0;for(I=0;I<ua;I++)for(var qb=arguments[I],Bb=0,qc=qb.length;Bb<qc;Bb++,Q++)q[Q]=qb[Bb];return q}function Ia(q,I,ua,Q){"undefined"===typeof Q&&(Q=Da(I,!0));"boolean"===typeof Q&&(Q=Da(I,Q));q===H?ra?ra(I,ua,Q):Eb&&Eb("on"+I,ua):xb&&q instanceof xb?Lb.call(q,I,ua,Q):q.addEventListener?q===H.document||q===H.document.documentElement?Qa.call(q,I,ua,Q):ra.call(q,I,ua,Q):q.attachEvent&&
+      q.attachEvent("on"+I,ua);Q=!1;for(var qb=Pb.length;0<=--qb;){var Bb=Pb[qb];if(Bb.object===q&&Bb.event===I&&Bb.L===ua){Q=!0;break}}Q||H.dT_.apush(Pb,{object:q,event:I,L:ua})}function Pa(q,I,ua,Q){for(var qb=Pb.length;0<=--qb;){var Bb=Pb[qb];if(Bb.object===q&&Bb.event===I&&Bb.L===ua){Pb.splice(qb,1);break}}"undefined"===typeof Q&&(Q=Da(I,!0));"boolean"===typeof Q&&(Q=Da(I,Q));q===H?Ea?Ea(I,ua,Q):Eb&&Eb("on"+I,ua):q.removeEventListener?q===H.document||q===H.document.documentElement?cb.call(q,I,ua,Q):
+      Ea.call(q,I,ua,Q):q.detachEvent&&q.detachEvent("on"+I,ua)}function Da(q,I){var ua=!1;try{var Q=H.dT_;if(ra&&-1<Q.aIOf(sc,q)){var qb=Object.defineProperty({},"passive",{get:function(){ua=!0}});ra("test",Ha,qb)}}catch(Bb){}return ua?{passive:!0,capture:I}:I}function ea(){for(var q=Pb,I=q.length;0<=--I;){var ua=q[I];Pa(ua.object,ua.event,ua.L)}Pb=[];H.dT_.cx()}function Z(){return Nc?new Nc:Gc?new Gc("MSXML2.XMLHTTP.3.0"):H.XMLHttpRequest?new H.XMLHttpRequest:new H.ActiveXObject("MSXML2.XMLHTTP.3.0")}
+      function ma(){Gc=Nc=void 0}function Fa(){try{lf.apply(H.parent,arguments)}catch(q){}}function Y(){try{Yd.apply(H.top,arguments)}catch(q){}}function R(q){var I=Array.prototype.slice.call(arguments,1);try{re.apply(q,I)}catch(ua){}}function ba(q){var I=Array.prototype.slice.call(arguments,1);try{Lg.apply(q,I)}catch(ua){}}function fa(){var q=0;try{q=H.performance.timing.navigationStart+Math.floor(H.performance.now())}catch(I){}return 0>=q||isNaN(q)||!isFinite(q)?(new Date).getTime():q}function G(q,I){function ua(){delete jg[Bb];
+      q.apply(this,arguments)}for(var Q=[],qb=2;qb<arguments.length;qb++)Q[qb-2]=arguments[qb];var Bb;"apply"in cd?Bb=cd.apply(H,Ua([ua,I],Q)):Bb=cd(ua,I);jg[Bb]=!0;return Bb}function Aa(q){delete jg[q];"apply"in dd?dd.call(H,q):dd(q)}function la(q){for(var I=[],ua=1;ua<arguments.length;ua++)I[ua-1]=arguments[ua];q.push.apply(q,I)}function Ba(q){la(se,q)}function ta(q){for(var I=se.length;I--;)if(se[I]===q){se.splice(I,1);break}}function ca(){return se}function J(q,I){return Qc(q,I)}function Ca(q,I){if(!Gf||
+      !Bh)return"";q=new Gf([q],{type:I});return Bh(q)}function S(q,I){return Zd?new Zd(q,I):void 0}function V(q){"function"===typeof q&&la(kg,q)}function xa(){return kg}function F(){return We}function X(q){return function(){for(var I=[],ua=0;ua<arguments.length;ua++)I[ua]=arguments[ua];if("number"!==typeof I[0]||!jg[I[0]])try{return q.apply(this,I)}catch(Q){return q(I[0])}}}function P(){Je&&(H.clearTimeout=dd,H.clearInterval=ge,Je=!1)}function O(){var q=fa(),I=Math.pow(2,32);return function(){q=(1664525*
+      q+1013904223)%I;return q/I}}function sa(q,I){var ua=lg?Math.random():Mg();return isNaN(q)||isNaN(I)?Math.floor(33*ua):Math.floor(ua*(I-q+1))+q}function A(q,I){return parseInt(q,I||10)}function L(q,I,ua){void 0===ua&&(ua=0);var Q=-1;I&&(null===q||void 0===q?0:q.indexOf)&&(Q=q.indexOf(I,ua));return Q}function B(q){return document.getElementsByTagName(q)}function C(q){var I=q.length;if("number"===typeof I)q=I;else{I=0;for(var ua=2048;q[ua-1];)I=ua,ua+=ua;for(var Q=7;1<ua-I;)Q=(ua+I)/2,q[Q-1]?I=Q:ua=
+      Q;q=q[Q]?ua:I}return q}function t(q){q=encodeURIComponent(q);var I=[];if(q)for(var ua=0;ua<q.length;ua++){var Q=q.charAt(ua);la(I,Ng[Q]||Q)}return I.join("")}function y(q){if(!q)return"";var I=H.crypto||H.msCrypto;if(I)I=I.getRandomValues(new Uint8Array(q));else{I=[];for(var ua=0;ua<q;ua++)I.push(sa(0,32))}q=[];for(ua=0;ua<I.length;ua++){var Q=Math.abs(I[ua]%32);q.push(String.fromCharCode(Q+(9>=Q?48:55)))}return q.join("")}function E(){var q;return!(null===(q=H.console)||void 0===q||!q.log)}function aa(q){-1<
+      H.dT_.io(q,"^")&&(q=q.split("^^").join("^"),q=q.split("^dq").join('"'),q=q.split("^rb").join(">"),q=q.split("^lb").join("<"),q=q.split("^p").join("|"),q=q.split("^e").join("="),q=q.split("^s").join(";"),q=q.split("^c").join(","),q=q.split("^bs").join("\\"));return q}function da(){return mf}function Na(q){mf=q}function M(q){var I=H.dT_,ua=I.scv("rid");I=I.scv("rpid");ua&&(q.rid=ua);I&&(q.rpid=I)}function K(q){if(q=q.xb){q=aa(q);try{mf=new RegExp(q)}catch(I){}}}function ha(){return Ke}function Ka(){return ji}
+      function Ya(){return ki}function Za(){return Xe}function ib(){return"dtAdk"}function Fb(){return id}function Qb(q,I){try{var ua=Le;ua&&ua.setItem(q,I)}catch(Q){}}function cc(q){try{var I=Le;if(I)return I.getItem(q)}catch(ua){}return null}function rb(q){try{var I=Le;I&&I.removeItem(q)}catch(ua){}}function ob(q,I){if(Db()&&(!W().overloadPrevention||ab()))return q.apply(this,I||[])}function Db(){return!sb("coo")||sb("cooO")||ab()}function dc(q){document.cookie=q+'="";path=/'+(Ib("domain")?";domain="+
+      Ib("domain"):"")+"; expires=Thu, 01 Jan 1970 00:00:01 GMT;"}function Rc(q,I,ua){var Q=1,qb=0;do document.cookie=q+'=""'+(I?";domain="+I:"")+";path="+ua.substr(0,Q)+"; expires=Thu, 01 Jan 1970 00:00:01 GMT;",Q=ua.indexOf("/",Q),qb++;while(-1!==Q&&5>qb)}function kc(q){var I=document.cookie;if(!I)return"";var ua=q+"=";q=L(I,ua);if(0>q)return"";for(;0<=q;){if(0===q||" "===I.charAt(q-1)||";"===I.charAt(q-1))return ua=q+ua.length,q=L(I,";",q),0<=q?I.substring(ua,q):I.substr(ua);q=L(I,ua,q+ua.length)}return""}
+      function xc(){var q=document.domain||"";if(!q)return"";q=q.split(".").reverse();var I=q.length;if(1>=I)return"";for(var ua=q[0],Q="",qb=1;qb<=I;qb++)if(kc("dTValidationCookie")){Q=ua;break}else q[qb]&&(ua=q[qb]+"."+ua),document.cookie="dTValidationCookie=dTValidationCookieValue;path=/;domain="+ua;Rc("dTValidationCookie",Q,"/");return Q}function tc(q,I,ua,Q){I||0===I?(I=String(I).replace(/[;\n\r]/g,"_"),q=q+"="+I+";path=/"+(Ib("domain")?";domain="+Ib("domain"):""),ua&&(q+=";expires="+ua.toUTCString()),
+      Q&&(q+=";Secure"),document.cookie=q):dc(q)}function na(q,I,ua,Q){ob(tc,[q,I,ua,Q])}function Ta(q){return q&&2<q.split("$").length?!1:/^[0-9A-Za-z_=:\$\+\/\.\-\*%\|]*$/.test(q)}function bb(){var q=kc(Ke);q||((q=cc(Ke))&&Ta(q)?hb(q):q="");return Ta(q)?q:""}function hb(q){na(Ke,q,void 0,sb("ssc"))}function mb(q){return q.length===nf||12>=q.length?q:""}function Gb(q){if(!isNaN(Number(q))){var I=A(q);if(-99<=I&&99>=I)return q}return""}function kb(q){var I={sessionId:"",Xa:""},ua=L(q,"|"),Q=q;-1!==ua&&
+      (Q=q.substring(0,ua));ua=L(Q,"$");-1!==ua?(I.sessionId=mb(Q.substring(ua+1)),I.Xa=Gb(Q.substring(0,ua))):I.sessionId=mb(Q);return I}function ja(q){var I={sessionId:"",Xa:""},ua=q.split("v"===q.charAt(0)?"_":"=");if(2<ua.length&&0===ua.length%2){q=Number(ua[1]);if(isNaN(q)||3>q)return I;q={};for(var Q=2;Q<ua.length;Q++)q[ua[Q]]=ua[Q+1],Q++;q.sn?I.sessionId=mb(q.sn):I.sessionId="hybrid";q.srv&&(I.Xa=Gb(q.srv));ua=ab();Q=W();"1"!==q.ol||ua||(Qb("dtDisabled","true"),Q.disabled=!0,Q.overloadPrevention=
+      !0)}return I}function ya(){return!sb("dpvc")&&!sb("pVO")}function Ra(q){if(q=q||bb()){var I=q.charAt(0);return"v"===I||"="===I?ja(q):kb(q)}return{sessionId:"",Xa:""}}function Sa(q){return Ra(q).Xa}function Xa(q){return Ra(q).sessionId}function ab(){return 0<=L(navigator.userAgent,"RuxitSynthetic")}function Hb(q){var I={};q=q.split("|");for(var ua=0;ua<q.length;ua++){var Q=q[ua].split("=");2===Q.length&&(I[Q[0]]=decodeURIComponent(Q[1].replace(/\+/g," ")))}return I}function pb(){var q=Ib("csu");return(q.indexOf("dbg")===
+      q.length-3?q.substr(0,q.length-3):q)+"_"+Ib("app")+"_Store"}function jb(q,I,ua){I=I||{};q=q.split("|");for(var Q=0;Q<q.length;Q++){var qb=q[Q],Bb=L(q[Q],"=");-1===Bb?I[qb]="1":(qb=q[Q].substring(0,Bb),I[qb]=q[Q].substring(Bb+1,q[Q].length))}!ua&&(ua=I,q=ua.spc)&&(Q=document.createElement("textarea"),Q.innerHTML=q,ua.spc=Q.value);return I}function yb(q){var I;return I=Vb[q],null!==I&&void 0!==I?I:zd[q]}function sb(q){q=yb(q);return"false"===q||"0"===q?!1:!!q}function nb(q){var I=yb(q);I=A(I);isNaN(I)&&
+      (I=zd[q]);return I}function Ib(q){return String(yb(q)||"")}function Wb(q,I){Vb[q]=I}function gc(q){Vb=q;q=Og;for(var I in q)q.hasOwnProperty(I)&&q[I]&&(Vb[I]=q[I]);return Vb}function Rb(q){Vb[q]=0>L(Vb[q],"#"+q.toUpperCase())?Vb[q]:""}function hc(q){var I=q.agentUri;I&&-1<L(I,"_")&&(I=/([a-zA-Z]*)[0-9]{0,4}_([a-zA-Z_0-9]*)_[0-9]+/g.exec(I))&&I.length&&2<I.length&&(q.csu=I[1],q.featureHash=I[2])}function sd(q){var I=q.domain||"";var ua=(ua=location.hostname)&&I?ua===I||-1!==ua.indexOf("."+I,ua.length-
+      ("."+I).length):!0;I&&ua||(q.domainOverride||(q.domainOverride=location.hostname+","+I,delete q.domain),(I=xc())&&(q.domain=I))}function ic(q,I){sd(Vb);Vb.pVO&&(q.pVO=Vb.pVO);I||(I=q.bp||zd.bp,q.bp2&&(I=2),4!==I||H.JSON||(I=1),q.bp=String(I))}function zc(){return Vb}function jd(){return Me}function Mb(){td(function(){Xa()||hb(-1*sa(2,21)+"$"+y(nf));Me=Sa()||""})}function jc(){return Ne}function ud(){var q=nb("vs"),I=Ac();2<=q&&-1===I?I=0:1===q&&-1<I&&(I=-1);Kc(ed(!0),void 0,I)}function Ye(q,I){I=
+      ed(I);for(var ua=!1,Q=0;Q<I.length;Q++)I[Q].frameId===Ne&&(I[Q].J=q,ua=!0);ua||la(I,{frameId:Ne,J:q});Kc(I)}function Kc(q,I,ua){if(q){var Q=!1;var qb=[];for(var Bb=0;Bb<q.length;Bb++)if("-"!==q[Bb].J){Q=!0;0<Bb&&0<qb.length&&la(qb,"p");var qc=Me;qc&&(la(qb,qc),la(qb,"$"));la(qb,q[Bb].frameId);la(qb,"h");la(qb,q[Bb].J)}qb.length||(mg&&(Uc(!1,!0,"a"),lb(!1)),Me=Sa()||"",la(qb,Me),la(qb,"$"),la(qb,Ne),la(qb,"h-"));q=I||Hc(Q);la(qb,"v");la(qb,q);q=null!==ua&&void 0!==ua?ua:Ac();0<=q&&(la(qb,"e"),la(qb,
+      q));qb=qb.join("")}else qb="";qb||(mg&&(Uc(!1,!0,"a"),lb(!1)),Me=Sa()||"",ua=null!==ua&&void 0!==ua?ua:Ac(),qb=Me+"$"+Ne+"h-v"+(I||Hc(!1)+(0<=ua?"e"+ua:"")));na(id,qb||"-",void 0,sb("ssc"))}function ed(q){var I=kc(id),ua=[];if(I&&"-"!==I){I=I.split("p");for(var Q="",qb=null,Bb=0;Bb<I.length;Bb++){var qc=I[Bb],vd=L(qc,"$"),Sc=L(qc,"h"),wd=L(qc,"v"),fd=L(qc,"e");vd=qc.substring(vd+1,Sc);Sc=-1!==wd?qc.substring(Sc+1,wd):qc.substring(Sc+1);Q=Q||-1!==wd?-1!==fd?qc.substring(wd+1,fd):qc.substring(wd+1):
+      "";qb=qb||-1!==fd?qc.substring(fd+1):null;(qc=q)||(qc=A(vd.split("_")[0]),wd=fa()%ng,wd<qc&&(wd+=ng),qc=qc+9E5>wd);qc&&la(ua,{frameId:vd,J:"-"===Sc?"-":A(Sc)})}for(Bb=0;Bb<ua.length;Bb++)ua[Bb].visitId=Q||"",ua[Bb].nb=null!==qb?A(qb):-1}return ua}function Oc(q,I){try{H.localStorage&&H.localStorage.setItem(q,I)}catch(ua){}}function Pc(q){try{if(H.localStorage)return H.localStorage.getItem(q)}catch(I){}return null}function Zc(q){try{H.localStorage&&H.localStorage.removeItem(q)}catch(I){}}function Hc(q){void 0===
+      q&&(q=!1);return Ic(q)||Uc(q,!0,"c")}function Ic(q){var I=ed(!0);return Wa()<=fa()?"":(Ad(!1),1<=I.length?-1!==Ac()&&2<=nb("vs")&&I[0].nb>=nb("mel")?Uc(!!q,!0,"e"+I[0].nb,!0):I[0].visitId||"":cc(Hf)||"")}function Ad(q){var I=fa(),ua=$a().fc;q&&(ua=I);z(I+og+"|"+ua);u()}function Xc(q,I){if(I){I=ed(!0);var ua=void 0;if((ua=1<=I.length?I[0].visitId||"":Yc(Hf)||"")&&(I=/([A-Z]+)-([0-9]+)/g.exec(ua))&&3===I.length&&isFinite(Number(I[2])))return I=I[1]+"-"+(Number(I[2])+1),he(I,q),I}I=y(nf);I=I.replace(/[0-9]/g,
+      function(Q){Q=.1*A(Q);return String.fromCharCode(Math.floor(25*Q+65))});I+="-0";he(I,q);return I}function ie(q){var I=ed(!1),ua=2<=nb("vs")?0:-1;Kc(I,q,ua);Qb(Hf,q);ia(pg,String(ua));Ad(!0)}function Uc(q,I,ua,Q){I&&(Oe=!0);q=Xc(ua,Q);ie(q);return q}function he(q,I){for(var ua=0;ua<qg.length;ua++)qg[ua](q,Oe,I)}function Bd(q){qg.push(q)}function u(){rg&&Aa(rg);rg=G(v,Wa()-fa())}function v(){if(Wa()<=fa()&&Db()){var q=fa();q=Xc("t"+(q-Wa()));ie(q);return!0}td(u);return!1}function z(q){na("rxvt",q,void 0,
+      sb("ssc"));ia("rxvt",q)}function ia(q,I){ya()?(Oc(q,I),rb(q)):(Qb(q,I),Zc(q))}function za(q){var I=kc(q);I||(I=Yc(q)||"");return I}function Va(){var q=Ic(!0)||"";ia(Hf,q);q=za("rxvt");z(q)}function $a(){var q={bd:0,fc:0},I=za("rxvt");if(I)try{var ua=I.split("|");2===ua.length&&(q.bd=parseInt(ua[0],10),q.fc=parseInt(ua[1],10))}catch(Q){}return q}function Wa(){var q=$a();return Math.min(q.bd,q.fc+Ch)}function wb(q){og=q}function lb(q){void 0===q&&(q=!0);mg=q}function Cb(){var q=Oe;Oe=!1;return q}function kd(){v()||
+      Ad(!1)}function md(){var q,I,ua;if(-1!==Ac()&&2<=nb("vs")){var Q=ed(!1),qb=Ac()+1;Kc(Q,"",qb);ia(pg,String(qb));null===(ua=null===(q=H.MobileAgentJSInterface)||void 0===q?void 0:(I=q).incrementActionCount)||void 0===ua?void 0:ua.call(I)}}function Yc(q){var I=Pc(q);I||(I=cc(q));return I}function Ac(){var q=ed(!0);if(1<=q.length&&!isNaN(q[0].nb))return q[0].nb;q=Yc(pg)||"";q=A(q);return isNaN(q)?2<=nb("vs")?0:-1:q}function td(q){Db()?q():(Ob||(Ob=[]),la(Ob,q))}function Dc(q){return ob(q)}function Md(){for(var q=
+      0;q<Ob.length;q++)G(Ob[q],0);Ob=[];Vb.cooO=!0}function $c(){Vb.cooO=!1;dc(Ke);dc(id);dc(Xe);dc("dtSa");dc(ib());dc("rxVisitor");dc("rxvt");try{ya()?Zc(pg):rb(pg);rb(Hf);var q=Le;q&&(q.removeItem("rxVisitor"),q.removeItem(Ke),q.removeItem("rxvt"));(q=te)&&q.removeItem(pb())}catch(I){}}function Cd(q){var I=document.cookie?document.cookie.split(q+"=").length-1:0;if(1<I){var ua=Ib("domain")||H.location.hostname,Q=H.location.hostname,qb=H.location.pathname,Bb=0,qc=0;Ze.push(q);do{var vd=Q.substr(Bb);if(vd!==
+      ua||"/"!==qb){Rc(q,vd===ua?"":vd,qb);var Sc=document.cookie?document.cookie.split(q+"=").length-1:0;Sc<I&&(Ze.push(vd),I=Sc)}Bb=Q.indexOf(".",Bb)+1;qc++}while(0!==Bb&&10>qc&&1<I);Ib("domain")&&1<I&&Rc(q,"",qb)}}function Nd(){Cd(id);Cd(Ke);Cd(Xe);Cd("rxvt");Ba(function(q,I,ua,Q){0<Ze.length&&!I&&(q.av(Q,0,"dCN",function(){return Ze.join(",")}),q.av(Q,4,"duplicateCookieNames",function(){return Ze.slice()}),Ze=[])})}function $e(){var q,I=kc("rxVisitor");I&&45===(null===(q=I)||void 0===q?void 0:q.length)||
+      (I=Pc("rxVisitor")||cc("rxVisitor"),45!==(null===I||void 0===I?void 0:I.length)&&(Dh=!0,I=String(fa()),I+=y(45-I.length)));q=I;if(ya()){var ua=new Date;ua.setFullYear(ua.getFullYear()+2);Oc("rxVisitor",q)}else Qb("rxVisitor",q);na("rxVisitor",q,ua,sb("ssc"));return I}function If(){return Dh}function af(q){var I=kc("rxVisitor");dc("rxVisitor");rb("rxVisitor");Zc("rxVisitor");na("rxVisitor",I);Vb.pVO=!0;q&&Oc("dt-pVO","1");Va()}function bf(){Zc("dt-pVO");sb("pVO")&&(Vb.pVO=!1,$e());Va()}function nd(q,
+      I,ua,Q,qb){var Bb=document.createElement("script");Bb.setAttribute("src",q);I&&Bb.setAttribute("defer","true");ua&&(Bb.onload=ua);Q&&(Bb.onerror=Q);qb&&Bb.setAttribute("id",qb);Bb.setAttribute("crossorigin","anonymous");q=document.getElementsByTagName("script")[0];q.parentElement.insertBefore(Bb,q)}function Jf(q,I){return Kf+"/"+(I||ue)+"_"+q+"_"+(nb("buildNumber")||W().version)+".js"}function Pg(){var q=0;try{q=Math.floor(H.performance.now())}catch(I){}return 0>=q||isNaN(q)||!isFinite(q)?(new Date).getTime()-
+      je():q}function je(){var q=0;try{q=Math.floor(H.performance.timeOrigin)}catch(ua){}if(0>=q||isNaN(q)||!isFinite(q)){q=H.dT_;var I=0;try{I=H.performance.timing.navigationStart}catch(ua){}q=0>=I||isNaN(I)||!isFinite(I)?q.gAST():I}return q}function Lf(){var q,I=H.dT_;H.dT_=(q={},q.version="10191200428153944",q.cfg=I?I.cfg:"",q.iCE=I?I.iCE:function(){return navigator.cookieEnabled},q.ica=1,q.disabled=!1,q.overloadPrevention=!1,q.gx=Z,q.cx=ma,q.mp=Fa,q.mtp=Y,q.mi=R,q.mw=ba,q.gAST=F,q.ww=S,q.stu=Ca,q.nw=fa,q.apush=
+      la,q.st=G,q.si=J,q.aBPSL=Ba,q.rBPSL=ta,q.gBPSL=ca,q.aBPSCC=V,q.gBPSCC=xa,q.buildType="dynatrace",q.gSSV=cc,q.sSSV=Qb,q.rSSV=rb,q.rvl=Zc,q.pn=A,q.iVSC=Ta,q.p3SC=ja,q.pLSC=kb,q.io=L,q.dC=dc,q.sC=na,q.esc=t,q.gSId=Sa,q.gDtc=Xa,q.gSC=bb,q.sSC=hb,q.gC=kc,q.cRN=sa,q.cRS=y,q.gEL=C,q.gEBTN=B,q.gSCN=ha,q.gPCHN=Ka,q.gRHN=Ya,q.gPCCN=Fb,q.gLCN=Za,q.gMSIDCN=ib,q.cfgO=zc,q.pCfg=Hb,q.pCSAA=jb,q.cFHFAU=hc,q.sCD=ic,q.bcv=sb,q.ncv=nb,q.scv=Ib,q.stcv=Wb,q.rplC=gc,q.cLSCK=pb,q.gFId=jc,q.gBAU=Jf,q.iS=nd,q.eWE=td,q.oEIE=
+      Dc,q.oEIEWA=ob,q.eA=Md,q.dA=$c,q.gcSId=jd,q.iNV=If,q.gVID=$e,q.dPV=af,q.ePV=bf,q.sVIdUP=lb,q.sVTT=wb,q.sVID=ie,q.rVID=Ic,q.gVI=Hc,q.gNVId=Uc,q.gARnVF=Cb,q.cAUV=kd,q.uVT=Ad,q.aNVL=Bd,q.gPC=ed,q.cPC=Ye,q.sPC=Kc,q.clB=P,q.ct=Aa,q.aRI=M,q.iXB=K,q.gXBR=da,q.sXBR=Na,q.de=aa,q.cCL=E,q.gEC=Ac,q.iEC=md,q.rnw=Pg,q.gto=je,q.ael=Ia,q.rel=Pa,q.sup=Da,q.cuel=ea,q)}function r(){try{var q=H.dT_;Nc=H.XMLHttpRequest;Gc=H.ActiveXObject;ra=H.addEventListener;Ea=H.removeEventListener;Qa=H.document.addEventListener;cb=
+      H.document.removeEventListener;cd=H.setTimeout;Qc=H.setInterval;Je||(dd=H.clearTimeout,ge=H.clearInterval);if(!((q.iCE?q.iCE():navigator.cookieEnabled)&&("complete"!==document.readyState||H.performance&&H.performance.timing)))return!1;Lf();try{te=H.localStorage,Le=H.sessionStorage}catch(ke){}We=fa();se=[];jg={};Je||(H.clearTimeout=X(dd),H.clearInterval=X(ge),Je=!0);var I=Math.random(),ua=Math.random();lg=0!==I&&0!==ua&&I!==ua;Mg=O();Ne=We%ng+"_"+A(sa(0,1E3)+"");var Q;zd=(Q={},Q.ade="",Q.aew=!0,Q.agentLocation=
+      "",Q.agentname="",Q.agentUri="",Q.uana="data-dtname,data-dtName",Q.app="",Q.async=!1,Q.ase=!1,Q.auto=!1,Q.bandwidth="300",Q.bp1=!1,Q.bp2=!1,Q.bp=1,Q.bs=!1,Q.buildNumber=0,Q.ccNcss=!1,Q.coo=!1,Q.cooO=!1,Q.cors=!1,Q.csu="",Q.cuc="",Q.cux=!1,Q.dataDtConfig="",Q.debugName="",Q.dASXH=!1,Q.disableCookieManager=!1,Q.disableLogging=!1,Q.dmo=!1,Q.dpvc=!1,Q.disableXhrFailures=!1,Q.domain="",Q.domainOverride="",Q.doNotDetect="",Q.ds=!0,Q.dsndb=!1,Q.dsss=!1,Q.eni=!1,Q.euf=!1,Q.evl="",Q.extblacklist="",Q.exteventsoff=
+      !1,Q.fau=!0,Q.fa=!1,Q.featureHash="",Q.ffi=!1,Q.hvt=216E5,Q.lastModification=0,Q.imm=!1,Q.initializedModules="",Q.ign="",Q.instr="",Q.iub="",Q.lab=!1,Q.legacy=!1,Q.lmut=!0,Q.lzwd=!1,Q.lzwe=!1,Q.mb="",Q.md="",Q.mdp="",Q.mdl="",Q.mdn=5E3,Q.bismepl=2E3,Q.mel=200,Q.mepp=10,Q.moa=30,Q.mrt=3,Q.mpl=1024,Q.mmds=2E4,Q.msl=3E4,Q.mhl=4E3,Q.name="",Q.ncw=!1,Q.ntd=!1,Q.oat=180,Q.ote=!1,Q.owasp=!1,Q.perfbv=1,Q.prfSmpl=0,Q.pt=!0,Q.pui=!1,Q.pVO=!1,Q.raxeh=!0,Q.rdnt=0,Q.reportUrl="dynaTraceMonitor",Q.restoreTimeline=
+      !1,Q.rid="",Q.ridPath="",Q.rpid="",Q.rt=1E4,Q.rtl=0,Q.rtp=2,Q.rtt=1E3,Q.rtu=200,Q.rx_visitID="",Q.sl=100,Q.sosi=!1,Q.spc="",Q.srbbv=1,Q.srbw=!0,Q.srad=!0,Q.srmr=100,Q.srms="1,1,,,",Q.srsr=1E5,Q.srtbv=3,Q.srtd=1,Q.srtr=500,Q.srvr="",Q.srwo=!1,Q.ssc=!1,Q.st=3E3,Q.svNB=!1,Q.syntheticConfig=!1,Q.tal=0,Q.tp="500,50,3",Q.tt=100,Q.tvc=3E3,Q.uam=!1,Q.useNewCookies=!1,Q.uxdce=!1,Q.uxdcw=1500,Q.uxrgce=!0,Q.uxrgcm="100,25,300,3;100,25,300,3",Q.vcfi=!0,Q.vcit=1E3,Q.vct=50,Q.vcv=1,Q.vcx=50,Q.vs=1,Q.WST=!1,Q.xb=
+      "",Q.xmut=!0,Q.xt=0,Q.srrc=!1,Q.srrcsr=0,Q);a:{var qb=W().cfg;Vb={reportUrl:"dynaTraceMonitor",initializedModules:"",csu:"dtagent",dataDtConfig:"string"===typeof qb?qb:""};W().cfg=Vb;Vb.csu="ruxitagentjs";var Bb=Vb.dataDtConfig;Bb&&-1===L(Bb,"#CONFIGSTRING")&&(jb(Bb,Vb),Rb("domain"),Rb("auto"),Rb("app"),hc(Vb));var qc=B("script"),vd=C(qc),Sc=-1===L(Vb.dataDtConfig||"","#CONFIGSTRING")?Vb:null;if(0<vd)for(q=0;q<vd;q++)b:{I=void 0;var wd=qc[q];ua=Sc;if(wd.attributes){var fd=Vb.csu+"_bootstrap.js";Q=
+      /.*\/jstag\/.*\/.*\/(.*)_bs(_dbg)?.js$/;qb=ua;var $d=wd.src,Od=null===$d||void 0===$d?void 0:$d.indexOf(fd),Dd=wd.attributes.getNamedItem("data-dtconfig");if(Dd){Bb=$d;var Pd=Dd.value,le={};Vb.legacy="1";if(Bb){var ve=/([a-zA-Z]*)[0-9]{0,4}_([a-zA-Z_0-9]*)_([0-9]+)/g.exec(Bb);if(null===ve||void 0===ve?0:ve.length)le.csu=ve[1],le.featureHash=ve[2],le.agentLocation=Bb.substr(0,L(Bb,ve[1])-1),le.buildNumber=ve[3]}Pd&&jb(Pd,le,!0);sd(le);I=le;if(!ua)qb=I;else if(!I.syntheticConfig){Sc=I;break b}}I||(I=
+      Vb);if(0<Od){var Mf=Od+fd.length+5;I.app=$d.length>Mf?$d.substr(Mf):"Default%20Application"}else if($d){var Nf=Q.exec($d);Nf&&(I.app=Nf[1])}Sc=qb}else Sc=ua}if(Sc)for(var ae in Sc)Sc.hasOwnProperty(ae)&&(qc=ae,Vb[qc]=Sc[qc]);if(Vb.rx_visitID){var of=Vb.rx_visitID;of&&(W().rx_visitID=of)}var Pe=pb();try{var sg=(Sc=te)&&Sc.getItem(Pe);if(sg){var Qe=Hb(sg),be=jb(Qe.config||""),Qg=Vb.lastModification||"0",me=A((be.lastModification||Qe.lastModification||"0").substr(0,13)),zb="string"===typeof Qg?A(Qg.substr(0,
+      13)):Qg;if(!Qg||me>=zb)if(be.agentname=Qe.name,be.agentUri?hc(be):(be.csu=Qe.name,be.featureHash=Qe.featureHash),ic(be,!0),K(be),M(be),me>(Vb.lastModification||0)){var Ed=Vb.auto,pf=Vb.legacy;Vb=gc(be);Vb.auto=Ed;Vb.legacy=pf}}}catch(ke){}ic(Vb);try{var Re=Vb.ign;if(Re&&(new RegExp(Re)).test(H.location.href)){document.dT_=H.dT_=void 0;var od=!1;break a}}catch(ke){}Vb.useNewCookies&&(id="rxpc",Ke="rxsession",Xe="rxlatency",ji="x-rxpc",ki="x-rxreferer");if(ab()){var Rg=navigator.userAgent,Vc=L(Rg,"RuxitSynthetic")+
+      14+5,pd=Rg.substring(Vc);if(-1!==L(pd," c")){var Sg=pd.split(" ");for(Pe=0;Pe<Sg.length;Pe++){var Eh=Sg[Pe];if("c"===Eh.charAt(0)){var Fh=Eh.substr(1),Tg=Fh.indexOf("="),Ug=Fh.substring(0,Tg),Gh=Fh.substring(Tg+1);Ug&&Gh&&(Og[Ug]=Gh)}}}gc(Vb)}od=!0}if(!od)return!1;Nd();try{li=W().disabled||!!cc("dtDisabled")}catch(ke){}var Vg;if(!(Vg=Ib("agentLocation")))a:{var Qd=Ib("agentUri");if(Qd||document.currentScript){var ad=Qd||document.currentScript.src;if(ad){od=ad;var Fd=-1===L(od,"_bs")&&-1===L(od,"_bootstrap")&&
+      -1===L(od,"_complete")?1:2,Of=ad.lastIndexOf("/");for(od=0;od<Fd&&-1!==Of;od++)ad=ad.substr(0,Of),Of=ad.lastIndexOf("/");Vg=ad;break a}}var Rd=location.pathname;Vg=Rd.substr(0,Rd.lastIndexOf("/"))}Kf=Vg;ue=Ib("agentname")||Ib("csu")||"ruxitagentjs";"true"===kc("dtUseDebugAgent")?0>ue.indexOf("dbg")&&(ue=Ib("debugName")||ue+"dbg"):ue=Ib("name")||ue;if(!sb("auto")&&!sb("legacy")&&!li){var Gd=Ib("agentUri")||Jf(Ib("featureHash")),cf;if(!(cf=sb("async")||"complete"===document.readyState)){var qf=H.navigator.userAgent,
+      ne=qf.indexOf("MSIE ");cf=0<ne?9>=parseInt(qf.substring(ne+5,qf.indexOf(".",ne)),10):!1}cf?nd(Gd,sb("async"),void 0,void 0,"dtjsagent"):(document.write('<script id="dtjsagentdw" type="text/javascript" src="'+Gd+'">\x3c/script>'),document.getElementById("dtjsagentdw")||nd(Gd,sb("async"),void 0,void 0,"dtjsagent"))}-1!==L(H.location.href,"_DT_RENDERING_")&&(W().RMOD={conf:mi,ignore:Ni,ID:"_DT_RENDERING_"},Kf&&nd(Jf("R"),!0,void 0,void 0,"dtjsagent"));kc(Ke)&&(Vb.cooO=!0);Mb();var ce=!!Pc("dt-pVO");
+      Vb.pVO=ce;td($e);og=18E5;Ch=nb("hvt")||216E5;ob(ud);ob(Ye,[1])}catch(ke){return!1}return!0}function W(){return H.dT_}var H="undefined"!==typeof window?window:self,ra,Ea,Qa,cb,Eb=H.attachEvent,xb=H.Worker,Lb=xb&&xb.prototype.addEventListener,Pb=[],sc=["touchstart","touchend","scroll"],Nc,Gc,cd,Qc,re=H.postMessage,Zd=H.Worker,Gf=H.Blob,Bh=H.URL&&H.URL.createObjectURL,Lg=H.Worker&&H.Worker.prototype.postMessage,lf=H.parent.postMessage,Yd=H.top.postMessage,dd,ge,Je=!1,se,kg=[],We,te,Le,jg={},Mg,lg,Ng=
+      new (function(){return function(){this["!"]="%21";this["~"]="%7E";this["*"]="%2A";this["("]="%28";this[")"]="%29";this["'"]="%27";this.$="%24";this[";"]="%3B";this[","]="%2C"}}()),mf,Og={},zd,id="dtPC",Ke="dtCookie",ji="x-dtpc",ki="x-dtreferer",Xe="dtLatC",nf=32,Vb={},Me,Ne,ng=6E8,pg="rxec",Hf="rxvisitid",rg,og,Ch,Oe=!1,qg=[],mg=!1,Ob=[],Ze=[],Dh=!1,li,Kf,ue,mi={childList:!0,subtree:!0,attributes:!0,attributeOldValue:!0},Ni=["_DT_RENDERING_"];(function(q){var I,ua;q=q||0>(null===(I=navigator.userAgent)||
+      void 0===I?void 0:I.indexOf("RuxitSynthetic"));if(!H.dT_||!H.dT_.cfg||"string"!==typeof H.dT_.cfg||"initialized"in H.dT_&&H.dT_.initialized)null===(ua=H.console)||void 0===ua?void 0:ua.log("InitConfig not found or agent already initialized! This is an injection issue.");else if(q&&!r()){try{delete H.dT_}catch(Q){H.dT_=void 0}E()&&H.console.log("JsAgent initCode initialization failed!")}})(!1)})();
+      
+      </script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services Portal - Account Summary</title>
@@ -179,6 +231,27 @@
       </ul>
     </div>
 
+    
+    <!-- ------------------------------------------------------------- -->
+    <!-- Value Event Ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <div class="ticker__item">Value Event (4/2) - Created Dasboard Mover Utility</div>
+        <div class="ticker__item">:</div>
+        <div class="ticker__item">Value Event (3/29) - Reduced MTTR in Application1</div>
+        <div class="ticker__item">:</div>
+        <div class="ticker__item">Value Event (4/9) - Another value event title here</div>
+        <div class="ticker__item">:</div>
+        <div class="ticker__item">Quick Win (2/16) - Configured Usernames in SolarWinds</div>
+        <div class="ticker__item">:</div>
+        <div class="ticker__item">Quick Win (3/20) - Enabled Log File Monitoring for NOCLights application</div>
+        <div class="ticker__item">:</div>
+        <div class="ticker__item">Value Event (4/5) - Deployed 6,000 Agents in 2 days</div>
+        <div class="ticker__item">:</div>
+        <div class="ticker__item">Value Event (5/1) - This is the most important value event</div>
+      </div>
+    </div>
+
     <!-- ------------------------------------------------------------- -->
     <!-- Warning Banner -->
     <div id="csatReminderBanner" name="CSAT Survey Reminder" class="csat">
@@ -190,6 +263,140 @@
     <!-- Main Body -->
     <div class="layout is-flex has-islands">
 
+      <!-- ------------------------------------------------------------- -->
+      <!-- Users Trained -->
+      <div class="island">
+        <h2>Users Trained</h2>
+        <canvas id="users-trained-chart"></canvas>
+        <!-- <div id='test'></div> -->
+        <script type="text/javascript">
+          // let utdata = [
+          //   {name: "On-Site", data: {"Application Teams": 30, "Operations": 4, "Network": 10, "Executives": 1}, stack: "onsite"},
+          //   {name: "D1", data: {"Application Teams": 10, "Operations": 8, "Network": 7, "Executives": 4}, stack: "d1"},
+          //   {name: "vILT", data: {"Application Teams": 30, "Operations": 4, "Network": 10, "Executives": 8}, stack: "vilt"}
+          // ];
+          // new Chartkick.ColumnChart("test", utdata, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});
+          let utc = new Chart('users-trained-chart', {
+            type: 'bar',
+            data: {
+              labels: ['Q1 (Jan-Mar)', 'Q2 (Apr-Jun)', 'Q3 (Jul-Sep)', 'Q4 (Oct-Dec)'],
+              datasets: [{
+                label: 'On-Site',
+                data: [10, 30, 12, 22],
+                backgroundColor: 'rgba(20,150,255,0.5)',
+                borderColor: 'rgba(20,150,255,1)',
+                borderWidth: 2
+              },
+              {
+                label: 'D1',
+                data: [10, 15, 12, 60],
+                backgroundColor: 'rgba(115,190,40,0.5)',
+                borderColor: 'rgba(115,190,40,1)',
+                borderWidth: 2
+              },
+              {
+                label: 'vILT',
+                data: [10, 30, 40, 20],
+                backgroundColor: 'rgba(111,45,168,0.5)',
+                borderColor: 'rgba(111,45,168,1)',
+                borderWidth: 2
+              }]
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+          });
+        </script>
+      </div>
+
+      <!-- ------------------------------------------------------------- -->
+      <!-- Services Engagements -->
+      <div class="island">
+        <h2>Services Engagements</h2>
+        <div style="display:grid;grid-template-columns: 50% 50%;grid-template-rows: 100%;">
+          <div style="grid-column-start: 1;grid-column-end:1;grid-row-start:1;grid-row-end:1;">
+            <canvas id="se-chart"></canvas>
+            <h3 class="gauge-chart">6 Months</h3>
+            <script type="text/javascript">
+              let sectx = document.getElementById('se-chart').getContext('2d');
+              let sechart = new Chart(sectx, {
+                type: 'doughnut',
+                data: {
+                  labels: ["Services"],
+                  datasets: [{
+                    label: "Test",
+                    backgroundColor: ['#14a8f5'],
+                    data: [75, 25]
+                  }],
+                },
+                options: {
+                  circumference: 1 * Math.PI,
+                  rotation: 1 * Math.PI
+                }
+              });
+            </script>
+          </div>
+          <div style="grid-column-start: 2;grid-column-end:2;grid-row-start:1;grid-row-end:1;">
+            <canvas id="sa-chart"></canvas>
+            <h3 class="gauge-chart">12 Months</h3>
+            <script type="text/javascript">
+              let sactx = document.getElementById('sa-chart').getContext('2d');
+              let sachart = new Chart(sactx, {
+                type: 'doughnut',
+                data: {
+                  labels: ["Insights"],
+                  datasets: [{
+                    label: "Test",
+                    backgroundColor: ['#14a8f5'],
+                    data: [75, 25]
+                  }],
+                },
+                options: {
+                  circumference: 1 * Math.PI,
+                  rotation: 1 * Math.PI
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------- -->
+      <!-- Engagement Goals -->
+      <div class="island">
+        <h2>Engagement Goals</h2>
+        <canvas id="engagement-goals-chart"></canvas>
+          <script type="text/javascript">
+            let ggc = document.getElementById('engagement-goals-chart');
+            let ggChart = new Chart(ggc, {
+              type: 'radar',
+              data: {
+                labels: ['Goal 1', 'Goal 2', 'Goal 3', 'Goal 4', 'Goal 5'],
+                datasets: [{
+                  label: '% Complete',
+                  data: [30, 10, 100, 60, 70],
+                  backgroundColor: 'rgba(111, 45, 168, 0.5)'
+                }]
+              },
+              options: {
+                "legend":false, 
+                "scale": {
+                  ticks: {
+                    suggestedMin: 0,
+                    suggestedMas: 100
+                  }
+                }
+              }
+            });
+          </script>
+      </div>
+      
       <!-- ------------------------------------------------------------- -->
       <!-- Tenant Information -->
       <div class="island tenant-info">
@@ -302,25 +509,76 @@
       <!-- Support Tickets -->
       <div class="island">
         <h2>Support Tickets</h2>
-        <div id="support-tickets-chart"></div>
+        <canvas id="support-tickets-chart"></canvas>
           <script type="text/javascript">
-            new Chartkick.ColumnChart("support-tickets-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","9.0"],["Q3 (Jul-Sep)","8.0"],["Q4 (Oct-Dec)","5.0"]], {"legend":false, "label": "Support Tickets", "colors": ["#1496ff"]});
+            // new Chartkick.ColumnChart("support-tickets-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","9.0"],["Q3 (Jul-Sep)","8.0"],["Q4 (Oct-Dec)","5.0"]], {"legend":false, "label": "Support Tickets", "colors": ["#1496ff"]});
+            let stc = document.getElementById('support-tickets-chart');
+            let supportTicketsChart = new Chart(stc, {
+              type: 'bar',
+              data: {
+                labels: ["Q1 (Jan-Mar)","Q2 (Apr-Jun)","Q3 (Jul-Sep)","Q4 (Oct-Dec)"],
+                datasets: [{
+                  label: '# of Support Tickets',
+                  data: [9,9,8,5],
+                  backgroundColor: 'rgba(20,150,255,0.5)',
+                  borderColor: 'rgba(20,150,255,1)',
+                  borderWidth: 2
+                }]
+              },
+              options: {
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      beginAtZero: true
+                    }
+                  }]
+                }
+              }
+            })
           </script>
       </div>
     
       <!-- ------------------------------------------------------------- -->
-      <!-- ROI -->
+      <!-- Checkpoints -->
       <div class="island">
-        <h2>ROI</h2>
-        <div id="roi-chart"></div>
+        <h2>Checkpoints</h2>
+        <canvas id="checkpoints-chart"></canvas>
         <script type="text/javascript">
-          let data = [
-            {name: "Value Events", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 1}, stack: "VE"},
-            {name: "Quick Wins", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 8, "Q3 (Jul-Sep)": 7, "Q4 (Oct-Dec)": 4}, stack: "QW"},
-            {name: "Questions Answered", data: {"Q1 (Jan-Mar)": 3, "Q2 (Apr-Jun)": 4, "Q3 (Jul-Sep)": 10, "Q4 (Oct-Dec)": 8}, stack: "QA"},
-            {name: "Value Victorys", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 8, "Q3 (Jul-Sep)": 3, "Q4 (Oct-Dec)": 1}, stack: "VV"}
-          ];
-          new Chartkick.ColumnChart("roi-chart", data, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});
+          let cc = document.getElementById('checkpoints-chart');
+          let ccChart = new Chart(cc, {
+            type: 'bar',
+            data: {
+              labels: ["Q1 (Jan-Mar)","Q2 (Apr-Jun)","Q3 (Jul-Sep)","Q4 (Oct-Dec)"],
+              datasets: [{
+                label: 'Value Events',
+                data: [3,4,10,1],
+                backgroundColor: 'rgba(20,150,255,0.5)',
+                borderColor: 'rgba(20,150,255,1)',
+                borderWidth: 2
+              },{
+                label: 'Quick Wins',
+                data: [7,5,8,4],
+                backgroundColor: 'rgba(115,190,40,0.5)',
+                borderColor: 'rgba(115,190,40,1)',
+                borderWidth: 2
+              },{
+                label: 'Questions Answered',
+                data: [10,15,12,3],
+                backgroundColor: 'rgba(111,45,168,0.5)',
+                borderColor: 'rgba(111,45,168,1)',
+                borderWidth: 2
+              }]
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+          })
         </script>
       </div>
     
@@ -328,9 +586,25 @@
       <!-- Users Accessing Dynatrace -->
       <div class="island">
         <h2>Users Accessing DT</h2>
-        <div id="users-chart"></div>
+        <canvas id="users-chart"></canvas>
           <script type="text/javascript">
-            new Chartkick.LineChart("users-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","20"],["Q3 (Jul-Sep)","60"],["Q4 (Oct-Dec)","212"]], {"legend":false, "label": "Users", "colors": ["#6f2da8"]});
+            // new Chartkick.LineChart("users-chart", [["Q1 (Jan-Mar)","9.0"],["Q2 (Apr-Jun)","20"],["Q3 (Jul-Sep)","60"],["Q4 (Oct-Dec)","212"]], {"legend":false, "label": "Users", "colors": ["#6f2da8"]});
+            let uc = document.getElementById('users-chart');
+            let ucChart = new Chart(uc, {
+              type: 'line',
+              data: {
+                labels: ["Q1 (Jan-Mar)","Q2 (Apr-Jun)","Q3 (Jul-Sep)","Q4 (Oct-Dec)"],
+                datasets: [{
+                  label: '# of Users',
+                  data: [9,20,60,212],
+                  backgroundColor: 'rgba(20,150,255,0.5)',
+                  borderColor: 'rgba(20,150,255,1)'
+                }]
+              },
+              options: {
+
+              }
+            })
           </script>
       </div>
 
@@ -338,112 +612,47 @@
       <!-- Dynatrace University -->
       <div class="island">
         <h2>Dynatrace University</h2>
-        <div id="dtu-chart"></div>
+        <canvas id="dtu-chart"></canvas>
         <script type="text/javascript">
-          let dtudata = [
-            {name: "Videos", data: {"Q1 (Jan-Mar)": 10, "Q2 (Apr-Jun)": 20, "Q3 (Jul-Sep)": 40, "Q4 (Oct-Dec)": 30}, stack: "videos"},
-            {name: "Certifications", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 3, "Q3 (Jul-Sep)": 8, "Q4 (Oct-Dec)": 7}, stack: "certs"}
-          ];
-          new Chartkick.ColumnChart("dtu-chart", dtudata, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});          
-        </script>
-      </div>
-
-      <!-- ------------------------------------------------------------- -->
-      <!-- Users Trained -->
-      <div class="island">
-        <h2>Users Trained</h2>
-        <div id="users-trained-chart"></div>
-        <script type="text/javascript">
-          let utdata = [
-            {name: "On-Site", data: {"Application Teams": 30, "Operations": 4, "Network": 10, "Executives": 1}, stack: "onsite"},
-            {name: "D1", data: {"Application Teams": 10, "Operations": 8, "Network": 7, "Executives": 4}, stack: "d1"},
-            {name: "vILT", data: {"Application Teams": 30, "Operations": 4, "Network": 10, "Executives": 8}, stack: "vilt"}
-          ];
-          new Chartkick.ColumnChart("users-trained-chart", utdata, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});
-        </script>
-      </div>
-
-      <!-- ------------------------------------------------------------- -->
-      <!-- Services Engagements -->
-      <div class="island">
-        <h2>Services Engagements</h2>
-        <div style="display:grid;grid-template-columns: 50% 50%;grid-template-rows: 100%;">
-          <div style="grid-column-start: 1;grid-column-end:1;grid-row-start:1;grid-row-end:1;">
-            <canvas id="se-chart"></canvas>
-            <h3 class="gauge-chart">6 Months</h3>
-            <script type="text/javascript">
-              let sectx = document.getElementById('se-chart').getContext('2d');
-              let sechart = new Chart(sectx, {
-                type: 'doughnut',
-                data: {
-                  labels: ["Services"],
-                  datasets: [{
-                    label: "Test",
-                    backgroundColor: ['#14a8f5'],
-                    data: [75, 25]
-                  }],
-                },
-                options: {
-                  circumference: 1 * Math.PI,
-                  rotation: 1 * Math.PI
-                }
-              });
-            </script>
-          </div>
-          <div style="grid-column-start: 2;grid-column-end:2;grid-row-start:1;grid-row-end:1;">
-            <canvas id="sa-chart"></canvas>
-            <h3 class="gauge-chart">12 Months</h3>
-            <script type="text/javascript">
-              let sactx = document.getElementById('sa-chart').getContext('2d');
-              let sachart = new Chart(sactx, {
-                type: 'doughnut',
-                data: {
-                  labels: ["Insights"],
-                  datasets: [{
-                    label: "Test",
-                    backgroundColor: ['#14a8f5'],
-                    data: [75, 25]
-                  }],
-                },
-                options: {
-                  circumference: 1 * Math.PI,
-                  rotation: 1 * Math.PI
-                }
-              });
-            </script>
-          </div>
-        </div>
-      </div>
-
-      <!-- ------------------------------------------------------------- -->
-      <!-- Engagement Goals -->
-      <div class="island">
-        <h2>Engagement Goals</h2>
-        <canvas id="engagement-goals-chart"></canvas>
-          <script type="text/javascript">
-            let ggc = document.getElementById('engagement-goals-chart');
-            let ggChart = new Chart(ggc, {
-              type: 'radar',
-              data: {
-                labels: ['Goal 1', 'Goal 2', 'Goal 3', 'Goal 4', 'Goal 5'],
-                datasets: [{
-                  label: '% Complete',
-                  data: [30, 10, 100, 60, 70],
-                  backgroundColor: 'rgba(111, 45, 168, 0.5)'
-                }]
+          // let dtudata = [
+          //   {name: "Videos", data: {"Q1 (Jan-Mar)": 10, "Q2 (Apr-Jun)": 20, "Q3 (Jul-Sep)": 40, "Q4 (Oct-Dec)": 30}, stack: "videos"},
+          //   {name: "Certifications", data: {"Q1 (Jan-Mar)": 1, "Q2 (Apr-Jun)": 3, "Q3 (Jul-Sep)": 8, "Q4 (Oct-Dec)": 7}, stack: "certs"}
+          // ];
+          // new Chartkick.ColumnChart("dtu-chart", dtudata, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});          
+          let dtu = document.getElementById('dtu-chart');
+          let dtuChart = new Chart(dtu, {
+            type: 'bar',
+            data: {
+              labels: ["Q1 (Jan-Mar)","Q2 (Apr-Jun)","Q3 (Jul-Sep)","Q4 (Oct-Dec)"],
+              datasets: [{
+                label: '# of Videos',
+                data: [10,20,40,30],
+                backgroundColor: 'rgba(20,150,255,0.5)',
+                borderColor: 'rgba(20,150,255,1)',
+                borderWidth: 2
               },
-              options: {
-                "legend":false, 
-                "scale": {
+              {
+                label: '# of Videos',
+                data: [10,20,40,30],
+                backgroundColor: 'rgba(115,190,40,0.5)',
+                borderColor: 'rgba(115,190,40,1)',
+                borderWidth: 2
+              }]
+            },
+            options: {
+              scales: {
+                yAxes: [{
                   ticks: {
-                    suggestedMin: 0,
-                    suggestedMas: 100
+                    beginAtZero: true
                   }
-                }
+                }]
               }
-            });
-          </script>
+            }
+          })
+        </script>
       </div>
+
+      
 
 
 
@@ -451,6 +660,6 @@
 
 
 
-    
+    <div class="empty"></div>
   </body>
 </html>

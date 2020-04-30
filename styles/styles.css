@@ -317,6 +317,75 @@ th:hover {
     color: red; 
     font-weight: bold;
 }
+.chartjs-size-monitor + h2 {
+    margin-top: 0 !important;
+}
+
+
+/* Ticker */
+/* https://codepen.io/lewismcarey/pen/GJZVoG */
+* { box-sizing: border-box; }
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.ticker-wrap {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 3rem;
+  background-color: #000;
+  padding-left: 100%;
+  box-sizing: content-box;
+}
+.ticker {
+    display: inline-block;
+    height: 3rem;
+    line-height: 3rem;  
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+
+    -webkit-animation-iteration-count: infinite; 
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+            animation-name: ticker;
+    -webkit-animation-duration: var(--duration, 50s);
+            animation-duration: var(--duration, 50s);
+}
+.ticker__item {
+    display: inline-block;
+    padding: 0 2rem;
+    font-size: 2rem;
+    color: white;   
+}
+.empty {
+    height: 2rem;
+}
+
 
 /* Desktop */
 @media screen and (max-width: 700px) {
