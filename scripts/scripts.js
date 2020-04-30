@@ -27,9 +27,7 @@ window.onload = function() {
     });
 
     // Ticker animationDuration Setting
-    let animationDuration = `${Math.floor($('.ticker__item').length / 2) * 10}s`;
-    document.getElementById('ticker').style.animationDuration = animationDuration;
-    // console.log(animationDuration);
+    document.getElementById('ticker').style.animationDuration = ((Math.floor($('.ticker__item').length / 2) * 10 < 1) ? '10s' : `${Math.floor($('.ticker__item').length / 2) * 10}s`);
 
 
     // Datepicker tool
