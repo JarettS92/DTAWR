@@ -27,8 +27,11 @@ window.onload = function() {
     });
 
     // Ticker animationDuration Setting
-    document.getElementById('ticker').style.animationDuration = ((Math.floor($('.ticker__item').length / 2) * 10 < 1) ? '10s' : `${Math.floor($('.ticker__item').length / 2) * 10}s`);
-
+    try{
+        document.getElementById('ticker').style.animationDuration = ((Math.floor($('.ticker__item').length / 2) * 10 < 1) ? '10s' : `${Math.floor($('.ticker__item').length / 2) * 10}s`);
+    }catch(err) {
+        console.log(err);
+    }
 
     // Datepicker tool
     var start = moment().subtract(30, 'days');
