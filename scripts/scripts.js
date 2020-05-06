@@ -140,6 +140,11 @@ window.onload = function() {
         $(`#${$(this).attr("name")}`).removeClass("none");
     });
 
+    $('.nav__btn').click(function(){
+        console.log($(this).attr('data-target'));
+        $($(this).attr('data-target')).toggleClass('is-active');
+      });
+
 }
 
 // Function to hide all tools/reports and display the 
