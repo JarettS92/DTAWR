@@ -324,7 +324,7 @@ th:hover {
 
 /* Ticker */
 /* https://codepen.io/lewismcarey/pen/GJZVoG */
-* { box-sizing: border-box; }
+/* * { box-sizing: border-box; }
 @-webkit-keyframes ticker {
   0% {
     -webkit-transform: translate3d(0, 0, 0);
@@ -384,7 +384,7 @@ th:hover {
 }
 .empty {
     height: 2rem;
-}
+} */
 
 
 /* Desktop */
