@@ -1,7 +1,27 @@
 
 
 window.onload = function() {
+
+    // Consoles URL path
+    console.log(window.location.pathname.toString());
     
+
+    // Set Breadcrumb
+    // Check to see what path they are on and set breadcrumb
+    // If no breadcrumb is on page, log error
+    try {
+        let str = window.location.pathname.toString().slice(1);
+        if(str === ""){
+            document.getElementsByClassName('breadcrumbs__link')[0].innerHTML = 'Home';
+        } else {
+            document.getElementsByClassName('breadcrumbs__link')[0].innerHTML = str.charAt(0).toUpperCase() + str.slice(1);
+            console.log(str);
+        }
+    } catch (error){
+        console.log(error);
+    }
+    
+
     // If on Mobile, navigating from tools -> reports
     // or vice versa needs to pass a 'fragment' to allow
     // the browser to know what tool/report to display

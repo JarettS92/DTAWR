@@ -1,0 +1,340 @@
+    <%- include('partials/htmlHeader') %>
+  <!------------------------------------------------------------------->
+  <!-- Main Body -->
+  <div class="layout is-flex">
+    <!------------------------------------------------------------------->
+    <!-- Side Bar -->
+    <nav class="sidebar hide-sm">
+      <a href="#" sidebar-content-id="overview" name="Overview" class="sidebar__item is-current">
+        <span class="sidebar__headline">Overview</span>
+        <span class="sidebar__info">Step by Step instructions</span>
+      </a>
+      <a href="#" sidebar-content-id="tag-duplicator" name="Tag Duplicator" class="sidebar__item">
+        <span class="sidebar__headline">Tag Duplicator</span>
+        <span class="sidebar__info">Copies tags to other Tenants</span>
+      </a>
+      <a href="#" sidebar-content-id="business-hour-kpis" name="Business Hour KPIs" class="sidebar__item">
+        <span class="sidebar__headline">Business Hour KPIs</span>
+        <span class="sidebar__info">Genereate Business Hour Metrics</span>
+      </a>
+      <a href="#" sidebar-content-id="starter-tags" name="Starter Tags" class="sidebar__item">
+        <span class="sidebar__headline">Starter Tags</span>
+        <span class="sidebar__info">Adds valuable tags to Dynatrace</span>
+      </a>
+      <a href="#" sidebar-content-id="dashboard-mover" name="Dashboard Mover" class="sidebar__item">
+        <span class="sidebar__headline">Dashboard Mover</span>
+        <span class="sidebar__info">Copies Dashboards across tenants</span>
+      </a>
+    </nav>
+
+    <!------------------------------------------------------------------->
+    <!-- Tools Content -->
+    <div class="island island--connected">
+
+      <!-- ------------------------------------------------------------------------- -->
+      <!-- Overview -->
+      <div name="sidebar-content" id="overview" class="display">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Overview">
+                <div>Overview</div>
+            </div>
+            <div>Gives step by step instructions on how to use these tools and reports</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p>This section is to tell the user how to go about using the Reports functions</p>
+        <p>1. Make sure you configure your Tenants first! (top right corner)</p>
+        <p>2. Navigate to the report you want to run</p>
+        <p>3. Fill in any required data (dates, tags)</p>
+        <p>4. Run the report **Some may download a .csv file on completion**</p>
+      </div>
+      <!-- End of Overview -->
+
+      <!-- Tag Duplicator -->
+      <div name="sidebar-content" id="tag-duplicator" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/duplicate-gray700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Tag Duplicator">
+                <div>Tag Duplicator</div>
+            </div>
+            <div>Copies a tag and sends it to the same or a different environment with the same or a different name</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: </p>
+        <p>Specify an environment and tag, this will be the tag that that is duplicated</p>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Environment Name:</label>
+            <input type="text" class="inputfield" id="TagDuplicatorEnv1"/>
+        </field>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Tag to Duplicate:</label>
+            <input type="text" class="inputfield" id="TagDuplicatorTag1"/>
+        </field>
+        <p>Specify a second environment and tag, this will be where the duplicate tag is sent.</p>
+        <p>You can use the same tag name as before if a tag with that name does not exist in the second environment.</p>
+        <p>You can use the same environment for the second as the first, but the new tag name should be different.</p>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">New Environment Name:</label>
+            <input type="text" class="inputfield" id="TagDuplicatorEnv2"/>
+        </field>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">New Tag Name:</label>
+            <input type="text" class="inputfield" id="TagDuplicatorTag2"/>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainTagDuplicator()">Run</button>
+        <div id='logs2'></div>
+      </div>
+      <!-- End of Tag Duplicator -->
+
+      <!-- Business Hour KPIs -->
+      <div name="sidebar-content" id="business-hour-kpis" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/business-impact-gray700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Business Hour KPIs">
+                <div class='newH'>Business Hour KPIs</div>
+            </div>
+            <div>Genereate a single metric for any timeseries metric for business hours only</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: </p>
+        <p>Specify which environment, and tag if applicable, as well as the start and end time that you would like to genereate a single metric for.</p>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Environment Name:</label>
+            <input type="text" class="inputfield" id="BusinessHourKPIsEnv"/>
+        </field>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Tag (optional):</label>
+            <input type="text" class="inputfield" id="BusinessHourKPIsTag"/>
+        </field>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Start Time:</label>
+            <input type="text" class="inputfield" id="BusinessHourKPIsStart"/>
+        </field>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">End Time:</label>
+            <input type="text" class="inputfield" id="BusinessHourKPIsEnd"/>
+        </field>
+        <p>Specify the timeseries metric id you would like to use. Available <a href="https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/metric-v1/available-metrics/saas/">SaaS</a> and <a href="https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/metric-v1/available-metrics/managed/">Managed</a> timeseries metrics.</p>
+        <p>Custom and plugin metrics should work, but the timeseries ids will not be in the above links.</p>
+        <p style='color: red; font-weight: bold;'>DON'T use the metric display name, multiple metrics in Dynatrace use the same name.</p>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Timeseries Metric:</label>
+            <input type="text" class="inputfield" id="BusinessHourKPIsMet"/>
+        </field>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Aggregation (if applicable):</label>
+            <input type="text" class="inputfield" id="BusinessHourKPIsAgg"/>
+        </field>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Percentile (only for Percentile aggregation):</label>
+            <input type="text" class="inputfield" id="BusinessHourKPIsPerc"/>
+        </field>
+        <p>Define business days and hours below.</p>
+        <label for="i0" class="label">Business Days:</label>
+        <input type="checkbox" class="checkbox" id="BusinessHourKPIsSunday"/>
+        <label for="BusinessHourKPIsSunday" class="checkbox__label">
+            <span class="checkbox__caption">Sunday</span>
+        </label>
+        <input type="checkbox" class="checkbox" id="BusinessHourKPIsMonday"/>
+        <label for="BusinessHourKPIsMonday" class="checkbox__label">
+            <span class="checkbox__caption">Monday</span>
+        </label>
+        <input type="checkbox" class="checkbox" id="BusinessHourKPIsTuesday"/>
+        <label for="BusinessHourKPIsTuesday" class="checkbox__label">
+            <span class="checkbox__caption">Tuesday</span>
+        </label>
+        <input type="checkbox" class="checkbox" id="BusinessHourKPIsWednesday"/>
+        <label for="BusinessHourKPIsWednesday" class="checkbox__label">
+            <span class="checkbox__caption">Wednesday</span>
+        </label>
+        <input type="checkbox" class="checkbox" id="BusinessHourKPIsThursday"/>
+        <label for="BusinessHourKPIsThursday" class="checkbox__label">
+            <span class="checkbox__caption">Thursday</span>
+        </label>
+        <input type="checkbox" class="checkbox" id="BusinessHourKPIsFriday"/>
+        <label for="BusinessHourKPIsFriday" class="checkbox__label">
+            <span class="checkbox__caption">Friday</span>
+        </label>
+        <input type="checkbox" class="checkbox" id="BusinessHourKPIsSaturday"/>
+        <label for="BusinessHourKPIsSaturday" class="checkbox__label">
+            <span class="checkbox__caption">Saturday</span>
+        </label>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Business Hour Start:</label>
+            <input type="text" class="inputfield" id="BusinessHourKPIsBHStart"/>
+        </field>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Business Hour End:</label>
+            <input type="text" class="inputfield" id="BusinessHourKPIsBHEnd"/>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainBusinessHourKPIs()">Run</button>
+        <div class="layout is-flex has-islands">
+          <div class="island">
+            <div class='newH2'>Results</div>
+            <table class="table" style="display: none" id='BusinessHourKPIsTableParent'>
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Result</th>
+                  <th>Timeseries ID</th>
+                </tr>
+              </thead>
+              <tbody id='BusinessHourKPIsTable'>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- End of Business Hour KPIs -->
+
+      <!-- Starter Tags -->
+      <div name="sidebar-content" id="starter-tags" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Starter Tags">
+                <div class='newH'>Starter Tags</div>
+            </div>
+            <div>Adds valuable tags to Dynatrace</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: </p>
+        <p>Specify an environment. That's it.</p>
+        <field class='field' style="width: 50%">
+            <label for="i0" class="label">Environment Name:</label>
+            <input type="text" class="inputfield" id="StarterTagsEnv"/>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainStarterTags()">Run</button>
+        <div class="layout is-flex has-islands" style="display: none" id="StarterTagsLogs">
+          <div class="island">
+            <div class='newH2'>Logs</div>
+            <table class="table">
+              <thead>
+              <tr>
+                  <th>Rule</th>
+                  <th>Status</th>
+              </tr>
+              </thead>
+              <tbody id='StarterTagsTable'></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- End of Starter Tags -->
+
+      <!-- Dashboard Mover -->
+      <div name="sidebar-content" id="dashboard-mover" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon icon--blue--big" src='images/resourcerequest-gray_700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Dashboard Mover">
+              <div class='newH'>Dashboard Mover</div>
+            </div>
+            <div>Copies Dashboards from one tenant to another</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p style='color: red; font-weight: bold;'>REQUIRED TOKEN PERMISSION: "Read configuration", "Write configuration"</p>
+        <p>Choose tenants to copy dashboards from/to</p>
+        <div class="section">
+          <div class="column--1-of-2">
+            <label for="tenant0" class="label">Tenant 1</label>
+            <input type="text" class="inputfield" id="tenant0"/>
+            <div class="section">
+              <button id="tenantBtn0" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
+            </div>
+            <div class="section">
+              <table id="t0Table" class="table">
+                <thead>
+                  <th>Dashboard Name</th>
+                  <th>Owner</th>
+                  <th>Copy to Tenant 2?</th>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <div class="column--1-of-2">
+            <label for="tenant1" class="label">Tenant 2</label>
+            <input type="text" class="inputfield" id="tenant1"/>
+            <div class="section">
+              <button id="tenantBtn1" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
+            </div>
+            <div class="section">
+              <table id="t1Table" class="table">
+                <thead>
+                  <th>Dashboard Name</th>
+                  <th>Owner</th>
+                  <th>Copy to Tenant 1?</th> 
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Dashboard Mover -->
+
+      <!-- Manage Environments -->
+      <div name="sidebar-content" id="add-env" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon" src='images/services-gray700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Manage Environments">
+                <div class='newH'>Manage Environments</div>
+            </div>
+            <div>Configure the Dynatrace environments that these programs will interact with</div>
+          </div>
+        </div>
+        <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+        <p>Add an environment:</p>
+        <!--Add Environment here and button to delete env-->
+        <table class="table" style="display: none" id='envTableParent'>
+          <thead>
+          <tr>
+            <th>Environment Name</th>
+            <th>URL</th>
+            <th>Token</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody id='envTable'></tbody>
+        </table>
+        <field class='field' style="width: 50%">
+          <label for="i0" class="label">Name:</label>
+          <input type="text" class="inputfield" id="EnvName"/>
+        </field>
+        <field class='field' style="width: 50%">
+          <label for="i0" class="label">Dynatrace Environment URL:</label>
+          <input type="text" class="inputfield" id="EnvURL"/>
+        </field>
+        <field class='field' style="width: 50%">
+          <label for="i0" class="label">API Token:</label>
+          <input type="text" class="inputfield" id="EnvTok"/>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+      </div>
+      <!-- End of Add Environment -->
+
+    </div><!-- End of Tools Content -->
+  </div><!-- End of Main Body -->
+
+  <%- include('partials/htmlFooter') %>

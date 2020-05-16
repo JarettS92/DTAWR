@@ -1,5 +1,6 @@
 const http = require('http');
 const express = require('express');
+const ejs = require('ejs');
 const app = express();
 require('dotenv').config();
 
@@ -12,26 +13,34 @@ const courses = [
 // PORT
 const port = process.env.PORT || 3000;
 
+// Settings
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
+
+// Routes
 app.get('/', (req, res) => {
-  res.send("Hello world!");
+  res.render("index");
 });
 
-app.get('/api/courses', (req, res) => {
-  let obj = {
-    "this": "is",
-    "Some": "standard",
-    "JSON": "format"
-  }
-  res.send(obj);
+app.get('/dashboards', (req, res) => {
+  res.render('dashboards');
+  
 });
 
-app.get('/api/courses/:id', (req, res) => {
-  let course = courses.find(c => c.id === parseInt(req.params.id));
-  if(!course) {
-    res.status(404).send('The course with given id was not found!');
-  } else {
-    res.send(course);
-  }
+app.get('/summary', (req, res) => {
+  res.render('summary');
+});
+
+app.get('/artifacts', (req, res) => {
+  res.render('artifacts');
+});
+
+app.get('/reports', (req, res) => {
+  res.render('reports');
+});
+
+app.get('/tools', (req, res) => {
+  res.render('tools');
 });
 
 app.listen(port, () => {
