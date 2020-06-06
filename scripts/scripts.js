@@ -24,8 +24,8 @@ window.onload = function() {
 
 
     // Datepicker tool
-    // var start = moment().subtract(30, 'days');
-    // var end = moment();
+    // var start = moment().subtract(30, 'days') || null;
+    // var end = moment() || null;
 
     // function cb(start, end) {
     //     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
