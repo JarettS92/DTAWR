@@ -3,18 +3,14 @@
 <head>
   <link rel="icon" href="images/dt-favicon-blue.png">
   <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/environments.css" />
+  <link rel="stylesheet" href="styles/dashboards.css" />
   <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chartkick/2.3.0/chartkick.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="scripts/scripts.js"></script>
-  <script type="text/javascript" src="Trevor/environments.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>  
-
   <title>Services Portal - Dashboards</title>
 </head>
 <body class="white-bg">
@@ -51,7 +47,7 @@
         </li>
         <!-- Dashboards -->
         <li class="nav__item is-current">
-          <a class="nav__link" href="#">Dashboards</a>
+          <a class="nav__link" href="./dashboards.html">Dashboards</a>
         </li>
         <!-- Artifacts -->
         <li class="nav__item">
@@ -78,19 +74,18 @@
               <a name="overview" class="nav__link" href="tools.html">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="tag-duplicator" class="nav__link" href="tools.html#tag-duplicator">Tag Duplicator</a>
+              <a name="tag-duplicator" class="nav__link" href="tools.html#tools-tag-duplicator">Tag Duplicator</a>
             </li>
             <li class="nav__item">
-              <a name="business-hour-kpis" class="nav__link" href="tools.html#business-hour-kpis">Business Hour KPIs</a>
+              <a name="business-hour-kpis" class="nav__link" href="tools.html#tools-business-hour-kpis">Business Hour KPIs</a>
             </li>
             <li class="nav__item">
-              <a name="starter-tags" class="nav__link" href="tools.html#starter-tags">Starter Tags</a>
+              <a name="starter-tags" class="nav__link" href="tools.html#tools-starter-tags">Starter Tags</a>
             </li>
             <li class="nav__item">
-              <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
+              <a name="dashboard-mover" class="nav__link" href="tools.html#tools-dashboard-mover">Dashboard Mover</a>
             </li>
           </ul>
-        </li>
         </li>
         <!-- Reports -->
         <li class="nav__item expandable expandable--nav">
@@ -100,43 +95,43 @@
               <a name="overview" class="nav__link" href="reports.html">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="root-cause-analysis" class="nav__link" href="reports.html#root-cause-analysis">Root Cause Analysis+</a>
+              <a name="root-cause-analysis" class="nav__link" href="reports.html#reports-root-cause-analysis">Root Cause Analysis+</a>
             </li>
             <li class="nav__item">
-              <a name="problem-trending" class="nav__link" href="reports.html#problem-trending">Problem Trending</a>
+              <a name="problem-trending" class="nav__link" href="reports.html#reports-problem-trending">Problem Trending</a>
             </li>
             <li class="nav__item">
-              <a name="untagged-entities" class="nav__link" href="reports.html#untagged-entities">Untagged Entities</a>
+              <a name="untagged-entities" class="nav__link" href="reports.html#reports-untagged-entities">Untagged Entities</a>
             </li>
             <li class="nav__item">
-              <a name="hosts" class="nav__link" href="reports.html#hosts">Hosts Report</a>
+              <a name="hosts" class="nav__link" href="reports.html#reports-hosts">Hosts Report</a>
             </li>
             <li class="nav__item">
-              <a name="applications" class="nav__link" href="reports.html#applications">Applications Report</a>
+              <a name="applications" class="nav__link" href="reports.html#reports-applications">Applications Report</a>
             </li>
             <li class="nav__item">
-              <a name="problems" class="nav__link" href="reports.html#problems">Problems Report</a>
+              <a name="problems" class="nav__link" href="reports.html#reports-problems">Problems Report</a>
             </li>
             <li class="nav__item">
-              <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
+              <a name="services" class="nav__link" href="reports.html#reports-services">Services Report</a>
             </li>
             <li class="nav__item">
-              <a name="audit-users" class="nav__link" href="reports.html#audit-users">Audit Users</a>
+              <a name="audit-users" class="nav__link" href="reports.html#reports-audit-users">Audit Users</a>
             </li>
           </ul>
         </li>
         <!-- Dashboards -->
-        <li class="nav__item expandable expandable--nav is-current">
-          <a class="nav__link expandable__trigger" href="#">Dashboards</a>
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="dashboards.html">Dashboards</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="#">Overview</a>
+              <a name="overview" class="nav__link" href="dashboards.html#dashboards-overview">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="bizops-configurator" class="nav__link" href="#">BizOps Configurator</a>
+              <a name="overview" class="nav__link" href="dashboards.html#dashboards-bizops-configurator">BizOps Configurator</a>
             </li>
             <li class="nav__item">
-              <a name="browse-dashboards" class="nav__link" href="#">Browse Dashboards</a>
+              <a name="browse-dashboards" class="nav__link" href="dashboards.html#dashboards-browse-dashboards">Browse Dashboards</a>
             </li>
           </ul>
         </li>
@@ -145,16 +140,16 @@
           <a class="nav__link expandable__trigger" href="#">Artifacts</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="Document Repository" class="nav__link" href="artifacts.html#doc-repo">Document Repository</a>
+              <a name="Document Repository" class="nav__link" href="artifacts.html#artifacts-doc-repo">Document Repository</a>
             </li>
             <li class="nav__item">
-              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#gwr">Guardian Weekly Report</a>
+              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#artifacts-gwr">Guardian Weekly Report</a>
             </li>
             <li class="nav__item">
-              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#qbr">Quarterly Business Report</a>
+              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#artifacts-qbr">Quarterly Business Report</a>
             </li>
             <li class="nav__item">
-              <a name="On-Demand Deliverable" class="nav__link" href="artifacts.html#odd">On-Demand Deliverable</a>
+              <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#artifacts-odd">On-Demand Deliverable</a>
             </li>
           </ul>
         </li>
@@ -172,14 +167,8 @@
       <li class="breadcrumbs__item breadcrumbs__last__parent">
         <span class="breadcrumbs__last">Overview</span>
       </li>
-      <li class="breadcrumbs__item envButton">
-        <div class="dropdown">
-          <button role="button" type="button" class="env-button overflow-ellipses"><span id="env-button-text">PROD</span></button>
-          <div class="drop-content">
-            <a name="prod" href="#">PROD</a>
-            <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
-          </div>
-        </div>
+      <li class="breadcrumbs__item manage__environments__parent">
+        <button role="button" type="button" class="manage__environments__button" onclick="navToManageEnvironments()"><span>Manage Environments</span></button>
       </li>
     </ul>
   </div>
@@ -191,35 +180,19 @@
     <!-- Side Bar -->
     <nav class="sidebar hide-sm">
       <!-- Overview -->
-      <a href="#" sidebar-content-id="overview" name="Overview" class="sidebar__item is-current">
+      <a href="#" sidebar-content-id="dashboards-overview" name="Overview" class="sidebar__item is-current">
         <span class="sidebar__headline">Overview</span>
         <span class="sidebar__info">Step by Step instructions</span>
       </a><!-- End of Overview -->
 
       <!-- BizOps Configurator -->
-      <div class="expandable">
-        <a href="#" sidebar-content-id="bizops-configurator" name="BizOps Configurator" class="sidebar__item expandable__trigger expandable__trigger--right">
-          <span class="sidebar__headline">BizOps Configurator</span>
-          <span class="sidebar__info">Utilize Community Dashboards</span>
-        </a>
-        <div class="expandable__content">
-          <a href="#" sidebar-content-id="bizops-overview" name="BizOps Overview" class="sidebar__item">
-            <span class="sidebar__headline">Overview</span>
-          </a>
-          <a href="#" sidebar-content-id="bizops-prerequisites" name="BizOps Prerequisites" class="sidebar__item">
-            <span class="sidebar__headline">Prerequisites</span>
-          </a>
-          <a href="#" sidebar-content-id="bizops-faq" name="BizOps FAQ" class="sidebar__item">
-            <span class="sidebar__headline">FAQ</span>
-          </a>
-          <a href="#" sidebar-content-id="bizops-begin" name="BizOps Begin!" class="sidebar__item">
-            <span class="sidebar__headline">Begin!</span>
-          </a>
-        </div>
-      </div><!-- End of BizOps Configurator-->
+      <a href="#" sidebar-content-id="dashboards-bizops-configurator" name="BizOps Configurator" class="sidebar__item">
+        <span class="sidebar__headline">BizOps Configurator</span>
+        <span class="sidebar__info">Utilize Community Dashboards</span>
+      </a><!-- End of BizOps Configurator-->
 
       <!-- Browse Dashboards -->
-      <a href="#" sidebar-content-id="browse-dashboards" name="Browse Dashboards" class="sidebar__item">
+      <a href="#" sidebar-content-id="dashboards-browse" name="Browse Dashboards" class="sidebar__item">
         <span class="sidebar__headline">Browse Dashboards</span>
         <span class="sidebar__info">View community created Dashboards</span>
       </a><!-- End of Browse Dashboards -->
@@ -231,7 +204,7 @@
     <div name="dashboards-content" class="island island--connected">
       <!-- ------------------------------------------------------------------------- -->
       <!-- Overview -->
-      <div name="sidebar-content" id="overview" class="display">
+      <div name="sidebar-content" id="dashboards-overview" class="display">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
@@ -254,7 +227,7 @@
       <!-- End of Overview -->
 
       <!-- BizOps Configurator -->
-      <div name="sidebar-content" id="bizops-configurator" class="none">
+      <div name="sidebar-content" id="dashboards-bizops-configurator" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/bigdata-gray_700.svg'></img>    
@@ -266,92 +239,11 @@
             <div>Get inputs from the user and from the Dynatrace API, to transform a stock collection of currated dashboards, and to upload via the Dynatrace API</div>
           </div>
         </div>
-        <!-- BizOps Configurator - Built by John Kelly and Lucas Hocker -->
-        <!-- BizOps Overview -->
-        <div id="bizops-overview" class="bizops-content">
-          <h3>Why?</h3>
-          <p>There's amazing insights that be unlocked just by using stock Dynatrace dashboard tiles. Building dashboards is pretty easy: just drag and drop, populate a few USQL queries, and poof business relevant insights. How can we make it even faster? Share a currated list of dashboards used across our customer base and customize queries with a few clicks and drags. All using the power of the Dynatrace API that's already available.</p>
-          
-          <h3>Structure</h3>
-          <p>We organized dasbhoards into three tiers: tenant/MZ, application, and user journey. </p>
-          <p><i>Tenant</i> level overviews and dashboards give you a macro-level view of what's going on in your environment. Your traditional Ops folks probably care about this stuff.</p>
-          <p><i>Application</i> overviews and dashboards give a level deeper focusing just on a single application. Your app owners and developers probably care about this stuff.</p>
-          <p><i>User Journeys</i> take you yet a level deeper looking at one path through your application; think of what processes are relevant for your application. Your business owners and marketing folks probably care about this stuff.
-          Does your user sign-up, check-out, buy something, build something, post something, get detailed info on products and services, watch training videos, etc? 
-          User journeys give you a quick way to define that particular path, whether it's a happy path, a particular promotion, or just a workflow that employees churn through a 100 times aday. Understanding metrics about and being able to filter down to individual sessions gives you the power to know when the journey is working well or the insights to improve it.</p>
-          <img class="structure" src="../images/structure.png">
-          
-          <h3>BizOps Dashboard IDs</h3>
-          Wait... these dashboard IDs don't look as random as normal Dynatrace dashboard IDs. What's going on here? For BizOps Dashboards we predefine the dashboard ID to make it easier to track the dashboards as a collection. Couldn't that conflict with a dashboards we create the normal way? Yes! but it's only a 1 in 1.2e^24th chance.<br>
-          Example: <p></p>
-          <span class="id-1">bbbbbbbb</span>-<span class="id-2">0001</span>-<span class="id-3">0001</span>-<span class="id-4">0001</span>-<span class="id-5">0000000000001</span>
-          <ul class="ids">
-            <li><span class="id-1">bbbbbbbb</span> - Prefix to denote BizOps Dashboards</li>
-            <li><span class="id-2">0001</span> - Tenant Overview</li>
-            <li><span class="id-3">0001</span> - Application Overview</li>
-            <li><span class="id-4">0001</span> - Journey Overview</li>
-            <li><span class="id-5">0000000000001</span> - Dashboard number</li>
-          </ul>
-          <h4>Reserved Dashboard IDs</h4>
-          <ul class="ids">
-            <li>bbbbbbbb-<span class="id-2">XXXX</span>-0000-0000-000000000000 - Tenant Overview Dashboard</li>
-            <li>bbbbbbbb-<span class="id-2">XXXX-XXXX</span>-0000-000000000000 - App Overview Dashboard</li>
-            <li>bbbbbbbb-<span class="id-2">XXXX</span>-0000-0000-<span class="id-5">ffffffffffff</span> - Tenant Overview Config</li>
-            <li>bbbbbbbb-<span class="id-2">XXXX-XXXX</span>-0000-<span class="id-5">ffffffffffff</span> - App Overview Config</li>
-            <li>bbbbbbbb-<span class="id-2">XXXX-XXXX-XXXX</span>-<span class="id-5">ffffffffffff</span> - Journey Config</li>
-          </ul>
-          
-          <h3>GitOps</h3>
-          <p>We're using a GitOps approach to maintaining these dashboards. Owners of the dashboards have their own public repos with the JSONs. The configurator just pulls from those repos, transmogrifies, and uploads to your tenant.</p>
-          
-          <h3>Contributing</h3>
-          <p><b>I've got some awesome dashboards everyone would find useful!</b> - That's great! We'd love to see them. We plan to integration additional dashboards at all levels, but in particularly, Tenant and App Overviews for non-Web cases. Who has an awesome native Mobile overview? If you do have some dashboards that could suit a wide range of customers, please post on <a class="newTab" href="https://answers.dynatrace.com" target="_blank">our forum<img src="../images/link.svg"></a>. Please include:</p>
-          <ul>
-            <li>a link to your GitHub repo</li>
-            <li>an example screenshot</li>
-            <li>a text description of necessary data to pull from the API and necessary transforms</li>
-            <li>a tag in your post with @Lucas.H, so I know it's out there</li>
-          </ul>
-          <p> Please note: we may not end up using your dashboard. While it might be great for your team, it may not fit for a wider audience or it may be just too hard to transform automatically.</p>
-          
-          <h3>Support</h3>
-          <p><b><i>THIS IS NOT PART OF THE DYNATRACE PRODUCT.</i></b> This was meant to be a demonstration app, but might have some actual utility. It is, however, provided without any representations, warranties, or formal support whatsoever. If you post on <a class="newTab" href="https://answers.dynatrace.com" target="_blank">our forum<img src="../images/link.svg"></a> we will try to answer questions you may have.</p>
-        </div>
-
-        <!-- BizOps Prerequisites -->
-        <div id="bizops-prerequisites" class="none bizops-content">
-          <ol class="prereqs">
-            <li>API Token w/ ReadConfig, WriteConfig, User Sessions (DTAQLAccess), and DataExport<br>
-              <a href="https://www.dynatrace.com/support/help/shortlink/token" target="_blank">
-                <img class="screenshot" src="images/Token.png">
-              </a>
-            </li>
-            <li>One or more Web Applications configured<br>
-              <a href="https://www.dynatrace.com/support/help/shortlink/my-web-application" target="_blank">
-                <img class="screenshot" src="images/Apps.png">
-              </a>
-            </li>
-            <li>One or more Business KPIs configured as User Session Properties<br>
-              <a href="https://www.dynatrace.com/support/help/shortlink/user-session-properties" target="_blank">
-                <img class="screenshot" src="images/USPs.png">
-              </a>
-            </li>
-            <li>Two or more Key User Actions (or conversion goals) to define your Funnel or User Journey<br>
-              <a href="https://www.dynatrace.com/support/help/shortlink/user-actions#mark-a-user-action-as-a-key-user-action" target="_blank">
-                <img class="screenshot" src="images/KeyActions.png">
-              </a>
-              <br>or<br>
-              <a href="https://www.dynatrace.com/support/help/shortlink/conversion-goals" target="_blank">
-                <img class="screenshot" src="images/Goals.png">
-              </a>
-            </li>
-            </ol>
-        </div>
-        <!-- End of BizOps Prerequisites -->
+        <p>Link:<a href='https://lucashocker.github.io/BizOpsConfigurator/#overview'>BizOps Configurator</a></p>
       </div><!-- End of BizOps Configurator-->
 
       <!-- Browse Dashboards -->
-      <div name="sidebar-content" id="browse-dashboards" class="none">
+      <div name="sidebar-content" id="dashboards-browse" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/file-library-gray_700.svg'></img>    
@@ -365,15 +257,202 @@
         </div>
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <br>
-        <p>Browse all the community created dashboards</p>
-      </div>
-      <!-- End of Browse Dashboards -->
+        <!-- <p>Browse all the community created dashboards</p> -->
+        <!-- <field class='field'>
+          <label for="f0" class="label">Filters</label>
+          <input type="text" class="inputfield" id="dashboard-store-filters" placeholder="Type:RUM"/>
+        </field> -->
+        <p>Filters: 
+          <button class="tag tag--interactive">RUM</button>
+          <button class="tag tag--interactive">Infrastructure</button>
+          <button class="tag tag--interactive">Application</button>
+          <button class="tag tag--interactive">Service</button>
+          <button class="tag tag--interactive">Cloud</button>
+        </p>
 
+        <!-- Browse Dashboards Content -->
+        <div class="is-flex">
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span id="close">&times;</span>
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+          </div>
+
+          <!-- Media Item1 -->
+          <div class="media media--horizontal">
+            <div class="media__item">
+              <p>Loyalty Business Dashboard</p>
+              <img src="images/dashboard1.png" alt="Loyalty Business Dashboard">
+              
+            </div>
+            <div class="media__content">
+              <p>This dashboard is to track some thing</p>
+              <ul>
+                <li>Use this dashboard if you want to track stuff</li>
+                <li>This helps prove out helpful information</li>
+                <li>Tags: RUM, Application</li>
+                <li>Owner: Some guy</li>
+              </ul>
+            </div>
+          </div>
+          <!-- End of Media Item1 -->
+
+          <!-- Media Item2 -->
+          <div class="media media--horizontal">
+            <div class="media__item">
+              <p>Dashboard Title</p>
+              <img src="images/dashboard2.png" alt="Dashboard Title">
+              
+            </div>
+            <div class="media__content">
+              <p>This dashboard is to track a bunch of things</p>
+              <ul>
+                <li>Use this dashboard if you like looking at lots of things at once</li>
+                <li>This dashboard shows so many things</li>
+                <li>Tags: Infrastructure, Service</li>
+                <li>Owner: Some gal</li>
+              </ul>
+            </div>
+          </div>
+          <!-- End of Media Item2 -->
+
+          <!-- Media Item3 -->
+          <div class="media media--horizontal">
+            <div class="media__item">
+              <p>AWS Overview</p>
+              <img src="images/dashboard3.png" alt="Dashboard Title">
+            </div>
+            <div class="media__content">
+              <p>This dashboard is to track AWS</p>
+              <ul>
+                <li>Use this dashboard if you like looking at lots of things at once</li>
+                <li>This dashboard shows so many things</li>
+                <li>Tags: Cloud</li>
+                <li>Owner: Some gal</li>
+              </ul>
+            </div>
+          </div>
+          <!-- End of Media Item3 -->
+
+          <!-- Media Item4 -->
+          <div class="media media--horizontal">
+            <div class="media__item">
+              <p>Small Dashboard</p>
+              <img src="images/dashboard4.png" alt="Dashboard Title">
+              
+            </div>
+            <div class="media__content">
+              <p>This dashboard is to track small things</p>
+              <ul>
+                <li>Use this dashboard if you like looking at small things</li>
+                <li>This dashboard shows so many things</li>
+                <li>Owner: Some gal</li>
+              </ul>
+            </div>
+          </div>
+          <!-- End of Media Item4 -->
+
+          <!-- Pagination for dashboards -->
+          <div>
+            <ul class="pagination">
+              <li class="pagination__item">
+                <a href="#noop" class="arrow arrow--reversed" rel="prev">Previous</a>
+              </li>
+              <li class="pagination__item">
+                <a href="#noop" class="pagination__link">1</a>
+              </li>
+              <li class="pagination__item">
+                <a href="#noop" class="pagination__link">2</a>
+              </li>
+              <li class="pagination__item">
+                <span class="pagination__current">3</span>
+              </li>
+              <li class="pagination__item">
+                <a href="#noop" class="pagination__link">4</a>
+              </li>
+              <li class="pagination__item">
+                <a href="#noop" class="arrow" rel="next">Next</a>
+              </li>
+            </ul>
+          </div> <!-- End of Pagination for Dashboards -->
+
+        </div><!-- End of Browse Dashboards Content-->
+
+      </div><!-- End of Browse Dashboards -->
+
+      <!-- ------------------------------------------------------------------------- -->
+      <!-- Manage Environments -->
+      <div name="sidebar-content" id="manage-environments" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon" src='images/services-gray700.svg'></img>    
+          </div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Manage Environments">
+                <div>Manage Environments</div>
+            </div>
+            <div>Configure the Dynatrace environments that these programs will interact with</div>
+          </div>
+        </div>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <input type="radio" class="radio" id="session-storage-radio"/>
+        <label for="session-storage-radio" class="radio__label">
+          <span class="radio__caption">Use Session Storage</span>
+        </label>
+        <input type="radio" class="radio" id="local-storage-radio"/>
+        <label for="local-storage-radio" class="radio__label">
+          <span class="radio__caption">Use Local Storage</span>
+        </label>
+        <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+        <p>Add an environment:</p>
+        <!--Add Environment here and button to delete env-->
+        <table class="table" id='manage-environments-table'>
+          <thead>
+          <tr>
+            <th>Environment Name</th>
+            <th>URL</th>
+            <th>Token</th>
+            <th>Tags?</th>
+            <th>MZs?</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody id='manage-environments-tbody'></tbody>
+        </table>
+
+        <field class='field'>
+          <label for="environment-name-input" class="label">Name:</label>
+          <input type="text" class="inputfield" id="environment-name-input"/>
+        </field>
+        <field class='field'>
+          <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
+          <input type="text" class="inputfield" id="environment-url-input"/>
+        </field>
+        <field class='field'>
+          <label for="environment-token-input" class="label">API Token:</label>
+          <input type="text" class="inputfield" id="environment-token-input"/>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+        <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
+      </div>
+      <!-- End of Manage Environments -->
+
+    
+    
     </div><!-- End of Dashboards Content -->
   </div><!-- End of Main Body -->
 
 
-  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="scripts/environments.js"></script>
+    <script type="text/javascript" src="scripts/dashboard_browse.js"></script>
 
   </body>
-</html>

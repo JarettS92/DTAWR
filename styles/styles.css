@@ -167,10 +167,10 @@ th:hover {
     background-color: black !important;
 }
 .display {
-    display: auto;
+    display: auto !important;
 }
 .none {
-    display: none;
+    display: none !important;
 }
 .white-bg {
     background-color: #fff;
@@ -321,72 +321,6 @@ th:hover {
     margin-top: 0 !important;
 }
 
-
-/* Ticker */
-/* https://codepen.io/lewismcarey/pen/GJZVoG */
-/* * { box-sizing: border-box; }
-@-webkit-keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-@keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-.ticker-wrap {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
-  height: 3rem;
-  background-color: #000;
-  padding-left: 100%;
-  box-sizing: content-box;
-}
-.ticker {
-    display: inline-block;
-    height: 3rem;
-    line-height: 3rem;  
-    white-space: nowrap;
-    padding-right: 100%;
-    box-sizing: content-box;
-
-    -webkit-animation-iteration-count: infinite; 
-            animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-    -webkit-animation-name: ticker;
-            animation-name: ticker;
-    -webkit-animation-duration: var(--duration, 50s);
-            animation-duration: var(--duration, 50s);
-}
-.ticker__item {
-    display: inline-block;
-    padding: 0 2rem;
-    font-size: 2rem;
-    color: white;   
-}
-.empty {
-    height: 2rem;
-} */
-
-
 /* Desktop */
 @media screen and (max-width: 700px) {
     .mobile {
@@ -396,12 +330,6 @@ th:hover {
 /* Desktop */
 @media screen and (max-width: 900px) {
     .landscape {
-        display: none !important;
-    }
-}
-/* Desktop */
-@media screen and (max-width: 980px) {
-    #nav-bar-button, #nav-bar {
         display: none !important;
     }
 }
@@ -416,69 +344,4 @@ th:hover {
     .no-landscape {
         display: none !important;
     }
-}
-/* Mobile */
-@media screen and (min-width: 980px) {
-    #nav-bar-button-mobile, #nav-bar-mobile {
-        display: none !important;
-    }
-}
-
-
-/* BizOps Configurator */
-ul.ids li {
-    margin-top: 6px;
-    margin-bottom: 6px;
-}
-
-span.id-1 {
-    border: 2px #1495FF solid;
-    background: #A1D5FF;
-    color: black;
-}
-span.id-2 {
-    border: 2px #8A36D0 solid;
-    background: #D0AFEC;
-    color: black;
-}
-span.id-3 {
-    border: 2px #5350B6 solid;
-    background: #BAB9E2;
-    color: black;
-}
-span.id-4 {
-    border: 2px #6140A3 solid;
-    background: #BEAEDF;
-    color: black;
-}
-span.id-5 {
-    border: 2px #73BE28 solid;
-    background: #C7ECA2;
-    color: black;
-}
-div#overviewImages img {
-    max-width: 50%;
-    height: auto;
-}
-#bizops-overview h3 {
-    color: #00b9cc;
-}
-img.structure {
-    border: 1px solid #8A36D0;
-    border-radius: 30px;
-}
-a.newTab, a.newTab:visited {
-    color: #00b9cc;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-a.newTab:hover {
-    text-decoration: underline;
-}
-
-a.newTab img {
-    width: 1em;
-    height: 1em;
-    color: #00b9cc;
 }

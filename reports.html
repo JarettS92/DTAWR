@@ -3,20 +3,14 @@
 <head>
   <link rel="icon" href="images/dt-favicon-blue.png">
   <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/environments.css" />
+  <link rel="stylesheet" href="styles/reports.css" />
   <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chartkick/2.3.0/chartkick.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="scripts/scripts.js"></script>
-  <script type="text/javascript" src="Trevor/rootCauseAnalysis.js"></script>
-  <script type="text/javascript" src="Trevor/taggedStorage.js"></script>
-  <script type="text/javascript" src="Trevor/environments.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>  
-
   <title>Services Portal - Reports</title>
 </head>
 <body class="white-bg">
@@ -80,65 +74,64 @@
               <a name="overview" class="nav__link" href="tools.html">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="tag-duplicator" class="nav__link" href="tools.html#tag-duplicator">Tag Duplicator</a>
+              <a name="tag-duplicator" class="nav__link" href="tools.html#tools-tag-duplicator">Tag Duplicator</a>
             </li>
             <li class="nav__item">
-              <a name="business-hour-kpis" class="nav__link" href="tools.html#business-hour-kpis">Business Hour KPIs</a>
+              <a name="business-hour-kpis" class="nav__link" href="tools.html#tools-business-hour-kpis">Business Hour KPIs</a>
             </li>
             <li class="nav__item">
-              <a name="starter-tags" class="nav__link" href="tools.html#starter-tags">Starter Tags</a>
+              <a name="starter-tags" class="nav__link" href="tools.html#tools-starter-tags">Starter Tags</a>
             </li>
             <li class="nav__item">
-              <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
+              <a name="dashboard-mover" class="nav__link" href="tools.html#tools-dashboard-mover">Dashboard Mover</a>
             </li>
           </ul>
         </li>
-        </li>
         <!-- Reports -->
-        <li class="nav__item expandable expandable--nav is-current">
+        <li class="nav__item expandable expandable--nav">
           <a class="nav__link expandable__trigger" href="#">Reports</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="#">Overview</a>
+              <a name="overview" class="nav__link" href="reports.html">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="root-cause-analysis" class="nav__link" href="#">Root Cause Analysis+</a>
+              <a name="root-cause-analysis" class="nav__link" href="reports.html#reports-root-cause-analysis">Root Cause Analysis+</a>
             </li>
             <li class="nav__item">
-              <a name="problem-trending" class="nav__link" href="#">Problem Trending</a>
+              <a name="problem-trending" class="nav__link" href="reports.html#reports-problem-trending">Problem Trending</a>
             </li>
             <li class="nav__item">
-              <a name="untagged-entities" class="nav__link" href="#">Untagged Entities</a>
+              <a name="untagged-entities" class="nav__link" href="reports.html#reports-untagged-entities">Untagged Entities</a>
             </li>
             <li class="nav__item">
-              <a name="hosts" class="nav__link" href="#">Hosts Report</a>
+              <a name="hosts" class="nav__link" href="reports.html#reports-hosts">Hosts Report</a>
             </li>
             <li class="nav__item">
-              <a name="applications" class="nav__link" href="#">Applications Report</a>
+              <a name="applications" class="nav__link" href="reports.html#reports-applications">Applications Report</a>
             </li>
             <li class="nav__item">
-              <a name="problems" class="nav__link" href="#">Problems Report</a>
+              <a name="problems" class="nav__link" href="reports.html#reports-problems">Problems Report</a>
             </li>
             <li class="nav__item">
-              <a name="services" class="nav__link" href="#">Services Report</a>
+              <a name="services" class="nav__link" href="reports.html#reports-services">Services Report</a>
             </li>
             <li class="nav__item">
-              <a name="audit-users" class="nav__link" href="#">Audit Users</a>
+              <a name="audit-users" class="nav__link" href="reports.html#reports-audit-users">Audit Users</a>
             </li>
           </ul>
         </li>
         <!-- Dashboards -->
         <li class="nav__item expandable expandable--nav">
-          <a class="nav__link expandable__trigger" href="#">Dashboards</a>
+          <a class="nav__link expandable__trigger" href="dashboards.html">Dashboards</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="dashboards.html">Overview</a>
+              <a name="overview" class="nav__link" href="dashboards.html#dashboards-overview">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="BizOps Configurator" class="nav__link" href="dashboards.html#bizops-configurator">BizOps Configurator</a>
+              <a name="overview" class="nav__link" href="dashboards.html#dashboards-bizops-configurator">BizOps Configurator</a>
             </li>
             <li class="nav__item">
-              <a name="Browse Dashboards" class="nav__link" href="dashboards.html#browse-dashboards">Browse Dashboards</a>
+              <a name="browse-dashboards" class="nav__link" href="dashboards.html#dashboards-browse-dashboards">Browse Dashboards</a>
             </li>
           </ul>
         </li>
@@ -147,16 +140,16 @@
           <a class="nav__link expandable__trigger" href="#">Artifacts</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="Document Repository" class="nav__link" href="artifacts.html#doc-repo">Document Repository</a>
+              <a name="Document Repository" class="nav__link" href="artifacts.html#artifacts-doc-repo">Document Repository</a>
             </li>
             <li class="nav__item">
-              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#gwr">Guardian Weekly Report</a>
+              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#artifacts-gwr">Guardian Weekly Report</a>
             </li>
             <li class="nav__item">
-              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#qbr">Quarterly Business Report</a>
+              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#artifacts-qbr">Quarterly Business Report</a>
             </li>
             <li class="nav__item">
-              <a name="On-Demand Deliverable" class="nav__link" href="artifacts.html#odd">On-Demand Deliverable</a>
+              <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#artifacts-odd">On-Demand Deliverable</a>
             </li>
           </ul>
         </li>
@@ -174,14 +167,8 @@
       <li class="breadcrumbs__item breadcrumbs__last__parent">
         <span class="breadcrumbs__last">Overview</span>
       </li>
-      <li class="breadcrumbs__item envButton">
-        <div class="dropdown">
-          <button role="button" type="button" class="env-button overflow-ellipses"><span id="env-button-text">PROD</span></button>
-          <div class="drop-content">
-            <a name="prod" href="#">PROD</a>
-            <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
-          </div>
-        </div>
+      <li class="breadcrumbs__item manage__environments__parent">
+        <button role="button" type="button" class="manage__environments__button" onclick="navToManageEnvironments()"><span>Manage Environments</span></button>
       </li>
     </ul>
   </div>
@@ -192,39 +179,39 @@
     <!------------------------------------------------------------------->
     <!-- Side Bar -->
     <nav class="sidebar hide-sm">
-      <a href="#" sidebar-content-id="overview" name="Overview" class="sidebar__item is-current">
+      <a href="#" sidebar-content-id="reports-overview" name="Overview" class="sidebar__item is-current">
         <span class="sidebar__headline">Overview</span>
         <span class="sidebar__info">Step by Step instructions</span>
       </a>
-      <a sidebar-content-id="root-cause-analysis" name="Root Cause Analysis" href="#" class="sidebar__item is-active">
+      <a sidebar-content-id="reports-root-cause-analysis" name="Root Cause Analysis" href="#" class="sidebar__item is-active">
         <span class="sidebar__headline">Root Cause Analysis+</span>
         <span class="sidebar__info">Filters root cause by tag and entity</span>
       </a>
-      <a sidebar-content-id="problem-trending" name="Problem Trending" href="#" class="sidebar__item">
+      <a sidebar-content-id="reports-problem-trending" name="Problem Trending" href="#" class="sidebar__item">
         <span class="sidebar__headline">Problem Trending</span>
         <span class="sidebar__info">Track problems by tag over time</span>
       </a>
-      <a sidebar-content-id="untagged-entities" name="Untagged Entities" href="#" class="sidebar__item">
+      <a sidebar-content-id="reports-untagged-entities" name="Untagged Entities" href="#" class="sidebar__item">
         <span class="sidebar__headline">Untagged Entities</span>
         <span class="sidebar__info">Gets all untagged entities</span>
       </a>
-      <a sidebar-content-id="hosts" name="Hosts Report" href="#" class="sidebar__item">
+      <a sidebar-content-id="reports-hosts" name="Hosts Report" href="#" class="sidebar__item">
         <span class="sidebar__headline">Hosts Report</span>
         <span class="sidebar__info">Details of hosts</span>
       </a>
-      <a sidebar-content-id="applications" name="Applications Report" href="#" class="sidebar__item">
+      <a sidebar-content-id="reports-applications" name="Applications Report" href="#" class="sidebar__item">
         <span class="sidebar__headline">Applications Report</span>
         <span class="sidebar__info">Details of applications</span>
       </a>
-      <a sidebar-content-id="problems" name="Problems Report" href="#" class="sidebar__item">
+      <a sidebar-content-id="reports-problems" name="Problems Report" href="#" class="sidebar__item">
         <span class="sidebar__headline">Problems Report</span>
         <span class="sidebar__info">Details of problems</span>
       </a>
-      <a sidebar-content-id="services" name="Services Report" href="#" class="sidebar__item">
+      <a sidebar-content-id="reports-services" name="Services Report" href="#" class="sidebar__item">
         <span class="sidebar__headline">Services Report</span>
         <span class="sidebar__info">Details of services</span>
       </a>
-      <a href="#" sidebar-content-id="audit-users" name="Audit Users" class="sidebar__item">
+      <a href="#" sidebar-content-id="reports-audit-users" name="Audit Users" class="sidebar__item">
         <span class="sidebar__headline">Audit Users</span>
         <span class="sidebar__info">Audits users in Tenant</span>
       </a>
@@ -236,7 +223,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Overview -->
-      <div name="sidebar-content" id="overview" class="display">
+      <div name="sidebar-content" id="reports-overview" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
@@ -248,7 +235,7 @@
             <div>Gives step by step instructions on how to use these tools and reports</div>
           </div>
         </div>
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <br>
         <p>This section is to tell the user how to go about using the Reports functions</p>
         <p>1. Make sure you configure your Tenants first! (top right corner)</p>
@@ -260,7 +247,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Root Cause Analysis+ -->
-      <div name="sidebar-content" id="root-cause-analysis" class="none">
+      <div name="sidebar-content" id="reports-root-cause-analysis" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/davis-gray700.svg'></img>    
@@ -273,60 +260,72 @@
           </div>
         </div>
 
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class="warning">REQUIRED TOKEN PERMISSION: </p>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
-        <p>Specify the max amount of API requests per minute that this program should perform <b style='color: red;'>(Recommendation: 40)</b>.</p>
+        <p>Specify the max amount of API requests per minute that this program should perform <b class='warning'>(Recommendation: 40)</b>.</p>
         <br>
-        <p><b style='color: red;'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should not exceed 50.</b></p>
+        <p><b class='warning'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should not exceed 50.</b></p>
         <p>Consider the amount of other API calls that could be hitting your cluster when specifying this number.</p>
         <br>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Max requests per minute:</label>
-            <input type="text" class="inputfield" id="RootCauseAnalysisMax"/>
+        <field class='field'>
+          <label for="root-cause-analysis-max" class="label">Requests per minute:</label>
+          <select class="reqCountSelect select" id="root-cause-analysis-max">
+            <option value="40" selected>40</option>
+            <option value="40">30</option>
+            <option value="40">20</option>
+            <option value="40">10</option>
+          </select>  
+          <!-- <label for="i0" class="label">Max requests per minute:</label>
+            <input type="text" class="inputfield" id="RootCauseAnalysisMax"/> -->
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Environment Name:</label>
-            <input type="text" class="inputfield" id="RootCauseAnalysisEnv"/>
+        <field class='field'>
+            <label for="root-cause-analysis-environment-select" class="label">Environment Name:</label>
+            <select class="envSelect select" id="root-cause-analysis-environment-select">
+              <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
+            </select>
+            <!-- <input type="text" class="inputfield" id="RootCauseAnalysisEnv"/> -->
         </field>
-        <p>Specify the time frame that you would like to perform the analysis for. <b style='color: red;'>Time frame must not exceed 31 days in length.</b></p>
+        <p>Specify the time frame that you would like to perform the analysis for. <b class='warning'>Time frame must not exceed 31 days in length.</b></p>
         <!--Add date picker later-->
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Start Date:</label>
-            <input type="text" class="inputfield" id="RootCauseAnalysisStart" placeholder="mm/dd/yyyy"/>
+        <field class='field'>
+            <label for="root-cause-analysis-start" class="label">Start Date:</label>
+            <input type="text" class="inputfield" id="root-cause-analysis-start" placeholder="mm/dd/yyyy"/>
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">End Date:</label>
-            <input type="text" class="inputfield" id="RootCauseAnalysisEnd" placeholder="mm/dd/yyyy"/>
+        <field class='field'>
+            <label for="root-cause-analysis-end" class="label">End Date:</label>
+            <input type="text" class="inputfield" id="root-cause-analysis-end" placeholder="mm/dd/yyyy"/>
         </field>
         <button role="button" type="button" class="btn btn--primary theme--dark"onclick="mainRootCauseAnalysis()">Run Query</button>
-        <div id="RootCauseAnalysisProgress"><div id="RootCauseAnalysisBar"></div></div>
-        <div id='RootCauseAnalysisLogs'></div>
+        <div id="root-cause-analysis-progress">
+          <div id="root-cause-analysis-bar"></div>
+        </div>
+        <div id='root-cause-analysis-logs'></div>
         <div class="layout is-flex has-islands">
           <div class="island">
             <div>By Tag</div>
-            <table class="table table--responsive">
+            <table id="root-cause-analysis-table1" class="table table--responsive">
                 <thead>
-                    <tr>
-                    <th>Tag</th>
-                    <th>Count</th>
-                    </tr>
+                  <tr>
+                  <th>Tag</th>
+                  <th>Count</th>
+                  </tr>
                 </thead>
-                <tbody id="table1_div">
+                <tbody id="root-cause-analysis-tbody1">
                 </tbody>
             </table>
           </div>
           <div class="island">
             <div>By Entity</div>
-            <table class="table table--responsive">
+            <table id="root-cause-analysis-table2" class="table table--responsive">
                 <thead>
-                    <tr>
-                    <th>Entity</th>
-                    <th>Type</th>
-                    <th>Count</th>
-                    </tr>
+                  <tr>
+                  <th>Entity</th>
+                  <th>Type</th>
+                  <th>Count</th>
+                  </tr>
                 </thead>
-                <tbody id="table2_div">
+                <tbody id="root-cause-analysis-tbody2">
                 </tbody>
             </table>
           </div>
@@ -336,7 +335,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Problem Trending -->
-      <div name="sidebar-content" id="problem-trending" class="none">
+      <div name="sidebar-content" id="reports-problem-trending" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/chart-legend-meter-gray700.svg'></img>    
@@ -348,68 +347,136 @@
             <div>Charts problems over time by type and shows the trend in avg MTTR(problem length)</div>
           </div>
         </div>
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class="warning">REQUIRED TOKEN PERMISSION: </p>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
-        <p>Specify the max amount of API requests per minute that this program should perform <b style='color: red;'>(Recommendation: 40)</b>.</p>
+        <p>Specify the max amount of API requests per minute that this program should perform <b class='warning'>(Recommendation: 40)</b>.</p>
         <br>
-        <p><b style='color: red;'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should not exceed 50.</b></p>
+        <p><b class='warning'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should not exceed 50.</b></p>
         <p>Consider the amount of other API calls that could be hitting your cluster when specifying this number.</p>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Max requests per minute:</label>
-            <input type="text" class="inputfield" id="maxRequests2"/>
+        <field class='field'>
+          <label for="problem-trending-max" class="label">Requests per minute:</label>
+          <select class="reqCountSelect select" id="problem-trending-max">
+            <option value="40" selected>40</option>
+            <option value="40">30</option>
+            <option value="40">20</option>
+            <option value="40">10</option>
+          </select>  
+            <!-- <label for="i0" class="label">Max requests per minute:</label>
+            <input type="text" class="inputfield" id="maxRequests2"/> -->
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Environment Name:</label>
-            <input type="text" class="inputfield" id="DYNAENV2"/>
+        <field class='field'>
+            <label for="problem-trending-environment-select" class="label">Environment Name:</label>
+            <select class="envSelect select" id="problem-trending-environment-select">
+              <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+            </select>
+            <!-- <input type="text" class="inputfield" id="DYNAENV2"/> -->
         </field>
-        <p>Specify the time frame that you would like to perform the analysis for. <b style='color: red;'>Time frame must not exceed 31 days in length.</b></p>
+        <p>Specify the time frame that you would like to perform the analysis for. <b class='warning'>Time frame must not exceed 31 days in length.</b></p>
         <!--Add date picker later-->
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Start Date:</label>
-            <input type="text" class="inputfield" id="sDate2" placeholder="mm/dd/yyyy"/>
+        <field class='field'>
+            <label for="problem-trending-start" class="label">Start Date:</label>
+            <input type="text" class="inputfield" id="problem-trending-start" placeholder="mm/dd/yyyy"/>
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">End Date:</label>
-            <input type="text" class="inputfield" id="eDate2" placeholder="mm/dd/yyyy"/>
+        <field class='field'>
+            <label for="problem-trending-end" class="label">End Date:</label>
+            <input type="text" class="inputfield" id="problem-trending-end" placeholder="mm/dd/yyyy"/>
         </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark"onclick="mainProblemTrending()">Run Query</button>
-        <div id="myProgress2">
-          <div id="myBar2"></div>
+        <field class="field">
+          <label class="label">Severity Levels:</label>
+          <input type="checkbox" class="checkbox" id="ERRORPT" checked/>
+          <label for="ERRORPT" class="checkbox__label">
+            <span class="checkbox__caption">ERROR</span>
+          </label>
+          <input type="checkbox" class="checkbox" id="RESOURCEPT" checked/>
+          <label for="RESOURCEPT" class="checkbox__label">
+            <span class="checkbox__caption">RESOURCE</span>
+          </label>
+          <input type="checkbox" class="checkbox" id="SLOWDOWNPT" checked/>
+          <label for="SLOWDOWNPT" class="checkbox__label">
+            <span class="checkbox__caption">SLOWDOWN</span>
+          </label>
+          <input type="checkbox" class="checkbox" id="AVAILABILITYPT" checked/>
+          <label for="AVAILABILITYPT" class="checkbox__label">
+            <span class="checkbox__caption">AVAILABILITY</span>
+          </label>
+          <br>
+          <br>
+          <label class="label">Impact Levels:</label>
+          <input type="checkbox" class="checkbox" id="APPLICATIONSPT" checked/>
+          <label for="APPLICATIONSPT" class="checkbox__label">
+            <span class="checkbox__caption">APPLICATIONS</span>
+          </label>
+          <input type="checkbox" class="checkbox" id="SERVICESPT" checked/>
+          <label for="SERVICESPT" class="checkbox__label">
+            <span class="checkbox__caption">SERVICES</span>
+          </label>
+          <input type="checkbox" class="checkbox" id="INFRASTRUCTUREPT" checked/>
+          <label for="INFRASTRUCTUREPT" class="checkbox__label">
+            <span class="checkbox__caption">INFRASTRUCTURE</span>
+          </label>
+          <input type="checkbox" class="checkbox" id="ENVIRONMENTPT" checked/>
+          <label for="ENVIRONMENTPT" class="checkbox__label">
+            <span class="checkbox__caption">ENVIRONMENT</span>
+          </label>
+        </field>
+          <button role="button" type="button" class="btn btn--primary theme--dark"onclick="mainProblemTrending()">Run Query</button>
+        </field>
+        <div id="problem-trending-progress">
+          <div id="problem-trending-bar"></div>
         </div>
-        <div id='logs2'></div>
+        <div id='problem-trending-logs'></div>
       </div><!-- End of Problem Trending -->
       <!-- End of Problem Trending------------------------------------------------------------ -->
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Untagged Entities -->
-      <div name="sidebar-content" id="untagged-entities" class="none">
+      <div name="sidebar-content" id="reports-untagged-entities" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>    
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Title">
-                <div>RTagged</div>
+                <div>Untagged Entities</div>
             </div>
             <div>Gets all untagged entities</div>
           </div>
         </div>
 
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class="warning">REQUIRED TOKEN PERMISSION: </p>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
+        <br>
         <p>Specify an environment. That's it.</p>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Environment Name:</label>
-            <input type="text" class="inputfield" id="RTaggedEnv"/>
+        
+        <field class='field'>
+            <label for="untagged-entities-environment-select" class="label">Environment Name:</label>
+            <select class="envSelect select" id="untagged-entities-environment-select">
+              <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+            </select>
+            <!-- <input type="text" class="inputfield" id="RTaggedEnv"/> -->
         </field>
         <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainRTagged()">Run</button>
+        <input type="checkbox" class="checkbox" id="untagged-entities-checkbox"/>
+        <label style="margin-left: 50px" for="untagged-entities-checkbox" class="checkbox__label">
+          <span class="checkbox__caption">Donwload CSV</span>
+        </label>
+        <hr>
+        <h2>Untagged Entities</h2>
+        <table id="untagged-entities-table" class="table">
+          <tr>
+            <th>Entity</th>
+            <th>Type</th>
+            <th>ID</th>
+            <th>Link</th>
+          </tr>
+        </table>
       </div><!-- End of Untagged Entities -->
       <!-- End of Untagged Entities ------------------------------------------------------------ -->
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Hosts -->
-      <div name="sidebar-content" id="hosts" class="none">
+      <div name="sidebar-content" id="reports-hosts" class="display">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/host-gray_700.svg'></img>    
@@ -421,19 +488,35 @@
             <div>Delivers a report on hosts</div>
           </div>
         </div>
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class="warning">REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+
+        <field class='field'>
+          <label for="hosts-environment-select" class="label">Environment Name:</label>
+          <select class="envSelect select hostsReport" id="hosts-environment-select">
+            <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
+          </select>
+          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+        </field>
+
+        <field class='field'>
+            <label for="hosts-managementzone-select" class="label">Management Zone (Optional):</label>
+            <select class="mzSelect select hostsReport" id="hosts-managementzone-select">
+              <option value="SELECT MANAGEMENT ZONE">SELECT MANAGEMENT ZONE</option>
+            </select>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainHostsReport()">Run</button>
 
         <!-- Rodrigo/Nestor Stuff -->
         <div class='section'>
-          <h2 align="center">Hosts Report</h2> 
+          <h2>Hosts Report</h2> 
           <dl class="definition-list">
             <dt>Number of hosts</dt>
-            <dd>50</dd>
+            <dd id='hostCount'>-</dd>
             <dt>Host Units Consumed</dt>
-            <dd>80</dd>
+            <dd id='HUCount'>-</dd>
             <dt>Host Units Remaining</dt>
-            <dd>20</dd>
+            <dd id='HURemain'>-</dd>
           </dl>
         </div>
 
@@ -455,8 +538,6 @@
             new Chartkick.ColumnChart("chart-2", [["N/A",299],["1.175.240",28],["1.173.358",25],["1.183.163",7],["1.179.187",6],["1.175.224",3],["1.181.154",3],["1.187.155",2]], {"legend":false, "label": "Hosts"});
           </script>
         </div>
-
-        
 
         <!-- Host Unit Consumption Circle Chart -->
         <div class="rodrigo">
@@ -603,7 +684,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Applications -->
-      <div name="sidebar-content" id="applications" class="none">
+      <div name="sidebar-content" id="reports-applications" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/applicationhealth-gray_700.svg'></img>    
@@ -615,8 +696,17 @@
             <div>Delivers a report on Applications</div>
           </div>
         </div>
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class="warning">REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+
+        <field class='field'>
+          <label for="applications-environment-select" class="label">Environment Name:</label>
+          <select class="envSelect select applicationsReport" id="applications-environment-select">
+            <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+          </select>
+          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainApplicationsReport()">Run</button>
 
         <!-- Rodrigo/Nestor Stuff -->
         <div class="section">
@@ -676,7 +766,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Problems -->
-      <div name="sidebar-content" id="problems" class="none">
+      <div name="sidebar-content" id="reports-problems" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/criticalevent-gray_700.svg'></img>    
@@ -688,8 +778,32 @@
             <div>Devlivers a report on Problems</div>
           </div>
         </div>
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class="warning">REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <field class='field'>
+          <label for="problems-environment-select" class="label">Environment Name:</label>
+          <select class="envSelect select hostsReport" id="problems-environment-select">
+            <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+          </select>
+          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+        </field>
+
+        <field class='field'>
+            <label for="problems-managementzone-select" class="label">Management Zone (Optional):</label>
+            <select class="mzSelect select problemsReport" id="problems-managementzone-select">
+              <option value="SELECT MANAGEMENT ZONE" selected="selected">SELECT MANAGEMENT ZONE</option>
+            </select>
+        </field>
+        <field class='field'>
+          <label for="problems-tag-select" class="label">Tag (Optional):</label>
+          <select class="tagSelect select tagDuplicator" id="problems-tag-select">
+            <option value="SELECT TAG" selected="selected">SELECT TAG</option>
+          </select>
+          <!-- <input type="text" class="inputfield" id="TagDuplicatorTag1"/> -->
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainProblemsReport()">Run</button>
+
+        
         <!-- Rodrigo/Nestor stuff -->
         <!-- Problems by Severity -->
         <div class="section">
@@ -750,7 +864,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Services -->
-      <div name="sidebar-content" id="services" class="none">
+      <div name="sidebar-content" id="reports-services" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/services-gray700.svg'></img>    
@@ -762,14 +876,27 @@
             <div>Devlivers a report on Services</div>
           </div>
         </div>
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class="warning">REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+        <field class='field'>
+          <label for="services-environment-select" class="label">Environment Name:</label>
+          <select class="envSelect select hostsReport" id="services-environment-select">
+            <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+          </select>
+          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+        </field>
+
+        <field class='field'>
+            <label for="services-managementzone-select" class="label">Management Zone (Optional):</label>
+            <select class="mzSelect select servicesReport" id="services-managementzone-select">
+              <option value="SELECT MANAGEMENT ZONE" selected="selected">SELECT MANAGEMENT ZONE</option>
+            </select>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainServicesReport()">Run</button>
 
         <!-- Rodrigo/Nestor stuff -->
         <div class="section rodrigo">
-          <label for="i0" class="label">Management Zone</label>
-          <input type="text" class="inputfield" id="i0"/>
-          <table class="table table--responsive" data-initialized="true">
+          <table class="table table--responsive">
             <tbody>
               <tr>
                   <th> Detected Name</th>
@@ -778,76 +905,76 @@
                   <th> Management Zones</th>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">Allegro-2.0-business</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>Allegro-2.0-business</td>
+                  <td>Allegro</td>
+                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">Allegro-2.0-view (/Allegro-2.0)</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>Allegro-2.0-view (/Allegro-2.0)</td>
+                  <td>Allegro</td>
+                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">GetAccountingDate-3.0.0</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>GetAccountingDate-3.0.0</td>
+                  <td>Allegro</td>
+                  <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">MDListener</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>MDListener</td>
+                  <td>Allegro</td>
+                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">Oracle WebLogic Queue Listener</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>Oracle WebLogic Queue Listener</td>
+                  <td>Allegro</td>
+                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">Requests executed in background threads of AllegroServices</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>Requests executed in background threads of AllegroServices</td>
+                  <td>Allegro</td>
+                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">RetrieveDataCreditCardIVR-3.0.0</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>RetrieveDataCreditCardIVR-3.0.0</td>
+                  <td>Allegro</td>
+                  <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">SaveCart-3.1.0</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>SaveCart-3.1.0</td>
+                  <td>Allegro</td>
+                  <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">SaveEnforcedClassDetail-3.0.0</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>SaveEnforcedClassDetail-3.0.0</td>
+                  <td>Allegro</td>
+                  <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">WSAllegroPaymentAuthorize-3.1.0-webservice (/WSAllegroPaymentAuthorize-3.1.0-ws)</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>WSAllegroPaymentAuthorize-3.1.0-webservice (/WSAllegroPaymentAuthorize-3.1.0-ws)</td>
+                  <td>Allegro</td>
+                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">WSAuthorizationKiosk-3.1.0-webservice (/WSAuthorizationKiosk-3.1.0-ws)</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>WSAuthorizationKiosk-3.1.0-webservice (/WSAuthorizationKiosk-3.1.0-ws)</td>
+                  <td>Allegro</td>
+                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
               <tr>
-                  <td data-th=" Detected Name">WSAuthorizePaymentCaixa-3.0.0-webservice (/WSAuthorizePaymentCaixa-3.0.0-ws)</td>
-                  <td data-th=" Tags">Allegro</td>
-                  <td data-th=" Service Technology Type">WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td data-th=" Management Zones">Business Critical, Allegro, Marketing</td>
+                  <td>WSAuthorizePaymentCaixa-3.0.0-webservice (/WSAuthorizePaymentCaixa-3.0.0-ws)</td>
+                  <td>Allegro</td>
+                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+                  <td>Business Critical, Allegro, Marketing</td>
               </tr>
             </tbody>
           </table>
@@ -889,7 +1016,7 @@
       <!-- End of Services ------------------------------------------------------------ -->
       
       <!-- Audit Users -->
-      <div name="sidebar-content" id="audit-users" class="none">
+      <div name="sidebar-content" id="reports-audit-users" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/usergroup-gray_700.svg'></img>    
@@ -901,137 +1028,116 @@
             <div>Audits the users logging into Dynatrace</div>
           </div>
         </div>
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class="warning">REQUIRED TOKEN PERMISSION: "Read audit logs"</p>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <p class='warning'>REQUIRED TOKEN PERMISSION: "Read audit logs"</p>
         <p>Shows user logins and and config changes made by users</p>
-        <div class="theme--blue">
-          <div class="buttongroup">
-              <a name="logins-table" href="#" class="btn is-active">Logins</a>
-              <a name="config-changes-table" href="#" class="btn">Config Changes</a>
-          </div>
-        </div>
-        <br>
-        <table id="logins-table" class="table display">
-            <thead>
-              <tr>
-                <th>Timestamp</th>
-                <th>User</th>
-                <th>User Type</th>
-                <th>Category</th>
-                <th>Success</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Apr 07 2020 12:34:16</td>
-                <td>jim.gentile@somedomain.com</td>
-                <td>USER_NAME</td>
-                <td>WEB_UI</td>
-                <td>True</td>
-              </tr>
-              <tr>
-                <td>Apr 07 2020 12:34:11</td>
-                <td>dan.dunlop@somedomain.com</td>
-                <td>USER_NAME</td>
-                <td>WEB_UI</td>
-                <td>True</td>
-              </tr>
-              <tr>
-                <td>Apr 07 2020 12:14:46</td>
-                <td>john.ferreira@somedomain.com</td>
-                <td>USER_NAME</td>
-                <td>WEB_UI</td>
-                <td>True</td>
-              </tr>
-            </tbody>
-        </table>
-        <table id="config-changes-table" class="table none">
-            <thead>
-              <tr>
-                <th>Timestamp</th>
-                <th>User</th>
-                <th>Event Type</th>
-                <th>Entity ID</th>
-                <th>Success</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Apr 07 2020 12:34:16</td>
-                <td>kenneth.gillette@somedomain.com</td>
-                <td>UPDATE</td>
-                <td>APPLICATION_DETECTION_RULE: efdb3a2f-5c7e-4df5-b42b-be0aaa3d70df</td>
-                <td>True</td>
-              </tr>
-              <tr>
-                <td>Apr 07 2020 09:55:24</td>
-                <td>ralph.gimashev@somedomain.com</td>
-                <td>CREATE</td>
-                <td>APPLICATION_DETECTION_RULE: 0494dd8d-26a9-42ce-bcd4-b99007b45c89</td>
-                <td>True</td>
-              </tr>
-              <tr>
-                <td>Apr 07 2020 09:55:24</td>
-                <td>dwayne.white@somedomain.com</td>
-                <td>UPDATE</td>
-                <td>ME_APPLICATION_ERROR: APPLICATION-2A6061A6C8AB9211</td>
-                <td>True</td>
-              </tr>
-            </tbody>
+        <field class='field'>
+          <label for="audit-users-environment-select" class="label">Environment Name:</label>
+          <select class="envSelect select auditUsersReport" id="audit-users-environment-select">
+            <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+          </select>
+          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainAuditReport()">Run</button>
+        
+        <hr>
+        <h2>Audit Users</h2>
+        <p>Filters: 
+          <button id="login-filter" class="tag tag--interactive">LOGIN</button>
+          <button id="config-filter" class="tag tag--interactive">CONFIG</button>
+        </p>
+        <table id="audit-users-table" class="table display">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Event Type</th>
+              <th>User</th>
+              <th>User Type</th>
+              <th>Category</th>
+              <th>Success</th>
+            </tr>
+          </thead>
+          <tbody id="audit-users-tbody">
+            
+          </tbody>
         </table>
       </div>
       <!-- End of Audit Users -->
 
-      <!-- Manage Environments -->
-      <div name="sidebar-content" id="add-env" class="none">
-        <div class="infochip">
-          <div class="infochip__icon">
-            <img class="icon" src='images/services-gray700.svg'></img>    
-          </div>
-          <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Manage Environments">
-                <div class='newH'>Manage Environments</div>
+      <!-- ------------------------------------------------------------------------- -->
+        <!-- Manage Environments -->
+        <div name="sidebar-content" id="manage-environments" class="none">
+          <div class="infochip">
+            <div class="infochip__icon">
+              <img class="icon" src='images/services-gray700.svg'></img>    
             </div>
-            <div>Configure the Dynatrace environments that these programs will interact with</div>
+            <div class="infochip__desc">
+              <div class="infochip__desc__title" title="Manage Environments">
+                  <div>Manage Environments</div>
+              </div>
+              <div>Configure the Dynatrace environments that these programs will interact with</div>
+            </div>
           </div>
+          <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+          <input type="radio" class="radio" id="session-storage-radio"/>
+          <label for="session-storage-radio" class="radio__label">
+            <span class="radio__caption">Use Session Storage</span>
+          </label>
+          <input type="radio" class="radio" id="local-storage-radio"/>
+          <label for="local-storage-radio" class="radio__label">
+            <span class="radio__caption">Use Local Storage</span>
+          </label>
+          <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+          <p>Add an environment:</p>
+          <!--Add Environment here and button to delete env-->
+          <table class="table" id='manage-environments-table'>
+            <thead>
+            <tr>
+              <th>Environment Name</th>
+              <th>URL</th>
+              <th>Token</th>
+              <th>Tags?</th>
+              <th>MZs?</th>
+              <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody id='manage-environments-tbody'></tbody>
+          </table>
+
+          <field class='field'>
+            <label for="environment-name-input" class="label">Name:</label>
+            <input type="text" class="inputfield" id="environment-name-input"/>
+          </field>
+          <field class='field'>
+            <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
+            <input type="text" class="inputfield" id="environment-url-input"/>
+          </field>
+          <field class='field'>
+            <label for="environment-token-input" class="label">API Token:</label>
+            <input type="text" class="inputfield" id="environment-token-input"/>
+          </field>
+          <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+          <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
         </div>
-        <p class="warning">WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
-        <p>Add an environment:</p>
-        <!--Add Environment here and button to delete env-->
-        <table class="table" style="display: none" id='envTableParent'>
-          <thead>
-          <tr>
-            <th>Environment Name</th>
-            <th>URL</th>
-            <th>Token</th>
-            <th>Delete</th>
-          </tr>
-          </thead>
-          <tbody id='envTable'></tbody>
-        </table>
-        <field class='field' style="width: 50%">
-          <label for="i0" class="label">Name:</label>
-          <input type="text" class="inputfield" id="EnvName"/>
-        </field>
-        <field class='field' style="width: 50%">
-          <label for="i0" class="label">Dynatrace Environment URL:</label>
-          <input type="text" class="inputfield" id="EnvURL"/>
-        </field>
-        <field class='field' style="width: 50%">
-          <label for="i0" class="label">API Token:</label>
-          <input type="text" class="inputfield" id="EnvTok"/>
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
-      </div>
-      <!-- End of Add Environment -->
+        <!-- End of Manage Environments -->
 
 
     </div><!-- End of Reports Content -->
   </div><!-- End of Main Body -->
 
 
-  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="scripts/environments.js"></script>
+    <script type="text/javascript" src="scripts/report_rootCauseAnalysis.js"></script>
+    <script type="text/javascript" src="scripts/report_untaggedEntities.js"></script>
+    <script type="text/javascript" src="scripts/report_hosts.js"></script>
+    <script type="text/javascript" src="scripts/report_services.js"></script>
+    <script type="text/javascript" src="scripts/report_applications.js"></script>
+    <script type="text/javascript" src="scripts/report_problems.js"></script>
+    <script type="text/javascript" src="scripts/report_problemTrending.js"></script>
+    <script type="text/javascript" src="scripts/report_auditUsers.js"></script>
 
   </body>
-</html>

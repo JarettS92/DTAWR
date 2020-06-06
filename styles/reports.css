@@ -1,0 +1,21 @@
+.content dl dt{
+  padding-left: 5px;
+}
+.content dl dd {
+  padding-right: 5px;
+}
+.rodrigo h4 {
+  margin-top: 0 !important;
+}
+.rodrigo h3 {
+  margin-top: 0.8rem;
+}
+.rodrigo h2 {
+  margin-top: 0.8rem;
+}
+.rodrigo .inputfield {
+  margin-bottom: 0.8rem;
+}
+.pagination {
+  margin-top: 0.8rem;
+}

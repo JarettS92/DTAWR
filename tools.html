@@ -3,19 +3,12 @@
 <head>
   <link rel="icon" href="../images/dt-favicon-blue.png">
   <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/environments.css" />
+  <link rel="stylesheet" href="styles/tools.css" />
   <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="scripts/scripts.js"></script>
-  <script type="text/javascript" src="Trevor/businessHoursKPIs.js"></script>
-  <script type="text/javascript" src="Trevor/tagDuplicator.js"></script>
-  <script type="text/javascript" src="Trevor/starterTags.js"></script>
-  <script type="text/javascript" src="Trevor/environments.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>  
-
   <title>Services Portal - Tools</title>
 </head>
 <body class="white-bg">
@@ -76,67 +69,67 @@
           <a class="nav__link expandable__trigger" href="#">Tools</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="#">Overview</a>
+              <a name="overview" class="nav__link" href="tools.html">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="tag-duplicator" class="nav__link" href="#">Tag Duplicator</a>
+              <a name="tag-duplicator" class="nav__link" href="tools.html#tools-tag-duplicator">Tag Duplicator</a>
             </li>
             <li class="nav__item">
-              <a name="business-hour-kpis" class="nav__link" href="#">Business Hour KPIs</a>
+              <a name="business-hour-kpis" class="nav__link" href="tools.html#tools-business-hour-kpis">Business Hour KPIs</a>
             </li>
             <li class="nav__item">
-              <a name="starter-tags" class="nav__link" href="#">Starter Tags</a>
+              <a name="starter-tags" class="nav__link" href="tools.html#tools-starter-tags">Starter Tags</a>
             </li>
             <li class="nav__item">
-              <a name="dashboard-mover" class="nav__link" href="#">Dashboard Mover</a>
+              <a name="dashboard-mover" class="nav__link" href="tools.html#tools-dashboard-mover">Dashboard Mover</a>
             </li>
           </ul>
         </li>
         <!-- Reports -->
-        <li class="nav__item expandable expandable--nav is-current">
+        <li class="nav__item expandable expandable--nav">
           <a class="nav__link expandable__trigger" href="#">Reports</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
               <a name="overview" class="nav__link" href="reports.html">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="root-cause-analysis" class="nav__link" href="reports.html#root-cause-analysis">Root Cause Analysis+</a>
+              <a name="root-cause-analysis" class="nav__link" href="reports.html#reports-root-cause-analysis">Root Cause Analysis+</a>
             </li>
             <li class="nav__item">
-              <a name="problem-trending" class="nav__link" href="reports.html#problem-trending">Problem Trending</a>
+              <a name="problem-trending" class="nav__link" href="reports.html#reports-problem-trending">Problem Trending</a>
             </li>
             <li class="nav__item">
-              <a name="untagged-entities" class="nav__link" href="reports.html#untagged-entities">Untagged Entities</a>
+              <a name="untagged-entities" class="nav__link" href="reports.html#reports-untagged-entities">Untagged Entities</a>
             </li>
             <li class="nav__item">
-              <a name="hosts" class="nav__link" href="reports.html#hosts">Hosts Report</a>
+              <a name="hosts" class="nav__link" href="reports.html#reports-hosts">Hosts Report</a>
             </li>
             <li class="nav__item">
-              <a name="applications" class="nav__link" href="reports.html#applications">Applications Report</a>
+              <a name="applications" class="nav__link" href="reports.html#reports-applications">Applications Report</a>
             </li>
             <li class="nav__item">
-              <a name="problems" class="nav__link" href="reports.html#problems">Problems Report</a>
+              <a name="problems" class="nav__link" href="reports.html#reports-problems">Problems Report</a>
             </li>
             <li class="nav__item">
-              <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
+              <a name="services" class="nav__link" href="reports.html#reports-services">Services Report</a>
             </li>
             <li class="nav__item">
-              <a name="audit-users" class="nav__link" href="reports.html#audit-users">Audit Users</a>
+              <a name="audit-users" class="nav__link" href="reports.html#reports-audit-users">Audit Users</a>
             </li>
           </ul>
         </li>
         <!-- Dashboards -->
         <li class="nav__item expandable expandable--nav">
-          <a class="nav__link expandable__trigger" href="#">Dashboards</a>
+          <a class="nav__link expandable__trigger" href="dashboards.html">Dashboards</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="dashboards.html">Overview</a>
+              <a name="overview" class="nav__link" href="dashboards.html#dashboards-overview">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="bizops-configurator" class="nav__link" href="dashboards.html#bizops-configurator">BizOps Configurator</a>
+              <a name="overview" class="nav__link" href="dashboards.html#dashboards-bizops-configurator">BizOps Configurator</a>
             </li>
             <li class="nav__item">
-              <a name="browse-dashboards" class="nav__link" href="dashboards.html#browse-dashboards">BizOps Configurator</a>
+              <a name="browse-dashboards" class="nav__link" href="dashboards.html#dashboards-browse-dashboards">Browse Dashboards</a>
             </li>
           </ul>
         </li>
@@ -145,16 +138,16 @@
           <a class="nav__link expandable__trigger" href="#">Artifacts</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="Document Repository" class="nav__link" href="artifacts.html#doc-repo">Document Repository</a>
+              <a name="Document Repository" class="nav__link" href="artifacts.html#artifacts-doc-repo">Document Repository</a>
             </li>
             <li class="nav__item">
-              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#gwr">Guardian Weekly Report</a>
+              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#artifacts-gwr">Guardian Weekly Report</a>
             </li>
             <li class="nav__item">
-              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#qbr">Quarterly Business Report</a>
+              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#artifacts-qbr">Quarterly Business Report</a>
             </li>
             <li class="nav__item">
-              <a name="On-Demand Deliverable" class="nav__link" href="artifacts.html#odd">On-Demand Deliverable</a>
+              <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#artifacts-odd">On-Demand Deliverable</a>
             </li>
           </ul>
         </li>
@@ -172,14 +165,8 @@
       <li class="breadcrumbs__item breadcrumbs__last__parent">
         <span class="breadcrumbs__last">Overview</span>
       </li>
-      <li class="breadcrumbs__item envButton">
-        <div class="dropdown">
-          <button role="button" type="button" class="env-button overflow-ellipses"><span id="env-button-text">PROD</span></button>
-          <div class="drop-content">
-            <a name="prod" href="#">PROD</a>
-            <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
-          </div>
-        </div>
+      <li class="breadcrumbs__item manage__environments__parent">
+        <button role="button" type="button" class="manage__environments__button" onclick="navToManageEnvironments()"><span>Manage Environments</span></button>
       </li>
     </ul>
   </div>
@@ -190,23 +177,23 @@
     <!------------------------------------------------------------------->
     <!-- Side Bar -->
     <nav class="sidebar hide-sm">
-      <a href="#" sidebar-content-id="overview" name="Overview" class="sidebar__item is-current">
+      <a href="#" sidebar-content-id="tools-overview" name="Overview" class="sidebar__item is-current">
         <span class="sidebar__headline">Overview</span>
         <span class="sidebar__info">Step by Step instructions</span>
       </a>
-      <a href="#" sidebar-content-id="tag-duplicator" name="Tag Duplicator" class="sidebar__item">
+      <a href="#" sidebar-content-id="tools-tag-duplicator" name="Tag Duplicator" class="sidebar__item">
         <span class="sidebar__headline">Tag Duplicator</span>
         <span class="sidebar__info">Copies tags to other Tenants</span>
       </a>
-      <a href="#" sidebar-content-id="business-hour-kpis" name="Business Hour KPIs" class="sidebar__item">
+      <a href="#" sidebar-content-id="tools-business-hour-kpis" name="Business Hour KPIs" class="sidebar__item">
         <span class="sidebar__headline">Business Hour KPIs</span>
         <span class="sidebar__info">Genereate Business Hour Metrics</span>
       </a>
-      <a href="#" sidebar-content-id="starter-tags" name="Starter Tags" class="sidebar__item">
+      <a href="#" sidebar-content-id="tools-starter-tags" name="Starter Tags" class="sidebar__item">
         <span class="sidebar__headline">Starter Tags</span>
         <span class="sidebar__info">Adds valuable tags to Dynatrace</span>
       </a>
-      <a href="#" sidebar-content-id="dashboard-mover" name="Dashboard Mover" class="sidebar__item">
+      <a href="#" sidebar-content-id="tools-dashboard-mover" name="Dashboard Mover" class="sidebar__item">
         <span class="sidebar__headline">Dashboard Mover</span>
         <span class="sidebar__info">Copies Dashboards across tenants</span>
       </a>
@@ -218,7 +205,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Overview -->
-      <div name="sidebar-content" id="overview" class="display">
+      <div name="sidebar-content" id="tools-overview" class="display">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
@@ -240,7 +227,7 @@
       <!-- End of Overview -->
 
       <!-- Tag Duplicator -->
-      <div name="sidebar-content" id="tag-duplicator" class="none">
+      <div name="sidebar-content" id="tools-tag-duplicator" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/duplicate-gray700.svg'></img>    
@@ -255,32 +242,55 @@
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Specify an environment and tag, this will be the tag that that is duplicated</p>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Environment Name:</label>
-            <input type="text" class="inputfield" id="TagDuplicatorEnv1"/>
+
+        <field class='field'>
+            <label for="tag-duplicator-environment1-select" class="label">Environment Name:</label>
+            <select class="envSelect select tagDuplicator" id="tag-duplicator-environment1-select">
+              <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
+            </select>
+            <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Tag to Duplicate:</label>
-            <input type="text" class="inputfield" id="TagDuplicatorTag1"/>
+
+        <field class='field'>
+            <label for="tag-duplicator-tag1-select" class="label">Tag to Duplicate:</label>
+            <select class="tagSelect select tagDuplicator" id="tag-duplicator-tag1-select">
+              <option value="SELECT TAG">SELECT TAG</option>
+            </select>
+            <!-- <input type="text" class="inputfield" id="TagDuplicatorTag1"/> -->
         </field>
         <p>Specify a second environment and tag, this will be where the duplicate tag is sent.</p>
         <p>You can use the same tag name as before if a tag with that name does not exist in the second environment.</p>
         <p>You can use the same environment for the second as the first, but the new tag name should be different.</p>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">New Environment Name:</label>
-            <input type="text" class="inputfield" id="TagDuplicatorEnv2"/>
+        <field class='field'>
+            <label for="tag-duplicator-environment2-select" class="label">New Environment Name:</label>
+            <select class="envSelect select tagDuplicator" id="tag-duplicator-environment2-select">
+              <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
+            </select>
+            <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv2"/> -->
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">New Tag Name:</label>
-            <input type="text" class="inputfield" id="TagDuplicatorTag2"/>
+        <field class='field'>
+            <label for="tag-duplicator-tag2-input" class="label">New Tag Name:</label>
+            <input type="text" class="inputfield tagDuplicator" id="tag-duplicator-tag2-input"/>
         </field>
         <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainTagDuplicator()">Run</button>
-        <div id='logs2'></div>
+        <hr>
+        <h2>History</h2>
+        <table class="table" id='tag-duplicator-table'>
+          <thead>
+          <tr>
+            <th>From Env</th>
+            <th>From Tag</th>
+            <th>To Env</th>
+            <th>To Tag</th>
+          </tr>
+          </thead>
+          <tbody id='tag-duplicator-tbody'></tbody>
+        </table>
       </div>
       <!-- End of Tag Duplicator -->
 
       <!-- Business Hour KPIs -->
-      <div name="sidebar-content" id="business-hour-kpis" class="none">
+      <div name="sidebar-content" id="tools-business-hour-kpis" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/business-impact-gray700.svg'></img>    
@@ -295,97 +305,109 @@
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Specify which environment, and tag if applicable, as well as the start and end time that you would like to genereate a single metric for.</p>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Environment Name:</label>
-            <input type="text" class="inputfield" id="BusinessHourKPIsEnv"/>
+        <field class='field'>
+            <label for="bhkpi-environment-select" class="label">Environment Name:</label>
+            <!-- <input type="text" class="inputfield" id="BusinessHourKPIsEnv"/> -->
+            <select class="envSelect select" id="bhkpi-environment-select">
+              <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+            </select>
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Tag (optional):</label>
-            <input type="text" class="inputfield" id="BusinessHourKPIsTag"/>
+        <field class='field'>
+            <label for="bhkpi-tag-select" class="label">Tag (optional):</label>
+            <!-- <input type="text" class="inputfield" id="BusinessHourKPIsTag"/> -->
+            <select class="tagSelect select" id="bhkpi-tag-select">
+              <option value="SELECT TAG" selected="selected">SELECT TAG</option>
+            </select>
+          </field>
+        <field class='field'>
+            <label for="bhkpi-start" class="label">Start Time:</label>
+            <input type="text" class="inputfield" id="bhkpi-start"/>
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Start Time:</label>
-            <input type="text" class="inputfield" id="BusinessHourKPIsStart"/>
-        </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">End Time:</label>
-            <input type="text" class="inputfield" id="BusinessHourKPIsEnd"/>
+        <field class='field'>
+            <label for="bhkpi-end" class="label">End Time:</label>
+            <input type="text" class="inputfield" id="bhkpi-end"/>
         </field>
         <p>Specify the timeseries metric id you would like to use. Available <a href="https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/metric-v1/available-metrics/saas/">SaaS</a> and <a href="https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/metric-v1/available-metrics/managed/">Managed</a> timeseries metrics.</p>
         <p>Custom and plugin metrics should work, but the timeseries ids will not be in the above links.</p>
         <p class='warning'>DON'T use the metric display name, multiple metrics in Dynatrace use the same name.</p>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Timeseries Metric:</label>
-            <input type="text" class="inputfield" id="BusinessHourKPIsMet"/>
+        
+        <!--Make sure the form has the autocomplete function switched off:-->
+          <form autocomplete="off" action="/action_page.php">
+  <div class="autocomplete" style="width:300px;">
+    <input id="myInput" type="text" name="myCountry" placeholder="Country">
+  </div>
+  <input id="mySubmit" type="submit">
+</form>
+        
+        <field class='field'>
+            <label for="bhkpi-metric-input" class="label">Timeseries Metric:</label>
+            <input type="text" class="inputfield" id="bhkpi-metric-input"/>
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Aggregation (if applicable):</label>
-            <input type="text" class="inputfield" id="BusinessHourKPIsAgg"/>
+        <field class='field'>
+            <label for="bhkpi-aggregation-input" class="label">Aggregation (if applicable):</label>
+            <input type="text" class="inputfield" id="bhkpi-aggregation-input"/>
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Percentile (only for Percentile aggregation):</label>
-            <input type="text" class="inputfield" id="BusinessHourKPIsPerc"/>
+        <field class='field'>
+            <label for="bhkpi-percentile-input" class="label">Percentile (only for Percentile aggregation):</label>
+            <input type="text" class="inputfield" id="bhkpi-percentile-input"/>
         </field>
         <p>Define business days and hours below.</p>
         <label for="i0" class="label">Business Days:</label>
-        <input type="checkbox" class="checkbox" id="BusinessHourKPIsSunday"/>
-        <label for="BusinessHourKPIsSunday" class="checkbox__label">
+        <input type="checkbox" class="checkbox" id="bhkpi-sunday-checkbox"/>
+        <label for="bhkpi-sunday-checkbox" class="checkbox__label">
             <span class="checkbox__caption">Sunday</span>
         </label>
-        <input type="checkbox" class="checkbox" id="BusinessHourKPIsMonday"/>
-        <label for="BusinessHourKPIsMonday" class="checkbox__label">
+        <input type="checkbox" class="checkbox" id="bhkpi-monday-checkbox"/>
+        <label for="bhkpi-monday-checkbox" class="checkbox__label">
             <span class="checkbox__caption">Monday</span>
         </label>
-        <input type="checkbox" class="checkbox" id="BusinessHourKPIsTuesday"/>
-        <label for="BusinessHourKPIsTuesday" class="checkbox__label">
+        <input type="checkbox" class="checkbox" id="bhkpi-tuesday-checkbox"/>
+        <label for="bhkpi-tuesday-checkbox" class="checkbox__label">
             <span class="checkbox__caption">Tuesday</span>
         </label>
-        <input type="checkbox" class="checkbox" id="BusinessHourKPIsWednesday"/>
-        <label for="BusinessHourKPIsWednesday" class="checkbox__label">
+        <input type="checkbox" class="checkbox" id="bhkpi-wednesday-checkbox"/>
+        <label for="bhkpi-wednesday-checkbox" class="checkbox__label">
             <span class="checkbox__caption">Wednesday</span>
         </label>
-        <input type="checkbox" class="checkbox" id="BusinessHourKPIsThursday"/>
-        <label for="BusinessHourKPIsThursday" class="checkbox__label">
+        <input type="checkbox" class="checkbox" id="bhkpi-thursday-checkbox"/>
+        <label for="bhkpi-thursday-checkbox" class="checkbox__label">
             <span class="checkbox__caption">Thursday</span>
         </label>
-        <input type="checkbox" class="checkbox" id="BusinessHourKPIsFriday"/>
-        <label for="BusinessHourKPIsFriday" class="checkbox__label">
+        <input type="checkbox" class="checkbox" id="bhkpi-friday-checkbox"/>
+        <label for="bhkpi-friday-checkbox" class="checkbox__label">
             <span class="checkbox__caption">Friday</span>
         </label>
-        <input type="checkbox" class="checkbox" id="BusinessHourKPIsSaturday"/>
-        <label for="BusinessHourKPIsSaturday" class="checkbox__label">
+        <input type="checkbox" class="checkbox" id="bhkpi-saturday-checkbox"/>
+        <label for="bhkpi-saturday-checkbox" class="checkbox__label">
             <span class="checkbox__caption">Saturday</span>
         </label>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Business Hour Start:</label>
-            <input type="text" class="inputfield" id="BusinessHourKPIsBHStart"/>
+        <field class='field'>
+            <label for="bhkpi-business-hour-start" class="label">Business Hour Start:</label>
+            <input type="text" class="inputfield" id="bhkpi-business-hour-start"/>
         </field>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Business Hour End:</label>
-            <input type="text" class="inputfield" id="BusinessHourKPIsBHEnd"/>
+        <field class='field'>
+            <label for="bhkpi-business-hour-end" class="label">Business Hour End:</label>
+            <input type="text" class="inputfield" id="bhkpi-business-hour-end"/>
         </field>
         <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainBusinessHourKPIs()">Run</button>
-        <div class="layout is-flex has-islands">
-          <div class="island">
-            <div class='newH2'>Results</div>
-            <table class="table" style="display: none" id='BusinessHourKPIsTableParent'>
-              <thead>
-                <tr>
-                  <th>Tag</th>
-                  <th>Result</th>
-                  <th>Timeseries ID</th>
-                </tr>
-              </thead>
-              <tbody id='BusinessHourKPIsTable'>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <hr>
+        <h2 class='newH2'>Results</h2>
+        <table class="table" id='bhkpi-table'>
+          <thead>
+            <tr>
+              <th>Tag</th>
+              <th>Result</th>
+              <th>Timeseries ID</th>
+            </tr>
+          </thead>
+          <tbody id='bhkpi-tbody'>
+          </tbody>
+        </table>
       </div>
       <!-- End of Business Hour KPIs -->
 
       <!-- Starter Tags -->
-      <div name="sidebar-content" id="starter-tags" class="none">
+      <div name="sidebar-content" id="tools-starter-tags" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>    
@@ -400,30 +422,30 @@
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Specify an environment. That's it.</p>
-        <field class='field' style="width: 50%">
-            <label for="i0" class="label">Environment Name:</label>
-            <input type="text" class="inputfield" id="StarterTagsEnv"/>
+        <field class='field'>
+            <label for="starter-tags-environment-select" class="label">Environment Name:</label>
+            <select class="envSelect select" id="starter-tags-environment-select">
+              <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+            </select>
+            <!-- <input type="text" class="inputfield" id="StarterTagsEnv"/> -->
         </field>
         <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainStarterTags()">Run</button>
-        <div class="layout is-flex has-islands" style="display: none" id="StarterTagsLogs">
-          <div class="island">
-            <div class='newH2'>Logs</div>
-            <table class="table">
-              <thead>
-              <tr>
-                  <th>Rule</th>
-                  <th>Status</th>
-              </tr>
-              </thead>
-              <tbody id='StarterTagsTable'></tbody>
-            </table>
-          </div>
-        </div>
+        <hr>
+        <h2>Logs</h2>
+        <table id="starter-tags-table" class="table">
+          <thead>
+          <tr>
+              <th>Rule</th>
+              <th>Status</th>
+          </tr>
+          </thead>
+          <tbody id='starter-tags-tbody'></tbody>
+        </table>
       </div>
       <!-- End of Starter Tags -->
 
       <!-- Dashboard Mover -->
-      <div name="sidebar-content" id="dashboard-mover" class="none">
+      <div name="sidebar-content" id="tools-dashboard-mover" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/resourcerequest-gray_700.svg'></img>    
@@ -440,13 +462,16 @@
         <p>Choose tenants to copy dashboards from/to</p>
         <div class="section">
           <div class="column--1-of-2">
-            <label for="tenant0" class="label">Tenant 1</label>
-            <input type="text" class="inputfield" id="tenant0"/>
+            <field class="field">
+              <label for="dashboard-mover-environment1-select" class="label">Tenant 1</label>
+              <select class="envSelect select" id="dashboard-mover-environment1-select">
+                <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+              </select>
+            </field>
+            <!-- <input type="text" class="inputfield" id="tenant0"/> -->
+            <button id="dashboard-mover-button1" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
             <div class="section">
-              <button id="tenantBtn0" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
-            </div>
-            <div class="section">
-              <table id="t0Table" class="table">
+              <table id="dashboard-mover-table1" class="table">
                 <thead>
                   <th>Dashboard Name</th>
                   <th>Owner</th>
@@ -456,13 +481,16 @@
             </div>
           </div>
           <div class="column--1-of-2">
-            <label for="tenant1" class="label">Tenant 2</label>
-            <input type="text" class="inputfield" id="tenant1"/>
+            <field class="field">
+              <label for="dashboard-mover-environment2-select" class="label">Tenant 2</label>
+              <select class="envSelect select" id="dashboard-mover-environment2-select">
+                <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+              </select>
+            </field>
+            <!-- <input type="text" class="inputfield" id="tenant1"/> -->
+            <button id="dashboard-mover-button2" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
             <div class="section">
-              <button id="tenantBtn1" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
-            </div>
-            <div class="section">
-              <table id="t1Table" class="table">
+              <table id="dashboard-mover-table2" class="table">
                 <thead>
                   <th>Dashboard Name</th>
                   <th>Owner</th>
@@ -475,55 +503,76 @@
       </div>
       <!-- End of Dashboard Mover -->
 
-      <!-- Manage Environments -->
-      <div name="sidebar-content" id="add-env" class="none">
-        <div class="infochip">
-          <div class="infochip__icon">
-            <img class="icon" src='images/services-gray700.svg'></img>    
-          </div>
-          <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Manage Environments">
-                <div class='newH'>Manage Environments</div>
+      <!-- ------------------------------------------------------------------------- -->
+        <!-- Manage Environments -->
+        <div name="sidebar-content" id="manage-environments" class="none">
+          <div class="infochip">
+            <div class="infochip__icon">
+              <img class="icon" src='images/services-gray700.svg'></img>    
             </div>
-            <div>Configure the Dynatrace environments that these programs will interact with</div>
+            <div class="infochip__desc">
+              <div class="infochip__desc__title" title="Manage Environments">
+                  <div>Manage Environments</div>
+              </div>
+              <div>Configure the Dynatrace environments that these programs will interact with</div>
+            </div>
           </div>
+          <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+          <input type="radio" class="radio" id="session-storage-radio"/>
+          <label for="session-storage-radio" class="radio__label">
+            <span class="radio__caption">Use Session Storage</span>
+          </label>
+          <input type="radio" class="radio" id="local-storage-radio"/>
+          <label for="local-storage-radio" class="radio__label">
+            <span class="radio__caption">Use Local Storage</span>
+          </label>
+          <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+          <p>Add an environment:</p>
+          <!--Add Environment here and button to delete env-->
+          <table class="table" id='manage-environments-table'>
+            <thead>
+            <tr>
+              <th>Environment Name</th>
+              <th>URL</th>
+              <th>Token</th>
+              <th>Tags?</th>
+              <th>MZs?</th>
+              <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody id='manage-environments-tbody'></tbody>
+          </table>
+
+          <field class='field'>
+            <label for="" class="label">Name:</label>
+            <input type="text" class="inputfield" id="environment-name-input"/>
+          </field>
+          <field class='field'>
+            <label for="i0" class="label">Dynatrace Environment URL:</label>
+            <input type="text" class="inputfield" id="environment-url-input"/>
+          </field>
+          <field class='field'>
+            <label for="i0" class="label">API Token:</label>
+            <input type="text" class="inputfield" id="environment-token-input"/>
+          </field>
+          <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+          <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
+
         </div>
-        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
-        <p>Add an environment:</p>
-        <!--Add Environment here and button to delete env-->
-        <table class="table" style="display: none" id='envTableParent'>
-          <thead>
-          <tr>
-            <th>Environment Name</th>
-            <th>URL</th>
-            <th>Token</th>
-            <th>Delete</th>
-          </tr>
-          </thead>
-          <tbody id='envTable'></tbody>
-        </table>
-        <field class='field' style="width: 50%">
-          <label for="i0" class="label">Name:</label>
-          <input type="text" class="inputfield" id="EnvName"/>
-        </field>
-        <field class='field' style="width: 50%">
-          <label for="i0" class="label">Dynatrace Environment URL:</label>
-          <input type="text" class="inputfield" id="EnvURL"/>
-        </field>
-        <field class='field' style="width: 50%">
-          <label for="i0" class="label">API Token:</label>
-          <input type="text" class="inputfield" id="EnvTok"/>
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
-      </div>
-      <!-- End of Add Environment -->
+        <!-- End of Manage Environments -->
 
     </div><!-- End of Tools Content -->
   </div><!-- End of Main Body -->
 
 
-  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+    <script type="text/javascript" src="scripts/environments.js"></script>
+    <script type="text/javascript" src="scripts/tool_businessHoursKPIs.js"></script>
+    <script type="text/javascript" src="scripts/tool_tagDuplicator.js"></script>
+    <script type="text/javascript" src="scripts/tool_starterTags.js"></script>
+    <script type="text/javascript" src="scripts/tool_dashboardMover.js"></script>
   </body>
-</html>

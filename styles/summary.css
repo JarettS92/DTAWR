@@ -1,0 +1,148 @@
+.scrollable {
+  max-height: 450px !important;
+  overflow: auto;
+}
+.noLeftPad {
+  padding-left: 0 !important;
+}
+.contract-duration {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.engagement-progress {
+  color: #fff !important;
+  padding-right: 24px;
+}
+.label--progressbar {
+  font-size: 1em !important;
+  font-weight: 400 !important;
+}
+.progressbar {
+  height: 5px !important;
+}
+.align-right {
+  text-align: right !important;
+}
+.expandable__content td {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+.ascending:before {
+  display: initial !important;
+  content: " ";
+  position: absolute;
+  background-image: url(../images/dropdownasc-gray_900.png);
+  background-size: 1em;
+  width: 40px;
+  height: 5px !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  left: 0;
+  top: 50%;
+}
+.descending:before {
+  display: initial !important;
+  content: " ";
+  position: absolute;
+  background-image: url(../images/dropdowndesc-gray_900.png);
+  background-size: 1em;
+  width: 40px;
+  height: 5px !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  left: 0;
+  top: 50%;
+}
+.dark-bg .ascending:before {
+  background-image: url(../images/dropdownasc-white.png);
+  background-color: transparent;
+}
+.dark-bg .descending:before {
+  background-image: url(../images/dropdowndesc-white.png);
+  background-color: transparent;
+}
+.subnav__item dl {
+  padding: 10px;
+}
+.in-block {
+  display: inline-block !important;
+}
+.dark-body {
+  background-color: black;
+}
+.dark-bg {
+  background-color: rgb(58,58,58) !important;
+  color: white !important;
+}
+.dark-bg dt {
+  color: white !important;
+}
+.dark-bg .label--progressbar {
+  color: white;
+}
+.dark-bg dd {
+  text-shadow: 
+      1px 2px 2px rgb(58,58,58), 
+      2px 2px 2px rgb(58,58,58), 
+      3px 2px 2px rgb(58,58,58), 
+      4px 2px 2px rgb(58,58,58), 
+      5px 2px 2px rgb(58,58,58), 
+      6px 2px 2px rgb(58,58,58), 
+      -1px 2px 1px rgb(58,58,58), 
+      -2px 2px 1px rgb(58,58,58), 
+      -3px 2px 2px rgb(58,58,58), 
+      -4px 2px 2px rgb(58,58,58), 
+      -5px 2px 2px rgb(58,58,58), 
+      -6px 2px 2px rgb(58,58,58) !important;
+}
+.dark-bg .table--expandable tbody:nth-child(2n + 1) tr:first-child {
+  background-color: black !important;
+}
+.customer td, .customer a {
+  background-color: #006bba !important;
+}
+.customerDetails {
+  color: #e6e6e6 !important;
+  font-size: 16px;
+}
+.customerDetails:hover {
+  color: white !important;
+}
+.customerDetails:before {
+  background-image: url("//assets.dynatrace.com/groundhog/v6.1.2/assets/images/icons/dropdown_open-white.svg") !important;
+}
+.cust-dl {
+  background-color: #006bba !important;
+}
+.cust-dl dd {
+  text-shadow: 
+      1px 2px 2px #006BBA, 
+      2px 2px 2px #006BBA, 
+      3px 2px 2px #006BBA, 
+      4px 2px 2px #006BBA, 
+      5px 2px 2px #006BBA, 
+      6px 2px 2px #006BBA, 
+      -1px 2px 1px #006BBA, 
+      -2px 2px 1px #006BBA, 
+      -3px 2px 2px #006BBA, 
+      -4px 2px 2px #006BBA, 
+      -5px 2px 2px #006BBA, 
+      -6px 2px 2px #006BBA !important;
+}
+.cust-dl dd, .cust-dl dt {
+  color: white !important;
+}
+.switch__label:after {
+  background-color: white !important;
+  box-shadow: 0px 0px 0px 1px;
+}
+.switch__label:before {
+  background-color: white !important;
+  border-color: white !important;
+}
+.switch__caption {
+  color: white;
+}
+.switch:checked + .switch__label:after {
+  background-color: black !important;
+}

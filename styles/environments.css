@@ -1,0 +1,18 @@
+.manage__environments__button {
+  border: 1px solid #fff;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #fff;
+  font-family: "BerninaSans", "Open Sans", sans-serif;
+  box-sizing: border-box;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  width: 160px;
+}
+.manage__environments__parent {
+  text-align:center;
+  width:200px;
+  padding-right:15px;
+}

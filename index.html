@@ -3,14 +3,11 @@
   <head>
     <link rel="icon" href="images/dt-favicon-blue.png">
     <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/shared_styles.css" />
     <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chartkick/2.3.0/chartkick.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="scripts/scripts.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
     <!-- Javascript Agent -->
     <script type="text/javascript">
       (function(){function Ha(){if(void 0===Ia.dialogArguments)return navigator.cookieEnabled;document.cookie="__dTCookie=1";var Da=-1!==document.cookie.indexOf("__dTCookie");document.cookie="__dTCookie=1; expires=Thu, 01-Jan-1970 00:00:01 GMT";return Da}function Ua(){var Da;if(Ha()&&!window.dT_){var ea=(Da={},Da.cfg="app=57f92d7a160d8c68|cors=1|featureHash=A2SVfqru|reportUrl=https://bf15643llb.bf-sprint.dynatracelabs.com/bf|rdnt=1|uxrgce=1|bp=2|cuc=odmjrai7|dpvc=1|lastModification=1588178506481|dtVersion=10191200428153944|tp=500,50,0,1|uxdcw=1500|featureHash=A2SVfqru|agentUri=https://js-cdn.dynatracelabs.com/jstag/145e049b9b1/ruxitagent_A2SVfqru_10191200428153944.js|auto=|domain=|rid=RID_|rpid=|app=57f92d7a160d8c68",Da.iCE=Ha,Da);window.dT_=ea}}var Ia="undefined"!==typeof window?window:self,Pa;Ia.dT_?null===
@@ -128,16 +125,16 @@
                 <a name="overview" class="nav__link" href="tools.html">Overview</a>
               </li>
               <li class="nav__item">
-                <a name="tag-duplicator" class="nav__link" href="tools.html#tag-duplicator">Tag Duplicator</a>
+                <a name="tag-duplicator" class="nav__link" href="tools.html#tools-tag-duplicator">Tag Duplicator</a>
               </li>
               <li class="nav__item">
-                <a name="business-hour-kpis" class="nav__link" href="tools.html#business-hour-kpis">Business Hour KPIs</a>
+                <a name="business-hour-kpis" class="nav__link" href="tools.html#tools-business-hour-kpis">Business Hour KPIs</a>
               </li>
               <li class="nav__item">
-                <a name="starter-tags" class="nav__link" href="tools.html#starter-tags">Starter Tags</a>
+                <a name="starter-tags" class="nav__link" href="tools.html#tools-starter-tags">Starter Tags</a>
               </li>
               <li class="nav__item">
-                <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
+                <a name="dashboard-mover" class="nav__link" href="tools.html#tools-dashboard-mover">Dashboard Mover</a>
               </li>
             </ul>
           </li>
@@ -149,28 +146,28 @@
                 <a name="overview" class="nav__link" href="reports.html">Overview</a>
               </li>
               <li class="nav__item">
-                <a name="root-cause-analysis" class="nav__link" href="reports.html#root-cause-analysis">Root Cause Analysis+</a>
+                <a name="root-cause-analysis" class="nav__link" href="reports.html#reports-root-cause-analysis">Root Cause Analysis+</a>
               </li>
               <li class="nav__item">
-                <a name="problem-trending" class="nav__link" href="reports.html#problem-trending">Problem Trending</a>
+                <a name="problem-trending" class="nav__link" href="reports.html#reports-problem-trending">Problem Trending</a>
               </li>
               <li class="nav__item">
-                <a name="untagged-entities" class="nav__link" href="reports.html#untagged-entities">Untagged Entities</a>
+                <a name="untagged-entities" class="nav__link" href="reports.html#reports-untagged-entities">Untagged Entities</a>
               </li>
               <li class="nav__item">
-                <a name="hosts" class="nav__link" href="reports.html#hosts">Hosts Report</a>
+                <a name="hosts" class="nav__link" href="reports.html#reports-hosts">Hosts Report</a>
               </li>
               <li class="nav__item">
-                <a name="applications" class="nav__link" href="reports.html#applications">Applications Report</a>
+                <a name="applications" class="nav__link" href="reports.html#reports-applications">Applications Report</a>
               </li>
               <li class="nav__item">
-                <a name="problems" class="nav__link" href="reports.html#problems">Problems Report</a>
+                <a name="problems" class="nav__link" href="reports.html#reports-problems">Problems Report</a>
               </li>
               <li class="nav__item">
-                <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
+                <a name="services" class="nav__link" href="reports.html#reports-services">Services Report</a>
               </li>
               <li class="nav__item">
-                <a name="audit-users" class="nav__link" href="reports.html#audit-users">Audit Users</a>
+                <a name="audit-users" class="nav__link" href="reports.html#reports-audit-users">Audit Users</a>
               </li>
             </ul>
           </li>
@@ -179,10 +176,13 @@
             <a class="nav__link expandable__trigger" href="dashboards.html">Dashboards</a>
             <ul class="nav__list nav__list--secondary expandable__content">
               <li class="nav__item">
-                <a name="overview" class="nav__link" href="dashboards.html#overview">Overview</a>
+                <a name="overview" class="nav__link" href="dashboards.html#dashboards-overview">Overview</a>
               </li>
               <li class="nav__item">
-                <a name="overview" class="nav__link" href="dashboards.html#bizops-configurator">BizOps Configurator</a>
+                <a name="overview" class="nav__link" href="dashboards.html#dashboards-bizops-configurator">BizOps Configurator</a>
+              </li>
+              <li class="nav__item">
+                <a name="browse-dashboards" class="nav__link" href="dashboards.html#dashboards-browse-dashboards">Browse Dashboards</a>
               </li>
             </ul>
           </li>
@@ -191,16 +191,16 @@
             <a class="nav__link expandable__trigger" href="#">Artifacts</a>
             <ul class="nav__list nav__list--secondary expandable__content">
               <li class="nav__item">
-                <a name="Document Repository" class="nav__link" href="artifacts.html#doc-repo">Document Repository</a>
+                <a name="Document Repository" class="nav__link" href="artifacts.html#artifacts-doc-repo">Document Repository</a>
               </li>
               <li class="nav__item">
-                <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#gwr">Guardian Weekly Report</a>
+                <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#artifacts-gwr">Guardian Weekly Report</a>
               </li>
               <li class="nav__item">
-                <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#qbr">Quarterly Business Report</a>
+                <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#artifacts-qbr">Quarterly Business Report</a>
               </li>
               <li class="nav__item">
-                <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#odd">On-Demand Deliverable</a>
+                <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#artifacts-odd">On-Demand Deliverable</a>
               </li>
             </ul>
           </li>
@@ -230,27 +230,6 @@
       </ul>
     </div>
 
-    
-    <!-- ------------------------------------------------------------- -->
-    <!-- Value Event Ticker -->
-    <!-- <div class="ticker-wrap">
-      <div class="ticker" id="ticker">
-        <div class="ticker__item">Value Event (4/2) - Created Dasboard Mover Utility</div>
-        <div class="ticker__item">:</div>
-        <div class="ticker__item">Value Event (3/29) - Reduced MTTR in Application1</div>
-        <div class="ticker__item">:</div>
-        <div class="ticker__item">Value Event (4/9) - Another value event title here</div>
-        <div class="ticker__item">:</div>
-        <div class="ticker__item">Quick Win (2/16) - Configured Usernames in SolarWinds</div>
-        <div class="ticker__item">:</div>
-        <div class="ticker__item">Quick Win (3/20) - Enabled Log File Monitoring for NOCLights application</div>
-        <div class="ticker__item">:</div>
-        <div class="ticker__item">Value Event (4/5) - Deployed 6,000 Agents in 2 days</div>
-        <div class="ticker__item">:</div>
-        <div class="ticker__item">Value Event (5/1) - This is the most important value event</div>
-      </div>
-    </div> -->
-
     <!-- ------------------------------------------------------------- -->
     <!-- Warning Banner -->
     <div id="csatReminderBanner" name="CSAT Survey Reminder" class="csat">
@@ -269,12 +248,6 @@
         <canvas id="users-trained-chart"></canvas>
         <!-- <div id='test'></div> -->
         <script type="text/javascript">
-          // let utdata = [
-          //   {name: "On-Site", data: {"Application Teams": 30, "Operations": 4, "Network": 10, "Executives": 1}, stack: "onsite"},
-          //   {name: "D1", data: {"Application Teams": 10, "Operations": 8, "Network": 7, "Executives": 4}, stack: "d1"},
-          //   {name: "vILT", data: {"Application Teams": 30, "Operations": 4, "Network": 10, "Executives": 8}, stack: "vilt"}
-          // ];
-          // new Chartkick.ColumnChart("test", utdata, {"legend":true, "colors": ["#1496ff", "#73be28", "#6f2da8", "#B5DD00"]});
           let utc = new Chart('users-trained-chart', {
             type: 'bar',
             data: {
@@ -651,15 +624,16 @@
         </script>
       </div>
 
-      
-
-
-
     </div><!-- End of Main Body-->
 
-
-
-    <!-- <div class="empty"></div> -->
+    <!-- JAVASCRIPT -->
     <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="scripts/environments.js"></script>
+    <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+
   </body>
 </html>

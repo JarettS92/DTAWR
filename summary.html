@@ -3,6 +3,7 @@
 <head>
   <link rel="icon" href="images/dt-favicon-blue.png">
   <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
   <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,858 +14,861 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>  
   <title>Services Portal - Account Summary</title>
 </head>
-  <body>
+<body>
 
-    <!-- ------------------------------------------------------------- -->
-    <!-- Navigation Bar -->
-    <!-- Contains links to tools, reports, dashboards, artifacts -->
-    <div class="nav has-no-secondary">
-      <a class="nav__brand" href="https://www.dynatrace.com">
-        <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
-      </a>
-      <div class="nav__buttongroup">
-        <button id="nav-bar-button" data-target="#nav-bar" class="nav__btn nav__btn--menutoggle">Menu</button>
-        <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile" class="nav__btn nav__btn--menutoggle">Menu</button>
-      </div>
-      <!-- Desktop Navbar -->
-      <nav id="nav-bar" class="nav__bar">
-        <ul class="nav__list nav__list--primary">
-          <!-- Home -->
-          <li class="nav__item">
-            <a class="nav__link" href="./index.html">Home</a>
-          </li>
-          <!-- Summary -->
-          <li class="nav__item is-current">
-            <a class="nav__link" href="./summary.html">Summary</a>
-          </li>
-          <!-- Tools -->
-          <li class="nav__item">
-            <a class="nav__link" href="./tools.html">Tools</a>
-          </li>
-          <!-- Reports -->
-          <li class="nav__item">
-            <a class="nav__link" href="./reports.html">Reports</a>
-          </li>
-          <!-- Dashboards -->
-          <li class="nav__item">
-            <a class="nav__link" href="./dashboards.html">Dashboards</a>
-          </li>
-          <!-- Artifacts -->
-          <li class="nav__item">
-            <a class="nav__link" href="./artifacts.html">Artifacts</a>
-          </li>
-        </ul>
-      </nav>
-      <!-- Mobile Navbar -->
-      <nav id="nav-bar-mobile" class="nav__bar">
-        <ul class="nav__list nav__list--primary">
-          <!-- Home -->
-          <li class="nav__item">
-            <a class="nav__link" href="index.html">Home</a>
-          </li>
-          <!-- Summary -->
-          <li class="nav__item">
-            <a class="nav__link" href="summary.html">Summary</a>
-          </li>
-          <!-- Tools -->
-          <li class="nav__item expandable expandable--nav">
-            <a class="nav__link expandable__trigger" href="#">Tools</a>
-            <ul class="nav__list nav__list--secondary expandable__content">
-              <li class="nav__item">
-                <a name="overview" class="nav__link" href="tools.html">Overview</a>
-              </li>
-              <li class="nav__item">
-                <a name="tag-duplicator" class="nav__link" href="tools.html#tag-duplicator">Tag Duplicator</a>
-              </li>
-              <li class="nav__item">
-                <a name="business-hour-kpis" class="nav__link" href="tools.html#business-hour-kpis">Business Hour KPIs</a>
-              </li>
-              <li class="nav__item">
-                <a name="starter-tags" class="nav__link" href="tools.html#starter-tags">Starter Tags</a>
-              </li>
-              <li class="nav__item">
-                <a name="dashboard-mover" class="nav__link" href="tools.html#dashboard-mover">Dashboard Mover</a>
-              </li>
-            </ul>
-          </li>
-          <!-- Reports -->
-          <li class="nav__item expandable expandable--nav">
-            <a class="nav__link expandable__trigger" href="#">Reports</a>
-            <ul class="nav__list nav__list--secondary expandable__content">
-              <li class="nav__item">
-                <a name="overview" class="nav__link" href="reports.html">Overview</a>
-              </li>
-              <li class="nav__item">
-                <a name="root-cause-analysis" class="nav__link" href="reports.html#root-cause-analysis">Root Cause Analysis+</a>
-              </li>
-              <li class="nav__item">
-                <a name="problem-trending" class="nav__link" href="reports.html#problem-trending">Problem Trending</a>
-              </li>
-              <li class="nav__item">
-                <a name="untagged-entities" class="nav__link" href="reports.html#untagged-entities">Untagged Entities</a>
-              </li>
-              <li class="nav__item">
-                <a name="hosts" class="nav__link" href="reports.html#hosts">Hosts Report</a>
-              </li>
-              <li class="nav__item">
-                <a name="applications" class="nav__link" href="reports.html#applications">Applications Report</a>
-              </li>
-              <li class="nav__item">
-                <a name="problems" class="nav__link" href="reports.html#problems">Problems Report</a>
-              </li>
-              <li class="nav__item">
-                <a name="services" class="nav__link" href="reports.html#services">Services Report</a>
-              </li>
-              <li class="nav__item">
-                <a name="audit-users" class="nav__link" href="reports.html#audit-users">Audit Users</a>
-              </li>
-            </ul>
-          </li>
-          <!-- Dashboards -->
-          <li class="nav__item expandable expandable--nav">
-            <a class="nav__link expandable__trigger" href="dashboards.html">Dashboards</a>
-            <ul class="nav__list nav__list--secondary expandable__content">
-              <li class="nav__item">
-                <a name="overview" class="nav__link" href="dashboards.html#overview">Overview</a>
-              </li>
-              <li class="nav__item">
-                <a name="overview" class="nav__link" href="dashboards.html#bizops-configurator">BizOps Configurator</a>
-              </li>
-            </ul>
-          </li>
-          <!-- Artifacts -->
-          <li class="nav__item expandable expandable--nav">
-            <a class="nav__link expandable__trigger" href="#">Artifacts</a>
-            <ul class="nav__list nav__list--secondary expandable__content">
-              <li class="nav__item">
-                <a name="Document Repository" class="nav__link" href="artifacts.html#doc-repo">Document Repository</a>
-              </li>
-              <li class="nav__item">
-                <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#gwr">Guardian Weekly Report</a>
-              </li>
-              <li class="nav__item">
-                <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#qbr">Quarterly Business Report</a>
-              </li>
-              <li class="nav__item">
-                <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#odd">On-Demand Deliverable</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+  <!-- ------------------------------------------------------------- -->
+  <!-- Navigation Bar -->
+  <!-- Contains links to tools, reports, dashboards, artifacts -->
+  <div class="nav has-no-secondary">
+    <a class="nav__brand" href="https://www.dynatrace.com">
+      <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
+    </a>
+    <div class="nav__buttongroup">
+      <button id="nav-bar-button" data-target="#nav-bar" class="nav__btn nav__btn--menutoggle">Menu</button>
+      <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile" class="nav__btn nav__btn--menutoggle">Menu</button>
     </div>
+    <!-- Desktop Navbar -->
+    <nav id="nav-bar" class="nav__bar">
+      <ul class="nav__list nav__list--primary">
+        <!-- Home -->
+        <li class="nav__item">
+          <a class="nav__link" href="./index.html">Home</a>
+        </li>
+        <!-- Summary -->
+        <li class="nav__item is-current">
+          <a class="nav__link" href="./summary.html">Summary</a>
+        </li>
+        <!-- Tools -->
+        <li class="nav__item">
+          <a class="nav__link" href="./tools.html">Tools</a>
+        </li>
+        <!-- Reports -->
+        <li class="nav__item">
+          <a class="nav__link" href="./reports.html">Reports</a>
+        </li>
+        <!-- Dashboards -->
+        <li class="nav__item">
+          <a class="nav__link" href="./dashboards.html">Dashboards</a>
+        </li>
+        <!-- Artifacts -->
+        <li class="nav__item">
+          <a class="nav__link" href="./artifacts.html">Artifacts</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Mobile Navbar -->
+    <nav id="nav-bar-mobile" class="nav__bar">
+      <ul class="nav__list nav__list--primary">
+        <!-- Home -->
+        <li class="nav__item">
+          <a class="nav__link" href="index.html">Home</a>
+        </li>
+        <!-- Summary -->
+        <li class="nav__item">
+          <a class="nav__link" href="summary.html">Summary</a>
+        </li>
+        <!-- Tools -->
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="#">Tools</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="tools.html">Overview</a>
+            </li>
+            <li class="nav__item">
+              <a name="tag-duplicator" class="nav__link" href="tools.html#tools-tag-duplicator">Tag Duplicator</a>
+            </li>
+            <li class="nav__item">
+              <a name="business-hour-kpis" class="nav__link" href="tools.html#tools-business-hour-kpis">Business Hour KPIs</a>
+            </li>
+            <li class="nav__item">
+              <a name="starter-tags" class="nav__link" href="tools.html#tools-starter-tags">Starter Tags</a>
+            </li>
+            <li class="nav__item">
+              <a name="dashboard-mover" class="nav__link" href="tools.html#tools-dashboard-mover">Dashboard Mover</a>
+            </li>
+          </ul>
+        </li>
+        <!-- Reports -->
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="#">Reports</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="reports.html">Overview</a>
+            </li>
+            <li class="nav__item">
+              <a name="root-cause-analysis" class="nav__link" href="reports.html#reports-root-cause-analysis">Root Cause Analysis+</a>
+            </li>
+            <li class="nav__item">
+              <a name="problem-trending" class="nav__link" href="reports.html#reports-problem-trending">Problem Trending</a>
+            </li>
+            <li class="nav__item">
+              <a name="untagged-entities" class="nav__link" href="reports.html#reports-untagged-entities">Untagged Entities</a>
+            </li>
+            <li class="nav__item">
+              <a name="hosts" class="nav__link" href="reports.html#reports-hosts">Hosts Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="applications" class="nav__link" href="reports.html#reports-applications">Applications Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="problems" class="nav__link" href="reports.html#reports-problems">Problems Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="services" class="nav__link" href="reports.html#reports-services">Services Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="audit-users" class="nav__link" href="reports.html#reports-audit-users">Audit Users</a>
+            </li>
+          </ul>
+        </li>
+        <!-- Dashboards -->
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="dashboards.html">Dashboards</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="dashboards.html#dashboards-overview">Overview</a>
+            </li>
+            <li class="nav__item">
+              <a name="overview" class="nav__link" href="dashboards.html#dashboards-bizops-configurator">BizOps Configurator</a>
+            </li>
+            <li class="nav__item">
+              <a name="browse-dashboards" class="nav__link" href="dashboards.html#dashboards-browse-dashboards">Browse Dashboards</a>
+            </li>
+          </ul>
+        </li>
+        <!-- Artifacts -->
+        <li class="nav__item expandable expandable--nav">
+          <a class="nav__link expandable__trigger" href="#">Artifacts</a>
+          <ul class="nav__list nav__list--secondary expandable__content">
+            <li class="nav__item">
+              <a name="Document Repository" class="nav__link" href="artifacts.html#artifacts-doc-repo">Document Repository</a>
+            </li>
+            <li class="nav__item">
+              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#artifacts-gwr">Guardian Weekly Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#artifacts-qbr">Quarterly Business Report</a>
+            </li>
+            <li class="nav__item">
+              <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#artifacts-odd">On-Demand Deliverable</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
-    <!-- ------------------------------------------------------------- -->
-    <!-- Contract Information -->
-    <div class="theme--blue">
-      <table id="contractInformationTable" class="table table--expandable customer" data-behavior="accordion">
+  <!-- ------------------------------------------------------------- -->
+  <!-- Contract Information -->
+  <div class="theme--blue">
+    <table id="contractInformationTable" class="table table--expandable customer" data-behavior="accordion">
+      <tbody class="expandable">
+        <tr>
+          <td><a href="#" class="customerDetails expandable__trigger">Principal Life</a></td>
+          <td align="right">
+            <input type="checkbox" class="switch to-right" id="darkmode"/>
+            <label for="darkmode" class="switch__label">
+              <span class="switch__caption">Toggle Dark Mode</span>
+            </label>
+          </td>
+        </tr>
+        <tr class="expandable__content">
+          <td colspan="5">
+            <dl class="definition-list cust-dl">
+              <dt>Services</dt>
+              <dd>Guardian Silver, Insights</dd>
+              <dt>Guardian Start Date</dt>
+              <dd>1/1/2020</dd>
+              <dt>Guardian End Date</dt>
+              <dd>4/21/2020</dd>
+              <dt>Insights Start Date</dt>
+              <dd>1/1/2020</dd>
+              <dt>Insights End Date</dt>
+              <dd>12/31/2022</dd>
+              <dt>CSAT Survey Distribution Date</dt>
+              <dd>May 15, August 15</dd>
+            </dl>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- Progress Bar -->
+  <div class="theme--blue contract-duration">
+    <label class="engagement-progress label--progressbar" for="p0">30/100 Days</label>
+    <progress class="progressbar" value="30" max="100" id="p0"></progress>
+  </div>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- Tenant Information -->
+  <div class="island">
+    <h2>Tenants</h2>
+    <div class="section theme--blue scrollable">
+      <table id="tenantInformationTable" class="table table--expandable" data-behavior="accordion">
+        <thead>
+          <th>Environment</th>
+          <th class="mobile">Version</th>
+          <th>Hosts</th>
+          <th>Apps</th>
+          <th>Synthetics</th>
+          <th>Users</th>
+        </thead>
         <tbody class="expandable">
           <tr>
-            <td><a href="#" class="customerDetails expandable__trigger">Principal Life</a></td>
-            <td align="right">
-              <input type="checkbox" class="switch to-right" id="darkmode"/>
-              <label for="darkmode" class="switch__label">
-                <span class="switch__caption">Toggle Dark Mode</span>
-              </label>
-            </td>
+            <td class="noLeftPad"><a href="#" class="expandable__trigger">PROD</a></td>
+            <td class="mobile">1.187</td>
+            <td>68</td>
+            <td>90</td>
+            <td>110</td>
+            <td>70</td>
           </tr>
           <tr class="expandable__content">
-            <td colspan="5">
-              <dl class="definition-list cust-dl">
-                <dt>Services</dt>
-                <dd>Guardian Silver, Insights</dd>
-                <dt>Guardian Start Date</dt>
-                <dd>1/1/2020</dd>
-                <dt>Guardian End Date</dt>
-                <dd>4/21/2020</dd>
-                <dt>Insights Start Date</dt>
-                <dd>1/1/2020</dd>
-                <dt>Insights End Date</dt>
-                <dd>12/31/2022</dd>
-                <dt>CSAT Survey Distribution Date</dt>
-                <dd>May 15, August 15</dd>
+            <td colspan="6">
+              <dl class="definition-list">
+                <dt class="desktop">Version</dt>
+                <dd>1.187</dd>
+                <dt>URL</dt>
+                <dd><a href="xxx12345.live.dynatrace.com">xxx12345.live.dynatrace.com</a></dd>
+                <dt>Host Units</dt>
+                <dd>132/150</dd>
+                <dt>DEM Units</dt>
+                <dd>850k/1.2M</dd>
+                <dt>Custom Metrics</dt>
+                <dd>30k/55k</dd>
+                <dt>Integrations</dt>
+                <dd>AWS, VMWare</dd>
+                <dt>Plugins</dt>
+                <dd>IBM MQ, F5</dd>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+        <tbody class="expandable">
+          <tr>
+            <td class="noLeftPad"><a href="#" class="expandable__trigger">QA</a></td>
+            <td class="mobile">1.188</td>
+            <td>10</td>
+            <td>20</td>
+            <td>30</td>
+            <td>40</td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list">
+                <dt class="desktop">Version</dt>
+                <dd>1.188</dd>
+                <dt>URL</dt>
+                <dd><a href="xxx12345.live.dynatrace.com">xxx12345.live.dynatrace.com</a></dd>
+                <dt>Host Units</dt>
+                <dd>132/150</dd>
+                <dt>DEM Units</dt>
+                <dd>850k/1.2M</dd>
+                <dt>Custom Metrics</dt>
+                <dd>30k/55k</dd>
+                <dt>Integrations</dt>
+                <dd>Azure, Docker</dd>
+                <dt>Plugins</dt>
+                <dd>Datapower, Apigee Edge</dd>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+        <tbody class="expandable">
+          <tr>
+            <td class="noLeftPad"><a href="#" class="expandable__trigger">DEV</a></td>
+            <td class="mobile">1.189</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>30</td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list">
+                <dt class="desktop">Version</dt>
+                <dd>1.189</dd>
+                <dt>URL</dt>
+                <dd><a href="xxx12345.live.dynatrace.com">xxx12345.live.dynatrace.com</a></dd>
+                <dt>Host Units</dt>
+                <dd>132/150</dd>
+                <dt>DEM Units</dt>
+                <dd>850k/1.2M</dd>
+                <dt>Custom Metrics</dt>
+                <dd>30k/55k</dd>
+                <dt>Integrations</dt>
+                <dd>Kubernetes, Cloud Foundry</dd>
+                <dt>Plugins</dt>
+                <dd>SAP ABAP, Juniper Networks</dd>
               </dl>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
 
-    <!-- ------------------------------------------------------------- -->
-    <!-- Progress Bar -->
-    <div class="theme--blue contract-duration">
-      <label class="engagement-progress label--progressbar" for="p0">30/100 Days</label>
-      <progress class="progressbar" value="30" max="100" id="p0"></progress>
+  <!-- ------------------------------------------------------------- -->
+  <!-- Guardian Tasks from Planner -->
+  <div class="island">
+    <h2>Engagement Tasks</h2>
+    <div class="section theme--blue scrollable">
+      <table id="guardianTasksTable" class="table table--expandable" data-behavior="accordion">
+        <thead>
+          <th>Task</th>
+          <th class="mobile">Owner</th>
+          <th class="mobile">Due Date</th>
+          <th class="mobile">Status</th>
+          <th class="mobile landscape">Related Goal</th>
+          <th class="align-right noLeftPad">Details</th>
+        </thead>
+        <tbody class="expandable">
+          <tr>
+            <td>Add some task to the list and then make sure that it is long enough that it will wrap. Need to make sure it looks ok on mobile if people use really long task names.</td>
+            <td class="mobile">Clone</td>
+            <td class="mobile">2/01/20</td>
+            <td class="mobile">In Progress</td>
+            <td class="mobile landscape">G1</td>
+            <td align="right" class="noLeftPad"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list desktop">
+                <dt>Due Date</dt>
+                <dd>2/01/20</dd>
+                <dt>Owner</dt>
+                <dd>Clone</dd>
+                <dt>Status</dt>
+                <dd>In Progress</dd>
+                <dt>Related Goal</dt>
+                <dd>G1</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                  <dt>Notes</dt>
+                </div>
+              </dl>
+              <p>Here is some additional text that would be in the notes section. Can get the task description using a basic planner connector. <br>
+                To get 'Checklist' items, you will have to call the Microsoft Graph REST API, plannerTaskDetails method. Requires an OAuth token, not sure how to obtain.<br>
+                Labels can be captured, but you have to map them out. They are displayed as "category1, category2". Will most likely have to standardize labels.</p>
+            </td>
+          </tr>
+        </tbody>
+        <tbody class="expandable">
+          <tr>
+            <td>Ensure to build for mobile first and then make adjustments for desktop</td>
+            <td class="mobile">Jarett</td>
+            <td class="mobile">2/28/20</td>
+            <td class="mobile">In Progress</td>
+            <td class="mobile landscape">G2</td>
+            <td align="right" class="noLeftPad"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list desktop">
+                <dt>Due Date</dt>
+                <dd>2/28/20</dd>
+                <dt>Owner</dt>
+                <dd>Jarett</dd>
+                <dt>Status</dt>
+                <dd>In Progress</dd>
+                <dt>Related Goal</dt>
+                <dd>G2</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                  <dt>Notes</dt>
+                </div>
+              </dl>
+              <p>
+                Here are some notes in the notes section. you have to use the br element <br>
+                to get new lines. The text will not auto detect new paragraphs.<br>
+                So don't forget about the br tag!
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
-    <!-- ------------------------------------------------------------- -->
-    <!-- Tenant Information -->
-    <div class="island">
-      <h2>Tenants</h2>
-      <div class="section theme--blue scrollable">
-        <table id="tenantInformationTable" class="table table--expandable" data-behavior="accordion">
-          <thead>
-            <th>Environment</th>
-            <th class="mobile">Version</th>
-            <th>Hosts</th>
-            <th>Apps</th>
-            <th>Synthetics</th>
-            <th>Users</th>
-          </thead>
-          <tbody class="expandable">
-            <tr>
-              <td class="noLeftPad"><a href="#" class="expandable__trigger">PROD</a></td>
-              <td class="mobile">1.187</td>
-              <td>68</td>
-              <td>90</td>
-              <td>110</td>
-              <td>70</td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list">
-                  <dt class="desktop">Version</dt>
-                  <dd>1.187</dd>
-                  <dt>URL</dt>
-                  <dd><a href="xxx12345.live.dynatrace.com">xxx12345.live.dynatrace.com</a></dd>
-                  <dt>Host Units</dt>
-                  <dd>132/150</dd>
-                  <dt>DEM Units</dt>
-                  <dd>850k/1.2M</dd>
-                  <dt>Custom Metrics</dt>
-                  <dd>30k/55k</dd>
-                  <dt>Integrations</dt>
-                  <dd>AWS, VMWare</dd>
-                  <dt>Plugins</dt>
-                  <dd>IBM MQ, F5</dd>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-          <tbody class="expandable">
-            <tr>
-              <td class="noLeftPad"><a href="#" class="expandable__trigger">QA</a></td>
-              <td class="mobile">1.188</td>
-              <td>10</td>
-              <td>20</td>
-              <td>30</td>
-              <td>40</td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list">
-                  <dt class="desktop">Version</dt>
-                  <dd>1.188</dd>
-                  <dt>URL</dt>
-                  <dd><a href="xxx12345.live.dynatrace.com">xxx12345.live.dynatrace.com</a></dd>
-                  <dt>Host Units</dt>
-                  <dd>132/150</dd>
-                  <dt>DEM Units</dt>
-                  <dd>850k/1.2M</dd>
-                  <dt>Custom Metrics</dt>
-                  <dd>30k/55k</dd>
-                  <dt>Integrations</dt>
-                  <dd>Azure, Docker</dd>
-                  <dt>Plugins</dt>
-                  <dd>Datapower, Apigee Edge</dd>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-          <tbody class="expandable">
-            <tr>
-              <td class="noLeftPad"><a href="#" class="expandable__trigger">DEV</a></td>
-              <td class="mobile">1.189</td>
-              <td>50</td>
-              <td>50</td>
-              <td>50</td>
-              <td>30</td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list">
-                  <dt class="desktop">Version</dt>
-                  <dd>1.189</dd>
-                  <dt>URL</dt>
-                  <dd><a href="xxx12345.live.dynatrace.com">xxx12345.live.dynatrace.com</a></dd>
-                  <dt>Host Units</dt>
-                  <dd>132/150</dd>
-                  <dt>DEM Units</dt>
-                  <dd>850k/1.2M</dd>
-                  <dt>Custom Metrics</dt>
-                  <dd>30k/55k</dd>
-                  <dt>Integrations</dt>
-                  <dd>Kubernetes, Cloud Foundry</dd>
-                  <dt>Plugins</dt>
-                  <dd>SAP ABAP, Juniper Networks</dd>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  
-    <!-- ------------------------------------------------------------- -->
-    <!-- Guardian Tasks from Planner -->
-    <div class="island">
-      <h2>Engagement Tasks</h2>
-      <div class="section theme--blue scrollable">
-        <table id="guardianTasksTable" class="table table--expandable" data-behavior="accordion">
-          <thead>
-            <th>Task</th>
-            <th class="mobile">Owner</th>
-            <th class="mobile">Due Date</th>
-            <th class="mobile">Status</th>
-            <th class="mobile landscape">Related Goal</th>
-            <th class="align-right noLeftPad">Details</th>
-          </thead>
-          <tbody class="expandable">
-            <tr>
-              <td>Add some task to the list and then make sure that it is long enough that it will wrap. Need to make sure it looks ok on mobile if people use really long task names.</td>
-              <td class="mobile">Clone</td>
-              <td class="mobile">2/01/20</td>
-              <td class="mobile">In Progress</td>
-              <td class="mobile landscape">G1</td>
-              <td align="right" class="noLeftPad"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list desktop">
-                  <dt>Due Date</dt>
-                  <dd>2/01/20</dd>
-                  <dt>Owner</dt>
-                  <dd>Clone</dd>
-                  <dt>Status</dt>
-                  <dd>In Progress</dd>
-                  <dt>Related Goal</dt>
-                  <dd>G1</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                    <dt>Notes</dt>
-                  </div>
-                </dl>
-                <p>Here is some additional text that would be in the notes section. Can get the task description using a basic planner connector. <br>
-                  To get 'Checklist' items, you will have to call the Microsoft Graph REST API, plannerTaskDetails method. Requires an OAuth token, not sure how to obtain.<br>
-                  Labels can be captured, but you have to map them out. They are displayed as "category1, category2". Will most likely have to standardize labels.</p>
-              </td>
-            </tr>
-          </tbody>
-          <tbody class="expandable">
-            <tr>
-              <td>Ensure to build for mobile first and then make adjustments for desktop</td>
-              <td class="mobile">Jarett</td>
-              <td class="mobile">2/28/20</td>
-              <td class="mobile">In Progress</td>
-              <td class="mobile landscape">G2</td>
-              <td align="right" class="noLeftPad"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list desktop">
-                  <dt>Due Date</dt>
-                  <dd>2/28/20</dd>
-                  <dt>Owner</dt>
-                  <dd>Jarett</dd>
-                  <dt>Status</dt>
-                  <dd>In Progress</dd>
-                  <dt>Related Goal</dt>
-                  <dd>G2</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                    <dt>Notes</dt>
-                  </div>
-                </dl>
-                <p>
-                  Here are some notes in the notes section. you have to use the br element <br>
-                  to get new lines. The text will not auto detect new paragraphs.<br>
-                  So don't forget about the br tag!
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <!-- ------------------------------------------------------------- -->
+  <!-- Dynatrace Team -->
+  <div class="island">
+    <h2>Dynatrace Team</h2>
+    <div class="section theme--blue scrollable">
+      <table id="dynatraceTeamTable" class="table table--expandable" data-behavior="accordion">
+        <thead>
+          <th>Title</th>
+          <th class="landscape">Name</th>
+          <th class="landscape">Contact</th>
+          <th class="align-right noLeftPad">Details</th>
+        </thead>
 
-    <!-- ------------------------------------------------------------- -->
-    <!-- Dynatrace Team -->
-    <div class="island">
-      <h2>Dynatrace Team</h2>
-      <div class="section theme--blue scrollable">
-        <table id="dynatraceTeamTable" class="table table--expandable" data-behavior="accordion">
-          <thead>
-            <th>Title</th>
-            <th class="landscape">Name</th>
-            <th class="landscape">Contact</th>
-            <th class="align-right noLeftPad">Details</th>
-          </thead>
+        <!-- Guardian -->
+        <tbody class="expandable">
+          <tr>
+            <td>Guardian</td>
+            <td class="landscape">Jarett Smith</td>
+            <td class="landscape">jarett.smith@dynatrace.com</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Name</dt>
+                <dd>Jarett Smith</dd>
+                <dt>Email</dt>
+                <dd>jarett.smith@dynatrace.com</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                  <dt>Role</dt>
+                  <p>
+                    A Guardian is an onsite/remote Dynatrace expert assigned to your account. They are trained in the art of dashboard creation, application triage, and alert generation.
+                  </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
 
-          <!-- Guardian -->
-          <tbody class="expandable">
-            <tr>
-              <td>Guardian</td>
-              <td class="landscape">Jarett Smith</td>
-              <td class="landscape">jarett.smith@dynatrace.com</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Name</dt>
-                  <dd>Jarett Smith</dd>
-                  <dt>Email</dt>
-                  <dd>jarett.smith@dynatrace.com</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                    <dt>Role</dt>
-                    <p>
-                      A Guardian is an onsite/remote Dynatrace expert assigned to your account. They are trained in the art of dashboard creation, application triage, and alert generation.
-                    </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-
-          <!-- Engagement Manager -->
-          <tbody class="expandable">
-            <tr>
-              <td>Guardian Manager</td>
-              <td class="landscape">Victor Farah</td>
-              <td class="landscape">victor.farah@dynatrace.com</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Name</dt>
-                  <dd>Victor Farah</dd>
-                  <dt>Email</dt>
-                  <dd>victor.farah@dynatrace.com</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                    <dt>Role</dt>
-                    <p>
-                      A Guardian Engagement Manager cracks the whip and keeps the Guardian in line!
-                    </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-
-          <!-- Engagement Manager 2 -->
-          <tbody class="expandable">
-            <tr>
-              <td>Guardian Manager</td>
-              <td class="landscape">Mary Miller</td>
-              <td class="landscape">mary.miller@dynatrace.com</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Name</dt>
-                  <dd>Mary Miller</dd>
-                  <dt>Email</dt>
-                  <dd>mary.miller@dynatrace.com</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
+        <!-- Engagement Manager -->
+        <tbody class="expandable">
+          <tr>
+            <td>Guardian Manager</td>
+            <td class="landscape">Victor Farah</td>
+            <td class="landscape">victor.farah@dynatrace.com</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Name</dt>
+                <dd>Victor Farah</dd>
+                <dt>Email</dt>
+                <dd>victor.farah@dynatrace.com</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
                   <dt>Role</dt>
                   <p>
                     A Guardian Engagement Manager cracks the whip and keeps the Guardian in line!
                   </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
 
-          <!-- Account Executive -->
-          <tbody class="expandable">
-            <tr>
-              <td>Account Executive</td>
-              <td class="landscape">Bill Riviere</td>
-              <td class="landscape">bill.riviere@dynatrace.com</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Name</dt>
-                  <dd>Bill Riviere</dd>
-                  <dt>Email</dt>
-                  <dd>bill.riviere@dynatrace.com</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                  <dt>Role</dt>
-                  <p>
-                    The Account Executive reaches out to upper managagement when customer has a frowny face :(
-                  </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
+        <!-- Engagement Manager 2 -->
+        <tbody class="expandable">
+          <tr>
+            <td>Guardian Manager</td>
+            <td class="landscape">Mary Miller</td>
+            <td class="landscape">mary.miller@dynatrace.com</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Name</dt>
+                <dd>Mary Miller</dd>
+                <dt>Email</dt>
+                <dd>mary.miller@dynatrace.com</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                <dt>Role</dt>
+                <p>
+                  A Guardian Engagement Manager cracks the whip and keeps the Guardian in line!
+                </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
 
-          <!-- Customer Success Manager -->
-          <tbody class="expandable">
-            <tr>
-              <td>Customer Success Manager</td>
-              <td class="landscape">Chase Kanera</td>
-              <td class="landscape">chase.kanera@dynatrace.com</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Name</dt>
-                  <dd>Chase Kanera</dd>
-                  <dt>Email</dt>
-                  <dd>chase.kanera@dynatrace.com</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                  <dt>Role</dt>
-                  <p>
-                    A Customer Success Manager wants SUCCESS!!!!
-                  </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
+        <!-- Account Executive -->
+        <tbody class="expandable">
+          <tr>
+            <td>Account Executive</td>
+            <td class="landscape">Bill Riviere</td>
+            <td class="landscape">bill.riviere@dynatrace.com</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Name</dt>
+                <dd>Bill Riviere</dd>
+                <dt>Email</dt>
+                <dd>bill.riviere@dynatrace.com</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                <dt>Role</dt>
+                <p>
+                  The Account Executive reaches out to upper managagement when customer has a frowny face :(
+                </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
 
-          <!-- Insights Consultant -->
-          <tbody class="expandable">
-            <tr>
-              <td>Insights Consultant</td>
-              <td class="landscape">Nick Coons</td>
-              <td class="landscape">nick.coons@dynatrace.com</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Name</dt>
-                  <dd>Nick Coons</dd>
-                  <dt>Email</dt>
-                  <dd>nick.coons@dynatrace.com</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                  <dt>Role</dt>
-                  <p>
-                    Insights consultants are soley responsible for Dynatrace Synthetics and Real User Monitoring. Insights provides reports on Synthetic Monitors and can assist with the maintenance of scripts.
-                  </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
+        <!-- Customer Success Manager -->
+        <tbody class="expandable">
+          <tr>
+            <td>Customer Success Manager</td>
+            <td class="landscape">Chase Kanera</td>
+            <td class="landscape">chase.kanera@dynatrace.com</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Name</dt>
+                <dd>Chase Kanera</dd>
+                <dt>Email</dt>
+                <dd>chase.kanera@dynatrace.com</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                <dt>Role</dt>
+                <p>
+                  A Customer Success Manager wants SUCCESS!!!!
+                </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
 
-          <!-- Insights Manager -->
-          <tbody class="expandable">
-            <tr>
-              <td>Insights Manager</td>
-              <td class="landscape">Benjamin Owens</td>
-              <td class="landscape">benjamin.owens@dynatrace.com</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Name</dt>
-                  <dd>Benjamin Owens</dd>
-                  <dt>Email</dt>
-                  <dd>benjamin.owens@dynatrace.com</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                  <dt>Role</dt>
-                  <p>
-                    Insights Managers crack the whip and keep Insights Consultants in line!
-                  </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <!-- Insights Consultant -->
+        <tbody class="expandable">
+          <tr>
+            <td>Insights Consultant</td>
+            <td class="landscape">Nick Coons</td>
+            <td class="landscape">nick.coons@dynatrace.com</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Name</dt>
+                <dd>Nick Coons</dd>
+                <dt>Email</dt>
+                <dd>nick.coons@dynatrace.com</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                <dt>Role</dt>
+                <p>
+                  Insights consultants are soley responsible for Dynatrace Synthetics and Real User Monitoring. Insights provides reports on Synthetic Monitors and can assist with the maintenance of scripts.
+                </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+
+        <!-- Insights Manager -->
+        <tbody class="expandable">
+          <tr>
+            <td>Insights Manager</td>
+            <td class="landscape">Benjamin Owens</td>
+            <td class="landscape">benjamin.owens@dynatrace.com</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Name</dt>
+                <dd>Benjamin Owens</dd>
+                <dt>Email</dt>
+                <dd>benjamin.owens@dynatrace.com</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                <dt>Role</dt>
+                <p>
+                  Insights Managers crack the whip and keep Insights Consultants in line!
+                </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
-    <!-- ------------------------------------------------------------- -->
-    <!-- Engagement Goals -->
-    <div class="island">
-      <h2>Engagement Goals</h2>
-      <div class="section theme--blue scrollable">
-        <table id="engagementGoalsTable" class="table table--expandable" data-behavior="accordion">
-          <thead>
-            <th>#</th>
-            <th>Goal</th>
-            <th class="landscape">Type</th>
-            <th class="landscape">Status</th>
-            <th class="align-right noLeftPad">Details</th>
-          </thead>
+  <!-- ------------------------------------------------------------- -->
+  <!-- Engagement Goals -->
+  <div class="island">
+    <h2>Engagement Goals</h2>
+    <div class="section theme--blue scrollable">
+      <table id="engagementGoalsTable" class="table table--expandable" data-behavior="accordion">
+        <thead>
+          <th>#</th>
+          <th>Goal</th>
+          <th class="landscape">Type</th>
+          <th class="landscape">Status</th>
+          <th class="align-right noLeftPad">Details</th>
+        </thead>
 
-          <!-- Goal 1 -->
-          <tbody class="expandable">
-            <tr>
-              <td>1</td>
-              <td>Convert existing AppMon environment over to Dynatrace</td>
-              <td class="landscape">Conversion</td>
-              <td class="landscape">In Progress</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Type</dt>
-                  <dd>Conversion</dd>
-                  <dt>Status</dt>
-                  <dd>In Progress</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                    <dt>Success Criteria</dt>
-                    <p>
-                      All AppMon agents turned off and Dynatrace agents turned on
-                    </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
+        <!-- Goal 1 -->
+        <tbody class="expandable">
+          <tr>
+            <td>1</td>
+            <td>Convert existing AppMon environment over to Dynatrace</td>
+            <td class="landscape">Conversion</td>
+            <td class="landscape">In Progress</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Type</dt>
+                <dd>Conversion</dd>
+                <dt>Status</dt>
+                <dd>In Progress</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                  <dt>Success Criteria</dt>
+                  <p>
+                    All AppMon agents turned off and Dynatrace agents turned on
+                  </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
 
-          <!-- Goal 2 -->
-          <tbody class="expandable">
-            <tr>
-              <td>2</td>
-              <td>Training teams on best practices with Dynatrace</td>
-              <td class="landscape">Enablement</td>
-              <td class="landscape">In Progress</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Type</dt>
-                  <dd>Enablement</dd>
-                  <dt>Status</dt>
-                  <dd>In Progress</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                    <dt>Success Criteria</dt>
-                    <p>
-                      Hold 1 training per month, total of 12 trainings for the duration of the contract
-                    </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
+        <!-- Goal 2 -->
+        <tbody class="expandable">
+          <tr>
+            <td>2</td>
+            <td>Training teams on best practices with Dynatrace</td>
+            <td class="landscape">Enablement</td>
+            <td class="landscape">In Progress</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Type</dt>
+                <dd>Enablement</dd>
+                <dt>Status</dt>
+                <dd>In Progress</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                  <dt>Success Criteria</dt>
+                  <p>
+                    Hold 1 training per month, total of 12 trainings for the duration of the contract
+                  </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
 
-          <!-- Goal 3 -->
-          <tbody class="expandable">
-            <tr>
-              <td>3</td>
-              <td>Maintain health of the Dynatrace environment</td>
-              <td class="landscape">Administration</td>
-              <td class="landscape">Complete</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Type</dt>
-                  <dd>Administration</dd>
-                  <dt>Status</dt>
-                  <dd>Complete</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                    <dt>Success Criteria</dt>
-                    <p>
-                      Daily/weekly health checks
-                    </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
+        <!-- Goal 3 -->
+        <tbody class="expandable">
+          <tr>
+            <td>3</td>
+            <td>Maintain health of the Dynatrace environment</td>
+            <td class="landscape">Administration</td>
+            <td class="landscape">Complete</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Type</dt>
+                <dd>Administration</dd>
+                <dt>Status</dt>
+                <dd>Complete</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                  <dt>Success Criteria</dt>
+                  <p>
+                    Daily/weekly health checks
+                  </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
 
-          <!-- Goal 4 -->
-          <tbody class="expandable">
-            <tr>
-              <td>4</td>
-              <td>Assist with environment monitoring and triage events</td>
-              <td class="landscape">Continual</td>
-              <td class="landscape">Continual</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Type</dt>
-                  <dd>Continual</dd>
-                  <dt>Status</dt>
-                  <dd>Continual</dd>
-                </dl>
-                <dl class="definition-list">
-                  <div>
-                    <dt>Success Criteria</dt>
-                    <p>
-                      Some Criteria
-                    </p>
-                  </div>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <!-- Goal 4 -->
+        <tbody class="expandable">
+          <tr>
+            <td>4</td>
+            <td>Assist with environment monitoring and triage events</td>
+            <td class="landscape">Continual</td>
+            <td class="landscape">Continual</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Type</dt>
+                <dd>Continual</dd>
+                <dt>Status</dt>
+                <dd>Continual</dd>
+              </dl>
+              <dl class="definition-list">
+                <div>
+                  <dt>Success Criteria</dt>
+                  <p>
+                    Some Criteria
+                  </p>
+                </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
-    <!-- ------------------------------------------------------------- -->
-    <!-- On Demand Work -->
-    <div class="island">
-      <h2>On Demand</h2>
-      <div class="theme--purple">
-        <label class="label--progressbar" for="p1">50/100 Points Remaining<br>Expiry Date: 04/30/2020</label>
-        <progress class="progressbar" value="50" max="100" if="p1"></progress>
-      </div>
-      <div class="section theme--blue scrollable">
-        <table id="onDemandTable" class="table table--expandable" data-behavior="accordion">
-          <thead>
-            <th>Service</th>
-            <th>Start Date</th>
-            <th class="landscape">Duration</th>
-            <th class="landscape">Points Consumed</th>
-            <th class="landscape">Consultant</th>
-            <th class="align-right">Details</th>
-          </thead>
-
-          <!-- Quickstart -->
-          <tbody class="expandable">
-            <tr>
-              <td>Quickstart</td>
-              <td>2/1/2020</td>
-              <td class="landscape">4 Days</td>
-              <td class="landscape">30</td>
-              <td class="landscape">Josh Lange</td>
-              <td align="right" class="noLeftPad"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Duration</dt>
-                  <dd>4 days</dd>
-                  <dt>Points Consumed</dt>
-                  <dd>30</dd>
-                  <dt>Consultant</dt>
-                  <dd>Josh Lange</dd>
-                </dl>
-                <dl class="definition-list">
-                  <dt>Consultant Manager</dt>
-                  <dd>Some Manager</dd>
-                  <dt>Deliverables</dt>
-                  <dd><a href="#">Link to deliverables</a></dd>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-
-          <!-- DVA -->
-          <tbody class="expandable">
-            <tr>
-              <td>DVA</td>
-              <td>2/12/2020</td>
-              <td class="landscape">2 Days</td>
-              <td class="landscape">20</td>
-              <td class="landscape">Shaun Gautz</td>
-              <td align="right" class="noLeftPad"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list no-landscape">
-                  <dt>Duration</dt>
-                  <dd>2 days</dd>
-                  <dt>Points Consumed</dt>
-                  <dd>20</dd>
-                  <dt>Consultant</dt>
-                  <dd>Shaun Gautz</dd>
-                </dl>
-                <dl class="definition-list">
-                  <dt>Consultant Manager</dt>
-                  <dd>Some Manager</dd>
-                  <dt>Deliverables</dt>
-                  <dd><a href="#">Link to deliverables</a></dd>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <!-- ------------------------------------------------------------- -->
+  <!-- On Demand Work -->
+  <div class="island">
+    <h2>On Demand</h2>
+    <div class="theme--purple">
+      <label class="label--progressbar" for="p1">50/100 Points Remaining<br>Expiry Date: 04/30/2020</label>
+      <progress class="progressbar" value="50" max="100" if="p1"></progress>
     </div>
-    
-    <!-- ------------------------------------------------------------- -->
-    <!-- Support/RFE -->
-    <div class="island">
-      <h2>Support</h2>
-      <div class="section theme--blue scrollable">
-        <table id="supportTable" class="table table--expandable" data-behavior="accordion">
-          <thead>
-            <th>Ticket #</th>
-            <th>Description</th>
-            <th class="align-right noLeftPad">Details</th>
-          </thead>
+    <div class="section theme--blue scrollable">
+      <table id="onDemandTable" class="table table--expandable" data-behavior="accordion">
+        <thead>
+          <th>Service</th>
+          <th>Start Date</th>
+          <th class="landscape">Duration</th>
+          <th class="landscape">Points Consumed</th>
+          <th class="landscape">Consultant</th>
+          <th class="align-right">Details</th>
+        </thead>
 
-          <!-- Support Ticket -->
-          <tbody class="expandable">
-            <tr>
-              <td>SUP-3360</td>
-              <td>Unable to pull support tickets with API call</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list">
-                  <dt>URL</dt>
-                  <dd><a href="https://someurl.com">https://someurl.com</a></dd>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
+        <!-- Quickstart -->
+        <tbody class="expandable">
+          <tr>
+            <td>Quickstart</td>
+            <td>2/1/2020</td>
+            <td class="landscape">4 Days</td>
+            <td class="landscape">30</td>
+            <td class="landscape">Josh Lange</td>
+            <td align="right" class="noLeftPad"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Duration</dt>
+                <dd>4 days</dd>
+                <dt>Points Consumed</dt>
+                <dd>30</dd>
+                <dt>Consultant</dt>
+                <dd>Josh Lange</dd>
+              </dl>
+              <dl class="definition-list">
+                <dt>Consultant Manager</dt>
+                <dd>Some Manager</dd>
+                <dt>Deliverables</dt>
+                <dd><a href="#">Link to deliverables</a></dd>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
 
-          <!-- RFE -->
-          <tbody class="expandable">
-            <tr>
-              <td>RFE</td>
-              <td>RFEs are not trackable for some reason</td>
-              <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
-            </tr>
-            <tr class="expandable__content">
-              <td colspan="6">
-                <dl class="definition-list">
-                  <dt>URL</dt>
-                  <dd><a href="https://someurl.com">https://someurl.com</a></dd>
-                </dl>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <!-- DVA -->
+        <tbody class="expandable">
+          <tr>
+            <td>DVA</td>
+            <td>2/12/2020</td>
+            <td class="landscape">2 Days</td>
+            <td class="landscape">20</td>
+            <td class="landscape">Shaun Gautz</td>
+            <td align="right" class="noLeftPad"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list no-landscape">
+                <dt>Duration</dt>
+                <dd>2 days</dd>
+                <dt>Points Consumed</dt>
+                <dd>20</dd>
+                <dt>Consultant</dt>
+                <dd>Shaun Gautz</dd>
+              </dl>
+              <dl class="definition-list">
+                <dt>Consultant Manager</dt>
+                <dd>Some Manager</dd>
+                <dt>Deliverables</dt>
+                <dd><a href="#">Link to deliverables</a></dd>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+  
+  <!-- ------------------------------------------------------------- -->
+  <!-- Support/RFE -->
+  <div class="island">
+    <h2>Support</h2>
+    <div class="section theme--blue scrollable">
+      <table id="supportTable" class="table table--expandable" data-behavior="accordion">
+        <thead>
+          <th>Ticket #</th>
+          <th>Description</th>
+          <th class="align-right noLeftPad">Details</th>
+        </thead>
 
-    <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
-  </body>
+        <!-- Support Ticket -->
+        <tbody class="expandable">
+          <tr>
+            <td>SUP-3360</td>
+            <td>Unable to pull support tickets with API call</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list">
+                <dt>URL</dt>
+                <dd><a href="https://someurl.com">https://someurl.com</a></dd>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+
+        <!-- RFE -->
+        <tbody class="expandable">
+          <tr>
+            <td>RFE</td>
+            <td>RFEs are not trackable for some reason</td>
+            <td align="right"><a href="#" class="expandable__trigger">Details</a></td>
+          </tr>
+          <tr class="expandable__content">
+            <td colspan="6">
+              <dl class="definition-list">
+                <dt>URL</dt>
+                <dd><a href="https://someurl.com">https://someurl.com</a></dd>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+</body>
 </html>
