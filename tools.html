@@ -527,22 +527,6 @@
             <span class="radio__caption">Use Local Storage</span>
           </label>
           <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
-          <p>Add an environment:</p>
-          <!--Add Environment here and button to delete env-->
-          <table class="table" id='manage-environments-table'>
-            <thead>
-            <tr>
-              <th>Environment Name</th>
-              <th>URL</th>
-              <th>Token</th>
-              <th>Tags?</th>
-              <th>MZs?</th>
-              <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody id='manage-environments-tbody'></tbody>
-          </table>
-
           <field class='field'>
             <label for="" class="label">Name:</label>
             <input type="text" class="inputfield" id="environment-name-input"/>
@@ -557,7 +541,21 @@
           </field>
           <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
           <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
-
+          <hr>
+          <h2>Environments</h2>
+          <table class="table" id='manage-environments-table'>
+            <thead>
+            <tr>
+              <th>Environment Name</th>
+              <th>URL</th>
+              <th>Token</th>
+              <th>Tags?</th>
+              <th>MZs?</th>
+              <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody id='manage-environments-tbody'></tbody>
+          </table>
         </div>
         <!-- End of Manage Environments -->
 

@@ -57,15 +57,28 @@ function addTagsToEnvObj(tagsArray) {
 }
 
 async function addEnvironment() {
+    let saasUrlRegex = /https:\/\/\w{3}\d{5}.live.dynatrace.com/g;
+    let managedUrlRegex = /https:\/\/\w{3}\d{5}\.dynatrace-managed\.com\/e\/\w{8}-\w{4}-\w{4}-\w{4}-\w{12}/g;
+    let tokenRegex = /\S{21}/g;
+    let maskingRegex = /(?<=.{3})\S{13}/g;
+
     let envName = document.getElementById('environment-name-input').value;
-    let envUrl = document.getElementById('environment-url-input').value;
-    let envToken = document.getElementById('environment-token-input').value;
+    let envInput = document.getElementById('environment-url-input').value;
+    let saasEnvUrl = envInput.match(saasUrlRegex) ? envInput.match(saasUrlRegex)[0] : false;
+    let managedEnvUrl = envInput.match(managedUrlRegex) ? envInput.match(managedUrlRegex)[0] : false;
+
+    console.log(saasEnvUrl);
+    console.log(managedEnvUrl);
+    let tokenInput = document.getElementById('environment-token-input').value;
+    let envToken = tokenInput.match(tokenRegex) ? tokenInput.match(tokenRegex)[0] : false;
     let tagsBool = false;
     let mzsBool = false;
+    
+    // console.log(saasEnvUrl.match(regex));
 
-    if (envName && envUrl && envToken) {
+    if (envName && (saasEnvUrl || managedEnvUrl) && envToken) {
         let envTags = new Promise((resolve, reject) => {
-            axios.get(envUrl + '/api/config/v1/autoTags', {
+            axios.get(saasEnvUrl + '/api/config/v1/autoTags', {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Api-Token ${envToken}`
@@ -86,7 +99,7 @@ async function addEnvironment() {
             });
         });
         let envMZs = new Promise((resolve, reject) => {
-            axios.get(envUrl + '/api/config/v1/managementZones', {
+            axios.get(saasEnvUrl + '/api/config/v1/managementZones', {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Api-Token ${envToken}`
@@ -108,7 +121,7 @@ async function addEnvironment() {
         });
 
         DTEnvs[envName] = {
-            'URL': envUrl,
+            'URL': saasEnvUrl,
             'TOK': envToken,
             'TAGS': await envTags,
             'MZS': await envMZs,
@@ -116,14 +129,20 @@ async function addEnvironment() {
         };
         // console.log(DTEnvs);
 
-        document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + document.getElementById('environment-name-input').value + "'><td>" + document.getElementById('environment-name-input').value + "</td><td>" + document.getElementById('environment-url-input').value + "</td><td>" + document.getElementById('environment-token-input').value + "</td><td>" + tagsBool + "</td><td>" + mzsBool + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + document.getElementById('environment-name-input').value + "\")'>Remove</button></td></tr>";
+        document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + envName + "'><td>" + envName + "</td><td>" + saasEnvUrl + "</td><td>" + envToken.replace(maskingRegex, '*****************') + "</td><td>" + tagsBool + "</td><td>" + mzsBool + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + envName + "\")'>Remove</button></td></tr>";
 
         // updateEnvironmentTable();
         saveLocalStorage();
         updateEnvironmentSelects();
         clearInputFields();
     } else {
-        alert("Missing info!!");
+        if(!saasEnvUrl && !managedEnvUrl){ 
+            alert("Invalid URL!") 
+        } else if(!envToken) {
+            alert("Inavlid API Token!")  
+        } else {
+            alert("Missing info!!");
+        }
     }
 
 

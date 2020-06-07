@@ -16,3 +16,7 @@
   width:200px;
   padding-right:15px;
 }
+
+#manage-environments-tbody td:first-child {
+  font-weight: bold;
+}

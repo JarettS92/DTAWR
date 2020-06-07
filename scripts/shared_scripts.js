@@ -104,26 +104,22 @@ $('.buttongroup a').click(function () {
   $(`#${$(this).attr("name")}`).removeClass("none");
 });
 
-$('.nav__btn').click(function () {
-  console.log($(this).attr('data-target'));
-  $($(this).attr('data-target')).toggleClass('is-active');
-});
-
-
-// Function to hide all tools/reports and display the 
-// Environment management page
-function navToAddEnv() {
-  $("div[name='sidebar-content']").removeClass("display").addClass("none");
-  $("#add-env").addClass("display").removeClass("none");
-}
-
 //-----------------------------------------------------
 // FUNCTIONS
 //-----------------------------------------------------
 
+let source = '';
+
 // Function to hide all tools/reports and display the 
 // Environment management page
-function navToManageEnvironments() {
+function navToManageEnvironments(currentSource) {
   $("div[name='sidebar-content']").removeClass("display").addClass("none");
   $("#manage-environments").addClass("display").removeClass("none");
+  source = currentSource;
+}
+
+function closeManageEnvironments() {
+  $("div[name='sidebar-content']").addClass("display").removeClass("none");
+  $("#manage-environments").removeClass("display").addClass("none");
+
 }
