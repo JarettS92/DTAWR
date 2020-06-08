@@ -1,4 +1,9 @@
 window.onload = function() {
+    let authorized = (localStorage.getItem('authorization') != null) ? true : false;
+    if(!authorized){
+        // window.location.replace('/authorization.html');
+        console.log('Authorized: ', authorized);
+    }
     
     // sessionStorage.setItem("Jarett", "asdfasd.live.dynatrace.com;asdfoaigfiasdng");
     updateEnvironmentSelects();

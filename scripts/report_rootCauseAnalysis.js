@@ -12,15 +12,20 @@ let tagJSON = {};
 let lastMin;
 let progress = 0;
 
+$(function(){
+    $('#root-cause-analysis-start').datepicker();
+    $('#root-cause-analysis-end').datepicker();
+});
+
 //RootCauseAnalysis Main function
 function mainRootCauseAnalysis() {
-    let DTenv = getEnvironment(document.getElementById("RootCauseAnalysisEnv").value);
-    rPM = document.getElementById("RootCauseAnalysisMax").value;
-    var d = new Date(document.getElementById("RootCauseAnalysisStart").value);
+    let DTenv = getEnvironment($("#root-cause-analysis-environment-select").val());
+    rPM = $("#root-cause-analysis-max").val();
+    var d = new Date($("#root-cause-analysis-start").val());
     let start = d.getTime();
-    d = new Date(document.getElementById("RootCauseAnalysisEnd").value);
+    d = new Date($("#root-cause-analysis-end").val());
     let end = d.getTime();
-    addToLogs('Establishing connection to Dynatrace...', 'black', true);
+    addToLogsRCA('Establishing connection to Dynatrace...', 'black', true);
     getHosts(DTenv['URL'], DTenv['TOK'], start, end);
 }
 
@@ -41,8 +46,8 @@ function getHosts(dynatraceURL, token, startTime, endTime){
     }
 
     $.ajax(settings).done(function (response) {
-        addToLogs('SUCCESS!', '#4CAF50', false);
-        addToLogs('Determining time required for analysis...', 'black', true);
+        addToLogsRCA('SUCCESS!', '#4CAF50', false);
+        addToLogsRCA('Determining time required for analysis...', 'black', true);
         var hostList = {};
         var serviceList = {};
         var processList = {};
@@ -109,12 +114,12 @@ function analysis(dynatraceURL, token, startTime, endTime){
     $.ajax(settings).done(function (response) {
         let shortcut = response['result']['problems'];
         for(let i = 0; i < shortcut.length; i++) problemIDs.push(shortcut[i]['id']);
-        addToLogs('CALCULATED!', '#4CAF50', false);
-        addToLogs('Total Problems: ', 'black', true);
-        addToLogs(problemIDs.length, '#1396FE', false);
-        addToLogs('Estimated time to completion: ', 'black', true);
-        addToLogs((problemIDs.length/rPM) + " minutes", '#1396FE', false);
-        addToLogs('Gathering Problem data from Dynatrace...', 'black', true);
+        addToLogsRCA('CALCULATED!', '#4CAF50', false);
+        addToLogsRCA('Total Problems: ', 'black', true);
+        addToLogsRCA(problemIDs.length, '#1396FE', false);
+        addToLogsRCA('Estimated time to completion: ', 'black', true);
+        addToLogsRCA((problemIDs.length/rPM) + " minutes", '#1396FE', false);
+        addToLogsRCA('Gathering Problem data from Dynatrace...', 'black', true);
         var d = new Date();
         lastMin = d;
         for(let i = 0; i < problemIDs.length; i++){
@@ -158,8 +163,8 @@ function repeater(dynatraceURL, settings, x){
 
 function remainder(){
     move( 100 );
-    addToLogs('COMPLETE!', '#4CAF50', false);
-    addToLogs('Extracting root causes...', 'black', true);
+    addToLogsRCA('COMPLETE!', '#4CAF50', false);
+    addToLogsRCA('Extracting root causes...', 'black', true);
     for(var i = 0; i < problems.length; i++){
         if(problems[i]['hasRootCause']){
             for(var j = 0; j < problems[i]['rankedEvents'].length; j++){
@@ -229,8 +234,8 @@ function remainder(){
             //console.log('Unknown Entity: ' + topRootCause[i]);
         }
     }
-    addToLogs('EXTRACTED!', '#4CAF50', false);
-    addToLogs('Performing analysis...', 'black', true);
+    addToLogsRCA('EXTRACTED!', '#4CAF50', false);
+    addToLogsRCA('Performing analysis...', 'black', true);
 
     var finalArr1 = [];
     var finalArr2 = [];
@@ -256,7 +261,7 @@ function remainder(){
         //console.log(finalArr1);
     }
     //console.log(top5RootCause);
-    drawTable(top5RootCause, 'table1_div', 0);
+    drawTable(top5RootCause, 'root-cause-analysis-tbody1', 0);
 
     var top5RootCause2 = [];
     for(var i = 0; i < topRootCause.length; i++){
@@ -269,15 +274,15 @@ function remainder(){
         //Add top to top 5 list
         if(servArr.indexOf(pChild) != -1){
             top5RootCause2.push({'count': topRC, 'entity': vault['services'][pChild]['name'], 'type': 'Service', 'tags': ''});
-            //addToLogs('Root Cause is Service!', 'green', true);
+            //addToLogsRCA('Root Cause is Service!', 'green', true);
         }
         else if (hostArr.indexOf(pChild) != -1){
             top5RootCause2.push({'count': topRC, 'entity': vault['hosts'][pChild]['name'], 'type': 'Host', 'tags': ''});
-            //addToLogs('Root Cause is Host!', 'purple', true);
+            //addToLogsRCA('Root Cause is Host!', 'purple', true);
         }
         else if (procArr.indexOf(pChild) != -1){
             top5RootCause2.push({'count': topRC, 'entity': vault['processes'][pChild]['name'], 'type': 'Process', 'tags': ''/*vault['hosts'][pChild]['tags']*/});
-            //addToLogs('Root Cause is Process!', 'blue', true);
+            //addToLogsRCA('Root Cause is Process!', 'blue', true);
         }
         else
             top5RootCause2.push({'count': topRC, 'entity': pChild, 'type': 'UNKNOWN', 'tags': 'UNKNOWN'});
@@ -300,12 +305,12 @@ function remainder(){
             }
         }
     }
-    addToLogs('DONE!', '#4CAF50', false);
-    addToLogs('Building Table...', 'black', true);
-    drawTable(aggRC, 'table2_div', 1);
-    addToLogs('CONSTRUCTED!', '#4CAF50', false);
-    addToLogs('Process complete....', 'black', true);
-    addToLogs('GOOD BYE!', '#4CAF50', false);
+    addToLogsRCA('DONE!', '#4CAF50', false);
+    addToLogsRCA('Building Table...', 'black', true);
+    drawTable(aggRC, 'root-cause-analysis-tbody2', 1);
+    addToLogsRCA('CONSTRUCTED!', '#4CAF50', false);
+    addToLogsRCA('Process complete....', 'black', true);
+    addToLogsRCA('GOOD BYE!', '#4CAF50', false);
 }
 
 function drawTable(someArr, str, num) { 
@@ -365,12 +370,12 @@ function fin(){
 
 //message = whatever message the log should display
 //color = whatever color the text should be
-function addToLogs(message, color, newLine){
-    if(newLine) document.getElementById('RootCauseAnalysisLogs').innerHTML += "<br>";
-    if(message != 'null')document.getElementById('RootCauseAnalysisLogs').innerHTML += "<span style='color: " + color + ";'>" + message + "</span>";
+function addToLogsRCA(message, color, newLine){
+    if(newLine) $('#root-cause-analysis-logs').append("<br>");
+    if(message != 'null')$('#root-cause-analysis-logs').append("<span style='color: " + color + ";'>" + message + "</span>");
 }
 
 function move(amount) {
     if(amount > 100) amount = 100;
-    document.getElementById("RootCauseAnalysisBar").style.width = amount + '%';
+    document.getElementById("root-cause-analysis-bar").style.width = amount + '%';
 }

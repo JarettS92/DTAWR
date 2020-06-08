@@ -1,5 +1,13 @@
 function mainStarterTags() {
-    let envObj = getEnvironment(document.getElementById('starter-tags-environment-select').value);
+    let DTenv = getEnvironment($('#starter-tags-environment-select').val());
+    console.log(DTenv);
+    // dtrum.addActionProperties(action, null, null, {
+    //     environment: DTenv['URL']
+    // });
+    // dtrum.sendSessionProperties(null, null, {
+    //     environment: DTenv['URL']
+    // });
+    // dtrum.leaveAction(action);
     let serviceRule = {
         "name": "Service",
         "rules": [{
@@ -120,33 +128,59 @@ function mainStarterTags() {
         }]
     }
     let settings = {
-        "url": envObj['URL'] + "/api/config/v1/autoTags",
+        "url": DTenv['URL'] + "/api/config/v1/autoTags",
         "method": "POST",
         "timeout": 0,
         "headers": {
-            "Authorization": "Api-Token " + envObj['TOK'],
+            "Authorization": "Api-Token " + DTenv['TOK'],
             "Content-Type": "application/json"
         },
         "data": JSON.stringify(serviceRule),
     };
 
-    $.ajax(settings).done(function (response) {
-        document.getElementById('starter-tags-table').innerHTML += '<tr><td>Service:{Detected Name}</td><td>Successful</td></tr>';
+    if ($('#starter-tags-service-checkbox').prop("checked")) {
+        $.ajax(settings).done(function (response) {
+            $('#starter-tags-tbody').append('<tr><td>Service:{Detected Name}</td><td>Successful</td></tr>');
+        });
+    } else {
+        $('#starter-tags-tbody').append('<tr><td>Service:{Detected Name}</td><td>Skipped</td></tr>');
+    }
+
+    if ($('#starter-tags-process-checkbox').prop("checked")) {
         settings['data'] = JSON.stringify(processRule);
         $.ajax(settings).done(function (response) {
-            document.getElementById('starter-tags-table').innerHTML += '<tr><td>Process:{Detected Name}</td><td>Successful</td></tr>';
-            settings['data'] = JSON.stringify(hostRule);
-            $.ajax(settings).done(function (response) {
-                document.getElementById('starter-tags-table').innerHTML += '<tr><td>Host:{Detected Name}</td><td>Successful</td></tr>';
-                settings['data'] = JSON.stringify(databaseRule);
-                $.ajax(settings).done(function (response) {
-                    document.getElementById('starter-tags-table').innerHTML += '<tr><td>Database:{Detected Name}</td><td>Successful</td></tr>';
-                    settings['data'] = JSON.stringify(IPRule);
-                    $.ajax(settings).done(function (response) {
-                        document.getElementById('starter-tags-table').innerHTML += '<tr><td>IP:{HostIP}</td><td>Successful</td></tr>';
-                    });
-                });
-            });
+            $('#starter-tags-tbody').append('<tr><td>Process:{Detected Name}</td><td>Successful</td></tr>');
         });
-    });
+    } else {
+        $('#starter-tags-tbody').append('<tr><td>Process:{Detected Name}</td><td>Skipped</td></tr>');
+    }
+
+    if ($('#starter-tags-host-checkbox').prop("checked")) {
+        settings['data'] = JSON.stringify(hostRule);
+        $.ajax(settings).done(function (response) {
+            console.log('testing some bullshit')
+            $('#starter-tags-tbody').append('<tr><td>Host:{Detected Name}</td><td>Successful</td></tr>');
+        });
+    } else {
+        $('#starter-tags-tbody').append('<tr><td>Host:{Detected Name}</td><td>Skipped</td></tr>');
+    }
+
+    if ($('#starter-tags-database-checkbox').prop("checked")) {
+        settings['data'] = JSON.stringify(databaseRule);
+        $.ajax(settings).done(function (response) {
+            $('#starter-tags-tbody').append('<tr><td>Database:{Detected Name}</td><td>Successful</td></tr>');
+        });
+    } else {
+        $('#starter-tags-tbody').append('<tr><td>Database:{Detected Name}</td><td>Skipped</td></tr>');
+    }
+
+    if ($('#starter-tags-ipaddress-checkbox').prop("checked")) {
+        settings['data'] = JSON.stringify(IPRule);
+        $.ajax(settings).done(function (response) {
+            $('#starter-tags-tbody').append('<tr><td>IP:{HostIP}</td><td>Successful</td></tr>');
+        });
+    } else {
+        $('#starter-tags-tbody').append('<tr><td>IP:{Detected Name}</td><td>Skipped</td></tr>');
+    }
+    // reset();
 }

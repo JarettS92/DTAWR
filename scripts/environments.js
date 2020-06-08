@@ -63,9 +63,10 @@ async function addEnvironment() {
     let maskingRegex = /(?<=.{3})\S{13}/g;
 
     let envName = document.getElementById('environment-name-input').value;
-    let envInput = document.getElementById('environment-url-input').value;
-    let saasEnvUrl = envInput.match(saasUrlRegex) ? envInput.match(saasUrlRegex)[0] : false;
-    let managedEnvUrl = envInput.match(managedUrlRegex) ? envInput.match(managedUrlRegex)[0] : false;
+    let envUrl = document.getElementById('environment-url-input').value;
+    let saasEnvUrl = envUrl;
+    // envUrl.match(saasUrlRegex) ? envUrl.match(saasUrlRegex)[0] : false;
+    let managedEnvUrl = envUrl.match(managedUrlRegex) ? envUrl.match(managedUrlRegex)[0] : false;
 
     console.log(saasEnvUrl);
     console.log(managedEnvUrl);
@@ -73,6 +74,7 @@ async function addEnvironment() {
     let envToken = tokenInput.match(tokenRegex) ? tokenInput.match(tokenRegex)[0] : false;
     let tagsBool = false;
     let mzsBool = false;
+    let tsmBool = false;
     
     // console.log(saasEnvUrl.match(regex));
 
@@ -120,16 +122,43 @@ async function addEnvironment() {
             });
         });
 
+        let envTsm = new Promise((resolve, reject) => {
+            axios.get(saasEnvUrl + '/api/v1/timeseries', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Api-Token ${envToken}`
+                }
+            }).then((res) => {
+                if (res.status == '200') {
+                    let obj = {};
+                    res.data.forEach((curVal) => {
+                        obj[curVal.timeseriesId] = curVal.aggregationTypes;
+                    });
+                    resolve(obj);
+                    tsmBool = true;
+                    // console.log(res.data.values.map(x => x.timeseriesId));
+                    // envTags = res.data.values.map(x => x.timeseriesId);
+                } else {
+                    reject("Error");
+                }
+            }).catch((err) => {
+                console.log(err);
+                alert("Unable to pull Timeseries Metrics");
+                resolve([]);
+            });
+        });
+
         DTEnvs[envName] = {
             'URL': saasEnvUrl,
             'TOK': envToken,
             'TAGS': await envTags,
             'MZS': await envMZs,
+            'TSM': await envTsm,
             'LOGS': {}
         };
         // console.log(DTEnvs);
 
-        document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + envName + "'><td>" + envName + "</td><td>" + saasEnvUrl + "</td><td>" + envToken.replace(maskingRegex, '*****************') + "</td><td>" + tagsBool + "</td><td>" + mzsBool + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + envName + "\")'>Remove</button></td></tr>";
+        document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + envName + "'><td>" + envName + "</td><td>" + saasEnvUrl + "</td><td>" + envToken.replace(maskingRegex, '*****************') + "</td><td>" + tagsBool + "</td><td>" + mzsBool + "</td><td>" + tsmBool + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + envName + "\")'>Remove</button></td></tr>";
 
         // updateEnvironmentTable();
         saveLocalStorage();

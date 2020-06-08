@@ -1,66 +1,102 @@
+// Problem Trending Variables
+let day, year, month;
+let Oday, Oyear, Omonth;
+let Eday, Eyear, Emonth;
+let tag = [];
+let tagCount = [];
+let skipped = 0;
+let metrics = [];
+let error, resource, slowdown, availability, applications, services, infrastructure, environment;
+let row;
+let ProblemTypeCount = {
+    'month': 0,
+    'day': 0,
+    'year': 0,
+    'totalProblems': 0,
+    'avgTime': 0,
+    'error': 0,
+    'resource': 0,
+    'slowdown': 0,
+    'availability': 0,
+    'customAlert': 0,
+    'applications': 0,
+    'services': 0,
+    'infrastructure': 0,
+    'environment': 0
+};
+
+$(function(){
+    $('#problem-trending-start').datepicker();
+    $('#problem-trending-end').datepicker();
+});
+
 //Problem Trending Main function
 function mainProblemTrending() {
-  replaceButton('ProblemTrendingButtonWrapper');
+  console.log($('#problem-trending-end').datepicker("getDate"));
+  let startDate = $('#problem-trending-start').datepicker("getDate");
+  let endDate = $('#problem-trending-end').datepicker("getDate");
 
-  action = dtrum.enterAction('Run problem trending', 'click');
+//   action = dtrum.enterAction('Run problem trending', 'click');
   
-  let DTenv = getEnvironment(document.getElementById("problem-trending-environment-select").value);
-  dtrum.addActionProperties(action, null, null, {environment: DTenv['URL']});
-  dtrum.sendSessionProperties(null, null, {environment: DTenv['URL']});
-  dtrum.leaveAction(action);
+//   let DTenv = getEnvironment($("#problem-trending-environment-select").val());
+//   dtrum.addActionProperties(action, null, null, {environment: DTenv['URL']});
+//   dtrum.sendSessionProperties(null, null, {environment: DTenv['URL']});
+//   dtrum.leaveAction(action);
 
   skipped = 0;
 
-  year = document.getElementById("problem-trending-start").value;
-  month = document.getElementById("startMonthPT").value;
-  day = document.getElementById("startDayPT").value;
+  startYear = startDate.getFullYear();
+  startMonth = startDate.getMonth();
+  startDay = startDate.getDate();
 
-  Eyear = document.getElementById("endYearPT").value;
-  Emonth = document.getElementById("endMonthPT").value;
-  Eday = document.getElementById("endDayPT").value;
+  endYear = endDate.getFullYear();
+  endMonth = endDate.getMonth();
+  endDay = endDate.getDate();
 
-  tag = document.getElementById("TagPT").value.split(",");
+//   console.log(typeof startYear, startMonth, startDay, endYear, endMonth, endDay);
 
-  error = document.getElementById('ERRORPT').checked;
-  resource = document.getElementById('RESOURCEPT').checked;
-  slowdown = document.getElementById('SLOWDOWNPT').checked;
-  availability = document.getElementById('AVAILABILITYPT').checked;
-  //customAlert = document.getElementById('CUSTOM_ALERT').checked;
+  tag = $("#problem-trending-tag-select").val();
 
-  applications = document.getElementById('APPLICATIONSPT').checked;
-  services = document.getElementById('SERVICESPT').checked;
-  infrastructure = document.getElementById('INFRASTRUCTUREPT').checked;
-  environment = document.getElementById('ENVIRONMENTPT').checked;
+  error = $('#problem-trending-error-checkbox').prop("checked");
+  resource = $('#problem-trending-resource-checkbox').prop("checked");
+  slowdown = $('#problem-trending-slowdown-checkbox').prop("checked");
+  availability = $('#problem-trending-availability-checkbox').prop("checked");
+  //customAlert = $('#CUSTOM_ALERT').prop("checked");
 
-  Oday = Number(day);
-  Omonth = Number(month);
-  Oyear = Number(year);
+  applications = $('#problem-trending-applications-checkbox').prop("checked");
+  services = $('#problem-trending-services-checkbox').prop("checked");
+  infrastructure = $('#problem-trending-infrastructure-checkbox').prop("checked");
+  environment = $('#problem-trending-environment-checkbox').prop("checked");
 
-  month--;
-  Emonth--;
+  Oday = startDay;
+  Omonth = startMonth;
+  Oyear = startYear;
+
+  startMonth--;
+  endMonth--;
   script(0);
 }
 
 function script(num) {
-  fixDate2(true, month, day, year);
-  fixDate2(false, Emonth, Eday, Eyear);
-  let start = Date.UTC(year, month, JSON.stringify(Number(day)));
-  let end = Date.UTC(year, month, JSON.stringify(Number(day) + 7));
-  let time = new Date(Eyear, Emonth, Eday);
+  fixDate2(true, startMonth, startDay, startYear);
+  fixDate2(false, endMonth, endDay, endYear);
+  let start = Date.UTC(startYear, startMonth, startDay);
+  let end = Date.UTC(startYear, startMonth, startDay + 7);
+  let time = new Date(endYear, endMonth, endDay);
   let time2 = new Date(end);
-  ProblemTypeCount['month'] = month;
-  ProblemTypeCount['day'] = day;
-  ProblemTypeCount['year'] = year;
+  ProblemTypeCount['startMonth'] = startMonth;
+  ProblemTypeCount['startDay'] = startDay;
+  ProblemTypeCount['startYear'] = startYear;
   if(num > 0)	metrics.push(ProblemTypeCount);
   resetCounts();
-  let DTenv = getEnvironment(document.getElementById("problem-trending-environment-select").value);
+  let DTenv = getEnvironment($("#problem-trending-environment-select").val());
   if (time2 < time) getProblems(DTenv['URL'], DTenv['TOK'], start, end, num);
   else finishTable(num);
 }
 
 function getProblems(dynatraceURL, token, startTime, endTime, num){
-  let tagStr = '';
-  for (let i = 0; i < tag.length; i++) tagStr += "&tag=" + tag[i];
+  let tagStr = (tag != null) ? `&tag=${tag}`: '';
+//   for (let i = 0; i < tag.length; i++) tagStr += "&tag=" + tag[i];
   let settings = {
   "async": true,
   "crossDomain": true,
@@ -115,8 +151,8 @@ function getProblems(dynatraceURL, token, startTime, endTime, num){
       else ProblemTypeCount['avgTime'] = 0;
       skipped = 0;
       if(num < 52){
-          addToLogs('null', 'black', true);
-          day = Number(day) + 7;
+          addToLogsPT('null', 'black', true);
+          startDay = startDay + 7;
           setTimeout(script(num + 1), 5000);
       }
       else finishTable(num);
@@ -126,8 +162,8 @@ function getProblems(dynatraceURL, token, startTime, endTime, num){
 function finishTable(num){
   addToLogsPT('Analysis complete...', '#00ff00', true);
   addToLogsPT('Building data visualizations...', 'black', true);
-  let head = document.getElementById('HeadPT');
-  let table = document.getElementById('TablePT');
+  let head = $('#problem-trending-thead').empty().get(0);
+  let table = $('#problem-trending-tbody').empty().get(0);
 
   let rowCount = 1;
   let rowTop = table.insertRow(0);
@@ -137,14 +173,14 @@ function finishTable(num){
   let tempHead = rowHead.insertCell(0);
   tempHead.innerHTML = 'Date';
   
-  day = Oday;
-  month = Omonth;
-  year = Oyear;
+  startDay = Oday;
+  startMonth = Omonth;
+  startYear = Oyear;
 
   for(let i = 0; i < num; i ++){
       tempHead = rowHead.insertCell(i + 1);
-      tempHead.innerHTML = month + '/' + day + '/' + year;
-      day = Number(day) + 7;
+      tempHead.innerHTML = startMonth + '/' + startDay + '/' + startYear;
+      startDay = startDay + 7;
       fixDate();
   }
 
@@ -263,8 +299,8 @@ function finishTable(num){
 
 function drawChart2(){
   //Chart.defaults.global.defaultFontColor = 'black';
-  let chart1 = document.getElementById('chart1PT').getContext('2d');
-  let chart2 = document.getElementById('chart2PT').getContext('2d');
+  let chart1 = $('#problem-trending-chart1')[0].getContext('2d');
+  let chart2 = $('#problem-trending-chart2')[0].getContext('2d');
   let chartSettings1 = {
       type: 'bar',
       data: {
@@ -421,14 +457,14 @@ function drawChart2(){
   };
   
   for (let i = 0; i < metrics.length; i++) {
-      chartSettings1['data']['labels'].push((new Date(metrics[i]['year'], metrics[i]['month'], metrics[i]['day'])).toLocaleDateString());
+      chartSettings1['data']['labels'].push((new Date(metrics[i]['startYear'], metrics[i]['startMonth'], metrics[i]['startDay'])).toLocaleDateString());
       chartSettings1['data']['datasets'][0]['data'].push(Number(metrics[i]['avgTime']));
       chartSettings1['data']['datasets'][1]['data'].push(metrics[i]['applications']);
       chartSettings1['data']['datasets'][2]['data'].push(metrics[i]['services']);
       chartSettings1['data']['datasets'][3]['data'].push(metrics[i]['infrastructure']);
       chartSettings1['data']['datasets'][4]['data'].push(metrics[i]['environment']);
 
-      chartSettings2['data']['labels'].push((new Date(metrics[i]['year'], metrics[i]['month'], metrics[i]['day'])).toLocaleDateString());
+      chartSettings2['data']['labels'].push((new Date(metrics[i]['startYear'], metrics[i]['startMonth'], metrics[i]['startDay'])).toLocaleDateString());
       chartSettings2['data']['datasets'][0]['data'].push(Number(metrics[i]['avgTime']));
       chartSettings2['data']['datasets'][1]['data'].push(metrics[i]['error']);
       chartSettings2['data']['datasets'][2]['data'].push(metrics[i]['resource']);
@@ -439,14 +475,14 @@ function drawChart2(){
   let mixedChart1 = new Chart(chart1, chartSettings1);
   let mixedChart2 = new Chart(chart2, chartSettings2);
 
-  document.getElementById('chart1PT').style.display = "block";
-  document.getElementById('chart2PT').style.display = "none";
+  document.getElementById('problem-trending-chart1').style.display = "block";
+  document.getElementById('problem-trending-chart2').style.display = "none";
   //document.getElementById('hideMe').style.display = "block";
   
   addToLogsPT('Data visualized...', '#00ff00', true);
   addToLogsPT('GOOD BYE...', '#00ff00', true);
 
-  reset();           
+  resetPT();           
 }
 
 function fixDate2(isStart, Tmonth, Tday, Tyear){
@@ -474,38 +510,38 @@ function fixDate2(isStart, Tmonth, Tday, Tyear){
   }
   Tmonth--;
   if(isStart){
-      month = Tmonth;
-      day = Tday;
-      year = Tyear;
+      startMonth = Tmonth;
+      startDay = Tday;
+      startYear = Tyear;
   }
   else{
-      Emonth = Tmonth;
-      Eday = Tday;
-      Eyear = Tyear;
+      endMonth = Tmonth;
+      endDay = Tday;
+      EstartYear = Tyear;
   }
 }
 
 function fixDate(){
-  if (month == 2 && year % 4 == 0 && day > 29){
-      month++;
-      day -= 29;
+  if (startMonth == 2 && startYear % 4 == 0 && startDay > 29){
+      startMonth++;
+      startDay -= 29;
   }
-  else if (month == 2 && year % 4 != 0 && day > 28){
-      month++;
-      day -= 28;
+  else if (startMonth == 2 && startYear % 4 != 0 && startDay > 28){
+      startMonth++;
+      startDay -= 28;
   }
-  else if(month % 2 == 0 && day > 30){
-      month++;
-      day -= 30;
+  else if(startMonth % 2 == 0 && startDay > 30){
+      startMonth++;
+      startDay -= 30;
   }
-  else if (day > 31){
-      month++;
-      day -= 31;
+  else if (startDay > 31){
+      startMonth++;
+      startDay -= 31;
   }
   else {/*nothing*/}
-  if(month > 12){
-      month = 1;
-      year++;
+  if(startMonth > 12){
+      startMonth = 1;
+      startYear++;
   }
 }
 
@@ -539,22 +575,51 @@ function logDate(minutes){
   addToLogsPT(' minutes', 'red', false);
 }
 
-function flip(){
-  if (document.getElementById('chart1PT').style.display != "none"){
-      document.getElementById('chart1PT').style.display = "none";
-      document.getElementById('chart2PT').style.display = "block";
-  }
-  else {
-      document.getElementById('chart1PT').style.display = "block";
-      document.getElementById('chart2PT').style.display = "none";
-  }
-}
+// function flip(){
+//   if ($('#problem-trending-chart1').hasClass("none")){
+//       $('#problem-trending-chart1').hasClass("none");
+//       document.getElementById('problem-trending-chart2').style.display = "block";
+//   }
+//   else {
+//       document.getElementById('problem-trending-chart1').style.display = "block";
+//       $('#problem-trending-chart2').hasClass("none")
+//   }
+// }
 
 function addToLogsPT(message, color, newLine){
-  if(newLine) document.getElementById('logsPT').innerHTML += "<br>";
-  if(message != 'null')document.getElementById('logsPT').innerHTML += "<span style='color: " + color + ";'>" + message + "</span>";
+  if(newLine) $('#problem-trending-logs').innerHTML += "<br>";
+  if(message != 'null') $('#problem-trending-logs').innerHTML += "<span style='color: " + color + ";'>" + message + "</span>";
 }
 
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-//Tag Dup code
+function resetPT(){
+    //PT Vars
+    tag = [];
+    tagCount = [];
+    skipped = 0;
+    metrics = [];
+    error = 0;
+    resource = 0;
+    slowdown = 0;
+    availability = 0;
+    applications = 0;
+    services = 0;
+    infrastructure = 0;
+    environment = 0;
+    row = 0;
+    ProblemTypeCount = {
+        'month': 0,
+        'day': 0,
+        'year': 0,
+        'totalProblems': 0,
+        'avgTime': 0,
+        'error': 0,
+        'resource': 0,
+        'slowdown': 0,
+        'availability': 0,
+        'customAlert': 0,
+        'applications': 0,
+        'services': 0,
+        'infrastructure': 0,
+        'environment': 0
+    };
+}

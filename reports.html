@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link rel="icon" href="images/dt-favicon-blue.png">
   <link rel="stylesheet" href="styles/styles.css" />
@@ -7,12 +8,14 @@
   <link rel="stylesheet" href="styles/environments.css" />
   <link rel="stylesheet" href="styles/reports.css" />
   <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chartkick/2.3.0/chartkick.min.js"></script> -->
   <title>Services Portal - Reports</title>
 </head>
+
 <body class="white-bg">
 
   <!-- ------------------------------------------------------------- -->
@@ -20,11 +23,12 @@
   <!-- Contains links to tools, reports, dashboards, artifacts -->
   <div class="nav has-no-secondary">
     <a class="nav__brand" href="https://www.dynatrace.com">
-      <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
+      <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo" />
     </a>
     <div class="nav__buttongroup">
       <button id="nav-bar-button" data-target="#nav-bar" class="nav__btn nav__btn--menutoggle">Menu</button>
-      <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile" class="nav__btn nav__btn--menutoggle">Menu</button>
+      <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile"
+        class="nav__btn nav__btn--menutoggle">Menu</button>
     </div>
     <!-- Desktop Navbar -->
     <nav id="nav-bar" class="nav__bar">
@@ -77,7 +81,8 @@
               <a name="tag-duplicator" class="nav__link" href="tools.html#tools-tag-duplicator">Tag Duplicator</a>
             </li>
             <li class="nav__item">
-              <a name="business-hour-kpis" class="nav__link" href="tools.html#tools-business-hour-kpis">Business Hour KPIs</a>
+              <a name="business-hour-kpis" class="nav__link" href="tools.html#tools-business-hour-kpis">Business Hour
+                KPIs</a>
             </li>
             <li class="nav__item">
               <a name="starter-tags" class="nav__link" href="tools.html#tools-starter-tags">Starter Tags</a>
@@ -95,13 +100,16 @@
               <a name="overview" class="nav__link" href="reports.html">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="root-cause-analysis" class="nav__link" href="reports.html#reports-root-cause-analysis">Root Cause Analysis+</a>
+              <a name="root-cause-analysis" class="nav__link" href="reports.html#reports-root-cause-analysis">Root Cause
+                Analysis+</a>
             </li>
             <li class="nav__item">
-              <a name="problem-trending" class="nav__link" href="reports.html#reports-problem-trending">Problem Trending</a>
+              <a name="problem-trending" class="nav__link" href="reports.html#reports-problem-trending">Problem
+                Trending</a>
             </li>
             <li class="nav__item">
-              <a name="untagged-entities" class="nav__link" href="reports.html#reports-untagged-entities">Untagged Entities</a>
+              <a name="untagged-entities" class="nav__link" href="reports.html#reports-untagged-entities">Untagged
+                Entities</a>
             </li>
             <li class="nav__item">
               <a name="hosts" class="nav__link" href="reports.html#reports-hosts">Hosts Report</a>
@@ -128,10 +136,12 @@
               <a name="overview" class="nav__link" href="dashboards.html#dashboards-overview">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="dashboards.html#dashboards-bizops-configurator">BizOps Configurator</a>
+              <a name="overview" class="nav__link" href="dashboards.html#dashboards-bizops-configurator">BizOps
+                Configurator</a>
             </li>
             <li class="nav__item">
-              <a name="browse-dashboards" class="nav__link" href="dashboards.html#dashboards-browse-dashboards">Browse Dashboards</a>
+              <a name="browse-dashboards" class="nav__link" href="dashboards.html#dashboards-browse-dashboards">Browse
+                Dashboards</a>
             </li>
           </ul>
         </li>
@@ -140,16 +150,20 @@
           <a class="nav__link expandable__trigger" href="#">Artifacts</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="Document Repository" class="nav__link" href="artifacts.html#artifacts-doc-repo">Document Repository</a>
+              <a name="Document Repository" class="nav__link" href="artifacts.html#artifacts-doc-repo">Document
+                Repository</a>
             </li>
             <li class="nav__item">
-              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#artifacts-gwr">Guardian Weekly Report</a>
+              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#artifacts-gwr">Guardian Weekly
+                Report</a>
             </li>
             <li class="nav__item">
-              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#artifacts-qbr">Quarterly Business Report</a>
+              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#artifacts-qbr">Quarterly
+                Business Report</a>
             </li>
             <li class="nav__item">
-              <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#artifacts-odd">On-Demand Deliverable</a>
+              <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#artifacts-odd">On-Demand
+                Deliverable</a>
             </li>
           </ul>
         </li>
@@ -168,7 +182,8 @@
         <span class="breadcrumbs__last">Overview</span>
       </li>
       <li class="breadcrumbs__item manage__environments__parent">
-        <button role="button" type="button" class="manage__environments__button" onclick="navToManageEnvironments()"><span>Manage Environments</span></button>
+        <button role="button" type="button" class="manage__environments__button"
+          onclick="navToManageEnvironments()"><span>Manage Environments</span></button>
       </li>
     </ul>
   </div>
@@ -183,7 +198,8 @@
         <span class="sidebar__headline">Overview</span>
         <span class="sidebar__info">Step by Step instructions</span>
       </a>
-      <a sidebar-content-id="reports-root-cause-analysis" name="Root Cause Analysis" href="#" class="sidebar__item is-active">
+      <a sidebar-content-id="reports-root-cause-analysis" name="Root Cause Analysis" href="#"
+        class="sidebar__item is-active">
         <span class="sidebar__headline">Root Cause Analysis+</span>
         <span class="sidebar__info">Filters root cause by tag and entity</span>
       </a>
@@ -226,11 +242,11 @@
       <div name="sidebar-content" id="reports-overview" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>    
+            <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Overview">
-                <div>Overview</div>
+              <div>Overview</div>
             </div>
             <div>Gives step by step instructions on how to use these tools and reports</div>
           </div>
@@ -250,11 +266,11 @@
       <div name="sidebar-content" id="reports-root-cause-analysis" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/davis-gray700.svg'></img>    
+            <img class="icon icon--blue--big" src='images/davis-gray700.svg'></img>
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Root Cause Analysis">
-                <div>Root Cause Analysis+</div>
+              <div>Root Cause Analysis+</div>
             </div>
             <div>Extracts root cause of problems, organizing by tag and entity</div>
           </div>
@@ -263,9 +279,11 @@
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
-        <p>Specify the max amount of API requests per minute that this program should perform <b class='warning'>(Recommendation: 40)</b>.</p>
+        <p>Specify the max amount of API requests per minute that this program should perform <b
+            class='warning'>(Recommendation: 40)</b>.</p>
         <br>
-        <p><b class='warning'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should not exceed 50.</b></p>
+        <p><b class='warning'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should
+            not exceed 50.</b></p>
         <p>Consider the amount of other API calls that could be hitting your cluster when specifying this number.</p>
         <br>
         <field class='field'>
@@ -275,28 +293,30 @@
             <option value="40">30</option>
             <option value="40">20</option>
             <option value="40">10</option>
-          </select>  
+          </select>
           <!-- <label for="i0" class="label">Max requests per minute:</label>
             <input type="text" class="inputfield" id="RootCauseAnalysisMax"/> -->
         </field>
         <field class='field'>
-            <label for="root-cause-analysis-environment-select" class="label">Environment Name:</label>
-            <select class="envSelect select" id="root-cause-analysis-environment-select">
-              <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
-            </select>
-            <!-- <input type="text" class="inputfield" id="RootCauseAnalysisEnv"/> -->
+          <label for="root-cause-analysis-environment-select" class="label">Environment Name:</label>
+          <select class="envSelect select" id="root-cause-analysis-environment-select">
+            <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
+          </select>
+          <!-- <input type="text" class="inputfield" id="RootCauseAnalysisEnv"/> -->
         </field>
-        <p>Specify the time frame that you would like to perform the analysis for. <b class='warning'>Time frame must not exceed 31 days in length.</b></p>
+        <p>Specify the time frame that you would like to perform the analysis for. <b class='warning'>Time frame must
+            not exceed 31 days in length.</b></p>
         <!--Add date picker later-->
         <field class='field'>
-            <label for="root-cause-analysis-start" class="label">Start Date:</label>
-            <input type="text" class="inputfield" id="root-cause-analysis-start" placeholder="mm/dd/yyyy"/>
+          <label for="root-cause-analysis-start" class="label">Start Date:</label>
+          <input type="text" class="inputfield" id="root-cause-analysis-start" placeholder="mm/dd/yyyy" />
         </field>
         <field class='field'>
-            <label for="root-cause-analysis-end" class="label">End Date:</label>
-            <input type="text" class="inputfield" id="root-cause-analysis-end" placeholder="mm/dd/yyyy"/>
+          <label for="root-cause-analysis-end" class="label">End Date:</label>
+          <input type="text" class="inputfield" id="root-cause-analysis-end" placeholder="mm/dd/yyyy" />
         </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark"onclick="mainRootCauseAnalysis()">Run Query</button>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainRootCauseAnalysis()">Run
+          Query</button>
         <div id="root-cause-analysis-progress">
           <div id="root-cause-analysis-bar"></div>
         </div>
@@ -305,28 +325,28 @@
           <div class="island">
             <div>By Tag</div>
             <table id="root-cause-analysis-table1" class="table table--responsive">
-                <thead>
-                  <tr>
+              <thead>
+                <tr>
                   <th>Tag</th>
                   <th>Count</th>
-                  </tr>
-                </thead>
-                <tbody id="root-cause-analysis-tbody1">
-                </tbody>
+                </tr>
+              </thead>
+              <tbody id="root-cause-analysis-tbody1">
+              </tbody>
             </table>
           </div>
           <div class="island">
             <div>By Entity</div>
             <table id="root-cause-analysis-table2" class="table table--responsive">
-                <thead>
-                  <tr>
+              <thead>
+                <tr>
                   <th>Entity</th>
                   <th>Type</th>
                   <th>Count</th>
-                  </tr>
-                </thead>
-                <tbody id="root-cause-analysis-tbody2">
-                </tbody>
+                </tr>
+              </thead>
+              <tbody id="root-cause-analysis-tbody2">
+              </tbody>
             </table>
           </div>
         </div>
@@ -335,14 +355,14 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Problem Trending -->
-      <div name="sidebar-content" id="reports-problem-trending" class="none">
+      <div name="sidebar-content" id="reports-problem-trending" class="display">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/chart-legend-meter-gray700.svg'></img>    
+            <img class="icon icon--blue--big" src='images/chart-legend-meter-gray700.svg'></img>
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Problem Trending">
-                <div>Problem Trending</div>
+              <div>Problem Trending</div>
             </div>
             <div>Charts problems over time by type and shows the trend in avg MTTR(problem length)</div>
           </div>
@@ -350,9 +370,11 @@
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
-        <p>Specify the max amount of API requests per minute that this program should perform <b class='warning'>(Recommendation: 40)</b>.</p>
+        <p>Specify the max amount of API requests per minute that this program should perform <b
+            class='warning'>(Recommendation: 40)</b>.</p>
         <br>
-        <p><b class='warning'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should not exceed 50.</b></p>
+        <p><b class='warning'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should
+            not exceed 50.</b></p>
         <p>Consider the amount of other API calls that could be hitting your cluster when specifying this number.</p>
         <field class='field'>
           <label for="problem-trending-max" class="label">Requests per minute:</label>
@@ -361,784 +383,980 @@
             <option value="40">30</option>
             <option value="40">20</option>
             <option value="40">10</option>
-          </select>  
-            <!-- <label for="i0" class="label">Max requests per minute:</label>
+          </select>
+          <!-- <label for="i0" class="label">Max requests per minute:</label>
             <input type="text" class="inputfield" id="maxRequests2"/> -->
         </field>
         <field class='field'>
-            <label for="problem-trending-environment-select" class="label">Environment Name:</label>
-            <select class="envSelect select" id="problem-trending-environment-select">
-              <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
-            </select>
-            <!-- <input type="text" class="inputfield" id="DYNAENV2"/> -->
-        </field>
-        <p>Specify the time frame that you would like to perform the analysis for. <b class='warning'>Time frame must not exceed 31 days in length.</b></p>
-        <!--Add date picker later-->
-        <field class='field'>
-            <label for="problem-trending-start" class="label">Start Date:</label>
-            <input type="text" class="inputfield" id="problem-trending-start" placeholder="mm/dd/yyyy"/>
+          <label for="problem-trending-environment-select" class="label">Environment Name:</label>
+          <select class="envSelect select" id="problem-trending-environment-select">
+            <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+          </select>
         </field>
         <field class='field'>
-            <label for="problem-trending-end" class="label">End Date:</label>
-            <input type="text" class="inputfield" id="problem-trending-end" placeholder="mm/dd/yyyy"/>
+          <label for="problem-trending-tag-select" class="label">Tag (optional):</label>
+          <select class="tagSelect select" id="problem-trending-tag-select">
+            <option value="SELECT TAG" selected="selected">SELECT TAG</option>
+          </select>
+        </field>
+        <p>Specify the time frame that you would like to perform the analysis for. <b class='warning'>Time frame must
+            not exceed 31 days in length.</b></p>
+        <field class='field'>
+          <label for="problem-trending-start" class="label">Start Date:</label>
+          <input type="text" class="inputfield" id="problem-trending-start" placeholder="mm/dd/yyyy" />
+        </field>
+        <field class='field'>
+          <label for="problem-trending-end" class="label">End Date:</label>
+          <input type="text" class="inputfield" id="problem-trending-end" placeholder="mm/dd/yyyy" />
         </field>
         <field class="field">
           <label class="label">Severity Levels:</label>
-          <input type="checkbox" class="checkbox" id="ERRORPT" checked/>
-          <label for="ERRORPT" class="checkbox__label">
+          <input type="checkbox" class="checkbox" id="problem-trending-error-checkbox" checked />
+          <label for="problem-trending-error-checkbox" class="checkbox__label">
             <span class="checkbox__caption">ERROR</span>
           </label>
-          <input type="checkbox" class="checkbox" id="RESOURCEPT" checked/>
-          <label for="RESOURCEPT" class="checkbox__label">
+          <input type="checkbox" class="checkbox" id="problem-trending-resource-checkbox" checked />
+          <label for="problem-trending-resource-checkbox" class="checkbox__label">
             <span class="checkbox__caption">RESOURCE</span>
           </label>
-          <input type="checkbox" class="checkbox" id="SLOWDOWNPT" checked/>
-          <label for="SLOWDOWNPT" class="checkbox__label">
+          <input type="checkbox" class="checkbox" id="problem-trending-slowdown-checkbox" checked />
+          <label for="problem-trending-slowdown-checkbox" class="checkbox__label">
             <span class="checkbox__caption">SLOWDOWN</span>
           </label>
-          <input type="checkbox" class="checkbox" id="AVAILABILITYPT" checked/>
-          <label for="AVAILABILITYPT" class="checkbox__label">
+          <input type="checkbox" class="checkbox" id="problem-trending-availability-checkbox" checked />
+          <label for="problem-trending-availability-checkbox" class="checkbox__label">
             <span class="checkbox__caption">AVAILABILITY</span>
           </label>
           <br>
           <br>
           <label class="label">Impact Levels:</label>
-          <input type="checkbox" class="checkbox" id="APPLICATIONSPT" checked/>
-          <label for="APPLICATIONSPT" class="checkbox__label">
+          <input type="checkbox" class="checkbox" id="problem-trending-applications-checkbox" checked />
+          <label for="problem-trending-applications-checkbox" class="checkbox__label">
             <span class="checkbox__caption">APPLICATIONS</span>
           </label>
-          <input type="checkbox" class="checkbox" id="SERVICESPT" checked/>
-          <label for="SERVICESPT" class="checkbox__label">
+          <input type="checkbox" class="checkbox" id="problem-trending-services-checkbox" checked />
+          <label for="problem-trending-services-checkbox" class="checkbox__label">
             <span class="checkbox__caption">SERVICES</span>
           </label>
-          <input type="checkbox" class="checkbox" id="INFRASTRUCTUREPT" checked/>
-          <label for="INFRASTRUCTUREPT" class="checkbox__label">
+          <input type="checkbox" class="checkbox" id="problem-trending-infrastructure-checkbox" checked />
+          <label for="problem-trending-infrastructure-checkbox" class="checkbox__label">
             <span class="checkbox__caption">INFRASTRUCTURE</span>
           </label>
-          <input type="checkbox" class="checkbox" id="ENVIRONMENTPT" checked/>
-          <label for="ENVIRONMENTPT" class="checkbox__label">
+          <input type="checkbox" class="checkbox" id="problem-trending-environment-checkbox" checked />
+          <label for="problem-trending-environment-checkbox" class="checkbox__label">
             <span class="checkbox__caption">ENVIRONMENT</span>
           </label>
         </field>
-          <button role="button" type="button" class="btn btn--primary theme--dark"onclick="mainProblemTrending()">Run Query</button>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainProblemTrending()">Run Query</button>
         </field>
         <div id="problem-trending-progress">
           <div id="problem-trending-bar"></div>
         </div>
-        <div id='problem-trending-logs'></div>
-      </div><!-- End of Problem Trending -->
-      <!-- End of Problem Trending------------------------------------------------------------ -->
 
-      <!-- ------------------------------------------------------------------------- -->
-      <!-- Untagged Entities -->
-      <div name="sidebar-content" id="reports-untagged-entities" class="none">
-        <div class="infochip">
-          <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>    
-          </div>
-          <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Title">
-                <div>Untagged Entities</div>
-            </div>
-            <div>Gets all untagged entities</div>
-          </div>
-        </div>
-
-        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
-        <br>
-        <p>Specify an environment. That's it.</p>
-        
-        <field class='field'>
-            <label for="untagged-entities-environment-select" class="label">Environment Name:</label>
-            <select class="envSelect select" id="untagged-entities-environment-select">
-              <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
-            </select>
-            <!-- <input type="text" class="inputfield" id="RTaggedEnv"/> -->
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainRTagged()">Run</button>
-        <input type="checkbox" class="checkbox" id="untagged-entities-checkbox"/>
-        <label style="margin-left: 50px" for="untagged-entities-checkbox" class="checkbox__label">
-          <span class="checkbox__caption">Donwload CSV</span>
-        </label>
         <hr>
-        <h2>Untagged Entities</h2>
-        <table id="untagged-entities-table" class="table">
-          <tr>
-            <th>Entity</th>
-            <th>Type</th>
-            <th>ID</th>
-            <th>Link</th>
-          </tr>
-        </table>
-      </div><!-- End of Untagged Entities -->
-      <!-- End of Untagged Entities ------------------------------------------------------------ -->
+        <h2>Charts</h2>
+        <canvas width="90%" id="problem-trending-chart1"></canvas>
+        <canvas width="90%" id="problem-trending-chart2"></canvas>
 
-      <!-- ------------------------------------------------------------------------- -->
-      <!-- Hosts -->
-      <div name="sidebar-content" id="reports-hosts" class="display">
-        <div class="infochip">
-          <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/host-gray_700.svg'></img>    
+        <h2>Table</h2>
+        <table id="problem-trending-table" class="table table--responsive" data-initialized="true">
+            <thead id="problem-trending-thead">
+            </thead>
+            <tbody id="problem-trending-tbody">
+            </tbody>
+        </table>                
+        <div id='problem-trending-logs'></div>
+    </div><!-- End of Problem Trending -->
+    <!-- End of Problem Trending------------------------------------------------------------ -->
+
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Untagged Entities -->
+    <div name="sidebar-content" id="reports-untagged-entities" class="none">
+      <div class="infochip">
+        <div class="infochip__icon">
+          <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>
+        </div>
+        <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Title">
+            <div>Untagged Entities</div>
           </div>
-          <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Hosts">
-                <div>Hosts Report</div>
-            </div>
-            <div>Delivers a report on hosts</div>
+          <div>Gets all untagged entities</div>
+        </div>
+      </div>
+
+      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+      <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
+      <br>
+      <p>Specify an environment. That's it.</p>
+
+      <field class='field'>
+        <label for="untagged-entities-environment-select" class="label">Environment Name:</label>
+        <select class="envSelect select" id="untagged-entities-environment-select">
+          <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+        </select>
+        <!-- <input type="text" class="inputfield" id="RTaggedEnv"/> -->
+      </field>
+      <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainRTagged()">Run</button>
+      <input type="checkbox" class="checkbox" id="untagged-entities-checkbox" />
+      <label style="margin-left: 50px" for="untagged-entities-checkbox" class="checkbox__label">
+        <span class="checkbox__caption">Donwload CSV</span>
+      </label>
+      <hr>
+      <h2>Untagged Entities</h2>
+      <table id="untagged-entities-table" class="table">
+        <tr>
+          <th>Entity</th>
+          <th>Type</th>
+          <th>ID</th>
+          <th>Link</th>
+        </tr>
+      </table>
+    </div><!-- End of Untagged Entities -->
+    <!-- End of Untagged Entities ------------------------------------------------------------ -->
+
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Hosts -->
+    <div name="sidebar-content" id="reports-hosts" class="none">
+      <div class="infochip">
+        <div class="infochip__icon">
+          <img class="icon icon--blue--big" src='images/host-gray_700.svg'></img>
+        </div>
+        <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Hosts">
+            <div>Hosts Report</div>
           </div>
+          <div>Delivers a report on hosts</div>
         </div>
-        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+      </div>
+      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+      <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
 
-        <field class='field'>
-          <label for="hosts-environment-select" class="label">Environment Name:</label>
-          <select class="envSelect select hostsReport" id="hosts-environment-select">
-            <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
-          </select>
-          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
-        </field>
+      <field class='field'>
+        <label for="hosts-environment-select" class="label">Environment Name:</label>
+        <select class="envSelect select hostsReport" id="hosts-environment-select">
+          <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
+        </select>
+        <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+      </field>
 
-        <field class='field'>
-            <label for="hosts-managementzone-select" class="label">Management Zone (Optional):</label>
-            <select class="mzSelect select hostsReport" id="hosts-managementzone-select">
-              <option value="SELECT MANAGEMENT ZONE">SELECT MANAGEMENT ZONE</option>
-            </select>
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainHostsReport()">Run</button>
+      <field class='field'>
+        <label for="hosts-managementzone-select" class="label">Management Zone (Optional):</label>
+        <select class="mzSelect select hostsReport" id="hosts-managementzone-select">
+          <option value="SELECT MANAGEMENT ZONE">SELECT MANAGEMENT ZONE</option>
+        </select>
+      </field>
+      <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainHostsReport()">Run</button>
 
-        <!-- Rodrigo/Nestor Stuff -->
-        <div class='section'>
-          <h2>Hosts Report</h2> 
-          <dl class="definition-list">
-            <dt>Number of hosts</dt>
-            <dd id='hostCount'>-</dd>
-            <dt>Host Units Consumed</dt>
-            <dd id='HUCount'>-</dd>
-            <dt>Host Units Remaining</dt>
-            <dd id='HURemain'>-</dd>
-          </dl>
+      <!-- Rodrigo/Nestor Stuff -->
+      <div class='section'>
+        <h2>Hosts Report</h2>
+        <dl class="definition-list">
+          <dt>Number of hosts</dt>
+          <dd id='hostCount'>-</dd>
+          <dt>Host Units Consumed</dt>
+          <dd id='HUCount'>-</dd>
+          <dt>Host Units Remaining</dt>
+          <dd id='HURemain'>-</dd>
+        </dl>
+      </div>
+
+      <!-- Rodrigo Charts -->
+      <!-- Hosts by Units Column Chart -->
+      <div class="rodrigo">
+        <h2>Top 10 Hosts by Host Units</h2>
+        <div id="chart-1"
+          style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">
         </div>
+        <script type="text/javascript">
+          new Chartkick.ColumnChart("chart-1", [
+            ["mycargomanager-2", "9.0"],
+            ["mycargomanager-1", "9.0"],
+            ["prlsoabwad02", "8.0"],
+            ["prlsoabwad06", "5.0"],
+            ["prlsoabwad05", "5.0"],
+            ["prlsoabwad04", "5.0"],
+            ["prlsoabwad03", "5.0"],
+            ["prlsoabwad01", "5.0"],
+            ["lprpmroap03", "4.0"],
+            ["lprpmroap02", "4.0"]
+          ], {
+            "legend": false,
+            "label": "Host Units"
+          });
+        </script>
+      </div>
 
-        <!-- Rodrigo Charts -->
-        <!-- Hosts by Units Column Chart -->
-        <div class="rodrigo">
-          <h2>Top 10 Hosts by Host Units</h2>
-          <div id="chart-1" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
-          <script type="text/javascript">
-            new Chartkick.ColumnChart("chart-1", [["mycargomanager-2","9.0"],["mycargomanager-1","9.0"],["prlsoabwad02","8.0"],["prlsoabwad06","5.0"],["prlsoabwad05","5.0"],["prlsoabwad04","5.0"],["prlsoabwad03","5.0"],["prlsoabwad01","5.0"],["lprpmroap03","4.0"],["lprpmroap02","4.0"]], {"legend":false, "label": "Host Units"});
-          </script>
+      <!-- Hosts by Agent Version Column Chart -->
+      <div class="rodrigo">
+        <h2>Hosts by Agent Version </h2>
+        <div id="chart-2"
+          style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">
         </div>
-      
-        <!-- Hosts by Agent Version Column Chart -->
-        <div class="rodrigo">
-          <h2>Hosts by Agent Version </h2>
-          <div id="chart-2" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 8px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"></div>
-          <script type="text/javascript">
-            new Chartkick.ColumnChart("chart-2", [["N/A",299],["1.175.240",28],["1.173.358",25],["1.183.163",7],["1.179.187",6],["1.175.224",3],["1.181.154",3],["1.187.155",2]], {"legend":false, "label": "Hosts"});
-          </script>
-        </div>
+        <script type="text/javascript">
+          new Chartkick.ColumnChart("chart-2", [
+            ["N/A", 299],
+            ["1.175.240", 28],
+            ["1.173.358", 25],
+            ["1.183.163", 7],
+            ["1.179.187", 6],
+            ["1.175.224", 3],
+            ["1.181.154", 3],
+            ["1.187.155", 2]
+          ], {
+            "legend": false,
+            "label": "Hosts"
+          });
+        </script>
+      </div>
 
-        <!-- Host Unit Consumption Circle Chart -->
-        <div class="rodrigo">
-          <!-- <h2>Host Unit consumption</h2>
+      <!-- Host Unit Consumption Circle Chart -->
+      <div class="rodrigo">
+        <!-- <h2>Host Unit consumption</h2>
           <div class="progresscircle" data-progress="80" align="center" >
             <svg viewBox="0 0 512 512" width="350px" height="350px">
                 <path class="progresscircle__background" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z" />
                 <path class="progresscircle__progress" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z" />
                 <h6>Host Units consumed  80%</h6>
             </svg> -->
-          <h2>Host Unit consumption</h2>
-          <div id="chart-8" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><canvas style="display: block; height: 500px; width: 586px;" width="732" height="625" class="chartjs-render-monitor"></canvas></div>
-          <script type="text/javascript">
-            new Chartkick.PieChart("chart-8", [["Consumed",80],["Unused",20]], {"legend":false, "label": "Hosts", "donut":true, "suffix": "%"});
-          </script>
+        <h2>Host Unit consumption</h2>
+        <div id="chart-8"
+          style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">
+          <div class="chartjs-size-monitor">
+            <div class="chartjs-size-monitor-expand">
+              <div class=""></div>
+            </div>
+            <div class="chartjs-size-monitor-shrink">
+              <div class=""></div>
+            </div>
+          </div><canvas style="display: block; height: 500px; width: 586px;" width="732" height="625"
+            class="chartjs-render-monitor"></canvas>
         </div>
+        <script type="text/javascript">
+          new Chartkick.PieChart("chart-8", [
+            ["Consumed", 80],
+            ["Unused", 20]
+          ], {
+            "legend": false,
+            "label": "Hosts",
+            "donut": true,
+            "suffix": "%"
+          });
+        </script>
+      </div>
 
-        <!-- Host Table -->
-        <div class='section'>
-          <table class="table table--responsive">
-              <tr>
-                  <th> Detected Name</th>
-                  <th> IP Address</th>
-                  <th> Agent Version</th>
-                  <th> Host Units</th>
-                  <th> Monitoring Mode</th>
-                  <th> Management Zone</th>
-              </tr>
-              <tr>
-                <td>2KINTRACORP01.cl.lan.com</td>
-                <td>[&#39;57.228.128.130&#39;]</td>
-                <td>1.175.240</td>
-                <td>0.5</td>
-                <td>FULL_STACK</td>
-                <td>CCOM, Mission Critical</td>
-              </tr>
-              <tr>
-                <td>W8KPRVTRG01.cl.lan.com</td>
-                <td>[&#39;57.228.131.119&#39;]</td>
-                <td>1.175.240</td>
-                <td>0.5</td>
-                <td>FULL_STACK</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>W8KPRVTRG02.cl.lan.com</td>
-                <td>[&#39;57.228.131.120&#39;]</td>
-                <td>1.175.240</td>
-                <td>0.5</td>
-                <td>FULL_STACK</td>
-                <td>Business Critical, Carga</td>
-              </tr>
-              <tr>
-                <td>aduanapy-0-us-central1.c.bc-te-gcp-ibmcloud-prod-tz6c.internal</td>
-                <td>[&#39;10.65.137.206&#39;, &#39;34.67.240.229&#39;]</td>
-                <td>1.179.187</td>
-                <td>1.0</td>
-                <td>FULL_STACK</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>cdp-bl-66667f6df5-2gb2r</td>
-                <td>[&#39;10.72.64.79&#39;, &#39;10.79.67.10&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
-                <td>N/A</td>
-                <td>0.5</td>
-                <td>KUBERNETES</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>cdp-bl-66667f6df5-9qlrj</td>
-                <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;10.79.72.2&#39;]</td>
-                <td>N/A</td>
-                <td>0.5</td>
-                <td>KUBERNETES</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>cdp-bl-66667f6df5-dxtx4</td>
-                <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.79.66.3&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
-                <td>N/A</td>
-                <td>0.5</td>
-                <td>KUBERNETES</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>cdp-bl-66667f6df5-fhpgc</td>
-                <td>[&#39;10.72.64.79&#39;, &#39;10.79.69.3&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
-                <td>N/A</td>
-                <td>0.5</td>
-                <td>KUBERNETES</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>cdp-bl-66667f6df5-fp8px</td>
-                <td>[&#39;10.72.64.79&#39;, &#39;10.79.67.5&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
-                <td>N/A</td>
-                <td>0.5</td>
-                <td>KUBERNETES</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>cdp-bl-66667f6df5-gbw59</td>
-                <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;, &#39;10.79.66.12&#39;]</td>
-                <td>N/A</td>
-                <td>0.5</td>
-                <td>KUBERNETES</td>
-                <td></td>
-              </tr>
-          </table>
-          
-          <!-- Hosts Pagination -->
-          <ul class="pagination">
-            <li class="pagination__item">
-              <span class="arrow arrow--reversed arrow--disabled">Previous</span>
-            </li>
-            <li class="pagination__item">
-              <span class="pagination__current">1</span>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">2</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">3</a>
-            </li>
-            <li class="pagination__item">
-              <span class="pagination__dots">...</span>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">8</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">9</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">10</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="arrow" rel="next">Next</a>
-            </li>
-          </ul>
+      <!-- Host Table -->
+      <div class='section'>
+        <table class="table table--responsive">
+          <tr>
+            <th> Detected Name</th>
+            <th> IP Address</th>
+            <th> Agent Version</th>
+            <th> Host Units</th>
+            <th> Monitoring Mode</th>
+            <th> Management Zone</th>
+          </tr>
+          <tr>
+            <td>2KINTRACORP01.cl.lan.com</td>
+            <td>[&#39;57.228.128.130&#39;]</td>
+            <td>1.175.240</td>
+            <td>0.5</td>
+            <td>FULL_STACK</td>
+            <td>CCOM, Mission Critical</td>
+          </tr>
+          <tr>
+            <td>W8KPRVTRG01.cl.lan.com</td>
+            <td>[&#39;57.228.131.119&#39;]</td>
+            <td>1.175.240</td>
+            <td>0.5</td>
+            <td>FULL_STACK</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>W8KPRVTRG02.cl.lan.com</td>
+            <td>[&#39;57.228.131.120&#39;]</td>
+            <td>1.175.240</td>
+            <td>0.5</td>
+            <td>FULL_STACK</td>
+            <td>Business Critical, Carga</td>
+          </tr>
+          <tr>
+            <td>aduanapy-0-us-central1.c.bc-te-gcp-ibmcloud-prod-tz6c.internal</td>
+            <td>[&#39;10.65.137.206&#39;, &#39;34.67.240.229&#39;]</td>
+            <td>1.179.187</td>
+            <td>1.0</td>
+            <td>FULL_STACK</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>cdp-bl-66667f6df5-2gb2r</td>
+            <td>[&#39;10.72.64.79&#39;, &#39;10.79.67.10&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;,
+              &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
+            <td>N/A</td>
+            <td>0.5</td>
+            <td>KUBERNETES</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>cdp-bl-66667f6df5-9qlrj</td>
+            <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;10.79.72.2&#39;]</td>
+            <td>N/A</td>
+            <td>0.5</td>
+            <td>KUBERNETES</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>cdp-bl-66667f6df5-dxtx4</td>
+            <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.79.66.3&#39;, &#39;10.72.64.42&#39;,
+              &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
+            <td>N/A</td>
+            <td>0.5</td>
+            <td>KUBERNETES</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>cdp-bl-66667f6df5-fhpgc</td>
+            <td>[&#39;10.72.64.79&#39;, &#39;10.79.69.3&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;,
+              &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
+            <td>N/A</td>
+            <td>0.5</td>
+            <td>KUBERNETES</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>cdp-bl-66667f6df5-fp8px</td>
+            <td>[&#39;10.72.64.79&#39;, &#39;10.79.67.5&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;,
+              &#39;35.231.202.50&#39;, &#39;35.229.76.0&#39;]</td>
+            <td>N/A</td>
+            <td>0.5</td>
+            <td>KUBERNETES</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>cdp-bl-66667f6df5-gbw59</td>
+            <td>[&#39;10.72.64.79&#39;, &#39;10.72.64.65&#39;, &#39;10.72.64.42&#39;, &#39;35.231.202.50&#39;,
+              &#39;35.229.76.0&#39;, &#39;10.79.66.12&#39;]</td>
+            <td>N/A</td>
+            <td>0.5</td>
+            <td>KUBERNETES</td>
+            <td></td>
+          </tr>
+        </table>
+
+        <!-- Hosts Pagination -->
+        <ul class="pagination">
+          <li class="pagination__item">
+            <span class="arrow arrow--reversed arrow--disabled">Previous</span>
+          </li>
+          <li class="pagination__item">
+            <span class="pagination__current">1</span>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">2</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">3</a>
+          </li>
+          <li class="pagination__item">
+            <span class="pagination__dots">...</span>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">8</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">9</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">10</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="arrow" rel="next">Next</a>
+          </li>
+        </ul>
+      </div>
+    </div><!-- End of Hosts -->
+    <!-- End of Hosts ------------------------------------------------------------ -->
+
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Applications -->
+    <div name="sidebar-content" id="reports-applications" class="none">
+      <div class="infochip">
+        <div class="infochip__icon">
+          <img class="icon icon--blue--big" src='images/applicationhealth-gray_700.svg'></img>
         </div>
-      </div><!-- End of Hosts -->
-      <!-- End of Hosts ------------------------------------------------------------ -->
-
-      <!-- ------------------------------------------------------------------------- -->
-      <!-- Applications -->
-      <div name="sidebar-content" id="reports-applications" class="none">
-        <div class="infochip">
-          <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/applicationhealth-gray_700.svg'></img>    
+        <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Applications Report">
+            <div>Applications Report</div>
           </div>
-          <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Applications Report">
-                <div>Applications Report</div>
-            </div>
-            <div>Delivers a report on Applications</div>
-          </div>
+          <div>Delivers a report on Applications</div>
         </div>
-        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+      </div>
+      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+      <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
 
-        <field class='field'>
-          <label for="applications-environment-select" class="label">Environment Name:</label>
-          <select class="envSelect select applicationsReport" id="applications-environment-select">
-            <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
-          </select>
-          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainApplicationsReport()">Run</button>
+      <field class='field'>
+        <label for="applications-environment-select" class="label">Environment Name:</label>
+        <select class="envSelect select applicationsReport" id="applications-environment-select">
+          <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+        </select>
+        <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+      </field>
+      <button role="button" type="button" class="btn btn--primary theme--dark"
+        onclick="mainApplicationsReport()">Run</button>
 
-        <!-- Rodrigo/Nestor Stuff -->
-        <div class="section">
-          <div class="tile">
-            <div class="tile__header">
-              <h1 class="tile__heading">Allegro </h1>
-              <h2 class="tile__subheading">Web</h2>
-            </div>
-            <div class="progresscircle" data-progress="79.0" align="center">
-              <svg viewBox="0 0 512 512" width="128px" height="128px">
-                <path class="progresscircle__background" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z"></path>
-                <path class="progresscircle__progress" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z" style="stroke-dashoffset: 317.94;"></path>
-                </svg><h6>APDEX RATING 0.79</h6>
-            </div>
-            <div class="content">
-              <dl class="definition-list">
-                <dt>Billed Sessions with Session Replay</dt>
-                <dd>N/A</dd>
-                <dt>Billed Sessions without Session Replay</dt>
-                <dd>12985.0</dd>
-                <dt>Unbilled Sessions with Session Replay</dt>
-                <dd>N/A</dd>
-                <dt>Unbilled Sessions without Session Replay</dt>
-                <dd>2299.0</dd>
-              </dl>
-            </div>
+      <!-- Rodrigo/Nestor Stuff -->
+      <div class="section">
+        <div class="tile">
+          <div class="tile__header">
+            <h1 class="tile__heading">Allegro </h1>
+            <h2 class="tile__subheading">Web</h2>
           </div>
-          <div class="tile">
-            <div class="tile__header">
-              <h1 class="tile__heading">Cronos O2 </h1>
-              <h2 class="tile__subheading">Web</h2>
-            </div>
-            <div class="progresscircle" data-progress="92.0" align="center">
-              <svg viewBox="0 0 512 512" width="128px" height="128px">
-                <path class="progresscircle__background" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z"></path>
-                <path class="progresscircle__progress" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z" style="stroke-dashoffset: 121.12;"></path>
-                </svg><h6>APDEX RATING 0.92</h6>
-            </div>
-            <div class="content">
-              <dl class="definition-list">
-                <dt>Billed Sessions with Session Replay</dt>
-                <dd>N/A</dd>
-                <dt>Billed Sessions without Session Replay</dt>
-                <dd>2246.0</dd>
-                <dt>Unbilled Sessions with Session Replay</dt>
-                <dd>N/A</dd>
-                <dt>Unbilled Sessions without Session Replay</dt>
-                <dd>4330.0</dd>
-              </dl>
-            </div>
+          <div class="progresscircle" data-progress="79.0" align="center">
+            <svg viewBox="0 0 512 512" width="128px" height="128px">
+              <path class="progresscircle__background" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z"></path>
+              <path class="progresscircle__progress" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z"
+                style="stroke-dashoffset: 317.94;"></path>
+            </svg>
+            <h6>APDEX RATING 0.79</h6>
           </div>
-        </div>
-        <!-- End of Rodrigo/Nestor Stuff -->
-      
-      </div><!-- End of Applications -->
-      <!-- End of Applications ------------------------------------------------------------ -->
-
-      <!-- ------------------------------------------------------------------------- -->
-      <!-- Problems -->
-      <div name="sidebar-content" id="reports-problems" class="none">
-        <div class="infochip">
-          <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/criticalevent-gray_700.svg'></img>    
-          </div>
-          <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Problems Report">
-                <div>Problems Report</div>
-            </div>
-            <div>Devlivers a report on Problems</div>
+          <div class="content">
+            <dl class="definition-list">
+              <dt>Billed Sessions with Session Replay</dt>
+              <dd>N/A</dd>
+              <dt>Billed Sessions without Session Replay</dt>
+              <dd>12985.0</dd>
+              <dt>Unbilled Sessions with Session Replay</dt>
+              <dd>N/A</dd>
+              <dt>Unbilled Sessions without Session Replay</dt>
+              <dd>2299.0</dd>
+            </dl>
           </div>
         </div>
-        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
-        <field class='field'>
-          <label for="problems-environment-select" class="label">Environment Name:</label>
-          <select class="envSelect select hostsReport" id="problems-environment-select">
-            <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
-          </select>
-          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
-        </field>
-
-        <field class='field'>
-            <label for="problems-managementzone-select" class="label">Management Zone (Optional):</label>
-            <select class="mzSelect select problemsReport" id="problems-managementzone-select">
-              <option value="SELECT MANAGEMENT ZONE" selected="selected">SELECT MANAGEMENT ZONE</option>
-            </select>
-        </field>
-        <field class='field'>
-          <label for="problems-tag-select" class="label">Tag (Optional):</label>
-          <select class="tagSelect select tagDuplicator" id="problems-tag-select">
-            <option value="SELECT TAG" selected="selected">SELECT TAG</option>
-          </select>
-          <!-- <input type="text" class="inputfield" id="TagDuplicatorTag1"/> -->
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainProblemsReport()">Run</button>
-
-        
-        <!-- Rodrigo/Nestor stuff -->
-        <!-- Problems by Severity -->
-        <div class="section">
-          <div class="column--1-of-2">
-            <div class="rodrigo">
-              <h3>Problems by Severity Level</h3>
-              <h4>Application</h4>
-              <div id="chart-3" style="height: 120px; width: 100%; text-align: center; color: #999; line-height: 120px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><canvas width="298" height="150" class="chartjs-render-monitor" style="display: block; height: 120px; width: 239px;"></canvas></div>
-              <script type="text/javascript">
-                new Chartkick["BarChart"]("chart-3", [["AVAILABILITY",40],["ERROR",11],["PERFORMANCE",2]], {"legend":false});
-              </script>
-            </div>
-            <div class="rodrigo">
-              <h4>Service</h4>
-              <div id="chart-4" style="height: 120px; width: 100%; text-align: center; color: #999; line-height: 120px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><canvas width="298" height="150" class="chartjs-render-monitor" style="display: block; height: 120px; width: 239px;"></canvas></div>
-              <script type="text/javascript">
-                new Chartkick["BarChart"]("chart-4", [["ERROR",652],["PERFORMANCE",295],["AVAILABILITY",3]], {"legend":false});
-              </script>
-            </div>
-            <div class="rodrigo">
-              <h4>Infrastructure</h4>
-              <div id="chart-5" style="height: 120px; width: 100%; text-align: center; color: #999; line-height: 120px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><canvas width="298" height="150" class="chartjs-render-monitor" style="display: block; height: 120px; width: 239px;"></canvas></div>
-              <script type="text/javascript">
-                new Chartkick["BarChart"]("chart-5", [["RESOURCE",395],["ERROR",240],["AVAILABILITY",47]], {"legend":false});
-              </script>
-            </div>
+        <div class="tile">
+          <div class="tile__header">
+            <h1 class="tile__heading">Cronos O2 </h1>
+            <h2 class="tile__subheading">Web</h2>
           </div>
-          <!-- End of Problems by Severity -->
-
-          <!-- Problems by Impact -->
-          <div class="column--1-of-2">
-            <div class="rodrigo">
-              <h3>Problems by Impact Level</h3>
-              <div id="chart-6" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><canvas width="298" height="625" class="chartjs-render-monitor" style="display: block; height: 500px; width: 239px;"></canvas></div>
-              <script type="text/javascript">
-                new Chartkick["ColumnChart"]("chart-6", [["APPLICATION",53],["SERVICE",950],["INFRASTRUCTURE",682]], {"legend":false});
-              </script>
-            </div>
+          <div class="progresscircle" data-progress="92.0" align="center">
+            <svg viewBox="0 0 512 512" width="128px" height="128px">
+              <path class="progresscircle__background" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z"></path>
+              <path class="progresscircle__progress" d="M256 15 a241 241 0 1 1 0 482 a241 241 0 1 1 0 -482z"
+                style="stroke-dashoffset: 121.12;"></path>
+            </svg>
+            <h6>APDEX RATING 0.92</h6>
           </div>
-          <!-- End of Problems by Impact -->
-        </div>
-        <!-- End of Section -->
-
-        <!-- Problems by Date -->
-        <div class="rodrigo">
-          <h3>Problems by Date</h3>
-          <div id="chart-7" style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><canvas width="627" height="625" class="chartjs-render-monitor" style="display: block; height: 500px; width: 502px;"></canvas></div>
-          <script type="text/javascript">
-            new Chartkick["ColumnChart"]("chart-7", [["03/07/2020",50],["03/08/2020",82],["03/09/2020",96],["03/10/2020",101],["03/11/2020",94],["03/12/2020",58],["03/13/2020",69],["03/14/2020",33],["03/15/2020",56],["03/16/2020",43],["03/17/2020",42],["03/18/2020",34],["03/19/2020",88],["03/20/2020",23],["03/21/2020",19],["03/22/2020",14],["03/23/2020",11],["03/24/2020",9],["03/25/2020",12],["03/26/2020",7],["03/27/2020",10],["03/28/2020",5],["03/29/2020",2],["03/30/2020",5],["03/31/2020",6],["04/01/2020",4],["04/02/2020",5],["04/03/2020",3],["04/04/2020",1],["04/06/2020",2],["04/07/2020",1]], {"legend":false});
-          </script>
-        </div>
-        <!-- End of Problems by Date -->
-        
-        <!-- End Rodrigo/Nestor stuff -->
-      
-      </div><!-- End of Problems -->
-      <!-- End of Problems ------------------------------------------------------------ -->
-
-      <!-- ------------------------------------------------------------------------- -->
-      <!-- Services -->
-      <div name="sidebar-content" id="reports-services" class="none">
-        <div class="infochip">
-          <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/services-gray700.svg'></img>    
-          </div>
-          <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Services Report">
-                <div>Services Report</div>
-            </div>
-            <div>Devlivers a report on Services</div>
+          <div class="content">
+            <dl class="definition-list">
+              <dt>Billed Sessions with Session Replay</dt>
+              <dd>N/A</dd>
+              <dt>Billed Sessions without Session Replay</dt>
+              <dd>2246.0</dd>
+              <dt>Unbilled Sessions with Session Replay</dt>
+              <dd>N/A</dd>
+              <dt>Unbilled Sessions without Session Replay</dt>
+              <dd>4330.0</dd>
+            </dl>
           </div>
         </div>
-        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
-        <field class='field'>
-          <label for="services-environment-select" class="label">Environment Name:</label>
-          <select class="envSelect select hostsReport" id="services-environment-select">
-            <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
-          </select>
-          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
-        </field>
+      </div>
+      <!-- End of Rodrigo/Nestor Stuff -->
 
-        <field class='field'>
-            <label for="services-managementzone-select" class="label">Management Zone (Optional):</label>
-            <select class="mzSelect select servicesReport" id="services-managementzone-select">
-              <option value="SELECT MANAGEMENT ZONE" selected="selected">SELECT MANAGEMENT ZONE</option>
-            </select>
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainServicesReport()">Run</button>
+    </div><!-- End of Applications -->
+    <!-- End of Applications ------------------------------------------------------------ -->
 
-        <!-- Rodrigo/Nestor stuff -->
-        <div class="section rodrigo">
-          <table class="table table--responsive">
-            <tbody>
-              <tr>
-                  <th> Detected Name</th>
-                  <th> Tags</th>
-                  <th> Service Technology Type</th>
-                  <th> Management Zones</th>
-              </tr>
-              <tr>
-                  <td>Allegro-2.0-business</td>
-                  <td>Allegro</td>
-                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>Allegro-2.0-view (/Allegro-2.0)</td>
-                  <td>Allegro</td>
-                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>GetAccountingDate-3.0.0</td>
-                  <td>Allegro</td>
-                  <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>MDListener</td>
-                  <td>Allegro</td>
-                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>Oracle WebLogic Queue Listener</td>
-                  <td>Allegro</td>
-                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>Requests executed in background threads of AllegroServices</td>
-                  <td>Allegro</td>
-                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>RetrieveDataCreditCardIVR-3.0.0</td>
-                  <td>Allegro</td>
-                  <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>SaveCart-3.1.0</td>
-                  <td>Allegro</td>
-                  <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>SaveEnforcedClassDetail-3.0.0</td>
-                  <td>Allegro</td>
-                  <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>WSAllegroPaymentAuthorize-3.1.0-webservice (/WSAllegroPaymentAuthorize-3.1.0-ws)</td>
-                  <td>Allegro</td>
-                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>WSAuthorizationKiosk-3.1.0-webservice (/WSAuthorizationKiosk-3.1.0-ws)</td>
-                  <td>Allegro</td>
-                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-              <tr>
-                  <td>WSAuthorizePaymentCaixa-3.0.0-webservice (/WSAuthorizePaymentCaixa-3.0.0-ws)</td>
-                  <td>Allegro</td>
-                  <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
-                  <td>Business Critical, Allegro, Marketing</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- Services Pagination -->
-          <ul class="pagination">
-            <li class="pagination__item">
-              <span class="arrow arrow--reversed arrow--disabled">Previous</span>
-            </li>
-            <li class="pagination__item">
-              <span class="pagination__current">1</span>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">2</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">3</a>
-            </li>
-            <li class="pagination__item">
-              <span class="pagination__dots">...</span>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">8</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">9</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="pagination__link">10</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#noop" class="arrow" rel="next">Next</a>
-            </li>
-          </ul>
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Problems -->
+    <div name="sidebar-content" id="reports-problems" class="none">
+      <div class="infochip">
+        <div class="infochip__icon">
+          <img class="icon icon--blue--big" src='images/criticalevent-gray_700.svg'></img>
         </div>
-        <!-- End Rodrigo/Nestor stuff -->
-      
-      </div><!-- End of Services -->
-      <!-- End of Services ------------------------------------------------------------ -->
-      
-      <!-- Audit Users -->
-      <div name="sidebar-content" id="reports-audit-users" class="none">
-        <div class="infochip">
-          <div class="infochip__icon">
-            <img class="icon icon--blue--big" src='images/usergroup-gray_700.svg'></img>    
+        <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Problems Report">
+            <div>Problems Report</div>
           </div>
-          <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Audit Users">
-              <div class='newH'>Audit Users</div>
+          <div>Devlivers a report on Problems</div>
+        </div>
+      </div>
+      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+      <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+      <field class='field'>
+        <label for="problems-environment-select" class="label">Environment Name:</label>
+        <select class="envSelect select hostsReport" id="problems-environment-select">
+          <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+        </select>
+        <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+      </field>
+
+      <field class='field'>
+        <label for="problems-managementzone-select" class="label">Management Zone (Optional):</label>
+        <select class="mzSelect select problemsReport" id="problems-managementzone-select">
+          <option value="SELECT MANAGEMENT ZONE" selected="selected">SELECT MANAGEMENT ZONE</option>
+        </select>
+      </field>
+      <field class='field'>
+        <label for="problems-tag-select" class="label">Tag (Optional):</label>
+        <select class="tagSelect select tagDuplicator" id="problems-tag-select">
+          <option value="SELECT TAG" selected="selected">SELECT TAG</option>
+        </select>
+        <!-- <input type="text" class="inputfield" id="TagDuplicatorTag1"/> -->
+      </field>
+      <button role="button" type="button" class="btn btn--primary theme--dark"
+        onclick="mainProblemsReport()">Run</button>
+
+
+      <!-- Rodrigo/Nestor stuff -->
+      <!-- Problems by Severity -->
+      <div class="section">
+        <div class="column--1-of-2">
+          <div class="rodrigo">
+            <h3>Problems by Severity Level</h3>
+            <h4>Application</h4>
+            <div id="chart-3"
+              style="height: 120px; width: 100%; text-align: center; color: #999; line-height: 120px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">
+              <div class="chartjs-size-monitor">
+                <div class="chartjs-size-monitor-expand">
+                  <div class=""></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink">
+                  <div class=""></div>
+                </div>
+              </div><canvas width="298" height="150" class="chartjs-render-monitor"
+                style="display: block; height: 120px; width: 239px;"></canvas>
             </div>
-            <div>Audits the users logging into Dynatrace</div>
+            <script type="text/javascript">
+              new Chartkick["BarChart"]("chart-3", [
+                ["AVAILABILITY", 40],
+                ["ERROR", 11],
+                ["PERFORMANCE", 2]
+              ], {
+                "legend": false
+              });
+            </script>
+          </div>
+          <div class="rodrigo">
+            <h4>Service</h4>
+            <div id="chart-4"
+              style="height: 120px; width: 100%; text-align: center; color: #999; line-height: 120px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">
+              <div class="chartjs-size-monitor">
+                <div class="chartjs-size-monitor-expand">
+                  <div class=""></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink">
+                  <div class=""></div>
+                </div>
+              </div><canvas width="298" height="150" class="chartjs-render-monitor"
+                style="display: block; height: 120px; width: 239px;"></canvas>
+            </div>
+            <script type="text/javascript">
+              new Chartkick["BarChart"]("chart-4", [
+                ["ERROR", 652],
+                ["PERFORMANCE", 295],
+                ["AVAILABILITY", 3]
+              ], {
+                "legend": false
+              });
+            </script>
+          </div>
+          <div class="rodrigo">
+            <h4>Infrastructure</h4>
+            <div id="chart-5"
+              style="height: 120px; width: 100%; text-align: center; color: #999; line-height: 120px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">
+              <div class="chartjs-size-monitor">
+                <div class="chartjs-size-monitor-expand">
+                  <div class=""></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink">
+                  <div class=""></div>
+                </div>
+              </div><canvas width="298" height="150" class="chartjs-render-monitor"
+                style="display: block; height: 120px; width: 239px;"></canvas>
+            </div>
+            <script type="text/javascript">
+              new Chartkick["BarChart"]("chart-5", [
+                ["RESOURCE", 395],
+                ["ERROR", 240],
+                ["AVAILABILITY", 47]
+              ], {
+                "legend": false
+              });
+            </script>
           </div>
         </div>
-        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <p class='warning'>REQUIRED TOKEN PERMISSION: "Read audit logs"</p>
-        <p>Shows user logins and and config changes made by users</p>
-        <field class='field'>
-          <label for="audit-users-environment-select" class="label">Environment Name:</label>
-          <select class="envSelect select auditUsersReport" id="audit-users-environment-select">
-            <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
-          </select>
-          <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainAuditReport()">Run</button>
-        
-        <hr>
-        <h2>Audit Users</h2>
-        <p>Filters: 
-          <button id="login-filter" class="tag tag--interactive">LOGIN</button>
-          <button id="config-filter" class="tag tag--interactive">CONFIG</button>
-        </p>
-        <table id="audit-users-table" class="table display">
-          <thead>
+        <!-- End of Problems by Severity -->
+
+        <!-- Problems by Impact -->
+        <div class="column--1-of-2">
+          <div class="rodrigo">
+            <h3>Problems by Impact Level</h3>
+            <div id="chart-6"
+              style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">
+              <div class="chartjs-size-monitor">
+                <div class="chartjs-size-monitor-expand">
+                  <div class=""></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink">
+                  <div class=""></div>
+                </div>
+              </div><canvas width="298" height="625" class="chartjs-render-monitor"
+                style="display: block; height: 500px; width: 239px;"></canvas>
+            </div>
+            <script type="text/javascript">
+              new Chartkick["ColumnChart"]("chart-6", [
+                ["APPLICATION", 53],
+                ["SERVICE", 950],
+                ["INFRASTRUCTURE", 682]
+              ], {
+                "legend": false
+              });
+            </script>
+          </div>
+        </div>
+        <!-- End of Problems by Impact -->
+      </div>
+      <!-- End of Section -->
+
+      <!-- Problems by Date -->
+      <div class="rodrigo">
+        <h3>Problems by Date</h3>
+        <div id="chart-7"
+          style="height: 500px; width: 100%; text-align: center; color: #999; line-height: 500px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">
+          <div class="chartjs-size-monitor">
+            <div class="chartjs-size-monitor-expand">
+              <div class=""></div>
+            </div>
+            <div class="chartjs-size-monitor-shrink">
+              <div class=""></div>
+            </div>
+          </div><canvas width="627" height="625" class="chartjs-render-monitor"
+            style="display: block; height: 500px; width: 502px;"></canvas>
+        </div>
+        <script type="text/javascript">
+          new Chartkick["ColumnChart"]("chart-7", [
+            ["03/07/2020", 50],
+            ["03/08/2020", 82],
+            ["03/09/2020", 96],
+            ["03/10/2020", 101],
+            ["03/11/2020", 94],
+            ["03/12/2020", 58],
+            ["03/13/2020", 69],
+            ["03/14/2020", 33],
+            ["03/15/2020", 56],
+            ["03/16/2020", 43],
+            ["03/17/2020", 42],
+            ["03/18/2020", 34],
+            ["03/19/2020", 88],
+            ["03/20/2020", 23],
+            ["03/21/2020", 19],
+            ["03/22/2020", 14],
+            ["03/23/2020", 11],
+            ["03/24/2020", 9],
+            ["03/25/2020", 12],
+            ["03/26/2020", 7],
+            ["03/27/2020", 10],
+            ["03/28/2020", 5],
+            ["03/29/2020", 2],
+            ["03/30/2020", 5],
+            ["03/31/2020", 6],
+            ["04/01/2020", 4],
+            ["04/02/2020", 5],
+            ["04/03/2020", 3],
+            ["04/04/2020", 1],
+            ["04/06/2020", 2],
+            ["04/07/2020", 1]
+          ], {
+            "legend": false
+          });
+        </script>
+      </div>
+      <!-- End of Problems by Date -->
+
+      <!-- End Rodrigo/Nestor stuff -->
+
+    </div><!-- End of Problems -->
+    <!-- End of Problems ------------------------------------------------------------ -->
+
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Services -->
+    <div name="sidebar-content" id="reports-services" class="none">
+      <div class="infochip">
+        <div class="infochip__icon">
+          <img class="icon icon--blue--big" src='images/services-gray700.svg'></img>
+        </div>
+        <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Services Report">
+            <div>Services Report</div>
+          </div>
+          <div>Devlivers a report on Services</div>
+        </div>
+      </div>
+      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+      <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
+      <field class='field'>
+        <label for="services-environment-select" class="label">Environment Name:</label>
+        <select class="envSelect select hostsReport" id="services-environment-select">
+          <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+        </select>
+        <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+      </field>
+
+      <field class='field'>
+        <label for="services-managementzone-select" class="label">Management Zone (Optional):</label>
+        <select class="mzSelect select servicesReport" id="services-managementzone-select">
+          <option value="SELECT MANAGEMENT ZONE" selected="selected">SELECT MANAGEMENT ZONE</option>
+        </select>
+      </field>
+      <button role="button" type="button" class="btn btn--primary theme--dark"
+        onclick="mainServicesReport()">Run</button>
+
+      <!-- Rodrigo/Nestor stuff -->
+      <div class="section rodrigo">
+        <table class="table table--responsive">
+          <tbody>
             <tr>
-              <th>Timestamp</th>
-              <th>Event Type</th>
-              <th>User</th>
-              <th>User Type</th>
-              <th>Category</th>
-              <th>Success</th>
+              <th> Detected Name</th>
+              <th> Tags</th>
+              <th> Service Technology Type</th>
+              <th> Management Zones</th>
             </tr>
-          </thead>
-          <tbody id="audit-users-tbody">
-            
+            <tr>
+              <td>Allegro-2.0-business</td>
+              <td>Allegro</td>
+              <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>Allegro-2.0-view (/Allegro-2.0)</td>
+              <td>Allegro</td>
+              <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>GetAccountingDate-3.0.0</td>
+              <td>Allegro</td>
+              <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>MDListener</td>
+              <td>Allegro</td>
+              <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>Oracle WebLogic Queue Listener</td>
+              <td>Allegro</td>
+              <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>Requests executed in background threads of AllegroServices</td>
+              <td>Allegro</td>
+              <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>RetrieveDataCreditCardIVR-3.0.0</td>
+              <td>Allegro</td>
+              <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>SaveCart-3.1.0</td>
+              <td>Allegro</td>
+              <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>SaveEnforcedClassDetail-3.0.0</td>
+              <td>Allegro</td>
+              <td>JAX_WS, WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>WSAllegroPaymentAuthorize-3.1.0-webservice (/WSAllegroPaymentAuthorize-3.1.0-ws)</td>
+              <td>Allegro</td>
+              <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>WSAuthorizationKiosk-3.1.0-webservice (/WSAuthorizationKiosk-3.1.0-ws)</td>
+              <td>Allegro</td>
+              <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
+            <tr>
+              <td>WSAuthorizePaymentCaixa-3.0.0-webservice (/WSAuthorizePaymentCaixa-3.0.0-ws)</td>
+              <td>Allegro</td>
+              <td>WEBLOGIC 10.3.6.0, JAVA Oracle JRockit 1.6.0_171</td>
+              <td>Business Critical, Allegro, Marketing</td>
+            </tr>
           </tbody>
         </table>
+
+        <!-- Services Pagination -->
+        <ul class="pagination">
+          <li class="pagination__item">
+            <span class="arrow arrow--reversed arrow--disabled">Previous</span>
+          </li>
+          <li class="pagination__item">
+            <span class="pagination__current">1</span>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">2</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">3</a>
+          </li>
+          <li class="pagination__item">
+            <span class="pagination__dots">...</span>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">8</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">9</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="pagination__link">10</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#noop" class="arrow" rel="next">Next</a>
+          </li>
+        </ul>
       </div>
-      <!-- End of Audit Users -->
+      <!-- End Rodrigo/Nestor stuff -->
 
-      <!-- ------------------------------------------------------------------------- -->
-        <!-- Manage Environments -->
-        <div name="sidebar-content" id="manage-environments" class="none">
-          <div class="infochip">
-            <div class="infochip__icon">
-              <img class="icon" src='images/services-gray700.svg'></img>    
-            </div>
-            <div class="infochip__desc">
-              <div class="infochip__desc__title" title="Manage Environments">
-                  <div>Manage Environments</div>
-              </div>
-              <div>Configure the Dynatrace environments that these programs will interact with</div>
-            </div>
-          </div>
-          <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-          <input type="radio" class="radio" id="session-storage-radio"/>
-          <label for="session-storage-radio" class="radio__label">
-            <span class="radio__caption">Use Session Storage</span>
-          </label>
-          <input type="radio" class="radio" id="local-storage-radio"/>
-          <label for="local-storage-radio" class="radio__label">
-            <span class="radio__caption">Use Local Storage</span>
-          </label>
-          <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
-          <p>Add an environment:</p>
-          <!--Add Environment here and button to delete env-->
-          <table class="table" id='manage-environments-table'>
-            <thead>
-            <tr>
-              <th>Environment Name</th>
-              <th>URL</th>
-              <th>Token</th>
-              <th>Tags?</th>
-              <th>MZs?</th>
-              <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody id='manage-environments-tbody'></tbody>
-          </table>
+    </div><!-- End of Services -->
+    <!-- End of Services ------------------------------------------------------------ -->
 
-          <field class='field'>
-            <label for="environment-name-input" class="label">Name:</label>
-            <input type="text" class="inputfield" id="environment-name-input"/>
-          </field>
-          <field class='field'>
-            <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
-            <input type="text" class="inputfield" id="environment-url-input"/>
-          </field>
-          <field class='field'>
-            <label for="environment-token-input" class="label">API Token:</label>
-            <input type="text" class="inputfield" id="environment-token-input"/>
-          </field>
-          <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
-          <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
+    <!-- Audit Users -->
+    <div name="sidebar-content" id="reports-audit-users" class="none">
+      <div class="infochip">
+        <div class="infochip__icon">
+          <img class="icon icon--blue--big" src='images/usergroup-gray_700.svg'></img>
         </div>
-        <!-- End of Manage Environments -->
+        <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Audit Users">
+            <div class='newH'>Audit Users</div>
+          </div>
+          <div>Audits the users logging into Dynatrace</div>
+        </div>
+      </div>
+      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+      <p class='warning'>REQUIRED TOKEN PERMISSION: "Read audit logs"</p>
+      <p>Shows user logins and and config changes made by users</p>
+      <field class='field'>
+        <label for="audit-users-environment-select" class="label">Environment Name:</label>
+        <select class="envSelect select auditUsersReport" id="audit-users-environment-select">
+          <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+        </select>
+        <!-- <input type="text" class="inputfield" id="TagDuplicatorEnv1"/> -->
+      </field>
+      <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainAuditReport()">Run</button>
+
+      <hr>
+      <h2>Audit Users</h2>
+      <p>Filters:
+        <button id="login-filter" class="tag tag--interactive">LOGIN</button>
+        <button id="config-filter" class="tag tag--interactive">CONFIG</button>
+      </p>
+      <table id="audit-users-table" class="table display">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Event Type</th>
+            <th>User</th>
+            <th>User Type</th>
+            <th>Category</th>
+            <th>Success</th>
+          </tr>
+        </thead>
+        <tbody id="audit-users-tbody">
+
+        </tbody>
+      </table>
+    </div>
+    <!-- End of Audit Users -->
+
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Manage Environments -->
+    <div name="sidebar-content" id="manage-environments" class="none">
+      <div class="infochip">
+        <div class="infochip__icon">
+          <img class="icon" src='images/services-gray700.svg'></img>
+        </div>
+        <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Manage Environments">
+            <div>Manage Environments</div>
+          </div>
+          <div>Configure the Dynatrace environments that these programs will interact with</div>
+        </div>
+      </div>
+      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+      <input type="radio" class="radio" id="session-storage-radio" />
+      <label for="session-storage-radio" class="radio__label">
+        <span class="radio__caption">Use Session Storage</span>
+      </label>
+      <input type="radio" class="radio" id="local-storage-radio" />
+      <label for="local-storage-radio" class="radio__label">
+        <span class="radio__caption">Use Local Storage</span>
+      </label>
+      <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+      <p>Add an environment:</p>
+      <!--Add Environment here and button to delete env-->
+      <table class="table" id='manage-environments-table'>
+        <thead>
+          <tr>
+            <th>Environment Name</th>
+            <th>URL</th>
+            <th>Token</th>
+            <th>Tags?</th>
+            <th>MZs?</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id='manage-environments-tbody'></tbody>
+      </table>
+
+      <field class='field'>
+        <label for="environment-name-input" class="label">Name:</label>
+        <input type="text" class="inputfield" id="environment-name-input" />
+      </field>
+      <field class='field'>
+        <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
+        <input type="text" class="inputfield" id="environment-url-input" />
+      </field>
+      <field class='field'>
+        <label for="environment-token-input" class="label">API Token:</label>
+        <input type="text" class="inputfield" id="environment-token-input" />
+      </field>
+      <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add
+        Environment</button>
+      <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error"
+        onclick="closeManageEnvironments()">Close</button>
+    </div>
+    <!-- End of Manage Environments -->
 
 
-    </div><!-- End of Reports Content -->
+  </div><!-- End of Reports Content -->
   </div><!-- End of Main Body -->
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
-    <script type="text/javascript" src="scripts/scripts.js"></script>
-    <script type="text/javascript" src="scripts/shared_scripts.js"></script>
-    <script type="text/javascript" src="scripts/environments.js"></script>
-    <script type="text/javascript" src="scripts/report_rootCauseAnalysis.js"></script>
-    <script type="text/javascript" src="scripts/report_untaggedEntities.js"></script>
-    <script type="text/javascript" src="scripts/report_hosts.js"></script>
-    <script type="text/javascript" src="scripts/report_services.js"></script>
-    <script type="text/javascript" src="scripts/report_applications.js"></script>
-    <script type="text/javascript" src="scripts/report_problems.js"></script>
-    <script type="text/javascript" src="scripts/report_problemTrending.js"></script>
-    <script type="text/javascript" src="scripts/report_auditUsers.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+  <script type="text/javascript" src="scripts/scripts.js"></script>
+  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+  <script type="text/javascript" src="scripts/environments.js"></script>
+  <script type="text/javascript" src="scripts/report_rootCauseAnalysis.js"></script>
+  <script type="text/javascript" src="scripts/report_untaggedEntities.js"></script>
+  <script type="text/javascript" src="scripts/report_hosts.js"></script>
+  <script type="text/javascript" src="scripts/report_services.js"></script>
+  <script type="text/javascript" src="scripts/report_applications.js"></script>
+  <script type="text/javascript" src="scripts/report_problems.js"></script>
+  <script type="text/javascript" src="scripts/report_problemTrending.js"></script>
+  <script type="text/javascript" src="scripts/report_auditUsers.js"></script>
 
-  </body>
+</body>

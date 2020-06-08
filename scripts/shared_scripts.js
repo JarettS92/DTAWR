@@ -26,14 +26,21 @@ $("#darkmode").click(function() {
 $('.envSelect').change((e) => {
   let mzs = DTEnvs[e.target.value]["MZS"];
   let tags = DTEnvs[e.target.value]["TAGS"];
+  let tsm = DTEnvs[e.target.value]["TSM"];
   let tagTarget = e.target.id.replace("environment", "tag");
   let mzTarget = e.target.id.replace("environment", "managementzone");
+  let timeseriesTarget = e.target.id.replace("environment", "metric");
   console.log(tagTarget);
   console.log(mzTarget);
+  console.log(timeseriesTarget);
+  console.log(tsm);
   console.log(tags);
   console.log(mzs);
+
   $(`#${tagTarget}`).find('option').remove().end();
   $(`#${mzTarget}`).find('option').remove().end();
+  $(`#${timeseriesTarget}`).find('option').remove().end();
+
   if (tags.length != 0) {
     tags.forEach((curVal, index) => {
       if (index == tags.length - 1) {
@@ -60,6 +67,68 @@ $('.envSelect').change((e) => {
   } else {
     $(`#${mzTarget}`).append(`<option value="No Management Zones Found" selected>No Management Zones Found</option>`).val(`No Management Zones Found`);
     $(`#${mzTarget}`).append(`<option class='none' value="SELECT MANAGEMENT ZONE" selected hidden disabled>SELECT MANAGEMENT ZONE</option>`).val(`SELECT MANAGEMENT ZONE`);
+  }
+
+  if (Object.keys(tsm).length != 0) {
+    Object.keys(tsm).forEach((curVal, index) => {
+      if (index == Object.keys(tsm).length - 1) {
+        $(`#${timeseriesTarget}`).append(`<option value="${curVal}">${curVal}</option>`).val(`${curVal}`);
+        $(`#${timeseriesTarget}`).append(`<option class='none' value="SELECT TIMESERIES METRIC" selected hidden disabled>SELECT TIMESERIES METRIC</option>`).val(`SELECT TIMESERIES METRIC`);
+      } else {
+        $(`#${timeseriesTarget}`).append(`<option value="${curVal}">${curVal}</option>`).val(`${curVal}`);
+      }
+    });
+  } else {
+    $(`#${timeseriesTarget}`).append(`<option value="No Management Zones Found" selected>No Management Zones Found</option>`).val(`No Metrics Found!`);
+    $(`#${timeseriesTarget}`).append(`<option class='none' value="SELECT TIMESERIES METRIC" selected hidden disabled>SELECT TIMESERIES METRIC</option>`).val(`SELECT TIMESERIES METRIC`);
+  }
+});
+
+// Updates aggregation dropdowns when a timeseries metric is selected
+$('.metricSelect').change((e) => {
+  let envTarget = $(`#${e.target.id.replace("metric", "environment")}`).val();
+  console.log(envTarget);
+  let aggregationTarget = e.target.id.replace("metric","aggregation");
+  let aggregationArr = DTEnvs[envTarget].TSM[e.target.value];
+  // ["TSM"][e.target.value];
+  $(`#${aggregationTarget}`).find('option').remove().end();
+
+  console.log(aggregationTarget);
+  console.log(aggregationArr);
+
+  if (aggregationArr.length != 0) {
+    aggregationArr.forEach((curVal, index) => {
+      if (index == aggregationArr.length - 1) {
+        $(`#${aggregationTarget}`).append(`<option value="${curVal}">${curVal}</option>`).val(`${curVal}`);
+        $(`#${aggregationTarget}`).append(`<option class='none' value="SELECT METRIC AGGREGATION" selected hidden disabled>SELECT METRIC AGGREGATION</option>`).val(`SELECT METRIC AGGREGATION`);
+      } else {
+        $(`#${aggregationTarget}`).append(`<option value="${curVal}">${curVal}</option>`).val(`${curVal}`);
+      }
+    });
+  } else {
+    $(`#${aggregationTarget}`).append(`<option value="No Aggregations Found" selected>No Aggregations Found</option>`).val(`No Metrics Found!`);
+    $(`#${aggregationTarget}`).append(`<option class='none' value="SELECT METRIC AGGREGATION" selected hidden disabled>SELECT METRIC AGGREGATION</option>`).val(`SELECT METRIC AGGREGATION`);
+  }
+});
+
+$('.aggregationSelect').change((e) => {
+  let percentileTarget = e.target.id.replace("aggregation", "percentile");
+  $(`#${percentileTarget}`).find('option').remove().end();
+  console.log(percentileTarget);
+  let aggArr = [10,20,30,40,50,60,70,80,90,95];
+
+  if(e.target.value == 'PERCENTILE'){
+    $(`#${percentileTarget}`).prop("disabled", false);
+    aggArr.forEach((curVal, index) => {
+      if (index == aggArr.length - 1) {
+        $(`#${percentileTarget}`).append(`<option value="${curVal}">${curVal}th</option>`).val(`${curVal}`);
+        $(`#${percentileTarget}`).append(`<option class='none' value="SELECT PERCENTILE" selected hidden disabled>SELECT PERCENTILE</option>`).val(`SELECT PERCENTILE`);
+      } else {
+        $(`#${percentileTarget}`).append(`<option value="${curVal}">${curVal}th</option>`).val(`${curVal}`);
+      }
+    });
+  } else {
+    $(`#${percentileTarget}`).prop("disabled", true);
   }
 });
 
@@ -121,5 +190,4 @@ function navToManageEnvironments(currentSource) {
 function closeManageEnvironments() {
   $("div[name='sidebar-content']").addClass("display").removeClass("none");
   $("#manage-environments").removeClass("display").addClass("none");
-
 }
