@@ -64,8 +64,9 @@ async function addEnvironment() {
 
     let envName = document.getElementById('environment-name-input').value;
     let envUrl = document.getElementById('environment-url-input').value;
-    let saasEnvUrl = envUrl;
-    // envUrl.match(saasUrlRegex) ? envUrl.match(saasUrlRegex)[0] : false;
+    let saasEnvUrl = envUrl.match(saasUrlRegex) ? envUrl.match(saasUrlRegex)[0] : false;
+    // envUrl;
+    // 
     let managedEnvUrl = envUrl.match(managedUrlRegex) ? envUrl.match(managedUrlRegex)[0] : false;
 
     console.log(saasEnvUrl);
@@ -75,6 +76,7 @@ async function addEnvironment() {
     let tagsBool = false;
     let mzsBool = false;
     let tsmBool = false;
+    let applicationsBool = false;
     
     // console.log(saasEnvUrl.match(regex));
 
@@ -148,17 +150,38 @@ async function addEnvironment() {
             });
         });
 
+        let envApplications = new Promise((resolve, reject) => {
+            axios.get(saasEnvUrl + '/api/v1/entity/applications', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Api-Token ${envToken}`
+                }
+            }).then((res) => {
+                if (res.status == '200') {
+                    resolve(res.data.map((x) => x.displayName));
+                    applicationsBool = true;
+                } else {
+                    reject("Error");
+                }
+            }).catch((err) => {
+                console.log(err);
+                alert("Unable to pull Applications");
+                resolve([]);
+            });
+        });
+
         DTEnvs[envName] = {
             'URL': saasEnvUrl,
             'TOK': envToken,
             'TAGS': await envTags,
             'MZS': await envMZs,
             'TSM': await envTsm,
+            'APP': await envApplications,
             'LOGS': {}
         };
-        // console.log(DTEnvs);
+        console.log(envApplications);
 
-        document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + envName + "'><td>" + envName + "</td><td>" + saasEnvUrl + "</td><td>" + envToken.replace(maskingRegex, '*****************') + "</td><td>" + tagsBool + "</td><td>" + mzsBool + "</td><td>" + tsmBool + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + envName + "\")'>Remove</button></td></tr>";
+        document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + envName + "'><td>" + envName + "</td><td>" + saasEnvUrl + "</td><td>" + envToken.replace(maskingRegex, '*****************') + "</td><td>" + tagsBool + "</td><td>" + applicationsBool + "</td><td>"+ mzsBool + "</td><td>" + tsmBool + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + envName + "\")'>Remove</button></td></tr>";
 
         // updateEnvironmentTable();
         saveLocalStorage();
@@ -173,8 +196,6 @@ async function addEnvironment() {
             alert("Missing info!!");
         }
     }
-
-
 }
 
 function updateEnvironmentSelects() {

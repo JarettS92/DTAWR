@@ -6,31 +6,34 @@ let z = 0;
 
 // Apply datepicker
 $(function(){
-  $('#bhkpi-start').timepicker();
-  $('#bhkpi-end').timepicker();
+  $('#bhkpi-start').datepicker();
+  $('#bhkpi-end').datepicker();
+});
+// Apply timepicker
+$(function(){
   $('#bhkpi-business-hour-start').timepicker();
   $('#bhkpi-business-hour-end').timepicker();
 });
 
 //mainfunction for Business Hour KPIs
 function mainBusinessHourKPIs(){
-    let DTenv = getEnvironment(document.getElementById("bhkpi-environment-select").value);
-    businessHoursStart = document.getElementById('bhkpi-business-hour-start').value;
-    businessHoursEnd = document.getElementById('bhkpi-business-hour-end').value;
-    if(!document.getElementById('bhkpi-sunday-checkbox').checked) IllegalWeekDays.push(0);
-    if(!document.getElementById('bhkpi-monday-checkbox').checked) IllegalWeekDays.push(1);
-    if(!document.getElementById('bhkpi-tuesday-checkbox').checked) IllegalWeekDays.push(2);
-    if(!document.getElementById('bhkpi-wednesday-checkbox').checked) IllegalWeekDays.push(3);
-    if(!document.getElementById('bhkpi-thursday-checkbox').checked) IllegalWeekDays.push(4);
-    if(!document.getElementById('bhkpi-friday-checkbox').checked) IllegalWeekDays.push(5);
-    if(!document.getElementById('bhkpi-saturday-checkbox').checked) IllegalWeekDays.push(6);
+    let DTenv = getEnvironment($("#bhkpi-environment-select").val());
+    businessHoursStart = $('#bhkpi-business-hour-start').val();
+    businessHoursEnd = $('#bhkpi-business-hour-end').val();
+    if(!$('#bhkpi-sunday-checkbox').prop("checked")) IllegalWeekDays.push(0);
+    if(!$('#bhkpi-monday-checkbox').prop("checked")) IllegalWeekDays.push(1);
+    if(!$('#bhkpi-tuesday-checkbox').prop("checked")) IllegalWeekDays.push(2);
+    if(!$('#bhkpi-wednesday-checkbox').prop("checked")) IllegalWeekDays.push(3);
+    if(!$('#bhkpi-thursday-checkbox').prop("checked")) IllegalWeekDays.push(4);
+    if(!$('#bhkpi-friday-checkbox').prop("checked")) IllegalWeekDays.push(5);
+    if(!$('#bhkpi-saturday-checkbox').prop("checked")) IllegalWeekDays.push(6);
     let d = new Date();
     let m = d.getTimezoneOffset();
     z = m * 60000 * (-1);
     let settings = {
         "async": true,
         "crossDomain": true,
-        "url": DTenv['URL'] + "/api/v1/timeseries/" + document.getElementById('bhkpi-metric-select').value + "?startTimestamp=" + convertTime(document.getElementById('bhkpi-business-hour-start').value) + "&endTimestamp=" + convertTime(document.getElementById('bhkpi-business-hour-end').value) + "&includeData=true",
+        "url": DTenv['URL'] + "/api/v1/timeseries/" + $('#bhkpi-metric-select').val() + "?startTimestamp=" + $('#bhkpi-business-hour-start').timepicker('getTime').getTime() + "&endTimestamp=" + $('#bhkpi-business-hour-end').timepicker('getTime').getTime() + "&includeData=true",
         "method": "GET",
         "headers": {
             "Content-Type": "application/json",
@@ -40,9 +43,9 @@ function mainBusinessHourKPIs(){
         "data": ""
     }
 
-    if(document.getElementById('bhkpi-aggregation-input').value != '') settings['url'] += "&aggregationType=" + document.getElementById('bhkpi-aggregation-input').value;
-    if(document.getElementById('bhkpi-tag-select').value != '') settings['url'] += "&tag=" + document.getElementById('bhkpi-tag-select').value;
-    if(document.getElementById('bhkpi-percentile-input').value != '') settings['url'] += "&percentile=" + document.getElementById('bhkpi-percentile-input').value;
+    settings['url'] += "&aggregationType=" + $('#bhkpi-aggregation-select').val();
+    if($('#bhkpi-tag-select').val() != null) settings['url'] += "&tag=" + $('#bhkpi-tag-select').val();
+    if($('#bhkpi-percentile-select').val() != null) settings['url'] += "&percentile=" + $('#bhkpi-percentile-select').val();
     $.ajax(settings).done(function (response) {
         let storage = response['dataResult']['dataPoints'];
         let storage2 = response;
@@ -74,7 +77,7 @@ function filterOut(storage, storage2){
     }
     //The good stuff
     document.getElementById('bhkpi-table').style.display = 'block';
-    document.getElementById('bhkpi-tbody').innerHTML += "<tr><td>" + document.getElementById('bhkpi-tag-select').value + "</td><td>" + (sum / count).toFixed(2) + " " + storage2['unit'] + "</td><td>" + document.getElementById('bhkpi-metric-select').value + "</td></tr>";
+    document.getElementById('bhkpi-tbody').innerHTML += "<tr><td>" + $('#bhkpi-tag-select').val() + "</td><td>" + (sum / count).toFixed(2) + " " + storage2['unit'] + "</td><td>" + $('#bhkpi-metric-select').val() + "</td></tr>";
 }
 
 //deletes datapoints from days of the week that are not business days
@@ -117,11 +120,3 @@ function deleteDataPointLate(num){
     }
     else return false;
 }
-
-//Forgot what this does
-function convertTime(date){
-    let temp = new Date(date);
-    console.log("Get Time: " + temp.getTime() - z);
-    return temp.getTime() - z;
-}
-
