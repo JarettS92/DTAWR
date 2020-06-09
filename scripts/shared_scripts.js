@@ -188,6 +188,8 @@ function navToManageEnvironments(currentSource) {
 }
 
 function closeManageEnvironments() {
-  $("div[name='sidebar-content']").addClass("display").removeClass("none");
+  // $("div[name='sidebar-content']").addClass("display").removeClass("none");
   $("#manage-environments").removeClass("display").addClass("none");
+  $(`#${$('.sidebar__item.is-current').attr('sidebar-content-id')}`).removeClass("none").addClass("display");
+  console.log($('.sidebar__item.is-current').attr('sidebar-content-id'));
 }
