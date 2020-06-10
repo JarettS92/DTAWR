@@ -177,19 +177,15 @@ $('.buttongroup a').click(function () {
 // FUNCTIONS
 //-----------------------------------------------------
 
-let source = '';
-
 // Function to hide all tools/reports and display the 
 // Environment management page
-function navToManageEnvironments(currentSource) {
+function navToManageEnvironments() {
   $("div[name='sidebar-content']").removeClass("display").addClass("none");
   $("#manage-environments").addClass("display").removeClass("none");
-  source = currentSource;
 }
 
 function closeManageEnvironments() {
-  // $("div[name='sidebar-content']").addClass("display").removeClass("none");
   $("#manage-environments").removeClass("display").addClass("none");
   $(`#${$('.sidebar__item.is-current').attr('sidebar-content-id')}`).removeClass("none").addClass("display");
-  console.log($('.sidebar__item.is-current').attr('sidebar-content-id'));
+  // console.log($('.sidebar__item.is-current').attr('sidebar-content-id'));
 }
