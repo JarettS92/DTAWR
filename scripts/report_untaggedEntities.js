@@ -4,7 +4,7 @@ let taggedStorageArray = [];
 // -----------------------------
 
 function mainRTagged(){
-    let DTenv = getEnvironment(document.getElementById('RTaggedEnv').value);
+    let DTenv = getEnvironment(document.getElementById('untagged-entities-environment-select').value);
     isTaggedPagination(DTenv['URL'], "/api/v1/entity/infrastructure/hosts?pageSize=100", DTenv['TOK'], 'Host', 0, '/%23newhosts/hostdetails;id=');
 }
 
@@ -45,7 +45,7 @@ function isTaggedPagination(URL, ext, TOK, entType, first, link){
             else if(entType == 'Service') isTaggedPagination(URL, '/api/v1/entity/applications?pageSize=100', TOK, 'RUM App', 0, '/%23uemapplications/uemappmetrics;uemapplicationId=');
             else{
                 // JARETT SMITH ADDITION
-                if($('#cb1').is(':checked')){
+                if($('#untagged-entities-checkbox').is(':checked')){
                     completeIsTagged();
                 }
                 populatePage();
@@ -66,7 +66,7 @@ function completeIsTagged(){
 
 // JARETT SMITH ADDITION
 function populatePage(){
-    let table = document.getElementById('untaggedEntities');
+    let table = document.getElementById('untagged-entities-table');
     
     taggedStorageArray.forEach((curVal) => {
         let tr = document.createElement('tr');

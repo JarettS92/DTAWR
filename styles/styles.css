@@ -303,17 +303,28 @@ th:hover {
     margin: 0 !important;
     text-align: center;
 }
-#reportrange {
+.date__range__picker {
     background: #fff; 
     cursor: pointer; 
     padding: 5px 10px; 
     border: 1px solid #ccc;
     border-radius: 3px;
-    color: #14a8f5;
+    color: -internal-light-dark-color(black, white);
 }
-.applyBtn, .cancelBtn {
-    line-height: 25px !important;
-    border-color: #14a8f5 !important;
+.applyBtn {
+    line-height: 20px !important;
+    border-color: #08c !important;
+    background-color: #08c !important;
+    color: white !important;
+}
+.cancelBtn {
+    line-height: 20px !important;
+    border-color: #08c !important;
+}
+.checkbox__column {
+    display: flex !important;
+    flex-direction: column;
+    /* margin: auto; */
 }
 .warning {
     color: red; 

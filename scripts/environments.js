@@ -64,7 +64,8 @@ async function addEnvironment() {
 
     let envName = document.getElementById('environment-name-input').value;
     let envUrl = document.getElementById('environment-url-input').value;
-    let saasEnvUrl = envUrl.match(saasUrlRegex) ? envUrl.match(saasUrlRegex)[0] : false;
+    let saasEnvUrl = envUrl;
+    // envUrl.match(saasUrlRegex) ? envUrl.match(saasUrlRegex)[0] : false;
     // envUrl;
     // 
     let managedEnvUrl = envUrl.match(managedUrlRegex) ? envUrl.match(managedUrlRegex)[0] : false;

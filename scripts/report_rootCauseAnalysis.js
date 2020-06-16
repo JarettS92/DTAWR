@@ -330,25 +330,26 @@ function drawTable(someArr, str, num) {
     }
 
     document.getElementById(str).innerHTML = tempTR;
-
-    if(num){
-        let csvContentEnt = "data:text/csv;charset=utf-8," + csvEnt;
-        let encodedUri = encodeURI(csvContentEnt);
-        let link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "RootCauseEntities.csv");
-        document.body.appendChild(link); // Required for FF
-        link.click();
-    }
-    else{
-        let csvContentTag = "data:text/csv;charset=utf-8," + csvTag;
-        let encodedUri = encodeURI(csvContentTag);
-        let link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "RootCauseTags.csv");
-        document.body.appendChild(link); // Required for FF
-        link.click();
-        fin();
+    if($('root-cause-analysis-checkbox').is(':checked')){
+        if(num){
+            let csvContentEnt = "data:text/csv;charset=utf-8," + csvEnt;
+            let encodedUri = encodeURI(csvContentEnt);
+            let link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "RootCauseEntities.csv");
+            document.body.appendChild(link); // Required for FF
+            link.click();
+        }
+        else{
+            let csvContentTag = "data:text/csv;charset=utf-8," + csvTag;
+            let encodedUri = encodeURI(csvContentTag);
+            let link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "RootCauseTags.csv");
+            document.body.appendChild(link); // Required for FF
+            link.click();
+            fin();
+        }
     }
 }
 

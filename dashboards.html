@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="styles/shared_styles.css" />
   <link rel="stylesheet" href="styles/environments.css" />
   <link rel="stylesheet" href="styles/dashboards.css" />
-  <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -239,7 +239,7 @@
             <div>Get inputs from the user and from the Dynatrace API, to transform a stock collection of currated dashboards, and to upload via the Dynatrace API</div>
           </div>
         </div>
-        <p>Link:<a href='https://lucashocker.github.io/BizOpsConfigurator/#overview'>BizOps Configurator</a></p>
+        <p>Link:<a href='https://dynatrace.github.com/BizOpsConfigurator'>BizOps Configurator</a></p>
       </div><!-- End of BizOps Configurator-->
 
       <!-- Browse Dashboards -->
@@ -390,55 +390,58 @@
       <div name="sidebar-content" id="manage-environments" class="none">
         <div class="infochip">
           <div class="infochip__icon">
-            <img class="icon" src='images/services-gray700.svg'></img>    
+            <img class="icon" src='images/services-gray700.svg'></img>
           </div>
           <div class="infochip__desc">
             <div class="infochip__desc__title" title="Manage Environments">
-                <div>Manage Environments</div>
+              <div>Manage Environments</div>
             </div>
             <div>Configure the Dynatrace environments that these programs will interact with</div>
           </div>
         </div>
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <input type="radio" class="radio" id="session-storage-radio"/>
+        <input type="radio" class="radio" id="session-storage-radio" />
         <label for="session-storage-radio" class="radio__label">
           <span class="radio__caption">Use Session Storage</span>
         </label>
-        <input type="radio" class="radio" id="local-storage-radio"/>
+        <input type="radio" class="radio" id="local-storage-radio" />
         <label for="local-storage-radio" class="radio__label">
           <span class="radio__caption">Use Local Storage</span>
         </label>
         <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
-        <p>Add an environment:</p>
-        <!--Add Environment here and button to delete env-->
+        <field class='field'>
+          <label for="" class="label">Name:</label>
+          <input type="text" class="inputfield" id="environment-name-input" />
+        </field>
+        <field class='field'>
+          <label for="i0" class="label">Dynatrace Environment URL:</label>
+          <input type="text" class="inputfield" id="environment-url-input" />
+        </field>
+        <field class='field'>
+          <label for="i0" class="label">API Token:</label>
+          <input type="text" class="inputfield" id="environment-token-input" />
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add
+          Environment</button>
+        <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error"
+          onclick="closeManageEnvironments()">Close</button>
+        <hr>
+        <h2>Environments</h2>
         <table class="table" id='manage-environments-table'>
           <thead>
-          <tr>
-            <th>Environment Name</th>
-            <th>URL</th>
-            <th>Token</th>
-            <th>Tags?</th>
-            <th>MZs?</th>
-            <th>Delete</th>
-          </tr>
+            <tr>
+              <th>Environment Name</th>
+              <th>URL</th>
+              <th>Token</th>
+              <th>Tags?</th>
+              <th>Applications?</th>
+              <th>MZs?</th>
+              <th>Timeseries Metrics?</th>
+              <th>Delete</th>
+            </tr>
           </thead>
           <tbody id='manage-environments-tbody'></tbody>
         </table>
-
-        <field class='field'>
-          <label for="environment-name-input" class="label">Name:</label>
-          <input type="text" class="inputfield" id="environment-name-input"/>
-        </field>
-        <field class='field'>
-          <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
-          <input type="text" class="inputfield" id="environment-url-input"/>
-        </field>
-        <field class='field'>
-          <label for="environment-token-input" class="label">API Token:</label>
-          <input type="text" class="inputfield" id="environment-token-input"/>
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
-        <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
       </div>
       <!-- End of Manage Environments -->
 
@@ -450,7 +453,7 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+    <script type="text/javascript" src="scripts/dynatrace-groundhog.js"></script>
     <script type="text/javascript" src="scripts/scripts.js"></script>
     <script type="text/javascript" src="scripts/shared_scripts.js"></script>
     <script type="text/javascript" src="scripts/environments.js"></script>

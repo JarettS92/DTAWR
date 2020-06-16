@@ -53,7 +53,7 @@ function populateAuditUsersTable(auditLogsArray) {
     tr.appendChild(userTypetd);
     tr.appendChild(categorytd);
     tr.appendChild(successtd);
-    if(curVal.eventType == "LOGIN"){
+    if(curVal.eventType == "LOGIN" || curVal.eventType == "LOGOUT"){
       tr.setAttribute("eventType", "LOGIN");
     }
     if(curVal.category == "CONFIG"){
@@ -66,17 +66,22 @@ function populateAuditUsersTable(auditLogsArray) {
 
 $('#login-filter').click(function() {
   if($('#login-filter').hasClass('selected')){
-    $('[eventtype="CONFIG"').removeClass("none").addClass("display");
+    $('[eventtype="CONFIG"').removeClass("display").addClass("none");
+    console.log('SELECTED');
   }
   if(!$('#login-filter').hasClass('selected')){
-    $('[eventtype="CONFIG"').removeClass("display").addClass("none");
+    $('[eventtype="CONFIG"').removeClass("none").addClass("display");
+    console.log('NOT SELECTED');
   }
+  $('#config-filter').removeClass('selected');
 });
+
 $('#config-filter').click(function() {
   if($('#config-filter').hasClass('selected')){
-    $('[eventtype="LOGIN"').removeClass("none").addClass("display");
-  }
-  if(!$('#config-filter').hasClass('selected')){
     $('[eventtype="LOGIN"').removeClass("display").addClass("none");
   }
+  if(!$('#config-filter').hasClass('selected')){
+    $('[eventtype="LOGIN"').removeClass("none").addClass("display");
+  }
+  $('#login-filter').removeClass('selected');
 });

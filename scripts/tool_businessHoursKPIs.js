@@ -13,6 +13,21 @@ $(function(){
 $(function(){
   $('#bhkpi-business-hour-start').timepicker();
   $('#bhkpi-business-hour-end').timepicker();
+  $('.timepicker').timepicker();
+});
+
+$('.checkbox').click(function(){
+    let start = $(`#${$(this).prop('id').split('checkbox')[0].concat('start')}`);
+    let end = $(`#${$(this).prop('id').split('checkbox')[0].concat('end')}`);
+    if($(this).prop("checked")){
+        // console.log(start, end);
+        start.prop('disabled', false);
+        end.prop('disabled', false);
+    }
+    else{
+        start.prop('disabled', true);
+        end.prop('disabled', true);
+    }
 });
 
 //mainfunction for Business Hour KPIs

@@ -19,3 +19,17 @@
 .pagination {
   margin-top: 0.8rem;
 }
+
+.tag.selected {
+  background-color: #14a8f5;
+  color: white;
+  border-color: white !important;
+}
+.tag.selected:hover {
+  background-color: #004999;
+  color: white !important;
+}
+.tag:hover {
+  box-shadow: 0 0 0 2px #ccc;
+  border-color: #ccc !important;
+}

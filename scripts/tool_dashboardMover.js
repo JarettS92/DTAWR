@@ -44,7 +44,7 @@ function buildDashboardList(tableID, obj) {
       const nametd = document.createElement("td");
       const nameText = document.createTextNode(curVal.name);
       const ownertd = document.createElement("td");
-      const ownerText = document.createTextNode(curVal.owner);
+      const ownerText = document.createTextNode(curVal.owner.split('@')[0]);
       const atd = document.createElement("td");
       const a = document.createElement("a");
       const aText = document.createTextNode("Move");

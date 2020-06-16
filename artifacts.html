@@ -4,7 +4,7 @@
   <link rel="icon" href="images/dt-favicon-blue.png">
   <link rel="stylesheet" href="styles/styles.css" />
   <link rel="stylesheet" href="styles/shared_styles.css" />
-  <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -240,7 +240,7 @@
           <!-- Datepicker -->
           <div class="doc-repo-buttons">
             <h4>Timeframe</h4>
-            <div id="reportrange">
+            <div class="date__range__picker" id="reportrange">
               <i class="fa fa-calendar"></i>
               <span></span> <i class="fa fa-caret-down"></i>
             </div>
@@ -1883,7 +1883,9 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
-  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
   <script type="text/javascript" src="scripts/environments.js"></script>
-  </body>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+</body>
 </html>

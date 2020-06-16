@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="styles/shared_styles.css" />
   <link rel="stylesheet" href="styles/environments.css" />
   <link rel="stylesheet" href="styles/reports.css" />
-  <link rel="stylesheet" href="https://assets.dynatrace.com/groundhog/v6.1.2/css/main.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -239,7 +240,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Overview -->
-      <div name="sidebar-content" id="reports-overview" class="none">
+      <div name="sidebar-content" id="reports-overview" class="display">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/ordered-list-gray_700.svg'></img>
@@ -278,45 +279,44 @@
 
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
-        <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
-        <p>Specify the max amount of API requests per minute that this program should perform <b
-            class='warning'>(Recommendation: 40)</b>.</p>
-        <br>
-        <p><b class='warning'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should
-            not exceed 50.</b></p>
-        <p>Consider the amount of other API calls that could be hitting your cluster when specifying this number.</p>
+        <p>Upon completion, collected data will be displayed at the bottom of the page. There is also an option to download a .csv file.</p>
         <br>
         <field class='field'>
-          <label for="root-cause-analysis-max" class="label">Requests per minute:</label>
+          <label for="root-cause-analysis-max" class="label">Requests per minute: (Consider the amount of other API calls that could be hitting your cluster when specifying this number)<br>
+            <span class="warning">SaaS environments CANNOT exceed 50 and it is recommended that Managed environments SHOULD NOT exceed 50</span></label>
           <select class="reqCountSelect select" id="root-cause-analysis-max">
             <option value="40" selected>40</option>
             <option value="40">30</option>
             <option value="40">20</option>
             <option value="40">10</option>
           </select>
-          <!-- <label for="i0" class="label">Max requests per minute:</label>
-            <input type="text" class="inputfield" id="RootCauseAnalysisMax"/> -->
         </field>
         <field class='field'>
           <label for="root-cause-analysis-environment-select" class="label">Environment Name:</label>
           <select class="envSelect select" id="root-cause-analysis-environment-select">
             <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
           </select>
-          <!-- <input type="text" class="inputfield" id="RootCauseAnalysisEnv"/> -->
         </field>
-        <p>Specify the time frame that you would like to perform the analysis for. <b class='warning'>Time frame must
-            not exceed 31 days in length.</b></p>
-        <!--Add date picker later-->
         <field class='field'>
+          <label for="root-cause-analysis-date-range-picker" class="label">Date Range: <span class="warning">Time frame must not exceed 31 days in length!</span></label>
+          <div class="date__range__picker" id="root-cause-analysis-date-range-picker">
+            <i class="fa fa-calendar"></i>
+            <span></span> <i class="fa fa-caret-down"></i>
+          </div>
+        </field>
+        <!-- <field class='field'>
           <label for="root-cause-analysis-start" class="label">Start Date:</label>
           <input type="text" class="inputfield" id="root-cause-analysis-start" placeholder="mm/dd/yyyy" />
         </field>
         <field class='field'>
           <label for="root-cause-analysis-end" class="label">End Date:</label>
           <input type="text" class="inputfield" id="root-cause-analysis-end" placeholder="mm/dd/yyyy" />
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainRootCauseAnalysis()">Run
-          Query</button>
+        </field> -->
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainRootCauseAnalysis()">Run Query</button>
+        <input type="checkbox" class="checkbox" id="root-cause-analysis-csv-checkbox" />
+        <label style="margin-left: 50px" for="root-cause-analysis-csv-checkbox" class="checkbox__label">
+          <span class="checkbox__caption">Donwload CSV</span>
+        </label>
         <div id="root-cause-analysis-progress">
           <div id="root-cause-analysis-bar"></div>
         </div>
@@ -355,7 +355,7 @@
 
       <!-- ------------------------------------------------------------------------- -->
       <!-- Problem Trending -->
-      <div name="sidebar-content" id="reports-problem-trending" class="display">
+      <div name="sidebar-content" id="reports-problem-trending" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/chart-legend-meter-gray700.svg'></img>
@@ -369,23 +369,17 @@
         </div>
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
-        <p>Upon completion, this page will attempt to download two csv files of the collected data.</p>
-        <p>Specify the max amount of API requests per minute that this program should perform <b
-            class='warning'>(Recommendation: 40)</b>.</p>
-        <br>
-        <p><b class='warning'>SaaS environments CANNOT exceed 50 and it is recommended that Managed environments should
-            not exceed 50.</b></p>
-        <p>Consider the amount of other API calls that could be hitting your cluster when specifying this number.</p>
+        <p>Upon completion, collected data will be displayed at the bottom of the page. There is also an option to download .csv files.</p>
+
         <field class='field'>
-          <label for="problem-trending-max" class="label">Requests per minute:</label>
+          <label for="problem-trending-max" class="label">Requests per minute: (Consider the amount of other API calls that could be hitting your cluster when specifying this number)<br>
+            <span class="warning">SaaS environments CANNOT exceed 50 and it is recommended that Managed environments SHOULD NOT exceed 50</span></label>
           <select class="reqCountSelect select" id="problem-trending-max">
             <option value="40" selected>40</option>
             <option value="40">30</option>
             <option value="40">20</option>
             <option value="40">10</option>
           </select>
-          <!-- <label for="i0" class="label">Max requests per minute:</label>
-            <input type="text" class="inputfield" id="maxRequests2"/> -->
         </field>
         <field class='field'>
           <label for="problem-trending-environment-select" class="label">Environment Name:</label>
@@ -399,17 +393,24 @@
             <option value="SELECT TAG" selected="selected">SELECT TAG</option>
           </select>
         </field>
-        <p>Specify the time frame that you would like to perform the analysis for. <b class='warning'>Time frame must
-            not exceed 31 days in length.</b></p>
+
         <field class='field'>
+          <label for="problem-trending-date-range-picker" class="label">Date Range: <span class="warning">Time frame must not exceed 31 days in length!</span></label>
+          <div class="date__range__picker" id="problem-trending-date-range-picker">
+            <i class="fa fa-calendar"></i>
+            <span></span> <i class="fa fa-caret-down"></i>
+          </div>
+        </field>
+        <!-- <field class='field'>
           <label for="problem-trending-start" class="label">Start Date:</label>
           <input type="text" class="inputfield" id="problem-trending-start" placeholder="mm/dd/yyyy" />
         </field>
         <field class='field'>
           <label for="problem-trending-end" class="label">End Date:</label>
           <input type="text" class="inputfield" id="problem-trending-end" placeholder="mm/dd/yyyy" />
-        </field>
-        <field class="field">
+        </field> -->
+        <div style="display:flex; flex-direction:row;">
+        <field class="field checkbox__column">
           <label class="label">Severity Levels:</label>
           <input type="checkbox" class="checkbox" id="problem-trending-error-checkbox" checked />
           <label for="problem-trending-error-checkbox" class="checkbox__label">
@@ -427,8 +428,8 @@
           <label for="problem-trending-availability-checkbox" class="checkbox__label">
             <span class="checkbox__caption">AVAILABILITY</span>
           </label>
-          <br>
-          <br>
+        </field>
+        <field class="field checkbox__column">
           <label class="label">Impact Levels:</label>
           <input type="checkbox" class="checkbox" id="problem-trending-applications-checkbox" checked />
           <label for="problem-trending-applications-checkbox" class="checkbox__label">
@@ -447,8 +448,12 @@
             <span class="checkbox__caption">ENVIRONMENT</span>
           </label>
         </field>
+      </div>
         <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainProblemTrending()">Run Query</button>
-        </field>
+        <input type="checkbox" class="checkbox" id="problem-trending-csv-checkbox" />
+        <label style="margin-left: 50px" for="problem-trending-csv-checkbox" class="checkbox__label">
+          <span class="checkbox__caption">Donwload CSV</span>
+        </label>
         <div id="problem-trending-progress">
           <div id="problem-trending-bar"></div>
         </div>
@@ -1279,75 +1284,77 @@
     <!-- End of Audit Users -->
 
     <!-- ------------------------------------------------------------------------- -->
-    <!-- Manage Environments -->
-    <div name="sidebar-content" id="manage-environments" class="none">
-      <div class="infochip">
-        <div class="infochip__icon">
-          <img class="icon" src='images/services-gray700.svg'></img>
-        </div>
-        <div class="infochip__desc">
-          <div class="infochip__desc__title" title="Manage Environments">
-            <div>Manage Environments</div>
+      <!-- Manage Environments -->
+      <div name="sidebar-content" id="manage-environments" class="none">
+        <div class="infochip">
+          <div class="infochip__icon">
+            <img class="icon" src='images/services-gray700.svg'></img>
           </div>
-          <div>Configure the Dynatrace environments that these programs will interact with</div>
+          <div class="infochip__desc">
+            <div class="infochip__desc__title" title="Manage Environments">
+              <div>Manage Environments</div>
+            </div>
+            <div>Configure the Dynatrace environments that these programs will interact with</div>
+          </div>
         </div>
+        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+        <input type="radio" class="radio" id="session-storage-radio" />
+        <label for="session-storage-radio" class="radio__label">
+          <span class="radio__caption">Use Session Storage</span>
+        </label>
+        <input type="radio" class="radio" id="local-storage-radio" />
+        <label for="local-storage-radio" class="radio__label">
+          <span class="radio__caption">Use Local Storage</span>
+        </label>
+        <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+        <field class='field'>
+          <label for="" class="label">Name:</label>
+          <input type="text" class="inputfield" id="environment-name-input" />
+        </field>
+        <field class='field'>
+          <label for="i0" class="label">Dynatrace Environment URL:</label>
+          <input type="text" class="inputfield" id="environment-url-input" />
+        </field>
+        <field class='field'>
+          <label for="i0" class="label">API Token:</label>
+          <input type="text" class="inputfield" id="environment-token-input" />
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add
+          Environment</button>
+        <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error"
+          onclick="closeManageEnvironments()">Close</button>
+        <hr>
+        <h2>Environments</h2>
+        <table class="table" id='manage-environments-table'>
+          <thead>
+            <tr>
+              <th>Environment Name</th>
+              <th>URL</th>
+              <th>Token</th>
+              <th>Tags?</th>
+              <th>Applications?</th>
+              <th>MZs?</th>
+              <th>Timeseries Metrics?</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id='manage-environments-tbody'></tbody>
+        </table>
       </div>
-      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-      <input type="radio" class="radio" id="session-storage-radio" />
-      <label for="session-storage-radio" class="radio__label">
-        <span class="radio__caption">Use Session Storage</span>
-      </label>
-      <input type="radio" class="radio" id="local-storage-radio" />
-      <label for="local-storage-radio" class="radio__label">
-        <span class="radio__caption">Use Local Storage</span>
-      </label>
-      <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
-      <p>Add an environment:</p>
-      <!--Add Environment here and button to delete env-->
-      <table class="table" id='manage-environments-table'>
-        <thead>
-          <tr>
-            <th>Environment Name</th>
-            <th>URL</th>
-            <th>Token</th>
-            <th>Tags?</th>
-            <th>MZs?</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody id='manage-environments-tbody'></tbody>
-      </table>
-
-      <field class='field'>
-        <label for="environment-name-input" class="label">Name:</label>
-        <input type="text" class="inputfield" id="environment-name-input" />
-      </field>
-      <field class='field'>
-        <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
-        <input type="text" class="inputfield" id="environment-url-input" />
-      </field>
-      <field class='field'>
-        <label for="environment-token-input" class="label">API Token:</label>
-        <input type="text" class="inputfield" id="environment-token-input" />
-      </field>
-      <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add
-        Environment</button>
-      <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error"
-        onclick="closeManageEnvironments()">Close</button>
-    </div>
-    <!-- End of Manage Environments -->
+      <!-- End of Manage Environments -->
 
 
   </div><!-- End of Reports Content -->
   </div><!-- End of Main Body -->
 
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="scripts/dynatrace-groundhog.js"></script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <script type="text/javascript" src="scripts/shared_scripts.js"></script>
   <script type="text/javascript" src="scripts/environments.js"></script>
   <script type="text/javascript" src="scripts/report_rootCauseAnalysis.js"></script>

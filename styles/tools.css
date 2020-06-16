@@ -2,6 +2,26 @@
   margin-top: 30px;
 }
 
+.checkbox__label:before, .checkbox__label:after {
+  margin-top: 3px;
+}
+
+.business__days {
+  display: flex; 
+  flex-direction: row; 
+  align-items:center;
+}
+
+.business__days__label {
+  width:150px !important;
+}
+
+.business__days__input {
+  width: 150px !important;
+  margin-right: 30px;
+  margin-left: 5px;
+}
+
 /* Autocomplete */
 /*the container must be positioned relative:*/
 /*
