@@ -56,25 +56,37 @@ function addTagsToEnvObj(tagsArray) {
     localStorage.setItem('envData', JSON.stringify(j));
 }
 
+// adds an environment to local/session storage
+// these environments will allow a user to execute the tools and reports
+// makes calls to tags/management zones/timeseries metrics/applications APIs
 async function addEnvironment() {
+    // Checks to see if the URL matches the SaaS pattern
     let saasUrlRegex = /https:\/\/\w{3}\d{5}.live.dynatrace.com/g;
+    // Checks the URL for the Managed pattern
     let managedUrlRegex = /https:\/\/\w{3}\d{5}\.dynatrace-managed\.com\/e\/\w{8}-\w{4}-\w{4}-\w{4}-\w{12}/g;
+    // Checks the token input for token pattern
     let tokenRegex = /\S{21}/g;
+    // Regex to mask the API token after submission
     let maskingRegex = /(?<=.{3})\S{13}/g;
-
-    let envName = document.getElementById('environment-name-input').value;
-    let envUrl = document.getElementById('environment-url-input').value;
+    // Get the environment name
+    let envName = $('#environment-name-input').val();
+    // Get the environment URL
+    let envUrl = $('#environment-url-input').val();
     let saasEnvUrl = envUrl;
     // envUrl.match(saasUrlRegex) ? envUrl.match(saasUrlRegex)[0] : false;
     // envUrl;
-
     let managedEnvUrl = envUrl.match(managedUrlRegex) ? envUrl.match(managedUrlRegex)[0] : false;
+    // Get selected radio button value
     let storage = $('.radio:checked').prop('name') || false;
 
-    console.log(saasEnvUrl);
-    console.log(managedEnvUrl);
-    let tokenInput = document.getElementById('environment-token-input').value;
+    // console.log(saasEnvUrl);
+    // console.log(managedEnvUrl);
+    // Get token value
+    let tokenInput = $('#environment-token-input').val();
+    // Check the token against token regex pattern
     let envToken = tokenInput.match(tokenRegex) ? tokenInput.match(tokenRegex)[0] : false;
+
+    // Initialize booleans to track success/failure of API calls
     let tagsBool = false;
     let mzsBool = false;
     let tsmBool = false;
@@ -82,7 +94,10 @@ async function addEnvironment() {
     
     // console.log(saasEnvUrl.match(regex));
 
+    // Verify all inputs have values
+    // if not, alert the user to fill in missing data
     if (envName && (saasEnvUrl || managedEnvUrl) && envToken && storage) {
+        // Run API call to get environment Tags
         let envTags = new Promise((resolve, reject) => {
             axios.get(saasEnvUrl + '/api/config/v1/autoTags', {
                 headers: {
@@ -104,6 +119,7 @@ async function addEnvironment() {
                 resolve([]);
             });
         });
+        // Run API call to get environment Management Zones
         let envMZs = new Promise((resolve, reject) => {
             axios.get(saasEnvUrl + '/api/config/v1/managementZones', {
                 headers: {
@@ -125,7 +141,7 @@ async function addEnvironment() {
                 resolve([]);
             });
         });
-
+        // Run API call to get environment Time Series Metrics
         let envTsm = new Promise((resolve, reject) => {
             axios.get(saasEnvUrl + '/api/v1/timeseries', {
                 headers: {
@@ -151,7 +167,7 @@ async function addEnvironment() {
                 resolve([]);
             });
         });
-
+        // Run API call to get environment Applications
         let envApplications = new Promise((resolve, reject) => {
             axios.get(saasEnvUrl + '/api/v1/entity/applications', {
                 headers: {
@@ -172,6 +188,7 @@ async function addEnvironment() {
             });
         });
 
+        // Build session/local storage object
         DTEnvs[envName] = {
             'URL': saasEnvUrl,
             'TOK': envToken,
@@ -182,14 +199,19 @@ async function addEnvironment() {
             'STOR': storage,
             'LOGS': {}
         };
-        console.log(envApplications);
+        // console.log(envApplications);
 
         document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + envName + "'><td>" + envName + "</td><td>" + saasEnvUrl + "</td><td>" + envToken.replace(maskingRegex, '*****************') + "</td><td>" + tagsBool + "</td><td>" + applicationsBool + "</td><td>"+ mzsBool + "</td><td>" + tsmBool + "</td><td>" + storage + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + envName + "\")'>Remove</button></td></tr>";
 
         // updateEnvironmentTable();
+        // Save the object to specified storage location
         saveLocalStorage();
+        // Update all Environment Dropdowns
         updateEnvironmentSelects();
+        // Clear user inputs on successful submission
         clearInputFields();
+
+    // Alert user on missing data
     } else {
         if(!saasEnvUrl && !managedEnvUrl){ 
             alert("Invalid URL!") 
@@ -203,23 +225,26 @@ async function addEnvironment() {
     }
 }
 
+// Update environment dropdowns
 function updateEnvironmentSelects() {
+    // Get an array of Environment names
     let keys = Object.keys(DTEnvs);
+    // Remove all items in the select
     $('.envSelect').find('option').remove().end();
+    // For each environment, add the name to the dropdown
     keys.forEach(function (curVal, index) {
+        // If the item is last in the list, add one additional item for null value
+        // Used as a visual aid only
         if (index == keys.length - 1) {
-            // $('#select1').append(`<option value="${index}" selected="selected">${curVal}</option>`).val(`${index}`);
-            // $('#select2').append(`<option value="${index}" selected="selected">${curVal}</option>`).val(`${index}`);
             $('.envSelect').append(`<option value="${curVal}">${curVal}</option>`).val(`${curVal}`);
             $('.envSelect').append(`<option class="none" value="SELECT ENVIRONMENT" selected hidden disabled>SELECT ENVIRONMENT</option>`).val(`SELECT ENVIRONMENT`);
         } else {
-            // $('#select1').append(`<option value="${index}">${curVal}</option>`).val(`${index}`);
-            // $('#select2').append(`<option value="${index}">${curVal}</option>`).val(`${index}`);
             $('.envSelect').append(`<option value="${curVal}">${curVal}</option>`).val(`${curVal}`);
         }
     });
 }
 
+// Clear user inputs
 function clearInputFields() {
     $('#environment-name-input, #environment-url-input, #environment-token-input').val('');
 }
