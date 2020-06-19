@@ -67,8 +67,9 @@ async function addEnvironment() {
     let saasEnvUrl = envUrl;
     // envUrl.match(saasUrlRegex) ? envUrl.match(saasUrlRegex)[0] : false;
     // envUrl;
-    // 
+
     let managedEnvUrl = envUrl.match(managedUrlRegex) ? envUrl.match(managedUrlRegex)[0] : false;
+    let storage = $('.radio:checked').prop('name') || false;
 
     console.log(saasEnvUrl);
     console.log(managedEnvUrl);
@@ -81,7 +82,7 @@ async function addEnvironment() {
     
     // console.log(saasEnvUrl.match(regex));
 
-    if (envName && (saasEnvUrl || managedEnvUrl) && envToken) {
+    if (envName && (saasEnvUrl || managedEnvUrl) && envToken && storage) {
         let envTags = new Promise((resolve, reject) => {
             axios.get(saasEnvUrl + '/api/config/v1/autoTags', {
                 headers: {
@@ -178,11 +179,12 @@ async function addEnvironment() {
             'MZS': await envMZs,
             'TSM': await envTsm,
             'APP': await envApplications,
+            'STOR': storage,
             'LOGS': {}
         };
         console.log(envApplications);
 
-        document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + envName + "'><td>" + envName + "</td><td>" + saasEnvUrl + "</td><td>" + envToken.replace(maskingRegex, '*****************') + "</td><td>" + tagsBool + "</td><td>" + applicationsBool + "</td><td>"+ mzsBool + "</td><td>" + tsmBool + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + envName + "\")'>Remove</button></td></tr>";
+        document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + envName + "'><td>" + envName + "</td><td>" + saasEnvUrl + "</td><td>" + envToken.replace(maskingRegex, '*****************') + "</td><td>" + tagsBool + "</td><td>" + applicationsBool + "</td><td>"+ mzsBool + "</td><td>" + tsmBool + "</td><td>" + storage + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + envName + "\")'>Remove</button></td></tr>";
 
         // updateEnvironmentTable();
         saveLocalStorage();
@@ -193,6 +195,8 @@ async function addEnvironment() {
             alert("Invalid URL!") 
         } else if(!envToken) {
             alert("Inavlid API Token!")  
+        } else if(!storage){
+            alert("Please select Session or Local storage!")
         } else {
             alert("Missing info!!");
         }

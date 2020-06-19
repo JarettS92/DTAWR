@@ -1,23 +1,32 @@
 //main function for Tag Duplicator
 function mainTagDuplicator() {
-  console.log(document.getElementById("tag-duplicator-environment1-select").value);
-  let DTenv = getEnvironment(document.getElementById("tag-duplicator-environment1-select").value);
-  let settings = {
-      "url": DTenv['URL'] + "/api/config/v1/autoTags",
-      "method": "GET",
-      "timeout": 0,
-      "headers": {
-          "Authorization": "Api-Token " + DTenv['TOK'],
-          "Content-Type": "application/json"
-      }
-  };
-  let tagList = [];
-  $.ajax(settings).done(function (response) {
-      getUserInput(response);
-      // for (let i = 0; i < response['values'].length; i++) tagList.push(response['values'][i]['name']);
-      // console.log(tagList);
-      // return tagList;
-  });
+    let select1Bool = ($('#tag-duplicator-environment1-select').val() != undefined && $('#tag-duplicator-environment1-select').val() != '') ? true : false;
+    let select2Bool = ($('#tag-duplicator-environment2-select').val() != undefined && $('#tag-duplicator-environment2-select').val() != '') ? true : false;
+    let tag1Bool = ($('#tag-duplicator-tag1-select').val() != undefined && $('#tag-duplicator-tag1-select').val() != '') ? true : false;
+    let tag2Bool = ($('#tag-duplicator-tag2-input').val() != undefined && $('#tag-duplicator-tag2-input').val() != '') ? true : false;
+
+    if(select1Bool && select2Bool && tag1Bool && tag2Bool){
+        //   console.log(document.getElementById("tag-duplicator-environment1-select").value);
+        let DTenv = getEnvironment(document.getElementById("tag-duplicator-environment1-select").value);
+        let settings = {
+            "url": DTenv['URL'] + "/api/config/v1/autoTags",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Authorization": "Api-Token " + DTenv['TOK'],
+                "Content-Type": "application/json"
+            }
+        };
+        // let tagList = [];
+        $.ajax(settings).done(function (response) {
+            getUserInput(response);
+            // for (let i = 0; i < response['values'].length; i++) tagList.push(response['values'][i]['name']);
+            // console.log(tagList);
+            // return tagList;
+        });
+    } else {
+        alert("Missing Information!");
+    }
 }
 
 //Get a single tag rule, to be duplicated

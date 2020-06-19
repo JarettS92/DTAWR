@@ -1,5 +1,6 @@
 window.onload = function() {
     let authorized = (localStorage.getItem('authorization') != null) ? true : false;
+    let activeProcess = false;
     if(!authorized){
         // window.location.replace('/authorization.html');
         console.log('Authorized: ', authorized);
