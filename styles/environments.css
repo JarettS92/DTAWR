@@ -20,3 +20,7 @@
 #manage-environments-tbody td:first-child {
   font-weight: bold;
 }
+
+.refresh img {
+  height: 35px;
+}

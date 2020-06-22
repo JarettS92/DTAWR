@@ -161,7 +161,6 @@ function mainStarterTags() {
         if ($('#starter-tags-host-checkbox').prop("checked")) {
             settings['data'] = JSON.stringify(hostRule);
             $.ajax(settings).done(function (response) {
-                console.log('testing some bullshit')
                 $('#starter-tags-tbody').append('<tr><td>Host:{Detected Name}</td><td>Successful</td></tr>');
             });
         } else {

@@ -1,7 +1,8 @@
 function mainAuditReport() {
-  let env = DTEnvs[$('#audit-users-environment-select').val()];
+  let env = JSON.parse(DTEnvs[`env-${$('#audit-users-environment-select').val()}`]);
   let url = env.URL;
   let token = env.TOK;
+  
   let loginBool = $('#audit-users-logins-checkbox').prop("checked");
   let configBool = $('#audit-users-config-checkbox').prop("checked");
 
@@ -16,10 +17,10 @@ function mainAuditReport() {
       'Content-Type': 'application/json'
     }
   }).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       populateAuditUsersTable(res.data.auditLogs);
     });
-  console.log(env);
+  // console.log(env);
 }
 
 function populateAuditUsersTable(auditLogsArray) {
@@ -67,11 +68,11 @@ function populateAuditUsersTable(auditLogsArray) {
 $('#login-filter').click(function() {
   if($('#login-filter').hasClass('selected')){
     $('[eventtype="CONFIG"').removeClass("display").addClass("none");
-    console.log('SELECTED');
+    // console.log('SELECTED');
   }
   if(!$('#login-filter').hasClass('selected')){
     $('[eventtype="CONFIG"').removeClass("none").addClass("display");
-    console.log('NOT SELECTED');
+    // console.log('NOT SELECTED');
   }
   $('#config-filter').removeClass('selected');
 });

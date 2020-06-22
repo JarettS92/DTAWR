@@ -1,65 +1,148 @@
-let DTEnvs = {};
+let DTEnvs = {
+    ...loadLocalStorage(),
+    ...loadSessionStorage()
+};
 
+// console.log(DTEnvs);
 //Initiates load storage on start
-loadLocalStorage();
+loadStorage();
+
+$('.refresh').click(function() {
+    console.log($(this));
+    // Need to add code to refresh tenant
+});
 
 //Saves current env json and env table on Home tab to storage
-function saveLocalStorage() {
-    let j = {
-        "table": String($('#manage-environments-tbody').html()),
-        "jsonObj": JSON.stringify(DTEnvs)
-    };
-    localStorage.setItem('envData', JSON.stringify(j));
-}
-
-//Uses storage to populate env json and env table on Home tab
-function loadLocalStorage() {
-    try {
-        let t = localStorage.getItem('envData');
-        if (t != null) {
-            t = JSON.parse(t);
-            DTEnvs = JSON.parse(t["jsonObj"]);
-            $('#manage-environments-tbody').html(t["table"]);
-        }
-    } catch (e) {
-        console.log(e);
+function saveLocalStorage(type, name, data) {
+    switch(type){
+        case "session":
+            sessionStorage.setItem(`env-${name}`, JSON.stringify(data));
+            break;
+        case "local": 
+            localStorage.setItem(`env-${name}`, JSON.stringify(data));
+            break;
+        default:
+            sessionStorage.setItem(`env-${name}`, JSON.stringify(data));
     }
 }
 
-//If user messes up table, button will clear table
-function deleteLocalStorage() {
-    localStorage.removeItem('envData');
+//Uses storage to populate table
+function loadStorage() {
+    let newObj = {
+        ...loadLocalStorage(),
+        ...loadSessionStorage()
+    }
+
+    for(const env in newObj){
+        // Regex to mask the API token after submission
+        let maskingRegex = /(?<=.{3})\S{13}/g;
+        let obj = JSON.parse(newObj[env]);
+        let name = env.slice(4);
+        $('#manage-environments-table').append(`
+            <tbody id="row-${name}" class="expandable">
+            <tr>
+                <td><a href="#" class='refresh'><img src="images/1200px-Refresh_icon.svg.png"></a></td>
+                <td>${name}</td>
+                <td>${obj.URL}</td>
+                <td>${obj.TOK.replace(maskingRegex, '*****************')}</td>
+                <td><button class='btn btn--primary theme--dark' onclick='delEnvironment("${name}")'>Remove</button></td>
+                <td><a href="#" name="${name}" class="expandable__trigger">Details</td>
+            </tr>
+            <tr class="expandable__content">
+                <td colspan="6">
+                    <dl class='definition-list'>
+                        <dt>Tags?</dt>
+                        <dd>${(obj.TAGS.length != 0) ? true : false}</dd>
+                        <dt>Applications?</dt>
+                        <dd>${(obj.APP.length != 0) ? true : false}</dd>
+                        <dt>Management Zones?</dt>
+                        <dd>${(obj.MZS.length != 0) ? true : false}</dd>
+                        <dt>Time Series Metrics?</dt>
+                        <dd>${(obj.TSM.length != 0) ? true : false}</dd>
+                        <dt>Storage?</dt>
+                        <dd>${obj.STOR}</dd>
+                    </dl>
+                </td>
+            </tr>
+            </tbody>`);
+        // console.log(JSON.parse(newObj[env]));
+        // console.log(name);
+    }
+
+    console.log(newObj);
 }
+
+function loadLocalStorage() {
+    let arr = Object.keys(window.localStorage).filter((curVal) => {
+        let re = /^env-/;
+        return re.test(curVal);
+    });
+    let obj = {};
+    for(var x of arr){
+        obj[x] = localStorage.getItem(x);
+        // console.log(obj);
+    }
+    return obj;
+}
+
+function loadSessionStorage(){    
+    let arr = Object.keys(window.sessionStorage).filter((curVal) => {
+        let re = /^env-/;
+        return re.test(curVal);
+    });
+    let obj = {};
+    for(var x of arr){
+        obj[x] = sessionStorage.getItem(x);
+        // console.log(obj);
+    }
+    return obj;
+}
+
+//If user messes up table, button will clear table
+// function deleteLocalStorage() {
+//     localStorage.removeItem('envData');
+// }
 
 //gets an environment for a program
 function getEnvironment(name) {
-    return DTEnvs[name];
+    let local = localStorage.getItem(`env-${name}`) ? true : false;
+    let session = sessionStorage.getItem(`env-${name}`) ? true : false;
+
+    if(local){ return JSON.parse(localStorage.getItem(`env-${name}`)) }
+    else if(session){ return JSON.parse(sessionStorage.getItem(`env-${name}`)) }
+    else { alert('NO SUCH ENVIRONMENT!') }
+    console.log(local, session);
+    // return DTEnvs[name];
 }
 
 //removes a row from manage-environments-tbody
 function delEnvironment(name) {
-    delete DTEnvs[name];
-    console.log(DTEnvs);
-    document.getElementById('Row' + name).remove();
-    saveLocalStorage();
+    let local = localStorage.getItem(`env-${name}`) ? true : false;
+    let session = sessionStorage.getItem(`env-${name}`) ? true : false;
+    if(local){ localStorage.removeItem(`env-${name}`) }
+    else if(session){ sessionStorage.removeItem(`env-${name}`) }
+    else { alert('NO SUCH ENVIRONMENT!') }
+    document.getElementById('row-' + name).remove();
+    // saveLocalStorage();
     // Added by Jarett
     updateEnvironmentSelects();
 }
 
 // --------------------------------------------------------------------------------------- //
 // JARETT SMITH ADDITION
-function addTagsToEnvObj(tagsArray) {
-    let j = {
-        "table": String(document.getElementById('manage-environments-tbody').innerHTML),
-        "jsonObj": JSON.stringify(DTEnvs)
-    };
-    localStorage.setItem('envData', JSON.stringify(j));
-}
+// function addTagsToEnvObj(tagsArray) {
+//     let j = {
+//         "table": $('#manage-environments-table').html(),
+//         "jsonObj": JSON.stringify(DTEnvs)
+//     };
+//     localStorage.setItem('envData', JSON.stringify(j));
+// }
 
 // adds an environment to local/session storage
 // these environments will allow a user to execute the tools and reports
 // makes calls to tags/management zones/timeseries metrics/applications APIs
 async function addEnvironment() {
+
     // Checks to see if the URL matches the SaaS pattern
     let saasUrlRegex = /https:\/\/\w{3}\d{5}.live.dynatrace.com/g;
     // Checks the URL for the Managed pattern
@@ -189,7 +272,7 @@ async function addEnvironment() {
         });
 
         // Build session/local storage object
-        DTEnvs[envName] = {
+        let obj = {
             'URL': saasEnvUrl,
             'TOK': envToken,
             'TAGS': await envTags,
@@ -201,11 +284,38 @@ async function addEnvironment() {
         };
         // console.log(envApplications);
 
-        document.getElementById('manage-environments-tbody').innerHTML += "<tr id='Row" + envName + "'><td>" + envName + "</td><td>" + saasEnvUrl + "</td><td>" + envToken.replace(maskingRegex, '*****************') + "</td><td>" + tagsBool + "</td><td>" + applicationsBool + "</td><td>"+ mzsBool + "</td><td>" + tsmBool + "</td><td>" + storage + "</td><td><button class='btn btn--primary theme--dark' onclick='delEnvironment(\"" + envName + "\")'>Remove</button></td></tr>";
+        // Display newly added environment on the page
+        $('#manage-environments-table').append(`
+            <tbody id="row-${envName}" class="expandable">
+            <tr>
+                <td><a href="#" class='refresh'><img src="images/1200px-Refresh_icon.svg.png"></a></td>
+                <td>${envName}</td>
+                <td>${saasEnvUrl}</td>
+                <td>${envToken.replace(maskingRegex, '*****************')}</td>
+                <td><button class='btn btn--primary theme--dark' onclick='delEnvironment("${envName}")'>Remove</button></td>
+                <td><a href="#" name="${envName}" class="expandable__trigger">Details</td>
+            </tr>
+            <tr class="expandable__content">
+                <td colspan="6">
+                    <dl class='definition-list'>
+                        <dt>Tags?</dt>
+                        <dd>${tagsBool}</dd>
+                        <dt>Applications?</dt>
+                        <dd>${applicationsBool}</dd>
+                        <dt>Management Zones?</dt>
+                        <dd>${mzsBool}</dd>
+                        <dt>Time Series Metrics?</dt>
+                        <dd>${tsmBool}</dd>
+                        <dt>Storage?</dt>
+                        <dd>${storage}</dd>
+                    </dl>
+                </td>
+            </tr>
+            </tbody>`);
 
         // updateEnvironmentTable();
         // Save the object to specified storage location
-        saveLocalStorage();
+        saveLocalStorage(storage, envName, obj);
         // Update all Environment Dropdowns
         updateEnvironmentSelects();
         // Clear user inputs on successful submission
@@ -228,11 +338,13 @@ async function addEnvironment() {
 // Update environment dropdowns
 function updateEnvironmentSelects() {
     // Get an array of Environment names
-    let keys = Object.keys(DTEnvs);
+    let keys = Object.keys(loadLocalStorage()).concat(Object.keys(loadSessionStorage()));
+
     // Remove all items in the select
     $('.envSelect').find('option').remove().end();
     // For each environment, add the name to the dropdown
     keys.forEach(function (curVal, index) {
+        curVal = curVal.slice(4);
         // If the item is last in the list, add one additional item for null value
         // Used as a visual aid only
         if (index == keys.length - 1) {

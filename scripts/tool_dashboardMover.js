@@ -1,25 +1,26 @@
 $('#dashboard-mover-button1').click(function () {
-  let env = $('#dashboard-mover-environment1-select').val();
-  let url = DTEnvs[env].URL.concat('/api/config/v1/dashboards');
-  let token = DTEnvs[env].TOK;
+  let env = `env-${$('#dashboard-mover-environment1-select').val()}`;
+  let url = JSON.parse(DTEnvs[env]).URL.concat('/api/config/v1/dashboards');
+  
+  let token = JSON.parse(DTEnvs[env]).TOK;
   // console.log(token);
   axios.get(url, {
     headers: {
       'Authorization': `Api-Token ${token}`
     }
   }).then((res) => {
-    console.log(res.data.dashboards);
+    // console.log(res.data.dashboards);
     buildDashboardList("dashboard-mover-table1", res.data.dashboards);
   }).catch((err) => {
-    console.log(err);
-    alert(`Unable to pull dashboards from tenant: \"${env}\"`);
+    // console.log(err);
+    alert(`Unable to pull dashboards from tenant: \"${env.slice(4)}\"`);
   })
 });
 
 $('#dashboard-mover-button2').click(function () {
   let env = $('#dashboard-mover-environment2-select').val();
-  let url = DTEnvs[env].URL.concat('/api/config/v1/dashboards');
-  let token = DTEnvs[env].TOK;
+  let url = JSON.parse(DTEnvs[env]).URL.concat('/api/config/v1/dashboards');
+  let token = JSON.parse(DTEnvs[env]).TOK;
   // console.log(token);
   axios.get(url, {
     headers: {
@@ -30,7 +31,7 @@ $('#dashboard-mover-button2').click(function () {
     buildDashboardList("dashboard-mover-table2", res.data.dashboards);
   }).catch((err) => {
     console.log(err);
-    alert(`Unable to pull dashboards from tenant: \"${env}\"`);
+    alert(`Unable to pull dashboards from tenant: \"${env.slice(4)}\"`);
   })
 });
 

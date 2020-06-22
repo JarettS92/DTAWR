@@ -19,12 +19,7 @@ window.onload = function() {
             $("div[name='sidebar-content']").removeClass("display").addClass("none");
             $(`#${navLocation}`).addClass("display").removeClass("none");
             $(".sidebar__item").removeClass("is-current");
-            if(navLocation == 'bizops-configurator'){
-                $(`a[sidebar-content-id='${navLocation}`).parent().addClass('is-active');
-                $(`a[sidebar-content-id='bizops-overview`).addClass("is-current");
-            } else {
-                $(`a[sidebar-content-id='${navLocation}']`).addClass("is-current"); 
-            }
+            $(`a[sidebar-content-id='${navLocation}']`).addClass("is-current"); 
         }
     }
 

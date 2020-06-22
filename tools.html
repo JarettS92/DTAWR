@@ -236,10 +236,12 @@
         </div>
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p>This section is to tell the user how to go about using the Reports functions</p>
-        <p>1. Make sure you configure your Tenants first! (top right corner)</p>
-        <p>2. Navigate to the report you want to run</p>
-        <p>3. Fill in any required data (dates, tags)</p>
-        <p>4. Run the report **Some may download a .csv file on completion**</p>
+        <ol>
+          <li>Make sure you configure your Tenants first! (top right corner)</li>
+          <li>Navigate to the tool you want to run</li>
+          <li>Fill in any required data (dates, tags, management zones)</li>
+          <li>Run the tool</li>
+        </ol>
       </div>
       <!-- End of Overview -->
 
@@ -670,44 +672,42 @@
           <input type="text" class="inputfield" id="environment-name-input" />
         </field>
         <field class='field'>
-          <label for="i0" class="label">Dynatrace Environment URL:</label>
+          <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
           <input type="text" class="inputfield" id="environment-url-input" />
         </field>
         <field class='field'>
-          <label for="i0" class="label">API Token:</label>
+          <label for="environment-token-input" class="label">API Token:</label>
           <input type="text" class="inputfield" id="environment-token-input" />
         </field>
         <field class="field">
           <input type="radio" class="radio" id="session-storage-radio" name="session"/>
           <label for="session-storage-radio" class="radio__label">
-            <span class="radio__caption">Use Session Storage (Environments and Tokens cleared on Browser close)</span>
+            <span class="radio__caption">Use Session Storage (Environments and Tokens cleared when the browser is closed)</span>
           </label>
         <br>
           <input type="radio" class="radio" id="local-storage-radio" name="local"/>
           <label for="local-storage-radio" class="radio__label">
-            <span class="radio__caption">Use Local Storage <span class="warning">(Environments and Tokens persist on browser close! Delete below or clear cache)</span></span>
+            <span class="radio__caption">Use Local Storage <span class="warning">(Environments and Tokens persist closing the browser! Delete manually below or clear browser cache)</span></span>
           </label>
         </field>
         <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
         <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
         <hr>
         <h2>Environments</h2>
-        <table class="table" id='manage-environments-table'>
-          <thead>
-            <tr>
-              <th>Environment Name</th>
-              <th>URL</th>
-              <th>Token</th>
-              <th>Tags?</th>
-              <th>Applications?</th>
-              <th>MZs?</th>
-              <th>Timeseries Metrics?</th>
-              <th>Storage?</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody id='manage-environments-tbody'></tbody>
-        </table>
+        <div class="theme--blue">
+          <table class="table table--expandable" data-behavior="accordion" id='manage-environments-table'>
+            <thead>
+              <tr>
+                <th>Refresh</th>
+                <th>Name</th>
+                <th>URL</th>
+                <th>Token</th>
+                <th>Delete</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </div>
       <!-- End of Manage Environments -->
 
@@ -718,7 +718,6 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
   <script type="text/javascript" src="scripts/jquery.timepicker.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -729,4 +728,5 @@
   <script type="text/javascript" src="scripts/tool_tagDuplicator.js"></script>
   <script type="text/javascript" src="scripts/tool_starterTags.js"></script>
   <script type="text/javascript" src="scripts/tool_dashboardMover.js"></script>
+  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
 </body>
