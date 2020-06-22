@@ -1284,68 +1284,65 @@
     <!-- End of Audit Users -->
 
     <!-- ------------------------------------------------------------------------- -->
-      <!-- Manage Environments -->
-      <div name="sidebar-content" id="manage-environments" class="none">
-        <div class="infochip">
-          <div class="infochip__icon">
-            <img class="icon" src='images/services-gray700.svg'></img>
-          </div>
-          <div class="infochip__desc">
-            <div class="infochip__desc__title" title="Manage Environments">
-              <div>Manage Environments</div>
-            </div>
-            <div>Configure the Dynatrace environments that these programs will interact with</div>
-          </div>
+    <!-- Manage Environments -->
+    <div name="sidebar-content" id="manage-environments" class="none">
+      <div class="infochip">
+        <div class="infochip__icon">
+          <img class="icon" src='images/services-gray700.svg'></img>
         </div>
-        <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        
-        <p>Define an environment below</p>
-        <field class='field'>
-          <label for="" class="label">Name:</label>
-          <input type="text" class="inputfield" id="environment-name-input" />
-        </field>
-        <field class='field'>
-          <label for="i0" class="label">Dynatrace Environment URL:</label>
-          <input type="text" class="inputfield" id="environment-url-input" />
-        </field>
-        <field class='field'>
-          <label for="i0" class="label">API Token:</label>
-          <input type="text" class="inputfield" id="environment-token-input" />
-        </field>
-        <field class="field">
-          <input type="radio" class="radio" id="session-storage-radio" name="session"/>
-          <label for="session-storage-radio" class="radio__label">
-            <span class="radio__caption">Use Session Storage (Environments and Tokens cleared when the browser is closed)</span>
-          </label>
-        <br>
-          <input type="radio" class="radio" id="local-storage-radio" name="local"/>
-          <label for="local-storage-radio" class="radio__label">
-            <span class="radio__caption">Use Local Storage <span class="warning">(Environments and Tokens persist closing the browser! Delete manually below or clear browser cache)</span></span>
-          </label>
-        </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add
-          Environment</button>
-        <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error"
-          onclick="closeManageEnvironments()">Close</button>
-        <hr>
-        <h2>Environments</h2>
-        <table class="table" id='manage-environments-table'>
+        <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Manage Environments">
+            <div>Manage Environments</div>
+          </div>
+          <div>Configure the Dynatrace environments that these programs will interact with</div>
+        </div>
+      </div>
+      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+      
+      <p>Define an environment below</p>
+      <field class='field'>
+        <label for="" class="label">Name:</label>
+        <input type="text" class="inputfield" id="environment-name-input" />
+      </field>
+      <field class='field'>
+        <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
+        <input type="text" class="inputfield" id="environment-url-input" />
+      </field>
+      <field class='field'>
+        <label for="environment-token-input" class="label">API Token:</label>
+        <input type="text" class="inputfield" id="environment-token-input" />
+      </field>
+      <field class="field">
+        <input type="radio" class="radio" id="session-storage-radio" name="session"/>
+        <label for="session-storage-radio" class="radio__label">
+          <span class="radio__caption">Use Session Storage (Environments and Tokens cleared when the browser is closed)</span>
+        </label>
+      <br>
+        <input type="radio" class="radio" id="local-storage-radio" name="local"/>
+        <label for="local-storage-radio" class="radio__label">
+          <span class="radio__caption">Use Local Storage <span class="warning">(Environments and Tokens persist closing the browser! Delete manually below or clear browser cache)</span></span>
+        </label>
+      </field>
+      <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+      <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
+      <hr>
+      <h2>Environments</h2>
+      <div class="theme--blue">
+        <table class="table table--expandable" data-behavior="accordion" id='manage-environments-table'>
           <thead>
             <tr>
-              <th>Environment Name</th>
+              <th>Refresh</th>
+              <th>Name</th>
               <th>URL</th>
               <th>Token</th>
-              <th>Tags?</th>
-              <th>Applications?</th>
-              <th>MZs?</th>
-              <th>Timeseries Metrics?</th>
               <th>Delete</th>
+              <th>Details</th>
             </tr>
           </thead>
-          <tbody id='manage-environments-tbody'></tbody>
         </table>
       </div>
-      <!-- End of Manage Environments -->
+    </div>
+    <!-- End of Manage Environments -->
 
 
   </div><!-- End of Reports Content -->
@@ -1355,7 +1352,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script type="text/javascript" src="scripts/dynatrace-groundhog.js"></script>
+  
   <script type="text/javascript" src="scripts/scripts.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -1369,5 +1366,5 @@
   <script type="text/javascript" src="scripts/report_problems.js"></script>
   <script type="text/javascript" src="scripts/report_problemTrending.js"></script>
   <script type="text/javascript" src="scripts/report_auditUsers.js"></script>
-
+  <script type="text/javascript" src="scripts/dynatrace-groundhog.js"></script>
 </body>

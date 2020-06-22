@@ -400,48 +400,49 @@
           </div>
         </div>
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-        <input type="radio" class="radio" id="session-storage-radio" />
-        <label for="session-storage-radio" class="radio__label">
-          <span class="radio__caption">Use Session Storage</span>
-        </label>
-        <input type="radio" class="radio" id="local-storage-radio" />
-        <label for="local-storage-radio" class="radio__label">
-          <span class="radio__caption">Use Local Storage</span>
-        </label>
-        <p>Define an environment below. Use the name to refer to it in the different tabs.</p>
+        
+        <p>Define an environment below</p>
         <field class='field'>
           <label for="" class="label">Name:</label>
           <input type="text" class="inputfield" id="environment-name-input" />
         </field>
         <field class='field'>
-          <label for="i0" class="label">Dynatrace Environment URL:</label>
+          <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
           <input type="text" class="inputfield" id="environment-url-input" />
         </field>
         <field class='field'>
-          <label for="i0" class="label">API Token:</label>
+          <label for="environment-token-input" class="label">API Token:</label>
           <input type="text" class="inputfield" id="environment-token-input" />
         </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add
-          Environment</button>
-        <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error"
-          onclick="closeManageEnvironments()">Close</button>
+        <field class="field">
+          <input type="radio" class="radio" id="session-storage-radio" name="session"/>
+          <label for="session-storage-radio" class="radio__label">
+            <span class="radio__caption">Use Session Storage (Environments and Tokens cleared when the browser is closed)</span>
+          </label>
+        <br>
+          <input type="radio" class="radio" id="local-storage-radio" name="local"/>
+          <label for="local-storage-radio" class="radio__label">
+            <span class="radio__caption">Use Local Storage <span class="warning">(Environments and Tokens persist closing the browser! Delete manually below or clear browser cache)</span></span>
+          </label>
+        </field>
+        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+        <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
         <hr>
         <h2>Environments</h2>
-        <table class="table" id='manage-environments-table'>
-          <thead>
-            <tr>
-              <th>Environment Name</th>
-              <th>URL</th>
-              <th>Token</th>
-              <th>Tags?</th>
-              <th>Applications?</th>
-              <th>MZs?</th>
-              <th>Timeseries Metrics?</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody id='manage-environments-tbody'></tbody>
-        </table>
+        <div class="theme--blue">
+          <table class="table table--expandable" data-behavior="accordion" id='manage-environments-table'>
+            <thead>
+              <tr>
+                <th>Refresh</th>
+                <th>Name</th>
+                <th>URL</th>
+                <th>Token</th>
+                <th>Delete</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </div>
       <!-- End of Manage Environments -->
 

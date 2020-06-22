@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="styles/styles.css" />
   <link rel="stylesheet" href="styles/shared_styles.css" />
   <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
+  <link rel="stylesheet" href="styles/environments.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -162,19 +163,13 @@
   <div class="theme--blue">
     <ul class="breadcrumbs">
       <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link" href="#">Artifacts</a>
+        <a class="breadcrumbs__link" href="#">Dashboards</a>
       </li>
       <li class="breadcrumbs__item breadcrumbs__last__parent">
-        <span class="breadcrumbs__last">Document Repository</span>
+        <span class="breadcrumbs__last">Overview</span>
       </li>
-      <li class="breadcrumbs__item envButton">
-        <div class="dropdown">
-          <button role="button" type="button" class="env-button overflow-ellipses"><span id="env-button-text">PROD</span></button>
-          <div class="drop-content">
-            <a name="prod" href="#">PROD</a>
-            <a name="add-env" href="#" onclick="navToAddEnv()">Manage...</a>
-          </div>
-        </div>
+      <li class="breadcrumbs__item manage__environments__parent">
+        <button role="button" type="button" class="manage__environments__button" onclick="navToManageEnvironments()"><span>Manage Environments</span></button>
       </li>
     </ul>
   </div>
@@ -1874,6 +1869,67 @@
 
       </div>
       <!-- End of On-Demand Deliverables -->  
+
+      <!-- ------------------------------------------------------------------------- -->
+    <!-- Manage Environments -->
+    <div name="sidebar-content" id="manage-environments" class="none">
+      <div class="infochip">
+        <div class="infochip__icon">
+          <img class="icon" src='images/services-gray700.svg'></img>
+        </div>
+        <div class="infochip__desc">
+          <div class="infochip__desc__title" title="Manage Environments">
+            <div>Manage Environments</div>
+          </div>
+          <div>Configure the Dynatrace environments that these programs will interact with</div>
+        </div>
+      </div>
+      <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+      
+      <p>Define an environment below</p>
+      <field class='field'>
+        <label for="" class="label">Name:</label>
+        <input type="text" class="inputfield" id="environment-name-input" />
+      </field>
+      <field class='field'>
+        <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
+        <input type="text" class="inputfield" id="environment-url-input" />
+      </field>
+      <field class='field'>
+        <label for="environment-token-input" class="label">API Token:</label>
+        <input type="text" class="inputfield" id="environment-token-input" />
+      </field>
+      <field class="field">
+        <input type="radio" class="radio" id="session-storage-radio" name="session"/>
+        <label for="session-storage-radio" class="radio__label">
+          <span class="radio__caption">Use Session Storage (Environments and Tokens cleared when the browser is closed)</span>
+        </label>
+      <br>
+        <input type="radio" class="radio" id="local-storage-radio" name="local"/>
+        <label for="local-storage-radio" class="radio__label">
+          <span class="radio__caption">Use Local Storage <span class="warning">(Environments and Tokens persist closing the browser! Delete manually below or clear browser cache)</span></span>
+        </label>
+      </field>
+      <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
+      <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
+      <hr>
+      <h2>Environments</h2>
+      <div class="theme--blue">
+        <table class="table table--expandable" data-behavior="accordion" id='manage-environments-table'>
+          <thead>
+            <tr>
+              <th>Refresh</th>
+              <th>Name</th>
+              <th>URL</th>
+              <th>Token</th>
+              <th>Delete</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <!-- End of Manage Environments -->
       
     </div><!-- End of Dashboards Content -->
   </div><!-- End of Main Body -->
