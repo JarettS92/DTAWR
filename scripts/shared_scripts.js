@@ -24,9 +24,9 @@ $("#darkmode").click(function() {
 
 // When an env dropdown is selected, change tag dropdown accordingly
 $('.envSelect').change((e) => {
-  let mzs = JSON.parse(DTEnvs[`env-${e.target.value}`])["MZS"];
-  let tags = JSON.parse(DTEnvs[`env-${e.target.value}`])["TAGS"];
-  let tsm = JSON.parse(DTEnvs[`env-${e.target.value}`])["TSM"];
+  let mzs = getEnvironment(e.target.value)["MZS"];
+  let tags = getEnvironment(e.target.value)["TAGS"];
+  let tsm = getEnvironment(e.target.value)["TSM"];
   let tagTarget = e.target.id.replace("environment", "tag");
   let mzTarget = e.target.id.replace("environment", "managementzone");
   let timeseriesTarget = e.target.id.replace("environment", "metric");
@@ -89,7 +89,7 @@ $('.metricSelect').change((e) => {
   let envTarget = $(`#${e.target.id.replace("metric", "environment")}`).val();
   console.log(envTarget);
   let aggregationTarget = e.target.id.replace("metric","aggregation");
-  let aggregationArr = JSON.parse(DTEnvs[`env-${envTarget}`]).TSM[e.target.value];
+  let aggregationArr = getEnvironment(envTarget).TSM[e.target.value];
   // ["TSM"][e.target.value];
   $(`#${aggregationTarget}`).find('option').remove().end();
 

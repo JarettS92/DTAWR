@@ -1,8 +1,8 @@
 $('#dashboard-mover-button1').click(function () {
-  let env = `env-${$('#dashboard-mover-environment1-select').val()}`;
-  let url = JSON.parse(DTEnvs[env]).URL.concat('/api/config/v1/dashboards');
+  let env = getEnvironment($('#dashboard-mover-environment1-select').val());
+  let url = env.URL.concat('/api/config/v1/dashboards');
   
-  let token = JSON.parse(DTEnvs[env]).TOK;
+  let token = env.TOK;
   // console.log(token);
   axios.get(url, {
     headers: {
@@ -18,9 +18,9 @@ $('#dashboard-mover-button1').click(function () {
 });
 
 $('#dashboard-mover-button2').click(function () {
-  let env = $('#dashboard-mover-environment2-select').val();
-  let url = JSON.parse(DTEnvs[env]).URL.concat('/api/config/v1/dashboards');
-  let token = JSON.parse(DTEnvs[env]).TOK;
+  let env = getEnvironment($('#dashboard-mover-environment2-select').val());
+  let url = env.URL.concat('/api/config/v1/dashboards');
+  let token = env.TOK;
   // console.log(token);
   axios.get(url, {
     headers: {

@@ -7,7 +7,8 @@ function mainTagDuplicator() {
 
     if(select1Bool && select2Bool && tag1Bool && tag2Bool){
         //   console.log(document.getElementById("tag-duplicator-environment1-select").value);
-        let DTenv = getEnvironment(document.getElementById("tag-duplicator-environment1-select").value);
+        let DTenv = getEnvironment($("#tag-duplicator-environment1-select").val());
+        console.log(DTenv);
         let settings = {
             "url": DTenv['URL'] + "/api/config/v1/autoTags",
             "method": "GET",

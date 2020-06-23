@@ -1,5 +1,5 @@
 function mainAuditReport() {
-  let env = JSON.parse(DTEnvs[`env-${$('#audit-users-environment-select').val()}`]);
+  let env = JSON.parse(DTEnvs[$('#audit-users-environment-select').val()]);
   let url = env.URL;
   let token = env.TOK;
   
