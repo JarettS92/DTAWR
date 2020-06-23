@@ -6,15 +6,11 @@ window.onload = function() {
   // If on Mobile, navigating from tools -> reports
   // or vice versa needs to pass a 'fragment' to allow
   // the browser to know what tool/report to display
-  if(window.location.toString().search('#') > 0) {
-    let url = window.location.toString();
-    let navLocation = url.slice(url.search('#') + 1);
-    if(navLocation.length > 0){
-        $("div[name='sidebar-content']").removeClass("display").addClass("none");
-        $(`#${navLocation}`).addClass("display").removeClass("none");
-        $(".sidebar__item").removeClass("is-current");
-        $(`a[sidebar-content-id='${navLocation}']`).addClass("is-current"); 
-    }
+  if(window.location.hash != "") {
+    $("div[name='sidebar-content']").removeClass("display").addClass("none");
+    $(`${window.location.hash}`).addClass("display").removeClass("none");
+    $(".sidebar__item").removeClass("is-current");
+    $(`a[sidebar-content-id='${window.location.hash.slice(1)}']`).addClass("is-current"); 
   }
 }
 
@@ -220,15 +216,3 @@ cb(start, end);
 // FUNCTIONS
 //-----------------------------------------------------
 
-// Function to hide all tools/reports and display the 
-// Environment management page
-function navToManageEnvironments() {
-  $("div[name='sidebar-content']").removeClass("display").addClass("none");
-  $("#manage-environments").addClass("display").removeClass("none");
-}
-
-function closeManageEnvironments() {
-  $("#manage-environments").removeClass("display").addClass("none");
-  $(`#${$('.sidebar__item.is-current').attr('sidebar-content-id')}`).removeClass("none").addClass("display");
-  // console.log($('.sidebar__item.is-current').attr('sidebar-content-id'));
-}

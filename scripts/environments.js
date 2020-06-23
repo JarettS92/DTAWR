@@ -121,8 +121,10 @@ function delEnvironment(name) {
     if(local){ localStorage.removeItem(`env-${name}`) }
     else if(session){ sessionStorage.removeItem(`env-${name}`) }
     else { alert('NO SUCH ENVIRONMENT!') }
-    document.getElementById('row-' + name).remove();
+    $('#row-' + name).remove();
     updateEnvironmentSelects();
+    location.reload();
+    navToManageEnvironments();
 }
 
 // adds an environment to local/session storage
@@ -160,8 +162,6 @@ async function addEnvironment() {
     let mzsBool = false;
     let tsmBool = false;
     let applicationsBool = false;
-
-    validateUniqueName(envName);
     
     // console.log(saasEnvUrl.match(regex));
 
@@ -308,6 +308,8 @@ async function addEnvironment() {
         updateEnvironmentSelects();
         // Clear user inputs on successful submission
         clearInputFields();
+        location.reload();
+        navToManageEnvironments();
 
     // Alert user on missing data
     } else {
@@ -323,17 +325,19 @@ async function addEnvironment() {
     }
 }
 
+// Ensure that the environment name being added is unique
+// and not already in the list
 $('#environment-name-input').on('input', (e) => {
     let name = $('#environment-name-input').val();
     if(Object.keys(DTEnvs).includes(`env-${name}`)){
-        console.log('Name is not unique');
+        // console.log('Name is not unique');
         $('#environment-name-input').siblings().addClass('warning').text('Name: MUST BE UNIQUE!')
         $('#environment-add-button').prop('disabled', true).addClass('disabled__button');
         return false;
     } else {
         $('#environment-name-input').siblings().removeClass('warning').text('Name:');
         $('#environment-add-button').prop('disabled', false).removeClass('disabled__button');
-        console.log('Name is valid');
+        // console.log('Name is valid');
         return true;
     }
 });
@@ -362,4 +366,17 @@ function updateEnvironmentSelects() {
 // Clear user inputs
 function clearInputFields() {
     $('#environment-name-input, #environment-url-input, #environment-token-input').val('');
+}
+
+// Function to hide all tools/reports and display the 
+// Environment management page
+function navToManageEnvironments() {
+    $("div[name='sidebar-content']").removeClass("display").addClass("none");
+    $("#manage-environments").addClass("display").removeClass("none");
+}
+
+function closeManageEnvironments() {
+    $("#manage-environments").removeClass("display").addClass("none");
+    $(`#${$('.sidebar__item.is-current').attr('sidebar-content-id')}`).removeClass("none").addClass("display");
+    // console.log($('.sidebar__item.is-current').attr('sidebar-content-id'));
 }
