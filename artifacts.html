@@ -18,14 +18,15 @@
 
   <!-- ------------------------------------------------------------- -->
   <!-- Navigation Bar -->
-  <!-- Contains links to tools, reports, dashboards, artifacts -->
+  <!-- Contains links to home, summary, tools, reports, dashboards, artifacts -->
   <div class="nav has-no-secondary">
     <a class="nav__brand" href="https://www.dynatrace.com">
-      <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo"/>
+      <img class="nav__logo" src="http://assets.dynatrace.com/global/logos/dynatrace-logo.svg" alt="dynatrace logo" />
     </a>
     <div class="nav__buttongroup">
       <button id="nav-bar-button" data-target="#nav-bar" class="nav__btn nav__btn--menutoggle">Menu</button>
-      <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile" class="nav__btn nav__btn--menutoggle">Menu</button>
+      <button id="nav-bar-button-mobile" data-target="#nav-bar-mobile"
+        class="nav__btn nav__btn--menutoggle">Menu</button>
     </div>
     <!-- Desktop Navbar -->
     <nav id="nav-bar" class="nav__bar">
@@ -39,7 +40,7 @@
           <a class="nav__link" href="./summary.html">Summary</a>
         </li>
         <!-- Tools -->
-        <li class="nav__item">
+        <li class="nav__item is-current">
           <a class="nav__link" href="./tools.html">Tools</a>
         </li>
         <!-- Reports -->
@@ -51,7 +52,7 @@
           <a class="nav__link" href="./dashboards.html">Dashboards</a>
         </li>
         <!-- Artifacts -->
-        <li class="nav__item is-current">
+        <li class="nav__item">
           <a class="nav__link" href="./artifacts.html">Artifacts</a>
         </li>
       </ul>
@@ -72,19 +73,20 @@
           <a class="nav__link expandable__trigger" href="#">Tools</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="tools.html">Overview</a>
+              <a name="tools-overview" class="nav__link" href="tools.html">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="tag-duplicator" class="nav__link" href="tools.html#tools-tag-duplicator">Tag Duplicator</a>
+              <a name="tools-tag-duplicator" class="nav__link" href="tools.html#tools-tag-duplicator">Tag Duplicator</a>
             </li>
             <li class="nav__item">
-              <a name="business-hour-kpis" class="nav__link" href="tools.html#tools-business-hour-kpis">Business Hour KPIs</a>
+              <a name="tools-business-hour-kpis" class="nav__link" href="tools.html#tools-business-hour-kpis">Business Hour
+                KPIs</a>
             </li>
             <li class="nav__item">
-              <a name="starter-tags" class="nav__link" href="tools.html#tools-starter-tags">Starter Tags</a>
+              <a name="tools-starter-tags" class="nav__link" href="tools.html#tools-starter-tags">Starter Tags</a>
             </li>
             <li class="nav__item">
-              <a name="dashboard-mover" class="nav__link" href="tools.html#tools-dashboard-mover">Dashboard Mover</a>
+              <a name="tools-dashboard-mover" class="nav__link" href="tools.html#tools-dashboard-mover">Dashboard Mover</a>
             </li>
           </ul>
         </li>
@@ -96,28 +98,31 @@
               <a name="overview" class="nav__link" href="reports.html">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="root-cause-analysis" class="nav__link" href="reports.html#reports-root-cause-analysis">Root Cause Analysis+</a>
+              <a name="reports-root-cause-analysis" class="nav__link" href="reports.html#reports-root-cause-analysis">Root Cause
+                Analysis+</a>
             </li>
             <li class="nav__item">
-              <a name="problem-trending" class="nav__link" href="reports.html#reports-problem-trending">Problem Trending</a>
+              <a name="reports-problem-trending" class="nav__link" href="reports.html#reports-problem-trending">Problem
+                Trending</a>
             </li>
             <li class="nav__item">
-              <a name="untagged-entities" class="nav__link" href="reports.html#reports-untagged-entities">Untagged Entities</a>
+              <a name="reports-untagged-entities" class="nav__link" href="reports.html#reports-untagged-entities">Untagged
+                Entities</a>
             </li>
             <li class="nav__item">
-              <a name="hosts" class="nav__link" href="reports.html#reports-hosts">Hosts Report</a>
+              <a name="reports-hosts" class="nav__link" href="reports.html#reports-hosts">Hosts Report</a>
             </li>
             <li class="nav__item">
-              <a name="applications" class="nav__link" href="reports.html#reports-applications">Applications Report</a>
+              <a name="reports-applications" class="nav__link" href="reports.html#reports-applications">Applications Report</a>
             </li>
             <li class="nav__item">
-              <a name="problems" class="nav__link" href="reports.html#reports-problems">Problems Report</a>
+              <a name="reports-problems" class="nav__link" href="reports.html#reports-problems">Problems Report</a>
             </li>
             <li class="nav__item">
-              <a name="services" class="nav__link" href="reports.html#reports-services">Services Report</a>
+              <a name="reports-services" class="nav__link" href="reports.html#reports-services">Services Report</a>
             </li>
             <li class="nav__item">
-              <a name="audit-users" class="nav__link" href="reports.html#reports-audit-users">Audit Users</a>
+              <a name="reports-audit-users" class="nav__link" href="reports.html#reports-audit-users">Audit Users</a>
             </li>
           </ul>
         </li>
@@ -126,13 +131,15 @@
           <a class="nav__link expandable__trigger" href="dashboards.html">Dashboards</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="dashboards.html#dashboards-overview">Overview</a>
+              <a name="dashboards-overview" class="nav__link" href="dashboards.html#dashboards-overview">Overview</a>
             </li>
             <li class="nav__item">
-              <a name="overview" class="nav__link" href="dashboards.html#dashboards-bizops-configurator">BizOps Configurator</a>
+              <a name="dashboards-bizops-configurator" class="nav__link" href="dashboards.html#dashboards-bizops-configurator">BizOps
+                Configurator</a>
             </li>
             <li class="nav__item">
-              <a name="browse-dashboards" class="nav__link" href="dashboards.html#dashboards-browse-dashboards">Browse Dashboards</a>
+              <a name="dashboards-browse-dashboards" class="nav__link" href="dashboards.html#dashboards-browse-dashboards">Browse
+                Dashboards</a>
             </li>
           </ul>
         </li>
@@ -141,16 +148,20 @@
           <a class="nav__link expandable__trigger" href="#">Artifacts</a>
           <ul class="nav__list nav__list--secondary expandable__content">
             <li class="nav__item">
-              <a name="Document Repository" class="nav__link" href="artifacts.html#artifacts-doc-repo">Document Repository</a>
+              <a name="artifacts-doc-repo" class="nav__link" href="artifacts.html#artifacts-doc-repo">Document
+                Repository</a>
             </li>
             <li class="nav__item">
-              <a name="Guardian Weekly Report" class="nav__link" href="artifacts.html#artifacts-gwr">Guardian Weekly Report</a>
+              <a name="artifacts-gwr" class="nav__link" href="artifacts.html#artifacts-gwr">Guardian Weekly
+                Report</a>
             </li>
             <li class="nav__item">
-              <a name="Quarterly Business Report" class="nav__link" href="artifacts.html#artifacts-qbr">Quarterly Business Report</a>
+              <a name="artifacts-qbr" class="nav__link" href="artifacts.html#artifacts-qbr">Quarterly
+                Business Report</a>
             </li>
             <li class="nav__item">
-              <a name="On-Demand Delieverable" class="nav__link" href="artifacts.html#artifacts-odd">On-Demand Deliverable</a>
+              <a name="artifacts-odd" class="nav__link" href="artifacts.html#artifacts-odd">On-Demand
+                Deliverable</a>
             </li>
           </ul>
         </li>
@@ -211,7 +222,7 @@
     <div name="reports-content" class="island island--connected">
       <!-- ------------------------------------------------------------------------- -->
       <!-- Document Repository -->
-      <div name="sidebar-content" id="doc-repo" class="display">
+      <div name="sidebar-content" id="artifacts-doc-repo" class="display">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/backup-gray_700.svg'></img>    
@@ -345,7 +356,7 @@
       <!-- End of Overview -->     
 
       <!-- Guardian Weekly Reports -->
-      <div name="sidebar-content" id="gwr" class="none">
+      <div name="sidebar-content" id="artifacts-gwr" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/summary-gray_700.svg'></img>    
@@ -1830,7 +1841,7 @@
       <!-- End of Guardian Weekly Reports -->
 
       <!-- QBR -->
-      <div name="sidebar-content" id="qbr" class="none">
+      <div name="sidebar-content" id="artifacts-qbr" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/calendar-gray_700.svg'></img>    
@@ -1851,7 +1862,7 @@
       <!-- End of QBR -->
 
       <!-- On-Demand Deliverables -->
-      <div name="sidebar-content" id="odd" class="none">
+      <div name="sidebar-content" id="artifacts-odd" class="none">
         <div class="infochip">
           <div class="infochip__icon">
             <img class="icon icon--blue--big" src='images/aws-cost-and-usage-report-gray_700.svg'></img>    

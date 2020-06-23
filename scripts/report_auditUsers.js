@@ -1,5 +1,8 @@
 function mainAuditReport() {
-  let env = JSON.parse(DTEnvs[$('#audit-users-environment-select').val()]);
+  console.log('test')
+  let env = getEnvironment($('#audit-users-environment-select').val());
+  let envBool = (env != undefined || env != null) ? true : false;
+  console.log(envBool);
   let url = env.URL;
   let token = env.TOK;
   
