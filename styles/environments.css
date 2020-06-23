@@ -24,3 +24,8 @@
 .refresh img {
   height: 35px;
 }
+
+.disabled__button {
+  color: red;
+  background-color: green;
+}

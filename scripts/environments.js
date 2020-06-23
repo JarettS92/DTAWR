@@ -2,8 +2,8 @@ let DTEnvs = {
     ...loadLocalStorage(),
     ...loadSessionStorage()
 };
-console.log(DTEnvs);
 // console.log(DTEnvs);
+
 //Initiates load storage on start
 loadStorage();
 
@@ -109,7 +109,8 @@ function getEnvironment(name) {
     if(DTEnvs.hasOwnProperty(`env-${name}`)){
         return JSON.parse(DTEnvs[`env-${name}`]);
     } else {
-        alert('No such environment!');
+        // alert('No such environment!');
+        return false;
     }
 }
 
@@ -159,6 +160,8 @@ async function addEnvironment() {
     let mzsBool = false;
     let tsmBool = false;
     let applicationsBool = false;
+
+    validateUniqueName(envName);
     
     // console.log(saasEnvUrl.match(regex));
 
@@ -319,6 +322,21 @@ async function addEnvironment() {
         }
     }
 }
+
+$('#environment-name-input').on('input', (e) => {
+    let name = $('#environment-name-input').val();
+    if(Object.keys(DTEnvs).includes(`env-${name}`)){
+        console.log('Name is not unique');
+        $('#environment-name-input').siblings().addClass('warning').text('Name: MUST BE UNIQUE!')
+        $('#environment-add-button').prop('disabled', true).addClass('disabled__button');
+        return false;
+    } else {
+        $('#environment-name-input').siblings().removeClass('warning').text('Name:');
+        $('#environment-add-button').prop('disabled', false).removeClass('disabled__button');
+        console.log('Name is valid');
+        return true;
+    }
+});
 
 // Update environment dropdowns
 function updateEnvironmentSelects() {

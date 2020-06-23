@@ -668,7 +668,7 @@
         
         <p>Define an environment below</p>
         <field class='field'>
-          <label for="" class="label">Name:</label>
+          <label for="environment-name-input" class="label">Name:</label>
           <input type="text" class="inputfield" id="environment-name-input" />
         </field>
         <field class='field'>
@@ -690,8 +690,8 @@
             <span class="radio__caption">Use Local Storage <span class="warning">(Environments and Tokens persist closing the browser! Delete manually below or clear browser cache)</span></span>
           </label>
         </field>
-        <button role="button" type="button" class="btn btn--primary theme--dark" onclick="addEnvironment()">Add Environment</button>
-        <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary theme--dark btn--error" onclick="closeManageEnvironments()">Close</button>
+        <button id="environment-add-button" role="button" type="button" class="btn btn--primary" onclick="addEnvironment()">Add Environment</button>
+        <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary btn--error" onclick="closeManageEnvironments()">Close</button>
         <hr>
         <h2>Environments</h2>
         <div class="theme--blue">
