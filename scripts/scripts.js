@@ -1,51 +1,23 @@
-window.onload = function() {
-    let authorized = (localStorage.getItem('authorization') != null) ? true : false;
-    let activeProcess = false;
-    if(!authorized){
-        // window.location.replace('/authorization.html');
-        console.log('Authorized: ', authorized);
-    }
-    
-    // sessionStorage.setItem("Jarett", "asdfasd.live.dynatrace.com;asdfoaigfiasdng");
-    updateEnvironmentSelects();
+// // Function to sort tables by the header. If you click a table header,
+// // it will sort the table by those values. Excluded "Details" header 
+// // as nothing would change
+// $('th').click(function(){
+//     // Check to see if the header is a "Details" header
+//     if($(this).text() != "Details"){
+        
+//         // If it is not, call the sortTable() function
+//         // This will sort the table by whatever header was clicked
+//         sortTable($(this).parent().parent().parent().attr('id'), $(this).index());
 
-    // If on Mobile, navigating from tools -> reports
-    // or vice versa needs to pass a 'fragment' to allow
-    // the browser to know what tool/report to display
-    if(window.location.toString().search('#') > 0) {
-        let url = window.location.toString();
-        let navLocation = url.slice(url.search('#') + 1);
-        if(navLocation.length > 0){
-            $("div[name='sidebar-content']").removeClass("display").addClass("none");
-            $(`#${navLocation}`).addClass("display").removeClass("none");
-            $(".sidebar__item").removeClass("is-current");
-            $(`a[sidebar-content-id='${navLocation}']`).addClass("is-current"); 
-        }
-    }
-
-
-    
-
-    // // Function to sort tables by the header. If you click a table header,
-    // // it will sort the table by those values. Excluded "Details" header 
-    // // as nothing would change
-    // $('th').click(function(){
-    //     // Check to see if the header is a "Details" header
-    //     if($(this).text() != "Details"){
-            
-    //         // If it is not, call the sortTable() function
-    //         // This will sort the table by whatever header was clicked
-    //         sortTable($(this).parent().parent().parent().attr('id'), $(this).index());
-
-    //         if(!$(this).hasClass("ascending") && !$(this).hasClass("descending")){
-    //             $(this).parent().children().removeClass("ascending descending");
-    //             $(this).toggleClass("ascending");
-    //         } else {
-    //             $(this).toggleClass("ascending");
-    //             $(this).toggleClass("descending");
-    //         }
-    //     }
-    // });
+//         if(!$(this).hasClass("ascending") && !$(this).hasClass("descending")){
+//             $(this).parent().children().removeClass("ascending descending");
+//             $(this).toggleClass("ascending");
+//         } else {
+//             $(this).toggleClass("ascending");
+//             $(this).toggleClass("descending");
+//         }
+//     }
+// });
 
 // // Sorts tables on the Home Page (Summary page)
 // function sortTable(tableID, column){
@@ -100,5 +72,3 @@ window.onload = function() {
 //             }
 //         }
 //     }
-}
-
