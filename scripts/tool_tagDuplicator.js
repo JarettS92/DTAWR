@@ -76,7 +76,7 @@ function postOneTag(rule) {
             </tr>`);
           alert("SUCCESS!!");
           tagDuplicatorClearInputFields();
-          refreshEnvironment()
+          refreshEnvironment($("#tag-duplicator-environment2-select").val());
       });
   } catch(err) {
       console.log(err);

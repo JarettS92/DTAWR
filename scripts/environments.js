@@ -494,35 +494,23 @@ async function refreshEnvironment(envName){
         'LOGS': {}
     };
 
-    $(`#row-${envName}`).remove();
+    $(`#row-${envName} .expandable__content`).children().remove();
     // Display newly added environment on the page
-    $('#manage-environments-table').append(`
-        <tbody id="row-${envName}" class="expandable">
-        <tr>
-            <td><a href="#" class='refresh' name="${envName}"><img src="images/1200px-Refresh_icon.svg.png"></a></td>
-            <td>${envName}</td>
-            <td>${env.URL}</td>
-            <td>${env.TOK.replace(maskingRegex, '*****************')}</td>
-            <td><button class='btn btn--primary' onclick='delEnvironment("${envName}")'>Remove</button></td>
-            <td><a href="#" name="${envName}" class="expandable__trigger">Details</td>
-        </tr>
-        <tr class="expandable__content">
-            <td colspan="6">
-                <dl class='definition-list'>
-                    <dt>Tags?</dt>
-                    <dd>${tagsBool}</dd>
-                    <dt>Applications?</dt>
-                    <dd>${applicationsBool}</dd>
-                    <dt>Management Zones?</dt>
-                    <dd>${mzsBool}</dd>
-                    <dt>Time Series Metrics?</dt>
-                    <dd>${tsmBool}</dd>
-                    <dt>Storage?</dt>
-                    <dd>${env.STOR}</dd>
-                </dl>
-            </td>
-        </tr>
-        </tbody>`);
+    $(`#row-${envName} .expandable__content`).append(`
+        <td colspan="6">
+            <dl class='definition-list'>
+                <dt>Tags?</dt>
+                <dd>${tagsBool}</dd>
+                <dt>Applications?</dt>
+                <dd>${applicationsBool}</dd>
+                <dt>Management Zones?</dt>
+                <dd>${mzsBool}</dd>
+                <dt>Time Series Metrics?</dt>
+                <dd>${tsmBool}</dd>
+                <dt>Storage?</dt>
+                <dd>${env.STOR}</dd>
+            </dl>
+        </td>`);
 
     // updateEnvironmentTable();
     // Save the object to specified storage location
