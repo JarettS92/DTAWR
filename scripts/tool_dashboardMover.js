@@ -27,7 +27,7 @@ $('#dashboard-mover-button2').click(function () {
       'Authorization': `Api-Token ${token}`
     }
   }).then((res) => {
-    console.log(res.data.dashboards);
+    // console.log(res.data.dashboards);
     buildDashboardList("dashboard-mover-table2", res.data.dashboards);
   }).catch((err) => {
     console.log(err);
@@ -82,7 +82,7 @@ function moveDashboard(name, origin) {
         var dbData = res.data;
         delete dbData.id;
         delete dbData.dashboardMetadata.owner;
-        console.log(dbData);
+        // console.log(dbData);
 
         axios({
           method: 'post',
@@ -93,7 +93,7 @@ function moveDashboard(name, origin) {
           },
           data: dbData
         }).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           alert("SUCCESS!");
         }).catch((err) => {
           console.log(err);
@@ -111,7 +111,7 @@ function moveDashboard(name, origin) {
         var dbData = res.data;
         delete dbData.id;
         delete dbData.dashboardMetadata.owner;
-        console.log(dbData);
+        // console.log(dbData);
 
         axios({
           method: 'post',
@@ -122,7 +122,7 @@ function moveDashboard(name, origin) {
           },
           data: dbData
         }).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           alert("SUCCESS!");
         }).catch((err) => {
           console.log(err);

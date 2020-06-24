@@ -1,15 +1,7 @@
 function mainStarterTags() {
     let envBool = $('#starter-tags-environment-select').val() != undefined && $('#starter-tags-environment-select').val() != '' ? true : false;
     if(envBool){
-        let DTenv = getEnvironment($('#starter-tags-environment-select').val());
-    // console.log(DTenv);
-    // dtrum.addActionProperties(action, null, null, {
-    //     environment: DTenv['URL']
-    // });
-    // dtrum.sendSessionProperties(null, null, {
-    //     environment: DTenv['URL']
-    // });
-    // dtrum.leaveAction(action);
+        let env = getEnvironment($('#starter-tags-environment-select').val());
         
         let serviceRule = {
             "name": "Service",
@@ -131,11 +123,11 @@ function mainStarterTags() {
             }]
         }
         let settings = {
-            "url": DTenv['URL'] + "/api/config/v1/autoTags",
+            "url": env['URL'] + "/api/config/v1/autoTags",
             "method": "POST",
             "timeout": 0,
             "headers": {
-                "Authorization": "Api-Token " + DTenv['TOK'],
+                "Authorization": "Api-Token " + env['TOK'],
                 "Content-Type": "application/json"
             },
             "data": JSON.stringify(serviceRule),
@@ -184,7 +176,7 @@ function mainStarterTags() {
         } else {
             $('#starter-tags-tbody').append('<tr><td>IP:{Detected Name}</td><td>Skipped</td></tr>');
         }
-        // reset();
-        }
+        refreshEnvironment($('#starter-tags-environment-select').val());
+    }
     
 }
