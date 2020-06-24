@@ -1,6 +1,6 @@
 window.onload = function() {
   let activeProcess = false;
-  
+
   updateEnvironmentSelects();
 
   // If on Mobile, navigating from tools -> reports
@@ -46,12 +46,12 @@ $('.envSelect').change((e) => {
   let tagTarget = e.target.id.replace("environment", "tag");
   let mzTarget = e.target.id.replace("environment", "managementzone");
   let timeseriesTarget = e.target.id.replace("environment", "metric");
-  console.log(tagTarget);
-  console.log(mzTarget);
-  console.log(timeseriesTarget);
-  console.log(tsm);
-  console.log(tags);
-  console.log(mzs);
+  // console.log(tagTarget);
+  // console.log(mzTarget);
+  // console.log(timeseriesTarget);
+  // console.log(tsm);
+  // console.log(tags);
+  // console.log(mzs);
 
   $(`#${tagTarget}`).find('option').remove().end();
   $(`#${mzTarget}`).find('option').remove().end();
@@ -103,14 +103,14 @@ $('.envSelect').change((e) => {
 // Updates aggregation dropdowns when a timeseries metric is selected
 $('.metricSelect').change((e) => {
   let envTarget = $(`#${e.target.id.replace("metric", "environment")}`).val();
-  console.log(envTarget);
+  // console.log(envTarget);
   let aggregationTarget = e.target.id.replace("metric","aggregation");
   let aggregationArr = getEnvironment(envTarget).TSM[e.target.value];
   // ["TSM"][e.target.value];
   $(`#${aggregationTarget}`).find('option').remove().end();
 
-  console.log(aggregationTarget);
-  console.log(aggregationArr);
+  // console.log(aggregationTarget);
+  // console.log(aggregationArr);
 
   if (aggregationArr.length != 0) {
     aggregationArr.forEach((curVal, index) => {
@@ -130,7 +130,7 @@ $('.metricSelect').change((e) => {
 $('.aggregationSelect').change((e) => {
   let percentileTarget = e.target.id.replace("aggregation", "percentile");
   $(`#${percentileTarget}`).find('option').remove().end();
-  console.log(percentileTarget);
+  // console.log(percentileTarget);
   let aggArr = [10,20,30,40,50,60,70,80,90,95];
 
   if(e.target.value == 'PERCENTILE'){
@@ -195,7 +195,7 @@ var end = moment() || null;
 
 function cb(start, end) {
     $('.date__range__picker span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-    console.log(start.format('YYYYMMDD'), end.format('YYYYMMDD'));
+    // console.log(start.format('YYYYMMDD'), end.format('YYYYMMDD'));
 }
 $('.date__range__picker').daterangepicker({
     startDate: start,
@@ -215,4 +215,3 @@ cb(start, end);
 //-----------------------------------------------------
 // FUNCTIONS
 //-----------------------------------------------------
-

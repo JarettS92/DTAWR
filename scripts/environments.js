@@ -8,9 +8,7 @@ let DTEnvs = {
 loadStorage();
 
 $('.refresh').click(function() {
-    console.log($(this));
-    // Need to add code to refresh tenant
-    addEnvironment(true);
+    refreshEnvironment($(this).prop('name'));
 });
 
 //Saves current env json and env table on Home tab to storage
@@ -25,6 +23,10 @@ function saveStorage(type, name, data) {
         default:
             sessionStorage.setItem(`env-${name}`, JSON.stringify(data));
     }
+    DTEnvs = {
+        ...loadLocalStorage(),
+        ...loadSessionStorage()
+    };
 }
 
 //Uses storage to populate table
@@ -42,11 +44,11 @@ function loadStorage() {
         $('#manage-environments-table').append(`
             <tbody id="row-${name}" class="expandable">
             <tr>
-                <td><a href="#" class='refresh'><img src="images/1200px-Refresh_icon.svg.png"></a></td>
+                <td><a href="#" class='refresh' name='${name}'><img src="images/1200px-Refresh_icon.svg.png"></a></td>
                 <td>${name}</td>
                 <td>${obj.URL}</td>
                 <td>${obj.TOK.replace(maskingRegex, '*****************')}</td>
-                <td><button class='btn btn--primary theme--dark' onclick='delEnvironment("${name}")'>Remove</button></td>
+                <td><button class='btn btn--primary' onclick='delEnvironment("${name}")'>Remove</button></td>
                 <td><a href="#" name="${name}" class="expandable__trigger">Details</td>
             </tr>
             <tr class="expandable__content">
@@ -123,8 +125,6 @@ function delEnvironment(name) {
     else { alert('NO SUCH ENVIRONMENT!') }
     $('#row-' + name).remove();
     updateEnvironmentSelects();
-    location.reload();
-    navToManageEnvironments();
 }
 
 // adds an environment to local/session storage
@@ -280,7 +280,7 @@ async function addEnvironment() {
                 <td>${envName}</td>
                 <td>${saasEnvUrl}</td>
                 <td>${envToken.replace(maskingRegex, '*****************')}</td>
-                <td><button class='btn btn--primary theme--dark' onclick='delEnvironment("${envName}")'>Remove</button></td>
+                <td><button class='btn btn--primary' onclick='delEnvironment("${envName}")'>Remove</button></td>
                 <td><a href="#" name="${envName}" class="expandable__trigger">Details</td>
             </tr>
             <tr class="expandable__content">
@@ -308,8 +308,6 @@ async function addEnvironment() {
         updateEnvironmentSelects();
         // Clear user inputs on successful submission
         clearInputFields();
-        location.reload();
-        navToManageEnvironments();
 
     // Alert user on missing data
     } else {
@@ -379,4 +377,156 @@ function closeManageEnvironments() {
     $("#manage-environments").removeClass("display").addClass("none");
     $(`#${$('.sidebar__item.is-current').attr('sidebar-content-id')}`).removeClass("none").addClass("display");
     // console.log($('.sidebar__item.is-current').attr('sidebar-content-id'));
+}
+
+async function refreshEnvironment(envName){
+    console.log(envName);
+    let env = getEnvironment(envName);
+    // Regex to mask the API token after submission
+    let maskingRegex = /(?<=.{3})\S{13}/g;
+
+    // Initialize booleans to track success/failure of API calls
+    let tagsBool = false;
+    let mzsBool = false;
+    let tsmBool = false;
+    let applicationsBool = false;
+
+    // Initialize REST calls
+    let envTags = new Promise((resolve, reject) => {
+        axios.get(env.URL + '/api/config/v1/autoTags', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Api-Token ${env.TOK}`
+            }
+        }).then((res) => {
+            if (res.status == '200') {
+                resolve(res.data.values.map(x => x.name));
+                tagsBool = true;
+                // console.log(res.data.values.map(x => x.name));
+                // envTags = res.data.values.map(x => x.name);
+            } else {
+                reject("Error");
+            }
+        }).catch((err) => {
+            console.log(err);
+            alert("Unable to pull Auto Tags");
+            resolve([]);
+        });
+    });
+    // Run API call to get environment Management Zones
+    let envMZs = new Promise((resolve, reject) => {
+        axios.get(env.URL + '/api/config/v1/managementZones', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Api-Token ${env.TOK}`
+            }
+        }).then((res) => {
+            if (res.status == '200') {
+                resolve(res.data.values.map(x => x.name));
+                mzsBool = true;
+                // console.log(res.data.values.map(x => x.name));
+                // envTags = res.data.values.map(x => x.name);
+            } else {
+                reject("Error");
+            }
+        }).catch((err) => {
+            console.log(err);
+            alert("Unable to pull Management Zones");
+            resolve([]);
+        });
+    });
+    // Run API call to get environment Time Series Metrics
+    let envTsm = new Promise((resolve, reject) => {
+        axios.get(env.URL + '/api/v1/timeseries', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Api-Token ${env.TOK}`
+            }
+        }).then((res) => {
+            if (res.status == '200') {
+                let obj = {};
+                res.data.forEach((curVal) => {
+                    obj[curVal.timeseriesId] = curVal.aggregationTypes;
+                });
+                resolve(obj);
+                tsmBool = true;
+                // console.log(res.data.values.map(x => x.timeseriesId));
+                // envTags = res.data.values.map(x => x.timeseriesId);
+            } else {
+                reject("Error");
+            }
+        }).catch((err) => {
+            console.log(err);
+            alert("Unable to pull Timeseries Metrics");
+            resolve([]);
+        });
+    });
+    // Run API call to get environment Applications
+    let envApplications = new Promise((resolve, reject) => {
+        axios.get(env.URL + '/api/v1/entity/applications', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Api-Token ${env.TOK}`
+            }
+        }).then((res) => {
+            if (res.status == '200') {
+                resolve(res.data.map((x) => x.displayName));
+                applicationsBool = true;
+            } else {
+                reject("Error");
+            }
+        }).catch((err) => {
+            console.log(err);
+            alert("Unable to pull Applications");
+            resolve([]);
+        });
+    });
+
+    // Build session/local storage object
+    let obj = {
+        'URL': env.URL,
+        'TOK': env.TOK,
+        'TAGS': await envTags,
+        'MZS': await envMZs,
+        'TSM': await envTsm,
+        'APP': await envApplications,
+        'STOR': env.STOR,
+        'LOGS': {}
+    };
+
+    $(`#row-${envName}`).remove();
+    // Display newly added environment on the page
+    $('#manage-environments-table').append(`
+        <tbody id="row-${envName}" class="expandable">
+        <tr>
+            <td><a href="#" class='refresh' name="${envName}"><img src="images/1200px-Refresh_icon.svg.png"></a></td>
+            <td>${envName}</td>
+            <td>${env.URL}</td>
+            <td>${env.TOK.replace(maskingRegex, '*****************')}</td>
+            <td><button class='btn btn--primary' onclick='delEnvironment("${envName}")'>Remove</button></td>
+            <td><a href="#" name="${envName}" class="expandable__trigger">Details</td>
+        </tr>
+        <tr class="expandable__content">
+            <td colspan="6">
+                <dl class='definition-list'>
+                    <dt>Tags?</dt>
+                    <dd>${tagsBool}</dd>
+                    <dt>Applications?</dt>
+                    <dd>${applicationsBool}</dd>
+                    <dt>Management Zones?</dt>
+                    <dd>${mzsBool}</dd>
+                    <dt>Time Series Metrics?</dt>
+                    <dd>${tsmBool}</dd>
+                    <dt>Storage?</dt>
+                    <dd>${env.STOR}</dd>
+                </dl>
+            </td>
+        </tr>
+        </tbody>`);
+
+    // updateEnvironmentTable();
+    // Save the object to specified storage location
+    saveStorage(env.STOR, envName, obj);
+    // Update all Environment Dropdowns
+    updateEnvironmentSelects();
 }

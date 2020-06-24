@@ -7,14 +7,14 @@ function mainTagDuplicator() {
 
     if(select1Bool && select2Bool && tag1Bool && tag2Bool){
         //   console.log(document.getElementById("tag-duplicator-environment1-select").value);
-        let DTenv = getEnvironment($("#tag-duplicator-environment1-select").val());
-        console.log(DTenv);
+        let env = getEnvironment($("#tag-duplicator-environment1-select").val());
+        console.log(env);
         let settings = {
-            "url": DTenv['URL'] + "/api/config/v1/autoTags",
+            "url": env['URL'] + "/api/config/v1/autoTags",
             "method": "GET",
             "timeout": 0,
             "headers": {
-                "Authorization": "Api-Token " + DTenv['TOK'],
+                "Authorization": "Api-Token " + env['TOK'],
                 "Content-Type": "application/json"
             }
         };
@@ -32,13 +32,13 @@ function mainTagDuplicator() {
 
 //Get a single tag rule, to be duplicated
 function getOneTag(id) {
-  let DTenv = getEnvironment(document.getElementById("tag-duplicator-environment1-select").value);
+  let env = getEnvironment($("#tag-duplicator-environment1-select").val());
   let settings = {
-      "url": DTenv['URL'] + "/api/config/v1/autoTags/" + id,
+      "url": env['URL'] + "/api/config/v1/autoTags/" + id,
       "method": "GET",
       "timeout": 0,
       "headers": {
-          "Authorization": "Api-Token " + DTenv['TOK'],
+          "Authorization": "Api-Token " + env['TOK'],
           "Content-Type": "application/json"
       }
   };
@@ -49,17 +49,17 @@ function getOneTag(id) {
 
 //Posts a tag rule to an environment
 function postOneTag(rule) {
-  let DTenv = getEnvironment(document.getElementById("tag-duplicator-environment2-select").value);
-  // console.log(DTenv);
-  rule["name"] = document.getElementById("tag-duplicator-tag2-input").value;
+  let env = getEnvironment($("#tag-duplicator-environment2-select").val());
+  // console.log(env);
+  rule["name"] = $("#tag-duplicator-tag2-input").val();
   delete rule['metadata'];
   delete rule['id'];
   let settings = {
-      "url": DTenv['URL'] + "/api/config/v1/autoTags",
+      "url": env['URL'] + "/api/config/v1/autoTags",
       "method": "POST",
       "timeout": 0,
       "headers": {
-          "Authorization": "Api-Token " + DTenv['TOK'],
+          "Authorization": "Api-Token " + env['TOK'],
           "Content-Type": "application/json"
       },
       "data": JSON.stringify(rule),
@@ -67,21 +67,53 @@ function postOneTag(rule) {
   // console.log(JSON.stringify(rule));
   try {
       $.ajax(settings).done(function (response) {
-          document.getElementById('tag-duplicator-tbody').innerHTML += "<tr><td>" + document.getElementById('tag-duplicator-environment1-select').value + "</td><td>" + document.getElementById('tag-duplicator-tag1-select').value + "</td><td>" + document.getElementById('tag-duplicator-environment2-select').value + "</td><td>" + document.getElementById('tag-duplicator-tag2-input').value + "</td></tr>";
+          $('#tag-duplicator-tbody').append(`
+            <tr>
+                <td>${$('#tag-duplicator-environment1-select').val()}</td>
+                <td>${$('#tag-duplicator-tag1-select').val()}</td>
+                <td>${$('#tag-duplicator-environment2-select').val()}</td>
+                <td>${$('#tag-duplicator-tag2-input').val()}</td>
+            </tr>`);
           alert("SUCCESS!!");
+          tagDuplicatorClearInputFields();
+          refreshEnvironment()
       });
   } catch(err) {
       console.log(err);
+      alert(err);
   }
 }
 
 //Gets the ID of the desired tag
 function getUserInput(storage){
-  Tag = document.getElementById("tag-duplicator-tag1-select").value;
+  Tag = $("#tag-duplicator-tag1-select").val();
   for (let i = 0; i < storage['values'].length; i++) {
       if(storage['values'][i]['name'] == Tag) {
           getOneTag(storage['values'][i]['id']);
           i = storage['values'].length;
       }
   }
+}
+
+// Ensure that the environment name being added is unique
+// and not already in the list
+$('#tag-duplicator-tag2-input').on('input', (e) => {
+    let env = getEnvironment($('#tag-duplicator-environment2-select').val());
+    let tag = $('#tag-duplicator-tag2-input').val();
+    if(env.TAGS.includes(tag)){
+        // console.log('Name is not unique');
+        $('#tag-duplicator-tag2-input').siblings().addClass('warning').text('New Tag Name: **TAG ALREADY EXISTS!!**')
+        $('#tag-duplicator-button').prop('disabled', true).addClass('disabled__button');
+        return false;
+    } else {
+        $('#tag-duplicator-tag2-input').siblings().removeClass('warning').text('New Tag Name:');
+        $('#tag-duplicator-button').prop('disabled', false).removeClass('disabled__button');
+        // console.log('Name is valid');
+        return true;
+    }
+});
+
+// Clear user inputs
+function tagDuplicatorClearInputFields() {
+    $('#tag-duplicator-tag2-input').val('');
 }
