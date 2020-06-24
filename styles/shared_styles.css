@@ -10,3 +10,18 @@
       display: none !important;
   }
 }
+
+.flex {
+  display: flex;
+}
+
+div field {
+  flex: 1;
+}
+div field:first-child {
+  margin-right: 10px;
+}
+
+.first__field {
+  margin-top: 1em;
+}

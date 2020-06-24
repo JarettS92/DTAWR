@@ -280,8 +280,8 @@
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Upon completion, collected data will be displayed at the bottom of the page. There is also an option to download a .csv file.</p>
-        <br>
-        <field class='field'>
+
+        <field class='field first__field'>
           <label for="root-cause-analysis-max" class="label">Requests per minute: (Consider the amount of other API calls that could be hitting your cluster when specifying this number)<br>
             <span class="warning">SaaS environments CANNOT exceed 50 and it is recommended that Managed environments SHOULD NOT exceed 50</span></label>
           <select class="reqCountSelect select" id="root-cause-analysis-max">
@@ -372,7 +372,7 @@
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Upon completion, collected data will be displayed at the bottom of the page. There is also an option to download .csv files.</p>
 
-        <field class='field'>
+        <field class='field first__field'>
           <label for="problem-trending-max" class="label">Requests per minute: (Consider the amount of other API calls that could be hitting your cluster when specifying this number)<br>
             <span class="warning">SaaS environments CANNOT exceed 50 and it is recommended that Managed environments SHOULD NOT exceed 50</span></label>
           <select class="reqCountSelect select" id="problem-trending-max">
@@ -388,12 +388,19 @@
             <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
           </select>
         </field>
-        <field class='field'>
-          <label for="problem-trending-tag-select" class="label">Tag (optional):</label>
-          <select class="tagSelect select" id="problem-trending-tag-select">
-            <option value="SELECT TAG" selected="selected">SELECT TAG</option>
-          </select>
-        </field>
+
+        <div class="flex">
+          <field class='field'>
+            <label for="problem-trending-tag-select" class="label">Tag (optional):</label>
+            <select class="tagSelect select" id="problem-trending-tag-select">
+              <option value="SELECT TAG" selected="selected">SELECT TAG</option>
+            </select>
+          </field>
+          <field class='field'>
+            <label for="problem-trending-tag-input" class="label">Tag Value (optional):</label>
+            <input id="problem-trending-tag-input" class="inputfield">
+          </field>
+        </div>
 
         <field class='field'>
           <label for="problem-trending-date-range-picker" class="label">Date Range: <span class="warning">Time frame must not exceed 31 days in length!</span></label>
@@ -492,10 +499,9 @@
 
       <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
       <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
-      <br>
       <p>Specify an environment. That's it.</p>
 
-      <field class='field'>
+      <field class='field first__field'>
         <label for="untagged-entities-environment-select" class="label">Environment Name:</label>
         <select class="envSelect select" id="untagged-entities-environment-select">
           <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
@@ -537,7 +543,7 @@
       <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
       <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
 
-      <field class='field'>
+      <field class='field first__field'>
         <label for="hosts-environment-select" class="label">Environment Name:</label>
         <select class="envSelect select hostsReport" id="hosts-environment-select">
           <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
@@ -799,7 +805,7 @@
       <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
       <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
 
-      <field class='field'>
+      <field class='field first__field'>
         <label for="applications-environment-select" class="label">Environment Name:</label>
         <select class="envSelect select applicationsReport" id="applications-environment-select">
           <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
@@ -885,7 +891,7 @@
       </div>
       <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
       <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
-      <field class='field'>
+      <field class='field first__field'>
         <label for="problems-environment-select" class="label">Environment Name:</label>
         <select class="envSelect select hostsReport" id="problems-environment-select">
           <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
@@ -1097,7 +1103,7 @@
       </div>
       <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
       <p class='warning'>REQUIRED TOKEN PERMISSION: "Access problem and event feed, metrics, and topology"</p>
-      <field class='field'>
+      <field class='field first__field'>
         <label for="services-environment-select" class="label">Environment Name:</label>
         <select class="envSelect select hostsReport" id="services-environment-select">
           <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
@@ -1251,7 +1257,7 @@
       <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
       <p class='warning'>REQUIRED TOKEN PERMISSION: "Read audit logs"</p>
       <p>Shows user logins and and config changes made by users</p>
-      <field class='field'>
+      <field class='field first__field'>
         <label for="audit-users-environment-select" class="label">Environment Name:</label>
         <select class="envSelect select auditUsersReport" id="audit-users-environment-select">
           <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
@@ -1299,9 +1305,8 @@
         </div>
       </div>
       <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
-      
       <p>Define an environment below</p>
-      <field class='field'>
+      <field class='field first__field'>
         <label for="" class="label">Name:</label>
         <input type="text" class="inputfield" id="environment-name-input" />
       </field>

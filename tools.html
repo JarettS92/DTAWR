@@ -263,7 +263,7 @@
         <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
         <p>Specify an environment and tag, this will be the tag that that is duplicated</p>
 
-        <field class='field'>
+        <field class='field first__field'>
           <label for="tag-duplicator-environment1-select" class="label">Environment Name:</label>
           <select class="envSelect select tagDuplicator" id="tag-duplicator-environment1-select">
             <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
@@ -328,8 +328,8 @@
         <p>Specify which environment, and tag if applicable, as well as the start and end time that you would like to
           genereate a single metric for.</p>
 
-        <div style="display:flex">
-          <field class='field' style="width: 100vw;">
+        <div class="flex">
+          <field class='field first__field' style="width: 100vw;">
             <label for="bhkpi-environment-select" class="label">Environment Name:</label>
             <!-- <input type="text" class="inputfield" id="BusinessHourKPIsEnv"/> -->
             <select class="envSelect select" id="bhkpi-environment-select">
@@ -338,13 +338,19 @@
           </field>
         </div>
 
-        <field class='field'>
-          <label for="bhkpi-tag-select" class="label">Tag (optional):</label>
-          <!-- <input type="text" class="inputfield" id="BusinessHourKPIsTag"/> -->
-          <select class="tagSelect select" id="bhkpi-tag-select">
-            <option value="SELECT TAG" selected>SELECT TAG</option>
-          </select>
-        </field>
+        <div class="flex">
+          <field class='field'>
+            <label for="bhkpi-tag-select" class="label">Tag (optional):</label>
+            <!-- <input type="text" class="inputfield" id="BusinessHourKPIsTag"/> -->
+            <select class="tagSelect select" id="bhkpi-tag-select">
+              <option value="SELECT TAG" selected>SELECT TAG</option>
+            </select>
+          </field>
+          <field>
+            <label for="bhkpi-tag-input" class="label">Tag Value (optional)</label>
+            <input class="inputfield tagDuplicator" id="bhkpi-tag-input">
+          </field>
+        </div>
         <!-- <field class='field'>
           <label for="bhkpi-start" class="label">Start Date:</label>
           <input type="text" class="inputfield" id="bhkpi-start" />
@@ -543,7 +549,7 @@
         <p><b>Why would you want to do this?</b> Using the tags this program creates allows you to run API requests
           against a single entity when you pass the new tags with the entity's name in the tag parameter of the request!
         </p>
-        <field class='field'>
+        <field class='field first__field'>
           <label for="starter-tags-environment-select" class="label">Environment Name:</label>
           <select class="envSelect select" id="starter-tags-environment-select">
             <option value="SELECT ENVIRONMENT" selected>SELECT ENVIRONMENT</option>
@@ -605,7 +611,8 @@
         <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
         <p class='warning'>REQUIRED TOKEN PERMISSION: "Read configuration", "Write configuration"</p>
         <p>Choose tenants to copy dashboards from/to</p>
-        <div id="dashboard-mover-columns" class="section">
+        
+        <div id="dashboard-mover-columns" class="section first__field">
           <div class="column column--1-of-2">
             <field class="field">
               <label for="dashboard-mover-environment1-select" class="label">Tenant 1</label>
