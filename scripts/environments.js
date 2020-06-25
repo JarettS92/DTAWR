@@ -1,3 +1,7 @@
+window.onload = function (){
+    updateEnvironmentSelects();
+}
+
 let DTEnvs = {
     ...loadLocalStorage(),
     ...loadSessionStorage()
