@@ -176,6 +176,7 @@ th:hover {
 }
 .white-bg {
     background-color: #fff;
+    padding: 20px;
 }
 .env-button {
     border: 1px solid #fff;

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="../images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/tools.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Mover</title>
+</head>
+<body class='white-bg'>
+  
+
+<div class="infochip">
+  <div class="infochip__icon">
+    <img class="icon icon--blue--big" src='images/resourcerequest-gray_700.svg'></img>
+  </div>
+  <div class="infochip__desc">
+    <div class="infochip__desc__title" title="Dashboard Mover">
+      <div class='newH'>Dashboard Mover</div>
+    </div>
+    <div>Copies Dashboards from one tenant to another</div>
+  </div>
+</div>
+<p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+<p class='warning'>REQUIRED TOKEN PERMISSION: "Read configuration", "Write configuration"</p>
+<p>Choose tenants to copy dashboards from/to</p>
+
+<div id="dashboard-mover-columns" class="section first__field">
+  <div class="column column--1-of-2">
+    <field class="field">
+      <label for="dashboard-mover-environment1-select" class="label">Tenant 1</label>
+      <select class="envSelect select" id="dashboard-mover-environment1-select">
+        <option value="SELECT ENVIRONMENT" selected>SELECT ENVIRONMENT</option>
+      </select>
+    </field>
+    <button id="dashboard-mover-button1" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
+    <div class="section">
+      <table id="dashboard-mover-table1" class="table">
+        <thead>
+          <th>Dashboard Name</th>
+          <th>Owner</th>
+          <th>Copy to Tenant 2?</th>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <div class="column column--1-of-2">
+    <field class="field">
+      <label for="dashboard-mover-environment2-select" class="label">Tenant 2</label>
+      <select class="envSelect select" id="dashboard-mover-environment2-select">
+        <option value="SELECT ENVIRONMENT" selected>SELECT ENVIRONMENT</option>
+      </select>
+    </field>
+    <button id="dashboard-mover-button2" role="button" type="button" class="btn btn--primary">Populate Dashboards</button>
+    <div class="section">
+      <table id="dashboard-mover-table2" class="table">
+        <thead>
+          <th>Dashboard Name</th>
+          <th>Owner</th>
+          <th>Copy to Tenant 1?</th>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+</body>
+</html>

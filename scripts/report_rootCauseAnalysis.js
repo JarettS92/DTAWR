@@ -25,8 +25,9 @@ function mainRootCauseAnalysis() {
     let start = d.getTime();
     d = new Date($("#root-cause-analysis-end").val());
     let end = d.getTime();
-    addToLogsRCA('Establishing connection to Dynatrace...', 'black', true);
-    getHosts(DTenv['URL'], DTenv['TOK'], start, end);
+    console.log($('#root-cause-analysis-date-range-picker').val());
+    // addToLogsRCA('Establishing connection to Dynatrace...', 'black', true);
+    // getHosts(DTenv['URL'], DTenv['TOK'], start, end);
 }
 
 function getHosts(dynatraceURL, token, startTime, endTime){

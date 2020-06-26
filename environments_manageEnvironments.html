@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="../images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/environments.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Environments</title>
+</head>
+<body class='white-bg'>
+  <div class="infochip">
+    <div class="infochip__icon">
+      <img class="icon" src='images/services-gray700.svg'></img>
+    </div>
+    <div class="infochip__desc">
+      <div class="infochip__desc__title" title="Manage Environments">
+        <div>Manage Environments</div>
+      </div>
+      <div>Configure the Dynatrace environments that these programs will interact with</div>
+    </div>
+  </div>
+  <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+
+  <p>Define an environment below</p>
+  <field class='field'>
+    <label for="environment-name-input" class="label">Name:</label>
+    <input type="text" class="inputfield" id="environment-name-input" />
+  </field>
+  <field class='field'>
+    <label for="environment-url-input" class="label">Dynatrace Environment URL:</label>
+    <input type="text" class="inputfield" id="environment-url-input" />
+  </field>
+  <field class='field'>
+    <label for="environment-token-input" class="label">API Token:</label>
+    <input type="text" class="inputfield" id="environment-token-input" />
+  </field>
+  <field class="field">
+    <input type="radio" class="radio" id="session-storage-radio" name="session"/>
+    <label for="session-storage-radio" class="radio__label">
+      <span class="radio__caption">Use Session Storage (Environments and Tokens cleared when the browser is closed)</span>
+    </label>
+  <br>
+    <input type="radio" class="radio" id="local-storage-radio" name="local"/>
+    <label for="local-storage-radio" class="radio__label">
+      <span class="radio__caption">Use Local Storage <span class="warning">(Environments and Tokens persist closing the browser! Delete manually below or clear browser cache)</span></span>
+    </label>
+  </field>
+  <button id="environment-add-button" role="button" type="button" class="btn btn--primary" onclick="addEnvironment()">Add Environment</button>
+  <button style="color:#dc172a;" role="button" type="button" class="btn btn--secondary btn--error" onclick="closeManageEnvironments()">Close</button>
+  <hr>
+  <h2>Environments</h2>
+  <div class="theme--blue">
+    <table class="table table--expandable" data-behavior="accordion" id='manage-environments-table'>
+      <thead>
+        <tr>
+          <th>Refresh</th>
+          <th>Name</th>
+          <th>URL</th>
+          <th>Token</th>
+          <th>Delete</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+  <script type="text/javascript" src="scripts/environments.js"></script>
+  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+</body>
+</html>

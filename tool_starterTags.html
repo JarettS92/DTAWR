@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="../images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/tools.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starter Tags</title>
+</head>
+<body class='white-bg'>
+
+  <div class="infochip">
+    <div class="infochip__icon">
+      <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>
+    </div>
+    <div class="infochip__desc">
+      <div class="infochip__desc__title" title="Starter Tags">
+        <div class='newH'>Starter Tags</div>
+      </div>
+      <div>Adds valuable tags to Dynatrace</div>
+    </div>
+  </div>
+  <p style='color: red; font-weight: bold;'>WARNING: Only for use by Dynatrace employees. Do not distribute to
+    customers.</p>
+  <p>Specify an environment and which tagging rules you'd like to start off with.</p>
+  <p>Each rule will create a contextual tag that tags the entity type with its own name, with the exception of the
+    IP Address rule, which tags a host with its IP</p>
+  <p>Example: Service rule tags an entity with <b>Service: [Entity's Detected Service Name]</b></p>
+  <p><b>Why would you want to do this?</b> Using the tags this program creates allows you to run API requests
+    against a single entity when you pass the new tags with the entity's name in the tag parameter of the request!
+  </p>
+  <field class='field first__field'>
+    <label for="starter-tags-environment-select" class="label">Environment Name:</label>
+    <select class="envSelect select" id="starter-tags-environment-select">
+      <option value="SELECT ENVIRONMENT" selected>SELECT ENVIRONMENT</option>
+    </select>
+  </field>
+  <p>Check which autotags you would like to apply.</p>
+  <field class="field checkbox__column">
+    <label for="i0" class="label">AutoTag Rules:</label>
+    <input type="checkbox" class="checkbox" id="starter-tags-host-checkbox" />
+    <label for="starter-tags-host-checkbox" class="checkbox__label">
+      <span class="checkbox__caption">Host</span>
+    </label>
+    <input type="checkbox" class="checkbox" id="starter-tags-process-checkbox" />
+    <label for="starter-tags-process-checkbox" class="checkbox__label">
+      <span class="checkbox__caption">Process</span>
+    </label>
+    <input type="checkbox" class="checkbox" id="starter-tags-service-checkbox" />
+    <label for="starter-tags-service-checkbox" class="checkbox__label">
+      <span class="checkbox__caption">Service</span>
+    </label>
+    <input type="checkbox" class="checkbox" id="starter-tags-database-checkbox" />
+    <label for="starter-tags-database-checkbox" class="checkbox__label">
+      <span class="checkbox__caption">Database</span>
+    </label>
+    <input type="checkbox" class="checkbox" id="starter-tags-ipaddress-checkbox" />
+    <label for="starter-tags-ipaddress-checkbox" class="checkbox__label">
+      <span class="checkbox__caption">IP Address</span>
+    </label>
+  </field>
+  <button role="button" type="button" class="btn btn--primary theme--dark"
+    onclick="mainStarterTags()">Run</button>
+  <hr>
+  <h2>Logs</h2>
+  <table id="starter-tags-table" class="table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id='starter-tags-tbody'></tbody>
+  </table>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+  <script type="text/javascript" src="scripts/tool_starterTags.js"></script>
+  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+</body>
+</html>

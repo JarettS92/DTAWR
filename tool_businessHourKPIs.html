@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="../images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/tools.css" />
+  <link rel="stylesheet" href="styles/jquery.timepicker.min.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Hour KPIs</title>
+</head>
+<body class='white-bg'>
+  
+<div class="infochip">
+  <div class="infochip__icon">
+    <img class="icon icon--blue--big" src='images/business-impact-gray700.svg'></img>
+  </div>
+  <div class="infochip__desc">
+    <div class="infochip__desc__title" title="Business Hour KPIs">
+      <div class='newH'>Business Hour KPIs</div>
+    </div>
+    <div>Genereate a single metric for any timeseries metric for business hours only</div>
+  </div>
+</div>
+<p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+<p class='warning'>REQUIRED TOKEN PERMISSION: </p>
+<p>Specify which environment, and tag if applicable, as well as the start and end time that you would like to
+  genereate a single metric for.</p>
+
+<div class="flex">
+  <field class='field first__field' style="width: 100vw;">
+    <label for="bhkpi-environment-select" class="label">Environment Name:</label>
+    <select class="envSelect select" id="bhkpi-environment-select">
+      <option value="SELECT ENVIRONMENT" selected>SELECT ENVIRONMENT</option>
+    </select>
+  </field>
+</div>
+
+<div class="flex">
+  <field class='field'>
+    <label for="bhkpi-tag-select" class="label">Tag (optional):</label>
+    <select class="tagSelect select" id="bhkpi-tag-select">
+      <option value="SELECT TAG" selected>SELECT TAG</option>
+    </select>
+  </field>
+  <field>
+    <label for="bhkpi-tag-input" class="label">Tag Value (optional)</label>
+    <input class="inputfield tagDuplicator" id="bhkpi-tag-input">
+  </field>
+</div>
+
+<field class='field'>
+  <label for="bhkpi-date-range-picker" class="label">Date Range:</label>
+  <div class="date__range__picker" id="bhkpi-date-range-picker">
+    <i class="fa fa-calendar"></i>
+    <span></span> <i class="fa fa-caret-down"></i>
+  </div>
+</field>
+<p>Specify the timeseries metric id you would like to use. Available <a
+    href="https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/metric-v1/available-metrics/saas/">SaaS</a>
+  and <a
+    href="https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/metric-v1/available-metrics/managed/">Managed</a>
+  timeseries metrics.</p>
+
+<field class='field'>
+  <label for="bhkpi-metric-select" class="label">Timeseries Metric:</label>
+  <select class="metricSelect select" id="bhkpi-metric-select">
+    <option value="SELECT TIMESERIES METRIC" selected>SELECT TIMESERIES METRIC</option>
+  </select>
+</field>
+
+<field class='field'>
+  <label for="bhkpi-aggregation-select" class="label">Metric Aggregation:</label>
+  <select class="aggregationSelect select" id="bhkpi-aggregation-select">
+    <option value="SELECT METRIC AGGREGATION" selected>SELECT METRIC AGGREGATION</option>
+  </select>
+</field>
+<field class='field'>
+  <label for="bhkpi-percentile-select" class="label">Percentile:</label>
+  <select class="percentileSelect select" id="bhkpi-percentile-select" disabled>
+    <option value="SELECT PERCENTILE" selected>SELECT PERCENTILE</option>
+  </select>
+</field>
+<p>Define business days and hours below.</p>
+<label for="i0" class="label">Business Days:</label>
+<field class="field checkbox__column">
+  <div class="business__days">
+    <input type="checkbox" class="checkbox" id="bhkpi-sunday-checkbox"/>
+    <label for="bhkpi-sunday-checkbox" class="checkbox__label business__days__label">
+      <span class="checkbox__caption">Sunday</span>
+    </label>
+    <label for="bhkpi-sunday-start" class="label" style="padding:0 !important;">Start: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-sunday-start"/>
+    <label for="bhkpi-sunday-end" class="label" style="padding:0 !important;">End: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-sunday-end"/>
+  </div>
+
+  <div class="business__days">
+    <input type="checkbox" class="checkbox" id="bhkpi-monday-checkbox" />
+    <label for="bhkpi-monday-checkbox" class="checkbox__label business__days__label">
+      <span class="checkbox__caption">Monday</span>
+    </label>
+    <label for="bhkpi-monday-start" class="label" style="padding:0 !important;">Start: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-monday-start"/>
+    <label for="bhkpi-monday-end" class="label" style="padding:0 !important;">End: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-monday-end"/>
+  </div>
+  <div class="business__days">
+    <input type="checkbox" class="checkbox" id="bhkpi-tuesday-checkbox" />
+    <label for="bhkpi-tuesday-checkbox" class="checkbox__label business__days__label">
+      <span class="checkbox__caption">Tuesday</span>
+    </label>
+    <label for="bhkpi-tuesday-start" class="label" style="padding:0 !important;">Start: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-tuesday-start"/>
+    <label for="bhkpi-tuesday-end" class="label" style="padding:0 !important;">End: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-tuesday-end"/>
+  </div>
+  <div class="business__days">
+    <input type="checkbox" class="checkbox" id="bhkpi-wednesday-checkbox" />
+    <label for="bhkpi-wednesday-checkbox" class="checkbox__label business__days__label">
+      <span class="checkbox__caption">Wednesday</span>
+    </label>
+    <label for="bhkpi-wednesday-start" class="label" style="padding:0 !important;">Start: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-wednesday-start"/>
+    <label for="bhkpi-wednesday-end" class="label" style="padding:0 !important;">End: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-wednesday-end"/>
+  </div>
+  <div class="business__days">
+    <input type="checkbox" class="checkbox" id="bhkpi-thursday-checkbox" />
+    <label for="bhkpi-thursday-checkbox" class="checkbox__label business__days__label">
+      <span class="checkbox__caption">Thursday</span>
+    </label>
+    <label for="bhkpi-thursday-start" class="label" style="padding:0 !important;">Start: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-thursday-start"/>
+    <label for="bhkpi-thursday-end" class="label" style="padding:0 !important;">End: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-thursday-end"/>
+  </div>
+  <div class="business__days">
+    <input type="checkbox" class="checkbox" id="bhkpi-friday-checkbox" />
+    <label for="bhkpi-friday-checkbox" class="checkbox__label business__days__label">
+      <span class="checkbox__caption">Friday</span>
+    </label>
+    <label for="bhkpi-friday-start" class="label" style="padding:0 !important;">Start: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-friday-start"/>
+    <label for="bhkpi-friday-end" class="label" style="padding:0 !important;">End: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-friday-end"/>
+  </div>
+  <div class="business__days">
+    <input type="checkbox" class="checkbox" id="bhkpi-saturday-checkbox" />
+    <label for="bhkpi-saturday-checkbox" class="checkbox__label business__days__label">
+      <span class="checkbox__caption">Saturday</span>
+    </label>
+    <label for="bhkpi-saturday-start" class="label" style="padding:0 !important;">Start: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-saturday-start"/>
+    <label for="bhkpi-saturday-end" class="label" style="padding:0 !important;">End: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-saturday-end"/>
+  </div>
+</field>
+
+<button role="button" type="button" class="btn btn--primary theme--dark"
+  onclick="mainBusinessHourKPIs()">Run</button>
+<hr>
+<h2 class='newH2'>Results</h2>
+<table class="table" id='bhkpi-table'>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Result</th>
+      <th>Timeseries ID</th>
+    </tr>
+  </thead>
+  <tbody id='bhkpi-tbody'>
+  </tbody>
+</table>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery.timepicker.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+  <script type="text/javascript" src="scripts/datepicker.js"></script>
+  <script type="text/javascript" src="scripts/tool_businessHoursKPIs.js"></script>
+  <script type="text/javascript" src="https://assets.dynatrace.com/groundhog/v6.1.2/js/main.js"></script>
+</body>
+</html>  
