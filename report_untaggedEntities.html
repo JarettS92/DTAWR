@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/reports.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report - Untagged Entities</title>
+</head>
+<body class='white-bg'>
+  
+
+<div class="infochip">
+    <div class="infochip__icon">
+      <img class="icon icon--blue--big" src='images/gettingstarted-gray700.svg'></img>
+    </div>
+    <div class="infochip__desc">
+      <div class="infochip__desc__title" title="Title">
+        <div>Untagged Entities</div>
+      </div>
+      <div>Gets all untagged entities</div>
+    </div>
+  </div>
+
+  <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+  <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
+  <p>Specify an environment. That's it.</p>
+
+  <field class='field first__field'>
+    <label for="untagged-entities-environment-select" class="label">Environment Name:</label>
+    <select class="envSelect select" id="untagged-entities-environment-select">
+      <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+    </select>
+    <!-- <input type="text" class="inputfield" id="RTaggedEnv"/> -->
+  </field>
+  <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainRTagged()">Run</button>
+  <input type="checkbox" class="checkbox" id="untagged-entities-checkbox" />
+  <label style="margin-left: 50px" for="untagged-entities-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">Donwload CSV</span>
+  </label>
+  <hr>
+  <h2>Untagged Entities</h2>
+  <table id="untagged-entities-table" class="table">
+    <tr>
+      <th>Entity</th>
+      <th>Type</th>
+      <th>ID</th>
+      <th>Link</th>
+    </tr>
+  </table>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+  <script type="text/javascript" src="scripts/report_untaggedEntities.js"></script>
+  <script type="text/javascript" src="scripts/dynatrace-groundhog.js"></script>
+</body>
+</html>

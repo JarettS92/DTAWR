@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/reports.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report - Problem Trending</title>
+</head>
+<body class='white-bg'>
+  
+
+<div class="infochip">
+  <div class="infochip__icon">
+    <img class="icon icon--blue--big" src='images/chart-legend-meter-gray700.svg'></img>
+  </div>
+  <div class="infochip__desc">
+    <div class="infochip__desc__title" title="Problem Trending">
+      <div>Problem Trending</div>
+    </div>
+    <div>Charts problems over time by type and shows the trend in avg MTTR(problem length)</div>
+  </div>
+</div>
+<p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+<p class='warning'>REQUIRED TOKEN PERMISSION: </p>
+<p>Upon completion, collected data will be displayed at the bottom of the page. There is also an option to download .csv files.</p>
+
+<field class='field first__field'>
+  <label for="problem-trending-max" class="label">Requests per minute: (Consider the amount of other API calls that could be hitting your cluster when specifying this number)<br>
+    <span class="warning">SaaS environments CANNOT exceed 50 and it is recommended that Managed environments SHOULD NOT exceed 50</span></label>
+  <select class="reqCountSelect select" id="problem-trending-max">
+    <option value="40" selected>40</option>
+    <option value="40">30</option>
+    <option value="40">20</option>
+    <option value="40">10</option>
+  </select>
+</field>
+<field class='field'>
+  <label for="problem-trending-environment-select" class="label">Environment Name:</label>
+  <select class="envSelect select" id="problem-trending-environment-select">
+    <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+  </select>
+</field>
+
+<div class="flex">
+  <field class='field'>
+    <label for="problem-trending-tag-select" class="label">Tag (optional):</label>
+    <select class="tagSelect select" id="problem-trending-tag-select">
+      <option value="SELECT TAG" selected="selected">SELECT TAG</option>
+    </select>
+  </field>
+  <field class='field'>
+    <label for="problem-trending-tag-input" class="label">Tag Value (optional):</label>
+    <input id="problem-trending-tag-input" class="inputfield">
+  </field>
+</div>
+
+<field class='field'>
+  <label for="problem-trending-date-range-picker" class="label">Date Range: <span class="warning">Time frame must not exceed 31 days in length!</span></label>
+  <div class="date__range__picker" id="problem-trending-date-range-picker">
+    <i class="fa fa-calendar"></i>
+    <span></span> <i class="fa fa-caret-down"></i>
+  </div>
+</field>
+
+<div style="display:flex; flex-direction:row;">
+<field class="field checkbox__column">
+  <label class="label">Severity Levels:</label>
+  <input type="checkbox" class="checkbox" id="problem-trending-error-checkbox" checked />
+  <label for="problem-trending-error-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">ERROR</span>
+  </label>
+  <input type="checkbox" class="checkbox" id="problem-trending-resource-checkbox" checked />
+  <label for="problem-trending-resource-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">RESOURCE</span>
+  </label>
+  <input type="checkbox" class="checkbox" id="problem-trending-slowdown-checkbox" checked />
+  <label for="problem-trending-slowdown-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">SLOWDOWN</span>
+  </label>
+  <input type="checkbox" class="checkbox" id="problem-trending-availability-checkbox" checked />
+  <label for="problem-trending-availability-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">AVAILABILITY</span>
+  </label>
+</field>
+<field class="field checkbox__column">
+  <label class="label">Impact Levels:</label>
+  <input type="checkbox" class="checkbox" id="problem-trending-applications-checkbox" checked />
+  <label for="problem-trending-applications-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">APPLICATIONS</span>
+  </label>
+  <input type="checkbox" class="checkbox" id="problem-trending-services-checkbox" checked />
+  <label for="problem-trending-services-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">SERVICES</span>
+  </label>
+  <input type="checkbox" class="checkbox" id="problem-trending-infrastructure-checkbox" checked />
+  <label for="problem-trending-infrastructure-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">INFRASTRUCTURE</span>
+  </label>
+  <input type="checkbox" class="checkbox" id="problem-trending-environment-checkbox" checked />
+  <label for="problem-trending-environment-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">ENVIRONMENT</span>
+  </label>
+</field>
+</div>
+<button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainProblemTrending()">Run Query</button>
+<input type="checkbox" class="checkbox" id="problem-trending-csv-checkbox" />
+<label style="margin-left: 50px" for="problem-trending-csv-checkbox" class="checkbox__label">
+  <span class="checkbox__caption">Donwload CSV</span>
+</label>
+<div id="problem-trending-progress">
+  <div id="problem-trending-bar"></div>
+</div>
+
+<hr>
+<h2>Charts</h2>
+<canvas width="90%" id="problem-trending-chart1"></canvas>
+<canvas width="90%" id="problem-trending-chart2"></canvas>
+
+<h2>Table</h2>
+<table id="problem-trending-table" class="table table--responsive" data-initialized="true">
+    <thead id="problem-trending-thead">
+    </thead>
+    <tbody id="problem-trending-tbody">
+    </tbody>
+</table>                
+<div id='problem-trending-logs'></div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+  <script type="text/javascript" src="scripts/datepicker.js"></script>
+  <script type="text/javascript" src="scripts/report_problemTrending.js"></script>
+  <script type="text/javascript" src="scripts/dynatrace-groundhog.js"></script>
+</body>
+</html>

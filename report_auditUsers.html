@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/reports.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report - Audit Users</title>
+</head>
+<body class='white-bg'>
+  
+
+<div class="infochip">
+  <div class="infochip__icon">
+    <img class="icon icon--blue--big" src='images/usergroup-gray_700.svg'></img>
+  </div>
+  <div class="infochip__desc">
+    <div class="infochip__desc__title" title="Audit Users">
+      <div class='newH'>Audit Users</div>
+    </div>
+    <div>Audits the users logging into Dynatrace</div>
+  </div>
+</div>
+<p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+<p class='warning'>REQUIRED TOKEN PERMISSION: "Read audit logs"</p>
+<p>Shows user logins and and config changes made by users</p>
+<field class='field first__field'>
+  <label for="audit-users-environment-select" class="label">Environment Name:</label>
+  <select class="envSelect select auditUsersReport" id="audit-users-environment-select">
+    <option value="SELECT ENVIRONMENT" selected="selected">SELECT ENVIRONMENT</option>
+  </select>
+</field>
+<button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainAuditReport()">Run</button>
+
+<hr>
+<h2>Audit Users</h2>
+<p>Filters:
+  <button id="login-filter" class="tag tag--interactive">LOGIN</button>
+  <button id="config-filter" class="tag tag--interactive">CONFIG</button>
+</p>
+<table id="audit-users-table" class="table display">
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>Event Type</th>
+      <th>User</th>
+      <th>User Type</th>
+      <th>Category</th>
+      <th>Success</th>
+    </tr>
+  </thead>
+  <tbody id="audit-users-tbody">
+
+  </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="scripts/shared_scripts.js"></script>
+<script type="text/javascript" src="scripts/report_auditUsers.js"></script>
+<script type="text/javascript" src="scripts/dynatrace-groundhog.js"></script>
+</body>
+</html>

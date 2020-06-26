@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/dt-favicon-blue.png">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/shared_styles.css" />
+  <link rel="stylesheet" href="styles/reports.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report - Root Cause Analysis+</title>
+</head>
+<body class='white-bg'>
+  
+
+<div class="infochip">
+    <div class="infochip__icon">
+      <img class="icon icon--blue--big" src='images/davis-gray700.svg'></img>
+    </div>
+    <div class="infochip__desc">
+      <div class="infochip__desc__title" title="Root Cause Analysis">
+        <div>Root Cause Analysis+</div>
+      </div>
+      <div>Extracts root cause of problems, organizing by tag and entity</div>
+    </div>
+  </div>
+
+  <p class='warning'>WARNING: Only for use by Dynatrace employees. Do not distribute to customers.</p>
+  <p class='warning'>REQUIRED TOKEN PERMISSION: </p>
+  <p>Upon completion, collected data will be displayed at the bottom of the page. There is also an option to download a .csv file.</p>
+
+  <field class='field first__field'>
+    <label for="root-cause-analysis-max" class="label">Requests per minute: (Consider the amount of other API calls that could be hitting your cluster when specifying this number)<br>
+      <span class="warning">SaaS environments CANNOT exceed 50 and it is recommended that Managed environments SHOULD NOT exceed 50</span></label>
+    <select class="reqCountSelect select" id="root-cause-analysis-max">
+      <option value="40" selected>40</option>
+      <option value="40">30</option>
+      <option value="40">20</option>
+      <option value="40">10</option>
+    </select>
+  </field>
+  <field class='field'>
+    <label for="root-cause-analysis-environment-select" class="label">Environment Name:</label>
+    <select class="envSelect select" id="root-cause-analysis-environment-select">
+      <option value="SELECT ENVIRONMENT">SELECT ENVIRONMENT</option>
+    </select>
+  </field>
+  <field class='field'>
+    <label for="root-cause-analysis-date-range-picker" class="label">Date Range: <span class="warning">Time frame must not exceed 31 days in length!</span></label>
+    <div class="date__range__picker" id="root-cause-analysis-date-range-picker">
+      <i class="fa fa-calendar"></i>
+      <span></span> <i class="fa fa-caret-down"></i>
+    </div>
+  </field>
+
+  <button role="button" type="button" class="btn btn--primary theme--dark" onclick="mainRootCauseAnalysis()">Run Query</button>
+  <input type="checkbox" class="checkbox" id="root-cause-analysis-csv-checkbox" />
+  <label style="margin-left: 50px" for="root-cause-analysis-csv-checkbox" class="checkbox__label">
+    <span class="checkbox__caption">Donwload CSV</span>
+  </label>
+  <hr>
+  <div id="root-cause-analysis-progress">
+    <div id="root-cause-analysis-bar"></div>
+  </div>
+  <div id='root-cause-analysis-logs'></div>
+  <div class="layout is-flex has-islands">
+    <div class="island">
+      <div>By Tag</div>
+      <table id="root-cause-analysis-table1" class="table table--responsive">
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody id="root-cause-analysis-tbody1">
+        </tbody>
+      </table>
+    </div>
+    <div class="island">
+      <div>By Entity</div>
+      <table id="root-cause-analysis-table2" class="table table--responsive">
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Type</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody id="root-cause-analysis-tbody2">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+  <script type="text/javascript" src="scripts/datepicker.js"></script>
+  <script type="text/javascript" src="scripts/report_rootCauseAnalysis.js"></script>
+  <script type="text/javascript" src="scripts/dynatrace-groundhog.js"></script>
+</body>
+</html>
