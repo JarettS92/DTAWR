@@ -85,6 +85,16 @@
 <label for="i0" class="label">Business Days:</label>
 <field class="field checkbox__column">
   <div class="business__days">
+    <input type="checkbox" class="checkbox" id="bhkpi-global-checkbox"/>
+    <label for="bhkpi-global-checkbox" class="checkbox__label business__days__label">
+      <span class="checkbox__caption">Global</span>
+    </label>
+    <label for="bhkpi-global-start" class="label" style="padding:0 !important;">Start: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-global-start"/>
+    <label for="bhkpi-global-end" class="label" style="padding:0 !important;">End: </label>
+    <input disabled type="text" class="inputfield timepicker business__days__input" id="bhkpi-global-end"/>
+  </div>
+  <div class="business__days">
     <input type="checkbox" class="checkbox" id="bhkpi-sunday-checkbox"/>
     <label for="bhkpi-sunday-checkbox" class="checkbox__label business__days__label">
       <span class="checkbox__caption">Sunday</span>

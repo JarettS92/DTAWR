@@ -30,6 +30,7 @@ function mainProblemTrending() {
   let startDate = new Date(start);
   let endDate = new Date(end);
 
+//   console.log(`Start: ${startDate}, End: ${endDate}`);
 //   action = dtrum.enterAction('Run problem trending', 'click');
   
 //   let DTenv = getEnvironment($("#problem-trending-environment-select").val());
@@ -46,6 +47,8 @@ function mainProblemTrending() {
   endYear = endDate.getFullYear();
   endMonth = endDate.getMonth();
   endDay = endDate.getDate();
+
+  console.log(startYear, startMonth, startDay, endYear, endMonth, endDay);
 
 //   console.log(typeof startYear, startMonth, startDay, endYear, endMonth, endDay);
 
@@ -66,8 +69,8 @@ function mainProblemTrending() {
   Omonth = startMonth;
   Oyear = startYear;
 
-  startMonth--;
-  endMonth--;
+//   startMonth--;
+//   endMonth--;
   script(0);
 }
 
@@ -168,7 +171,7 @@ function finishTable(num){
   tempHead.innerHTML = 'Date';
   
   startDay = Oday;
-  startMonth = Omonth;
+  startMonth = Omonth + 1;
   startYear = Oyear;
 
   for(let i = 0; i < num; i ++){
