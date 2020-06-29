@@ -12,22 +12,17 @@ let tagJSON = {};
 let lastMin;
 let progress = 0;
 
-$(function(){
-    $('#root-cause-analysis-start').datepicker();
-    $('#root-cause-analysis-end').datepicker();
-});
+
 
 //RootCauseAnalysis Main function
 function mainRootCauseAnalysis() {
     let DTenv = getEnvironment($("#root-cause-analysis-environment-select").val());
+    let startDate = new Date(start).getTime();
+    let endDate = new Date(end).getTime(); 
     rPM = $("#root-cause-analysis-max").val();
-    var d = new Date($("#root-cause-analysis-start").val());
-    let start = d.getTime();
-    d = new Date($("#root-cause-analysis-end").val());
-    let end = d.getTime();
     console.log($('#root-cause-analysis-date-range-picker').val());
-    // addToLogsRCA('Establishing connection to Dynatrace...', 'black', true);
-    // getHosts(DTenv['URL'], DTenv['TOK'], start, end);
+    addToLogsRCA('Establishing connection to Dynatrace...', 'black', true);
+    getHosts(DTenv['URL'], DTenv['TOK'], startDate, endDate);
 }
 
 function getHosts(dynatraceURL, token, startTime, endTime){

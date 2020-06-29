@@ -25,16 +25,10 @@ let ProblemTypeCount = {
     'environment': 0
 };
 
-$(function(){
-    $('#problem-trending-start').datepicker();
-    $('#problem-trending-end').datepicker();
-});
-
 //Problem Trending Main function
 function mainProblemTrending() {
-  console.log($('#problem-trending-end').datepicker("getDate"));
-  let startDate = $('#problem-trending-start').datepicker("getDate");
-  let endDate = $('#problem-trending-end').datepicker("getDate");
+  let startDate = new Date(start);
+  let endDate = new Date(end);
 
 //   action = dtrum.enterAction('Run problem trending', 'click');
   

@@ -1,18 +1,6 @@
-/* Mobile */
-@media screen and (min-width: 980px) {
-  #nav-bar-button-mobile, #nav-bar-mobile {
-      display: none !important;
-  }
-}
-/* Desktop */
-@media screen and (max-width: 980px) {
-  #nav-bar-button, #nav-bar {
-      display: none !important;
-  }
-}
-
 .flex {
   display: flex;
+  flex-wrap: wrap;
 }
 
 div field {

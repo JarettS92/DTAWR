@@ -9,6 +9,11 @@ var end = moment() || null;
 //-----------------------------------------------------
 // LISTENERS
 //-----------------------------------------------------
+$('.date__range__picker').on("apply.daterangepicker", function(e, picker) {
+  start = new Date(picker.startDate);
+  end = new Date(picker.endDate);
+});
+
 $('.date__range__picker').daterangepicker({
   startDate: start,
   endDate: end,
@@ -30,5 +35,7 @@ cb(start, end);
 function cb(start, end) {
   $('.date__range__picker span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
   // console.log(start.format('YYYYMMDD'), end.format('YYYYMMDD'));
+  // start = new Date(start).getTime();
+  // end = new Date(end).getTime();
 }
 

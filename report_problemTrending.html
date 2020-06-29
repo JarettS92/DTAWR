@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles/shared_styles.css" />
   <link rel="stylesheet" href="styles/reports.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
   <link rel="stylesheet" href="styles/dynatrace-groundhog.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +61,7 @@
 </div>
 
 <field class='field'>
-  <label for="problem-trending-date-range-picker" class="label">Date Range: <span class="warning">Time frame must not exceed 31 days in length!</span></label>
+  <label for="problem-trending-date-range-picker" class="label">Date Range: </label>
   <div class="date__range__picker" id="problem-trending-date-range-picker">
     <i class="fa fa-calendar"></i>
     <span></span> <i class="fa fa-caret-down"></i>
@@ -132,9 +133,12 @@
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <script type="text/javascript" src="scripts/shared_scripts.js"></script>
+  <script type="text/javascript" src="scripts/environments.js"></script>
   <script type="text/javascript" src="scripts/datepicker.js"></script>
   <script type="text/javascript" src="scripts/report_problemTrending.js"></script>
   <script type="text/javascript" src="scripts/dynatrace-groundhog.js"></script>

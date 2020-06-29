@@ -2,39 +2,37 @@ let IllegalWeekDays = [];
 let IllegalNumbDays = [];
 let businessHoursStart = 0;
 let businessHoursEnd = 0;
+let startDate = null;
+let endDate = null;
 let z = 0;
 
-// Apply datepicker
-$(function(){
-  $('#bhkpi-start').datepicker();
-  $('#bhkpi-end').datepicker();
-});
 // Apply timepicker
 $(function(){
-  $('#bhkpi-business-hour-start').timepicker();
-  $('#bhkpi-business-hour-end').timepicker();
   $('.timepicker').timepicker();
 });
 
 $('.checkbox').click(function(){
-    let start = $(`#${$(this).prop('id').split('checkbox')[0].concat('start')}`);
-    let end = $(`#${$(this).prop('id').split('checkbox')[0].concat('end')}`);
+    let startTime = $(`#${$(this).prop('id').split('checkbox')[0].concat('start')}`);
+    let endTime = $(`#${$(this).prop('id').split('checkbox')[0].concat('end')}`);
     if($(this).prop("checked")){
         // console.log(start, end);
-        start.prop('disabled', false);
-        end.prop('disabled', false);
+        startTime.prop('disabled', false);
+        endTime.prop('disabled', false);
     }
     else{
-        start.prop('disabled', true);
-        end.prop('disabled', true);
+        startTime.prop('disabled', true);
+        endTime.prop('disabled', true);
     }
 });
 
 //mainfunction for Business Hour KPIs
 function mainBusinessHourKPIs(){
     let DTenv = getEnvironment($("#bhkpi-environment-select").val());
+    let startDate = new Date(start).getTime();
+    let endDate = new Date(end).getTime();
     businessHoursStart = $('#bhkpi-business-hour-start').val();
     businessHoursEnd = $('#bhkpi-business-hour-end').val();
+    let tag = ($('#bhkpi-tag-input').val() != "") ? $('#bhkpi-tag-select').val().concat(`:${$('#bhkpi-tag-input').val()}`) : $('#bhkpi-tag-select').val();
     if(!$('#bhkpi-sunday-checkbox').prop("checked")) IllegalWeekDays.push(0);
     if(!$('#bhkpi-monday-checkbox').prop("checked")) IllegalWeekDays.push(1);
     if(!$('#bhkpi-tuesday-checkbox').prop("checked")) IllegalWeekDays.push(2);
@@ -48,7 +46,7 @@ function mainBusinessHourKPIs(){
     let settings = {
         "async": true,
         "crossDomain": true,
-        "url": DTenv['URL'] + "/api/v1/timeseries/" + $('#bhkpi-metric-select').val() + "?startTimestamp=" + $('#bhkpi-business-hour-start').timepicker('getTime').getTime() + "&endTimestamp=" + $('#bhkpi-business-hour-end').timepicker('getTime').getTime() + "&includeData=true",
+        "url": DTenv['URL'] + "/api/v1/timeseries/" + $('#bhkpi-metric-select').val() + "?startTimestamp=" + startDate + "&endTimestamp=" + endDate + "&includeData=true",
         "method": "GET",
         "headers": {
             "Content-Type": "application/json",
@@ -59,8 +57,9 @@ function mainBusinessHourKPIs(){
     }
 
     settings['url'] += "&aggregationType=" + $('#bhkpi-aggregation-select').val();
-    if($('#bhkpi-tag-select').val() != null) settings['url'] += "&tag=" + $('#bhkpi-tag-select').val();
+    if($('#bhkpi-tag-select').val() != null) settings['url'] += "&tag=" + tag;
     if($('#bhkpi-percentile-select').val() != null) settings['url'] += "&percentile=" + $('#bhkpi-percentile-select').val();
+
     $.ajax(settings).done(function (response) {
         let storage = response['dataResult']['dataPoints'];
         let storage2 = response;
