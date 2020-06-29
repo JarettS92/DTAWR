@@ -11,15 +11,16 @@ var end = moment() || null;
 //-----------------------------------------------------
 $('.date__range__picker').on("apply.daterangepicker", function(e, picker) {
   start = new Date(picker.startDate);
-  end = new Date(picker.endDate);
+  end = (new Date(picker.endDate) > moment()) ? moment() : new Date(picker.endDate);
 });
 
 $('.date__range__picker').daterangepicker({
   startDate: start,
   endDate: end,
+  autoApply: true,
   ranges: {
-      'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-      'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+      'Last 7 Days': [moment().subtract(7, 'days'), moment()],
+      'Last 30 Days': [moment().subtract(30, 'days'), moment()],
       'Last 90 Days': [moment().subtract(90, 'days'), moment()],
       'Q1 - Jan-Mar': [moment().startOf('year'), moment().startOf('year').add(3,'M')],
       'Q2 - Apr-Jun': [moment().startOf('year').add(3,'M'), moment().startOf('year').add(6,'M')],

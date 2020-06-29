@@ -11,6 +11,7 @@ let rpm = 0;
 let tagJSON = {};
 let lastMin;
 let progress = 0;
+let z = 0;
 
 
 
@@ -18,9 +19,9 @@ let progress = 0;
 function mainRootCauseAnalysis() {
     let DTenv = getEnvironment($("#root-cause-analysis-environment-select").val());
     let startDate = new Date(start).getTime();
-    let endDate = new Date(end).getTime(); 
+    let endDate = new Date(end).getTime();
+    
     rPM = $("#root-cause-analysis-max").val();
-    console.log($('#root-cause-analysis-date-range-picker').val());
     addToLogsRCA('Establishing connection to Dynatrace...', 'black', true);
     getHosts(DTenv['URL'], DTenv['TOK'], startDate, endDate);
 }
@@ -30,7 +31,7 @@ function getHosts(dynatraceURL, token, startTime, endTime){
     let settings = {
         "async": true,
         "crossDomain": true,
-        "url": dynatraceURL + "/api/v1/entity/infrastructure/hosts?includeDetails=false&startTimestamp=" + (endTime - 3600000) + "&endTimestamp=" + endTime,
+        "url": `${dynatraceURL}/api/v1/entity/infrastructure/hosts?includeDetails=false&startTimestamp=${(endTime - 3600000)}&endTimestamp=${endTime}`,
         "method": "GET",
             "headers": {
             "Authorization": "Api-Token " + token,
