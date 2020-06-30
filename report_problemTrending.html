@@ -119,9 +119,16 @@
 
 <hr>
 <h2>Charts</h2>
-<canvas width="90%" id="problem-trending-chart1"></canvas>
-<canvas width="90%" id="problem-trending-chart2"></canvas>
+<div>
+  <input type="checkbox" class="switch" id="problem-trending-chart-switch"/>
+  <label for="problem-trending-chart-switch" class="switch__label">
+    <span class="switch__caption">Severity/Impact</span>
+  </label>
+</div>
+<canvas class='severity' width="90%" id="problem-trending-chart1"></canvas>
+<canvas class='impact none' width="90%" id="problem-trending-chart2"></canvas>
 
+<hr>
 <h2>Table</h2>
 <table id="problem-trending-table" class="table table--responsive" data-initialized="true">
     <thead id="problem-trending-thead">

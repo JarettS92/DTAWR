@@ -14,16 +14,17 @@ let progress = 0;
 let z = 0;
 
 
-
 //RootCauseAnalysis Main function
 function mainRootCauseAnalysis() {
-    let DTenv = getEnvironment($("#root-cause-analysis-environment-select").val());
-    let startDate = new Date(start).getTime();
-    let endDate = new Date(end).getTime();
-    
-    rPM = $("#root-cause-analysis-max").val();
-    addToLogsRCA('Establishing connection to Dynatrace...', 'black', true);
-    getHosts(DTenv['URL'], DTenv['TOK'], startDate, endDate);
+    if($('#root-cause-analysis-environment-select').val() != null) {
+        let DTenv = getEnvironment($("#root-cause-analysis-environment-select").val());
+        let startDate = new Date(start).getTime();
+        let endDate = new Date(end).getTime();
+        
+        rPM = $("#root-cause-analysis-max").val();
+        addToLogsRCA('Establishing connection to Dynatrace...', 'black', true);
+        getHosts(DTenv['URL'], DTenv['TOK'], startDate, endDate);
+    } else alert('SELECT ENVIRONMENT!');
 }
 
 function getHosts(dynatraceURL, token, startTime, endTime){

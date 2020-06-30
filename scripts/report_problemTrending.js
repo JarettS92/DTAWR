@@ -25,53 +25,53 @@ let ProblemTypeCount = {
     'environment': 0
 };
 
+$('#problem-trending-chart-switch').on('click', () => {
+    $('.severity').toggleClass('none');
+    $('.impact').toggleClass('none');
+});
+
 //Problem Trending Main function
 function mainProblemTrending() {
-  let startDate = new Date(start);
-  let endDate = new Date(end);
+    if($('#problem-trending-environment-select').val() != null) {
+        let startDate = new Date(start);
+        let endDate = new Date(end);
 
-//   console.log(`Start: ${startDate}, End: ${endDate}`);
-//   action = dtrum.enterAction('Run problem trending', 'click');
+        skipped = 0;
+
+        startYear = startDate.getFullYear();
+        startMonth = startDate.getMonth();
+        startDay = startDate.getDate();
+
+        endYear = endDate.getFullYear();
+        endMonth = endDate.getMonth();
+        endDay = endDate.getDate();
+
+        // console.log(startYear, startMonth, startDay, endYear, endMonth, endDay);
+
+        //   console.log(typeof startYear, startMonth, startDay, endYear, endMonth, endDay);
+
+        tag = $("#problem-trending-tag-select").val();
+
+        error = $('#problem-trending-error-checkbox').prop("checked");
+        resource = $('#problem-trending-resource-checkbox').prop("checked");
+        slowdown = $('#problem-trending-slowdown-checkbox').prop("checked");
+        availability = $('#problem-trending-availability-checkbox').prop("checked");
+        //customAlert = $('#CUSTOM_ALERT').prop("checked");
+
+        applications = $('#problem-trending-applications-checkbox').prop("checked");
+        services = $('#problem-trending-services-checkbox').prop("checked");
+        infrastructure = $('#problem-trending-infrastructure-checkbox').prop("checked");
+        environment = $('#problem-trending-environment-checkbox').prop("checked");
+
+        Oday = startDay;
+        Omonth = startMonth;
+        Oyear = startYear;
+
+        //   startMonth--;
+        //   endMonth--;
+        script(0);
+    } else alert('SELECT ENVIRONMENT!');
   
-//   let DTenv = getEnvironment($("#problem-trending-environment-select").val());
-//   dtrum.addActionProperties(action, null, null, {environment: DTenv['URL']});
-//   dtrum.sendSessionProperties(null, null, {environment: DTenv['URL']});
-//   dtrum.leaveAction(action);
-
-  skipped = 0;
-
-  startYear = startDate.getFullYear();
-  startMonth = startDate.getMonth();
-  startDay = startDate.getDate();
-
-  endYear = endDate.getFullYear();
-  endMonth = endDate.getMonth();
-  endDay = endDate.getDate();
-
-  console.log(startYear, startMonth, startDay, endYear, endMonth, endDay);
-
-//   console.log(typeof startYear, startMonth, startDay, endYear, endMonth, endDay);
-
-  tag = $("#problem-trending-tag-select").val();
-
-  error = $('#problem-trending-error-checkbox').prop("checked");
-  resource = $('#problem-trending-resource-checkbox').prop("checked");
-  slowdown = $('#problem-trending-slowdown-checkbox').prop("checked");
-  availability = $('#problem-trending-availability-checkbox').prop("checked");
-  //customAlert = $('#CUSTOM_ALERT').prop("checked");
-
-  applications = $('#problem-trending-applications-checkbox').prop("checked");
-  services = $('#problem-trending-services-checkbox').prop("checked");
-  infrastructure = $('#problem-trending-infrastructure-checkbox').prop("checked");
-  environment = $('#problem-trending-environment-checkbox').prop("checked");
-
-  Oday = startDay;
-  Omonth = startMonth;
-  Oyear = startYear;
-
-//   startMonth--;
-//   endMonth--;
-  script(0);
 }
 
 function script(num) {
@@ -296,8 +296,12 @@ function finishTable(num){
 
 function drawChart2(){
   //Chart.defaults.global.defaultFontColor = 'black';
-  let chart1 = $('#problem-trending-chart1')[0].getContext('2d');
-  let chart2 = $('#problem-trending-chart2')[0].getContext('2d');
+
+  let chart1 = document.getElementById('problem-trending-chart1');
+  let chart2 = document.getElementById('problem-trending-chart2');
+  let chartContext1 = chart1.getContext('2d');
+  let chartContext2 = chart2.getContext('2d');
+  
   let chartSettings1 = {
       type: 'bar',
       data: {
@@ -352,6 +356,10 @@ function drawChart2(){
           labels: []
       },
       options: {
+        title: {
+            display: true,
+            text: 'Severity'
+        },
           responsive: true,
           hoverMode: 'index',
           scales: {
@@ -429,6 +437,10 @@ function drawChart2(){
           labels: []
       },
       options: {
+          title: {
+              display: true,
+              text: 'Impact'
+          },
           responsive: true,
           hoverMode: 'index',
           scales: {
@@ -453,33 +465,32 @@ function drawChart2(){
       }
   };
   
-  for (let i = 0; i < metrics.length; i++) {
-      chartSettings1['data']['labels'].push((new Date(metrics[i]['startYear'], metrics[i]['startMonth'], metrics[i]['startDay'])).toLocaleDateString());
-      chartSettings1['data']['datasets'][0]['data'].push(Number(metrics[i]['avgTime']));
-      chartSettings1['data']['datasets'][1]['data'].push(metrics[i]['applications']);
-      chartSettings1['data']['datasets'][2]['data'].push(metrics[i]['services']);
-      chartSettings1['data']['datasets'][3]['data'].push(metrics[i]['infrastructure']);
-      chartSettings1['data']['datasets'][4]['data'].push(metrics[i]['environment']);
+    for (let i = 0; i < metrics.length; i++) {
+        chartSettings1['data']['labels'].push((new Date(metrics[i]['startYear'], metrics[i]['startMonth'], metrics[i]['startDay'])).toLocaleDateString());
+        chartSettings1['data']['datasets'][0]['data'].push(Number(metrics[i]['avgTime']));
+        chartSettings1['data']['datasets'][1]['data'].push(metrics[i]['applications']);
+        chartSettings1['data']['datasets'][2]['data'].push(metrics[i]['services']);
+        chartSettings1['data']['datasets'][3]['data'].push(metrics[i]['infrastructure']);
+        chartSettings1['data']['datasets'][4]['data'].push(metrics[i]['environment']);
 
-      chartSettings2['data']['labels'].push((new Date(metrics[i]['startYear'], metrics[i]['startMonth'], metrics[i]['startDay'])).toLocaleDateString());
-      chartSettings2['data']['datasets'][0]['data'].push(Number(metrics[i]['avgTime']));
-      chartSettings2['data']['datasets'][1]['data'].push(metrics[i]['error']);
-      chartSettings2['data']['datasets'][2]['data'].push(metrics[i]['resource']);
-      chartSettings2['data']['datasets'][3]['data'].push(metrics[i]['slowdown']);
-      chartSettings2['data']['datasets'][4]['data'].push(metrics[i]['availability']);
-  }
+        chartSettings2['data']['labels'].push((new Date(metrics[i]['startYear'], metrics[i]['startMonth'], metrics[i]['startDay'])).toLocaleDateString());
+        chartSettings2['data']['datasets'][0]['data'].push(Number(metrics[i]['avgTime']));
+        chartSettings2['data']['datasets'][1]['data'].push(metrics[i]['error']);
+        chartSettings2['data']['datasets'][2]['data'].push(metrics[i]['resource']);
+        chartSettings2['data']['datasets'][3]['data'].push(metrics[i]['slowdown']);
+        chartSettings2['data']['datasets'][4]['data'].push(metrics[i]['availability']);
+    }
 
-  let mixedChart1 = new Chart(chart1, chartSettings1);
-  let mixedChart2 = new Chart(chart2, chartSettings2);
+    if(window.chartContext1 != undefined) window.chartContext1.destroy();
+    window.chartContext1 = new Chart(chart1, chartSettings1);
 
-  document.getElementById('problem-trending-chart1').style.display = "block";
-  document.getElementById('problem-trending-chart2').style.display = "none";
-  //document.getElementById('hideMe').style.display = "block";
+    if(window.chartContext2 != undefined) window.chartContext2.destroy();
+    window.chartContext2 = new Chart(chart2, chartSettings2);
   
-  addToLogsPT('Data visualized...', '#00ff00', true);
-  addToLogsPT('GOOD BYE...', '#00ff00', true);
+    addToLogsPT('Data visualized...', '#00ff00', true);
+    addToLogsPT('GOOD BYE...', '#00ff00', true);
 
-  resetPT();           
+    resetPT();           
 }
 
 function fixDate2(isStart, Tmonth, Tday, Tyear){
