@@ -26,7 +26,11 @@ function mainTagDuplicator() {
             // return tagList;
         });
     } else {
-        alert("Missing Information!");
+        if(!select1Bool) alert('Missing Environment 1')
+        else if(!select2Bool) alert('Missing Environment 2')
+        else if(!tag1Bool) alert('Missing Tag to Duplicate')
+        else if(!tag2Bool) alert('Missing New Tag Name')
+        else alert("Missing Information!");
     }
 }
 

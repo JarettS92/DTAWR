@@ -177,6 +177,5 @@ function mainStarterTags() {
             $('#starter-tags-tbody').append('<tr><td>IP:{Detected Name}</td><td>Skipped</td></tr>');
         }
         refreshEnvironment($('#starter-tags-environment-select').val());
-    }
-    
+    } else alert('SELECT ENVIRONMENT!')
 }

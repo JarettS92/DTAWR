@@ -5,6 +5,7 @@ let businessHoursEnd = 0;
 let startDate = null;
 let endDate = null;
 let z = 0;
+let times = {};
 
 
 // Apply timepicker
@@ -48,58 +49,94 @@ $('.checkbox').click(function(){
 
 //mainfunction for Business Hour KPIs
 function mainBusinessHourKPIs(){
-    let DTenv = getEnvironment($("#bhkpi-environment-select").val());
-    let startDate = new Date(start).getTime();
-    let endDate = new Date(end).getTime();
+    let envBool = ($('#bhkpi-environment-select').val() != "" && $('#bhkpi-environment-select').val() != null && $('#bhkpi-environment-select').val() != "SELECT ENVIRONMENT") ? true : false;
+    let metricBool = ($('#bhkpi-metric-select').val() != "" && $('#bhkpi-metric-select').val() != null && $('#bhkpi-metric-select').val() != "SELECT TIMESERIES METRIC") ? true : false;
+    let aggregationBool = ($('#bhkpi-aggregation-select').val() != "" && $('#bhkpi-aggregation-select').val() != null && $('#bhkpi-aggregation-select').val() != "SELECT METRIC AGGREGATION") ? true : false;;
+    let timesBool = ($('.checkbox:checked').length > 0) ? true : false;
 
-    let times = {
-        global: [$('#bhkpi-global-start').timepicker('getTime'), $('#bhkpi-global-end').timepicker('getTime')],          //startTime, endTime
-        0: [$('#bhkpi-sunday-start').timepicker('getTime'), $('#bhkpi-sunday-end').timepicker('getTime')],           // startTime, endTime
-        1: [document.querySelector('#bhkpi-monday-start').value, document.querySelector('#bhkpi-monday-end').value],
-        2: [document.querySelector('#bhkpi-tuesday-start').value, document.querySelector('#bhkpi-tuesday-end').value],
-        3: [document.querySelector('#bhkpi-wednesday-start').value, document.querySelector('#bhkpi-wednesday-end').value],
-        4: [document.querySelector('#bhkpi-thursday-start').value, document.querySelector('#bhkpi-thursday-end').value],
-        5: [document.querySelector('#bhkpi-friday-start').value, document.querySelector('#bhkpi-friday-end').value],
-        6: [document.querySelector('#bhkpi-saturday-start').value, document.querySelector('#bhkpi-saturday-end').value]
-    };
+    console.log(envBool, metricBool, aggregationBool, timesBool);
+    if(envBool && metricBool && aggregationBool && timesBool) {
+        let DTenv = getEnvironment($("#bhkpi-environment-select").val());
+        let startDate = new Date(start).getTime();
+        let endDate = new Date(end).getTime();
 
-    console.log(times);
+        times = {
+            global: [
+                ($('#bhkpi-global-checkbox').prop("checked")) ? $('#bhkpi-global-start').timepicker('getTime').getHours() : null, 
+                ($('#bhkpi-global-checkbox').prop("checked")) ? $('#bhkpi-global-end').timepicker('getTime').getHours() : null
+            ],          //startTime, endTime
+            0: [
+                ($('#bhkpi-sunday-checkbox').prop("checked")) ? $('#bhkpi-sunday-start').timepicker('getTime').getHours() : null, 
+                ($('#bhkpi-sunday-checkbox').prop("checked")) ? $('#bhkpi-sunday-end').timepicker('getTime').getHours() : null
+            ],           // startTime, endTime
+            1: [
+                ($('#bhkpi-monday-checkbox').prop("checked")) ? $('#bhkpi-monday-start').timepicker('getTime').getHours() : null, 
+                ($('#bhkpi-monday-checkbox').prop("checked")) ? $('#bhkpi-monday-end').timepicker('getTime').getHours() : null
+            ],
+            2: [
+                ($('#bhkpi-tuesday-checkbox').prop("checked")) ? $('#bhkpi-tuesday-start').timepicker('getTime').getHours() : null, 
+            ($('#bhkpi-tuesday-checkbox').prop("checked")) ? $('#bhkpi-tuesday-end').timepicker('getTime').getHours() : null
+            ],
+            3: [
+                ($('#bhkpi-wednesday-checkbox').prop("checked")) ? $('#bhkpi-wednesday-start').timepicker('getTime').getHours() : null, 
+                ($('#bhkpi-wednesday-checkbox').prop("checked")) ? $('#bhkpi-wednesday-end').timepicker('getTime').getHours() : null
+            ],
+            4: [
+                ($('#bhkpi-thursday-checkbox').prop("checked")) ? $('#bhkpi-thursday-start').timepicker('getTime').getHours() : null, 
+                ($('#bhkpi-thursday-checkbox').prop("checked")) ? $('#bhkpi-thursday-end').timepicker('getTime').getHours() : null
+            ],
+            5: [
+                ($('#bhkpi-friday-checkbox').prop("checked")) ? $('#bhkpi-friday-start').timepicker('getTime').getHours() : null, 
+                ($('#bhkpi-friday-checkbox').prop("checked")) ? $('#bhkpi-friday-end').timepicker('getTime').getHours() : null
+            ],
+            6: [
+                ($('#bhkpi-saturday-checkbox').prop("checked")) ? $('#bhkpi-saturday-start').timepicker('getTime').getHours() : null, 
+                ($('#bhkpi-saturday-checkbox').prop("checked")) ? $('#bhkpi-saturday-end').timepicker('getTime').getHours() : null
+            ]
+        };
 
-    // businessHoursStart = $('#bhkpi-business-hour-start').val();
-    // businessHoursEnd = $('#bhkpi-business-hour-end').val();
-    let tag = ($('#bhkpi-tag-input').val() != "") ? $('#bhkpi-tag-select').val().concat(`:${$('#bhkpi-tag-input').val()}`) : $('#bhkpi-tag-select').val();
-    if(!$('#bhkpi-sunday-checkbox').prop("checked")) IllegalWeekDays.push(0);
-    if(!$('#bhkpi-monday-checkbox').prop("checked")) IllegalWeekDays.push(1);
-    if(!$('#bhkpi-tuesday-checkbox').prop("checked")) IllegalWeekDays.push(2);
-    if(!$('#bhkpi-wednesday-checkbox').prop("checked")) IllegalWeekDays.push(3);
-    if(!$('#bhkpi-thursday-checkbox').prop("checked")) IllegalWeekDays.push(4);
-    if(!$('#bhkpi-friday-checkbox').prop("checked")) IllegalWeekDays.push(5);
-    if(!$('#bhkpi-saturday-checkbox').prop("checked")) IllegalWeekDays.push(6);
-    let d = new Date();
-    let m = d.getTimezoneOffset();
-    z = m * 60000 * (-1);
-    let settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": DTenv['URL'] + "/api/v1/timeseries/" + $('#bhkpi-metric-select').val() + "?startTimestamp=" + startDate + "&endTimestamp=" + endDate + "&includeData=true",
-        "method": "GET",
-        "headers": {
-            "Content-Type": "application/json",
-            "Authorization": "Api-Token " + DTenv['TOK']
-        },
-        "processData": false,
-        "data": ""
+        console.log(times);
+
+        let tag = ($('#bhkpi-tag-input').val() != "") ? $('#bhkpi-tag-select').val().concat(`:${$('#bhkpi-tag-input').val()}`) : $('#bhkpi-tag-select').val();
+        if(!$('#bhkpi-sunday-checkbox').prop("checked")) IllegalWeekDays.push(0);
+        if(!$('#bhkpi-monday-checkbox').prop("checked")) IllegalWeekDays.push(1);
+        if(!$('#bhkpi-tuesday-checkbox').prop("checked")) IllegalWeekDays.push(2);
+        if(!$('#bhkpi-wednesday-checkbox').prop("checked")) IllegalWeekDays.push(3);
+        if(!$('#bhkpi-thursday-checkbox').prop("checked")) IllegalWeekDays.push(4);
+        if(!$('#bhkpi-friday-checkbox').prop("checked")) IllegalWeekDays.push(5);
+        if(!$('#bhkpi-saturday-checkbox').prop("checked")) IllegalWeekDays.push(6);
+        let d = new Date();
+        let m = d.getTimezoneOffset();
+        z = m * 60000 * (-1);
+        let settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": DTenv['URL'] + "/api/v1/timeseries/" + $('#bhkpi-metric-select').val() + "?startTimestamp=" + startDate + "&endTimestamp=" + endDate + "&includeData=true",
+            "method": "GET",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Api-Token " + DTenv['TOK']
+            },
+            "processData": false,
+            "data": ""
+        }
+
+        settings['url'] += "&aggregationType=" + $('#bhkpi-aggregation-select').val();
+        if($('#bhkpi-tag-select').val() != null) settings['url'] += "&tag=" + tag;
+        if($('#bhkpi-percentile-select').val() != null) settings['url'] += "&percentile=" + $('#bhkpi-percentile-select').val();
+
+        $.ajax(settings).done(function (response) {
+            let storage = response['dataResult']['dataPoints'];
+            let storage2 = response;
+            filterOut(storage, storage2);
+        });
+    } else {
+        if(!envBool) alert('SELECT ENVIRONMENT!');
+        else if(!metricBool) alert('SELECT TIMESERIES METRIC!');
+        else if(!aggregationBool) alert('SELECT METRIC AGGREGATION!');
+        else alert('Missing information!');
     }
-
-    settings['url'] += "&aggregationType=" + $('#bhkpi-aggregation-select').val();
-    if($('#bhkpi-tag-select').val() != null) settings['url'] += "&tag=" + tag;
-    if($('#bhkpi-percentile-select').val() != null) settings['url'] += "&percentile=" + $('#bhkpi-percentile-select').val();
-
-    $.ajax(settings).done(function (response) {
-        let storage = response['dataResult']['dataPoints'];
-        let storage2 = response;
-        filterOut(storage, storage2);
-    });
+    
 }
 
 //function filters out undesireable datapoints and generates a single aggregated metric from the remainder
@@ -125,15 +162,16 @@ function filterOut(storage, storage2){
         }
     }
     //The good stuff
-    document.getElementById('bhkpi-table').style.display = 'block';
-    document.getElementById('bhkpi-tbody').innerHTML += "<tr><td>" + $('#bhkpi-tag-select').val() + "</td><td>" + (sum / count).toFixed(2) + " " + storage2['unit'] + "</td><td>" + $('#bhkpi-metric-select').val() + "</td></tr>";
+    document.querySelector('#bhkpi-table').style.display = 'block';
+    document.getElementById('bhkpi-tbody').innerHTML += `<tr><td>${$('#bhkpi-tag-select').val()}</td><td>${(sum / count).toFixed(2)} ${storage2['unit']}</td><td>${$('#bhkpi-metric-select').val()}</td></tr>`;
+    times = {};
 }
 
 //deletes datapoints from days of the week that are not business days
 function deleteDataPointWeekDay(num){
     let temp = new Date(num + z);
     let day = $('#bhkpi-global-checkbox').prop('checked') ? 'global' : temp.getDay();
-    let early = times[day][0];
+    let early = times[day][0];      // 
     let late = times[day][1];
 
     if(IllegalWeekDays.includes(temp.getUTCDay())) {

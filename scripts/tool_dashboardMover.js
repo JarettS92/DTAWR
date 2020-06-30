@@ -1,38 +1,42 @@
 $('#dashboard-mover-button1').click(function () {
-  let env = getEnvironment($('#dashboard-mover-environment1-select').val());
-  let url = env.URL.concat('/api/config/v1/dashboards');
-  
-  let token = env.TOK;
-  // console.log(token);
-  axios.get(url, {
-    headers: {
-      'Authorization': `Api-Token ${token}`
-    }
-  }).then((res) => {
-    // console.log(res.data.dashboards);
-    buildDashboardList("dashboard-mover-table1", res.data.dashboards);
-  }).catch((err) => {
-    // console.log(err);
-    alert(`Unable to pull dashboards from tenant: \"${env.slice(4)}\"`);
-  })
+  if($('#dashboard-mover-environment1-select').val() != null) {
+    let env = getEnvironment($('#dashboard-mover-environment1-select').val());
+    let url = env.URL.concat('/api/config/v1/dashboards');
+    
+    let token = env.TOK;
+    // console.log(token);
+    axios.get(url, {
+      headers: {
+        'Authorization': `Api-Token ${token}`
+      }
+    }).then((res) => {
+      // console.log(res.data.dashboards);
+      buildDashboardList("dashboard-mover-table1", res.data.dashboards);
+    }).catch((err) => {
+      // console.log(err);
+      alert(`Unable to pull dashboards from tenant: \"${env.slice(4)}\"`);
+    })
+  } else alert('SELECT ENVIRONMENT 1');
 });
 
 $('#dashboard-mover-button2').click(function () {
-  let env = getEnvironment($('#dashboard-mover-environment2-select').val());
-  let url = env.URL.concat('/api/config/v1/dashboards');
-  let token = env.TOK;
-  // console.log(token);
-  axios.get(url, {
-    headers: {
-      'Authorization': `Api-Token ${token}`
-    }
-  }).then((res) => {
-    // console.log(res.data.dashboards);
-    buildDashboardList("dashboard-mover-table2", res.data.dashboards);
-  }).catch((err) => {
-    console.log(err);
-    alert(`Unable to pull dashboards from tenant: \"${env.slice(4)}\"`);
-  })
+  if($('#dashboard-mover-environment2-select').val() != null) {
+    let env = getEnvironment($('#dashboard-mover-environment2-select').val());
+    let url = env.URL.concat('/api/config/v1/dashboards');
+    let token = env.TOK;
+    // console.log(token);
+    axios.get(url, {
+      headers: {
+        'Authorization': `Api-Token ${token}`
+      }
+    }).then((res) => {
+      // console.log(res.data.dashboards);
+      buildDashboardList("dashboard-mover-table2", res.data.dashboards);
+    }).catch((err) => {
+      console.log(err);
+      alert(`Unable to pull dashboards from tenant: \"${env.slice(4)}\"`);
+    });
+  } else alert('SELECT ENVIRONMENT 2');
 });
 
 function buildDashboardList(tableID, obj) {
