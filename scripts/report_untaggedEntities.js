@@ -4,8 +4,12 @@ let taggedStorageArray = [];
 // -----------------------------
 
 function mainRTagged(){
-    let DTenv = getEnvironment(document.getElementById('untagged-entities-environment-select').value);
-    isTaggedPagination(DTenv['URL'], "/api/v1/entity/infrastructure/hosts?pageSize=100", DTenv['TOK'], 'Host', 0, '/%23newhosts/hostdetails;id=');
+    if($('#untagged-entities-environment-select').val() != null) {
+        let DTenv = getEnvironment(document.getElementById('untagged-entities-environment-select').value);
+        isTaggedPagination(DTenv['URL'], "/api/v1/entity/infrastructure/hosts?pageSize=100", DTenv['TOK'], 'Host', 0, '/%23newhosts/hostdetails;id=');
+    } else {
+        alert('SELECT ENVIRONMENT!');
+    }
 }
 
 function isTaggedPagination(URL, ext, TOK, entType, first, link){
