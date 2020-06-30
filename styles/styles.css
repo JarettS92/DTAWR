@@ -276,9 +276,9 @@ th:hover {
 .tenant-info {
     flex: 100% !important;
 }
-[id*="chart"] {
+/* [id*="chart"] {
     min-height: 250px;
-}
+} */
 #se-chart, #sa-chart {
     min-height: 100px !important;
 }
