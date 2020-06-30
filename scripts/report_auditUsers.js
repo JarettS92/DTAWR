@@ -1,29 +1,29 @@
 function mainAuditReport() {
-  console.log('test')
-  let env = getEnvironment($('#audit-users-environment-select').val());
-  let envBool = (env != undefined || env != null) ? true : false;
-  console.log(envBool);
-  let url = env.URL;
-  let token = env.TOK;
-  
-  let loginBool = $('#audit-users-logins-checkbox').prop("checked");
-  let configBool = $('#audit-users-config-checkbox').prop("checked");
+  if($('#audit-users-environment-select').val() != null){
+    let env = getEnvironment($('#audit-users-environment-select').val());
+    let envBool = (env != undefined || env != null) ? true : false;
+    let url = env.URL;
+    let token = env.TOK;
+    
+    let loginBool = $('#audit-users-logins-checkbox').prop("checked");
+    let configBool = $('#audit-users-config-checkbox').prop("checked");
 
-  let filterArray = [];
+    let filterArray = [];
 
-  if(loginBool) filterArray.push()
-  
+    if(loginBool) filterArray.push()
+    
 
-  axios.get(`${url}/api/v2/auditlogs?pageSize=5000&sort=-timestamp`,{
-    headers: {
-      'Authorization': `Api-Token ${token}`,
-      'Content-Type': 'application/json'
-    }
-  }).then((res) => {
-      // console.log(res.data);
-      populateAuditUsersTable(res.data.auditLogs);
-    });
-  // console.log(env);
+    axios.get(`${url}/api/v2/auditlogs?pageSize=5000&sort=-timestamp`,{
+      headers: {
+        'Authorization': `Api-Token ${token}`,
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => {
+        // console.log(res.data);
+        populateAuditUsersTable(res.data.auditLogs);
+      });
+    // console.log(env);
+  } else alert('SELECT ENVIRONMENT!');
 }
 
 function populateAuditUsersTable(auditLogsArray) {
